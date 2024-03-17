@@ -8,6 +8,13 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/BoxWithBorder.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
+#include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/containers/clock/DigitalClock.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -25,6 +32,83 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Box background;
+    touchgfx::Container timeContainer;
+    touchgfx::BoxWithBorder timeBackground;
+    touchgfx::TextArea avgLapLabelText;
+    touchgfx::TextAreaWithOneWildcard avgLapText;
+    touchgfx::TextArea bestLapLabelText;
+    touchgfx::TextAreaWithOneWildcard bestLapText;
+    touchgfx::TextArea currentLapLabelText;
+    touchgfx::TextAreaWithOneWildcard currentLapText;
+    touchgfx::Container odometryContainer;
+    touchgfx::BoxWithBorder odometryBackground;
+    touchgfx::TextArea rangeLabelText;
+    touchgfx::TextAreaWithOneWildcard rangeText;
+    touchgfx::TextArea distanceLabelText;
+    touchgfx::TextAreaWithOneWildcard distanceText;
+    touchgfx::Container mainContainer;
+    touchgfx::TextAreaWithOneWildcard powerText;
+    touchgfx::BoxProgress rpmProgress;
+    touchgfx::TextAreaWithOneWildcard socText;
+    touchgfx::TextAreaWithOneWildcard speedText;
+    touchgfx::Container paceContainer;
+    touchgfx::Box paceBackground;
+    touchgfx::TextAreaWithOneWildcard paceText;
+    touchgfx::Container dataContainer;
+    touchgfx::BoxWithBorder dataBackground;
+    touchgfx::TextAreaWithOneWildcard coolantPressLabel;
+    touchgfx::Image coolantPressIcon;
+    touchgfx::TextAreaWithOneWildcard coolantTempLabel;
+    touchgfx::Image coolantTempIcon;
+    touchgfx::TextAreaWithOneWildcard oilPressLabel;
+    touchgfx::Image oilPressIcon;
+    touchgfx::TextAreaWithOneWildcard oilTempLabel;
+    touchgfx::Image oilTempIcon;
+    touchgfx::TextAreaWithOneWildcard invTempLabel;
+    touchgfx::Image invTempIcon;
+    touchgfx::TextAreaWithOneWildcard batTempLabel;
+    touchgfx::Image batTempIcon;
+    touchgfx::Container infoContainer;
+    touchgfx::BoxWithBorder infoBackground;
+    touchgfx::DigitalClock clockWidget;
+    touchgfx::Image connIcon;
+    touchgfx::Image warnIcon;
+    touchgfx::Image radioIcon;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t AVGLAPTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar avgLapTextBuffer[AVGLAPTEXT_SIZE];
+    static const uint16_t BESTLAPTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar bestLapTextBuffer[BESTLAPTEXT_SIZE];
+    static const uint16_t CURRENTLAPTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar currentLapTextBuffer[CURRENTLAPTEXT_SIZE];
+    static const uint16_t RANGETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar rangeTextBuffer[RANGETEXT_SIZE];
+    static const uint16_t DISTANCETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar distanceTextBuffer[DISTANCETEXT_SIZE];
+    static const uint16_t POWERTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar powerTextBuffer[POWERTEXT_SIZE];
+    static const uint16_t SOCTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar socTextBuffer[SOCTEXT_SIZE];
+    static const uint16_t SPEEDTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar speedTextBuffer[SPEEDTEXT_SIZE];
+    static const uint16_t PACETEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar paceTextBuffer[PACETEXT_SIZE];
+    static const uint16_t COOLANTPRESSLABEL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar coolantPressLabelBuffer[COOLANTPRESSLABEL_SIZE];
+    static const uint16_t COOLANTTEMPLABEL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar coolantTempLabelBuffer[COOLANTTEMPLABEL_SIZE];
+    static const uint16_t OILPRESSLABEL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar oilPressLabelBuffer[OILPRESSLABEL_SIZE];
+    static const uint16_t OILTEMPLABEL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar oilTempLabelBuffer[OILTEMPLABEL_SIZE];
+    static const uint16_t INVTEMPLABEL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar invTempLabelBuffer[INVTEMPLABEL_SIZE];
+    static const uint16_t BATTEMPLABEL_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar batTempLabelBuffer[BATTEMPLABEL_SIZE];
 
 private:
 

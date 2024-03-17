@@ -3,12 +3,282 @@
 /*********************************************************************************/
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 Screen1ViewBase::Screen1ViewBase()
 {
     __background.setPosition(0, 0, 800, 480);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
+
+    background.setPosition(0, 0, 800, 480);
+    background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    add(background);
+
+    timeContainer.setPosition(553, 206, 220, 183);
+    timeBackground.setPosition(0, 0, 220, 183);
+    timeBackground.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    timeBackground.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    timeBackground.setBorderSize(1);
+    timeContainer.add(timeBackground);
+
+    avgLapLabelText.setXY(138, 154);
+    avgLapLabelText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    avgLapLabelText.setLinespacing(0);
+    avgLapLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_802D));
+    timeContainer.add(avgLapLabelText);
+
+    avgLapText.setXY(76, 124);
+    avgLapText.setColor(touchgfx::Color::getColorFromRGB(91, 54, 143));
+    avgLapText.setLinespacing(0);
+    Unicode::snprintf(avgLapTextBuffer, AVGLAPTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_RMZ0).getText());
+    avgLapText.setWildcard(avgLapTextBuffer);
+    avgLapText.resizeToCurrentText();
+    avgLapText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_E4E9));
+    timeContainer.add(avgLapText);
+
+    bestLapLabelText.setXY(139, 100);
+    bestLapLabelText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    bestLapLabelText.setLinespacing(0);
+    bestLapLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3C8O));
+    timeContainer.add(bestLapLabelText);
+
+    bestLapText.setXY(76, 70);
+    bestLapText.setColor(touchgfx::Color::getColorFromRGB(91, 54, 143));
+    bestLapText.setLinespacing(0);
+    Unicode::snprintf(bestLapTextBuffer, BESTLAPTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_1QYQ).getText());
+    bestLapText.setWildcard(bestLapTextBuffer);
+    bestLapText.resizeToCurrentText();
+    bestLapText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YUNI));
+    timeContainer.add(bestLapText);
+
+    currentLapLabelText.setXY(106, 48);
+    currentLapLabelText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    currentLapLabelText.setLinespacing(0);
+    currentLapLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ILZ2));
+    timeContainer.add(currentLapLabelText);
+
+    currentLapText.setXY(41, 10);
+    currentLapText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    currentLapText.setLinespacing(0);
+    Unicode::snprintf(currentLapTextBuffer, CURRENTLAPTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_NRU6).getText());
+    currentLapText.setWildcard(currentLapTextBuffer);
+    currentLapText.resizeToCurrentText();
+    currentLapText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_71SB));
+    timeContainer.add(currentLapText);
+
+    add(timeContainer);
+
+    odometryContainer.setPosition(553, 29, 220, 150);
+    odometryBackground.setPosition(0, 0, 220, 150);
+    odometryBackground.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    odometryBackground.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    odometryBackground.setBorderSize(1);
+    odometryContainer.add(odometryBackground);
+
+    rangeLabelText.setXY(156, 120);
+    rangeLabelText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    rangeLabelText.setLinespacing(0);
+    rangeLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SMZ5));
+    odometryContainer.add(rangeLabelText);
+
+    rangeText.setXY(19, 75);
+    rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    rangeText.setLinespacing(0);
+    Unicode::snprintf(rangeTextBuffer, RANGETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_N3PA).getText());
+    rangeText.setWildcard(rangeTextBuffer);
+    rangeText.resizeToCurrentText();
+    rangeText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_FWQ5));
+    odometryContainer.add(rangeText);
+
+    distanceLabelText.setXY(132, 58);
+    distanceLabelText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    distanceLabelText.setLinespacing(0);
+    distanceLabelText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HR5K));
+    odometryContainer.add(distanceLabelText);
+
+    distanceText.setXY(19, 13);
+    distanceText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    distanceText.setLinespacing(0);
+    Unicode::snprintf(distanceTextBuffer, DISTANCETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_VUV9).getText());
+    distanceText.setWildcard(distanceTextBuffer);
+    distanceText.resizeToCurrentText();
+    distanceText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M7L5));
+    odometryContainer.add(distanceText);
+
+    add(odometryContainer);
+
+    mainContainer.setPosition(276, 105, 250, 294);
+    powerText.setXY(60, 229);
+    powerText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    powerText.setLinespacing(0);
+    Unicode::snprintf(powerTextBuffer, POWERTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_GOF1).getText());
+    powerText.setWildcard(powerTextBuffer);
+    powerText.resizeToCurrentText();
+    powerText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_T6DT));
+    mainContainer.add(powerText);
+
+    rpmProgress.setXY(25, 198);
+    rpmProgress.setProgressIndicatorPosition(0, 0, 200, 10);
+    rpmProgress.setRange(0, 100);
+    rpmProgress.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    rpmProgress.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BOXPROGRESS_NORMAL_SMALL_ID));
+    rpmProgress.setColor(touchgfx::Color::getColorFromRGB(25, 153, 255));
+    rpmProgress.setValue(80);
+    mainContainer.add(rpmProgress);
+
+    socText.setXY(11, 45);
+    socText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    socText.setLinespacing(0);
+    Unicode::snprintf(socTextBuffer, SOCTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KZ23).getText());
+    socText.setWildcard(socTextBuffer);
+    socText.resizeToCurrentText();
+    socText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4KU5));
+    mainContainer.add(socText);
+
+    speedText.setXY(40, 3);
+    speedText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    speedText.setLinespacing(0);
+    Unicode::snprintf(speedTextBuffer, SPEEDTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_FPIE).getText());
+    speedText.setWildcard(speedTextBuffer);
+    speedText.resizeToCurrentText();
+    speedText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GQPI));
+    mainContainer.add(speedText);
+
+    add(mainContainer);
+
+    paceContainer.setPosition(301, 30, 200, 49);
+    paceBackground.setPosition(0, 0, 200, 49);
+    paceBackground.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    paceContainer.add(paceBackground);
+
+    paceText.setXY(40, 5);
+    paceText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    paceText.setLinespacing(0);
+    Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_BYIL).getText());
+    paceText.setWildcard(paceTextBuffer);
+    paceText.resizeToCurrentText();
+    paceText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F8RQ));
+    paceContainer.add(paceText);
+
+    add(paceContainer);
+
+    dataContainer.setPosition(28, 104, 220, 285);
+    dataBackground.setPosition(0, 0, 220, 285);
+    dataBackground.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    dataBackground.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    dataBackground.setBorderSize(1);
+    dataContainer.add(dataBackground);
+
+    coolantPressLabel.setXY(121, 236);
+    coolantPressLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    coolantPressLabel.setLinespacing(0);
+    Unicode::snprintf(coolantPressLabelBuffer, COOLANTPRESSLABEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_MOUC).getText());
+    coolantPressLabel.setWildcard(coolantPressLabelBuffer);
+    coolantPressLabel.resizeToCurrentText();
+    coolantPressLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PDYZ));
+    dataContainer.add(coolantPressLabel);
+
+    coolantPressIcon.setXY(147, 198);
+    coolantPressIcon.setBitmap(touchgfx::Bitmap(BITMAP_WATER_GAUGE_ID));
+    dataContainer.add(coolantPressIcon);
+
+    coolantTempLabel.setXY(18, 236);
+    coolantTempLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    coolantTempLabel.setLinespacing(0);
+    Unicode::snprintf(coolantTempLabelBuffer, COOLANTTEMPLABEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_LTUT).getText());
+    coolantTempLabel.setWildcard(coolantTempLabelBuffer);
+    coolantTempLabel.resizeToCurrentText();
+    coolantTempLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MYN3));
+    dataContainer.add(coolantTempLabel);
+
+    coolantTempIcon.setXY(38, 198);
+    coolantTempIcon.setBitmap(touchgfx::Bitmap(BITMAP_ENGINE_COOLANT_ID));
+    dataContainer.add(coolantTempIcon);
+
+    oilPressLabel.setXY(121, 148);
+    oilPressLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    oilPressLabel.setLinespacing(0);
+    Unicode::snprintf(oilPressLabelBuffer, OILPRESSLABEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_RX3A).getText());
+    oilPressLabel.setWildcard(oilPressLabelBuffer);
+    oilPressLabel.resizeToCurrentText();
+    oilPressLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_01BQ));
+    dataContainer.add(oilPressLabel);
+
+    oilPressIcon.setXY(147, 110);
+    oilPressIcon.setBitmap(touchgfx::Bitmap(BITMAP_PRESSURE_GAUGE_ID));
+    dataContainer.add(oilPressIcon);
+
+    oilTempLabel.setXY(18, 148);
+    oilTempLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    oilTempLabel.setLinespacing(0);
+    Unicode::snprintf(oilTempLabelBuffer, OILTEMPLABEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_M415).getText());
+    oilTempLabel.setWildcard(oilTempLabelBuffer);
+    oilTempLabel.resizeToCurrentText();
+    oilTempLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8L6D));
+    dataContainer.add(oilTempLabel);
+
+    oilTempIcon.setXY(38, 110);
+    oilTempIcon.setBitmap(touchgfx::Bitmap(BITMAP_HOT_WATER_ID));
+    dataContainer.add(oilTempIcon);
+
+    invTempLabel.setXY(127, 60);
+    invTempLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    invTempLabel.setLinespacing(0);
+    Unicode::snprintf(invTempLabelBuffer, INVTEMPLABEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_74EP).getText());
+    invTempLabel.setWildcard(invTempLabelBuffer);
+    invTempLabel.resizeToCurrentText();
+    invTempLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4NBP));
+    dataContainer.add(invTempLabel);
+
+    invTempIcon.setXY(147, 23);
+    invTempIcon.setBitmap(touchgfx::Bitmap(BITMAP_BOLT_ID));
+    dataContainer.add(invTempIcon);
+
+    batTempLabel.setXY(18, 60);
+    batTempLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    batTempLabel.setLinespacing(0);
+    Unicode::snprintf(batTempLabelBuffer, BATTEMPLABEL_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_D2WE).getText());
+    batTempLabel.setWildcard(batTempLabelBuffer);
+    batTempLabel.resizeToCurrentText();
+    batTempLabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0E5L));
+    dataContainer.add(batTempLabel);
+
+    batTempIcon.setXY(38, 23);
+    batTempIcon.setBitmap(touchgfx::Bitmap(BITMAP_BATTERY_ID));
+    dataContainer.add(batTempIcon);
+
+    add(dataContainer);
+
+    infoContainer.setPosition(28, 29, 220, 49);
+    infoBackground.setPosition(0, 0, 220, 49);
+    infoBackground.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    infoBackground.setBorderColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    infoBackground.setBorderSize(1);
+    infoContainer.add(infoBackground);
+
+    clockWidget.setPosition(14, 9, 81, 32);
+    clockWidget.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    clockWidget.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HJQD));
+    clockWidget.displayLeadingZeroForHourIndicator(true);
+    clockWidget.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR_NO_SECONDS);
+    clockWidget.setTime24Hour(12, 0, 0);
+    infoContainer.add(clockWidget);
+
+    connIcon.setXY(101, 9);
+    connIcon.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_CONTENT_CLEAR_32_32_666666_SVG_ID));
+    infoContainer.add(connIcon);
+
+    warnIcon.setXY(142, 9);
+    warnIcon.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_ALERT_ERROR_OUTLINE_29_29_666666_SVG_ID));
+    infoContainer.add(warnIcon);
+
+    radioIcon.setXY(181, 9);
+    radioIcon.setBitmap(touchgfx::Bitmap(BITMAP_ICON_THEME_IMAGES_AV_VOLUME_OFF_32_32_666666_SVG_ID));
+    infoContainer.add(radioIcon);
+
+    add(infoContainer);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

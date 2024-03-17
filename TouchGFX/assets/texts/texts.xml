@@ -5,10 +5,124 @@
   </Languages>
   <Texts>
     <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_802D" Alignment="Right" TypographyId="Tiny">
+        <Translation Language="GB">BEST LAP</Translation>
+      </Text>
+      <Text Id="__SingleUse_RMZ0" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">00:00.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_E4E9" Alignment="Right" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ILZ2" Alignment="Right" TypographyId="Tiny">
+        <Translation Language="GB">CURRENT LAP</Translation>
+      </Text>
+      <Text Id="__SingleUse_NRU6" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">00:00.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_71SB" Alignment="Right" TypographyId="Normal">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_3C8O" Alignment="Right" TypographyId="Tiny">
+        <Translation Language="GB">LAST LAP</Translation>
+      </Text>
+      <Text Id="__SingleUse_1QYQ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">00:00.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_YUNI" Alignment="Right" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_MOUC" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_PDYZ" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; kPa</Translation>
+      </Text>
+      <Text Id="__SingleUse_LTUT" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_MYN3" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_RX3A" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_01BQ" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; kPa</Translation>
+      </Text>
+      <Text Id="__SingleUse_M415" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_8L6D" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_74EP" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_4NBP" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_D2WE" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_0E5L" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; °C</Translation>
+      </Text>
+      <Text Id="__SingleUse_SMZ5" Alignment="Right" TypographyId="Tiny">
+        <Translation Language="GB">RANGE</Translation>
+      </Text>
+      <Text Id="__SingleUse_HR5K" Alignment="Right" TypographyId="Tiny">
+        <Translation Language="GB">DISTANCE</Translation>
+      </Text>
+      <Text Id="__SingleUse_N3PA" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">25.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_FWQ5" Alignment="Right" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt; km</Translation>
+      </Text>
+      <Text Id="__SingleUse_VUV9" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">25.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_M7L5" Alignment="Right" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt; km</Translation>
+      </Text>
+      <Text Id="__SingleUse_GOF1" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_KZ23" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">100</Translation>
+      </Text>
+      <Text Id="__SingleUse_FPIE" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">100</Translation>
+      </Text>
+      <Text Id="__SingleUse_T6DT" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt; kW</Translation>
+      </Text>
+      <Text Id="__SingleUse_4KU5" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_GQPI" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt; kph</Translation>
+      </Text>
+      <Text Id="__SingleUse_BYIL" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">+0.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_F8RQ" Alignment="Center" TypographyId="Normal">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_HJQD" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+    </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Tiny" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Small" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="0-9" />
+    <Typography Id="Normal" Font="verdana.ttf" Size="32" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Medium" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Large" Font="verdana.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Huge" Font="verdana.ttf" Size="120" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

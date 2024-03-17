@@ -3,7 +3,639 @@
     "Screens": [
       {
         "Name": "Screen1",
-        "Components": [],
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480
+          },
+          {
+            "Type": "Container",
+            "Name": "timeContainer",
+            "X": 553,
+            "Y": 206,
+            "Width": 220,
+            "Height": 183,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "timeBackground",
+                "Width": 220,
+                "Height": 183,
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 1
+              },
+              {
+                "Type": "TextArea",
+                "Name": "avgLapLabelText",
+                "X": 138,
+                "Y": 154,
+                "Width": 70,
+                "Height": 15,
+                "TextId": "__SingleUse_802D",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "avgLapText",
+                "X": 76,
+                "Y": 124,
+                "Width": 132,
+                "Height": 25,
+                "TextId": "__SingleUse_E4E9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 91,
+                  "Green": 54,
+                  "Blue": 143
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_RMZ0",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "bestLapLabelText",
+                "X": 139,
+                "Y": 100,
+                "Width": 69,
+                "Height": 15,
+                "TextId": "__SingleUse_3C8O",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "bestLapText",
+                "X": 76,
+                "Y": 70,
+                "Width": 132,
+                "Height": 25,
+                "TextId": "__SingleUse_YUNI",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 91,
+                  "Green": 54,
+                  "Blue": 143
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_1QYQ",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "currentLapLabelText",
+                "X": 106,
+                "Y": 48,
+                "Width": 102,
+                "Height": 15,
+                "TextId": "__SingleUse_ILZ2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "currentLapText",
+                "X": 41,
+                "Y": 10,
+                "Width": 167,
+                "Height": 32,
+                "TextId": "__SingleUse_71SB",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 163,
+                  "Green": 146,
+                  "Blue": 46
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_NRU6",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "odometryContainer",
+            "X": 553,
+            "Y": 29,
+            "Width": 220,
+            "Height": 150,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "odometryBackground",
+                "Width": 220,
+                "Height": 150,
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 1
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rangeLabelText",
+                "X": 156,
+                "Y": 120,
+                "Width": 52,
+                "Height": 15,
+                "TextId": "__SingleUse_SMZ5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rangeText",
+                "X": 19,
+                "Y": 75,
+                "Width": 192,
+                "Height": 48,
+                "TextId": "__SingleUse_FWQ5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_N3PA",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "distanceLabelText",
+                "X": 132,
+                "Y": 58,
+                "Width": 76,
+                "Height": 15,
+                "TextId": "__SingleUse_HR5K",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "distanceText",
+                "X": 19,
+                "Y": 13,
+                "Width": 192,
+                "Height": 48,
+                "TextId": "__SingleUse_M7L5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_VUV9",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "mainContainer",
+            "X": 276,
+            "Y": 105,
+            "Width": 250,
+            "Height": 294,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "powerText",
+                "X": 60,
+                "Y": 229,
+                "Width": 128,
+                "Height": 48,
+                "TextId": "__SingleUse_T6DT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_GOF1",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "BoxProgress",
+                "Name": "rpmProgress",
+                "X": 25,
+                "Y": 198,
+                "Width": 200,
+                "Height": 10,
+                "Color": {
+                  "Red": 25,
+                  "Green": 153,
+                  "Blue": 255
+                },
+                "Direction": "Right",
+                "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
+                "IndicatorPositionWidth": 200,
+                "IndicatorPositionHeight": 10,
+                "ProgressRangeMax": 100,
+                "ProgressInitialValue": 80
+              },
+              {
+                "Type": "TextArea",
+                "Name": "socText",
+                "X": 11,
+                "Y": 45,
+                "Width": 228,
+                "Height": 122,
+                "TextId": "__SingleUse_4KU5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_KZ23",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "speedText",
+                "X": 40,
+                "Y": 3,
+                "Width": 163,
+                "Height": 48,
+                "TextId": "__SingleUse_GQPI",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_FPIE",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "paceContainer",
+            "X": 301,
+            "Y": 30,
+            "Width": 200,
+            "Height": 49,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "paceBackground",
+                "Width": 200,
+                "Height": 49,
+                "Color": {
+                  "Red": 163,
+                  "Green": 146,
+                  "Blue": 46
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "paceText",
+                "X": 40,
+                "Y": 5,
+                "Width": 118,
+                "Height": 32,
+                "TextId": "__SingleUse_F8RQ",
+                "TextRotation": "0",
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_BYIL",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "dataContainer",
+            "X": 28,
+            "Y": 104,
+            "Width": 220,
+            "Height": 285,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "dataBackground",
+                "Width": 220,
+                "Height": 285,
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 1
+              },
+              {
+                "Type": "TextArea",
+                "Name": "coolantPressLabel",
+                "X": 121,
+                "Y": 236,
+                "Width": 85,
+                "Height": 25,
+                "TextId": "__SingleUse_PDYZ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_MOUC",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "coolantPressIcon",
+                "X": 147,
+                "Y": 198,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "water-gauge.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "coolantTempLabel",
+                "X": 18,
+                "Y": 236,
+                "Width": 72,
+                "Height": 25,
+                "TextId": "__SingleUse_MYN3",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_LTUT",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "coolantTempIcon",
+                "X": 38,
+                "Y": 198,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "engine-coolant.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "oilPressLabel",
+                "X": 121,
+                "Y": 148,
+                "Width": 85,
+                "Height": 25,
+                "TextId": "__SingleUse_01BQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_RX3A",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "oilPressIcon",
+                "X": 147,
+                "Y": 110,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "pressure-gauge.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "oilTempLabel",
+                "X": 18,
+                "Y": 148,
+                "Width": 72,
+                "Height": 25,
+                "TextId": "__SingleUse_8L6D",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_M415",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "oilTempIcon",
+                "X": 38,
+                "Y": 110,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "hot-water.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "invTempLabel",
+                "X": 127,
+                "Y": 60,
+                "Width": 72,
+                "Height": 25,
+                "TextId": "__SingleUse_4NBP",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_74EP",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "invTempIcon",
+                "X": 147,
+                "Y": 23,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "bolt.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "batTempLabel",
+                "X": 18,
+                "Y": 60,
+                "Width": 72,
+                "Height": 25,
+                "TextId": "__SingleUse_0E5L",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_D2WE",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "batTempIcon",
+                "X": 38,
+                "Y": 23,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "battery.png"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "infoContainer",
+            "X": 28,
+            "Y": 29,
+            "Width": 220,
+            "Height": 49,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "infoBackground",
+                "Width": 220,
+                "Height": 49,
+                "BorderColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "BorderSize": 1
+              },
+              {
+                "Type": "DigitalClock",
+                "Name": "clockWidget",
+                "X": 14,
+                "Y": 9,
+                "Width": 81,
+                "Height": 32,
+                "TextColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextId": "__SingleUse_HJQD",
+                "DisplayLeadingZeroForHourIndicator": true,
+                "InitialHour": 12
+              },
+              {
+                "Type": "Image",
+                "Name": "connIcon",
+                "X": 101,
+                "Y": 9,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "__generated\\icon_theme_images_content_clear_32_32_666666.svg.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "warnIcon",
+                "X": 142,
+                "Y": 9,
+                "Width": 29,
+                "Height": 29,
+                "RelativeFilename": "__generated\\icon_theme_images_alert_error_outline_29_29_666666.svg.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "radioIcon",
+                "X": 181,
+                "Y": 9,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "__generated\\icon_theme_images_av_volume_off_32_32_666666.svg.png"
+              }
+            ]
+          }
+        ],
         "Interactions": []
       }
     ],
