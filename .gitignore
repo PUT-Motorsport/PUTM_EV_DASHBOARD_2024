@@ -2,12 +2,9 @@
 /TouchGFX/assets/images/__generated/
 /TouchGFX/assets/videos/__generated/
 /TouchGFX/build/
-#/TouchGFX/generated/
-/TouchGFX/Dashboard_backup.touchgfx
+/TouchGFX/generated/
 
 # STM32CubeIDE
 /STM32CubeIDE/.settings/
 /STM32CubeIDE/Debug/
 /STM32CubeIDE/Release/
-/Middlewares/ST/touchgfx_backup/
-/backup_Riverdi_50STM32U599.ioc

@@ -8,34 +8,40 @@
             "Type": "Box",
             "Name": "background",
             "Width": 800,
-            "Height": 480
+            "Height": 480,
+            "LockPosition": true
+          },
+          {
+            "Type": "Image",
+            "Name": "logo",
+            "X": 340,
+            "Y": 409,
+            "Width": 120,
+            "Height": 49,
+            "LockPosition": true,
+            "RelativeFilename": "PUTM_Logo.png"
           },
           {
             "Type": "Container",
-            "Name": "timeContainer",
+            "Name": "timerContainer",
             "X": 553,
             "Y": 206,
             "Width": 220,
             "Height": 183,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "timeBackground",
+                "Type": "Image",
+                "Name": "timerFrame",
                 "Width": 220,
                 "Height": 183,
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 1
+                "RelativeFilename": "timeBackground.png"
               },
               {
                 "Type": "TextArea",
                 "Name": "avgLapLabelText",
-                "X": 138,
-                "Y": 154,
-                "Width": 70,
+                "X": 137,
+                "Y": 152,
+                "Width": 68,
                 "Height": 15,
                 "TextId": "__SingleUse_802D",
                 "TextRotation": "0",
@@ -49,16 +55,16 @@
               {
                 "Type": "TextArea",
                 "Name": "avgLapText",
-                "X": 76,
-                "Y": 124,
-                "Width": 132,
+                "X": 81,
+                "Y": 125,
+                "Width": 124,
                 "Height": 25,
                 "TextId": "__SingleUse_E4E9",
                 "TextRotation": "0",
                 "Color": {
-                  "Red": 91,
-                  "Green": 54,
-                  "Blue": 143
+                  "Red": 25,
+                  "Green": 153,
+                  "Blue": 255
                 },
                 "AutoSize": true,
                 "Wildcard1": {
@@ -70,9 +76,9 @@
               {
                 "Type": "TextArea",
                 "Name": "bestLapLabelText",
-                "X": 139,
+                "X": 138,
                 "Y": 100,
-                "Width": 69,
+                "Width": 67,
                 "Height": 15,
                 "TextId": "__SingleUse_3C8O",
                 "TextRotation": "0",
@@ -86,16 +92,16 @@
               {
                 "Type": "TextArea",
                 "Name": "bestLapText",
-                "X": 76,
-                "Y": 70,
-                "Width": 132,
+                "X": 81,
+                "Y": 73,
+                "Width": 124,
                 "Height": 25,
                 "TextId": "__SingleUse_YUNI",
                 "TextRotation": "0",
                 "Color": {
-                  "Red": 91,
-                  "Green": 54,
-                  "Blue": 143
+                  "Red": 25,
+                  "Green": 153,
+                  "Blue": 255
                 },
                 "AutoSize": true,
                 "Wildcard1": {
@@ -108,8 +114,8 @@
                 "Type": "TextArea",
                 "Name": "currentLapLabelText",
                 "X": 106,
-                "Y": 48,
-                "Width": 102,
+                "Y": 42,
+                "Width": 99,
                 "Height": 15,
                 "TextId": "__SingleUse_ILZ2",
                 "TextRotation": "0",
@@ -123,9 +129,9 @@
               {
                 "Type": "TextArea",
                 "Name": "currentLapText",
-                "X": 41,
-                "Y": 10,
-                "Width": 167,
+                "X": 49,
+                "Y": 8,
+                "Width": 156,
                 "Height": 32,
                 "TextId": "__SingleUse_71SB",
                 "TextRotation": "0",
@@ -152,23 +158,18 @@
             "Height": 150,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "odometryBackground",
+                "Type": "Image",
+                "Name": "odometryFrame",
                 "Width": 220,
                 "Height": 150,
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 1
+                "RelativeFilename": "odometryBackground.png"
               },
               {
                 "Type": "TextArea",
                 "Name": "rangeLabelText",
                 "X": 156,
-                "Y": 120,
-                "Width": 52,
+                "Y": 118,
+                "Width": 49,
                 "Height": 15,
                 "TextId": "__SingleUse_SMZ5",
                 "TextRotation": "0",
@@ -182,9 +183,9 @@
               {
                 "Type": "TextArea",
                 "Name": "rangeText",
-                "X": 19,
+                "X": 32,
                 "Y": 75,
-                "Width": 192,
+                "Width": 173,
                 "Height": 48,
                 "TextId": "__SingleUse_FWQ5",
                 "TextRotation": "0",
@@ -203,9 +204,9 @@
               {
                 "Type": "TextArea",
                 "Name": "distanceLabelText",
-                "X": 132,
-                "Y": 58,
-                "Width": 76,
+                "X": 135,
+                "Y": 55,
+                "Width": 70,
                 "Height": 15,
                 "TextId": "__SingleUse_HR5K",
                 "TextRotation": "0",
@@ -219,9 +220,9 @@
               {
                 "Type": "TextArea",
                 "Name": "distanceText",
-                "X": 19,
+                "X": 32,
                 "Y": 13,
-                "Width": 192,
+                "Width": 172,
                 "Height": 48,
                 "TextId": "__SingleUse_M7L5",
                 "TextRotation": "0",
@@ -250,9 +251,9 @@
               {
                 "Type": "TextArea",
                 "Name": "powerText",
-                "X": 60,
+                "X": 71,
                 "Y": 229,
-                "Width": 128,
+                "Width": 108,
                 "Height": 48,
                 "TextId": "__SingleUse_T6DT",
                 "TextRotation": "0",
@@ -272,7 +273,7 @@
                 "Type": "BoxProgress",
                 "Name": "rpmProgress",
                 "X": 25,
-                "Y": 198,
+                "Y": 197,
                 "Width": 200,
                 "Height": 10,
                 "Color": {
@@ -290,10 +291,10 @@
               {
                 "Type": "TextArea",
                 "Name": "socText",
-                "X": 11,
-                "Y": 45,
-                "Width": 228,
-                "Height": 122,
+                "X": 12,
+                "Y": 46,
+                "Width": 226,
+                "Height": 121,
                 "TextId": "__SingleUse_4KU5",
                 "TextRotation": "0",
                 "Color": {
@@ -311,9 +312,9 @@
               {
                 "Type": "TextArea",
                 "Name": "speedText",
-                "X": 40,
-                "Y": 3,
-                "Width": 163,
+                "X": 53,
+                "Y": 1,
+                "Width": 145,
                 "Height": 48,
                 "TextId": "__SingleUse_GQPI",
                 "TextRotation": "0",
@@ -335,27 +336,23 @@
             "Type": "Container",
             "Name": "paceContainer",
             "X": 301,
-            "Y": 30,
+            "Y": 29,
             "Width": 200,
             "Height": 49,
             "Components": [
               {
-                "Type": "Box",
+                "Type": "Image",
                 "Name": "paceBackground",
                 "Width": 200,
                 "Height": 49,
-                "Color": {
-                  "Red": 163,
-                  "Green": 146,
-                  "Blue": 46
-                }
+                "RelativeFilename": "paceYellowBackground.png"
               },
               {
                 "Type": "TextArea",
                 "Name": "paceText",
-                "X": 40,
+                "X": 45,
                 "Y": 5,
-                "Width": 118,
+                "Width": 108,
                 "Height": 32,
                 "TextId": "__SingleUse_F8RQ",
                 "TextRotation": "0",
@@ -377,23 +374,18 @@
             "Height": 285,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "dataBackground",
+                "Type": "Image",
+                "Name": "dataFrame",
                 "Width": 220,
                 "Height": 285,
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 1
+                "RelativeFilename": "dataBackground.png"
               },
               {
                 "Type": "TextArea",
                 "Name": "coolantPressLabel",
-                "X": 121,
+                "X": 125,
                 "Y": 236,
-                "Width": 85,
+                "Width": 77,
                 "Height": 25,
                 "TextId": "__SingleUse_PDYZ",
                 "TextRotation": "0",
@@ -421,9 +413,9 @@
               {
                 "Type": "TextArea",
                 "Name": "coolantTempLabel",
-                "X": 18,
+                "X": 24,
                 "Y": 236,
-                "Width": 72,
+                "Width": 61,
                 "Height": 25,
                 "TextId": "__SingleUse_MYN3",
                 "TextRotation": "0",
@@ -451,9 +443,9 @@
               {
                 "Type": "TextArea",
                 "Name": "oilPressLabel",
-                "X": 121,
+                "X": 125,
                 "Y": 148,
-                "Width": 85,
+                "Width": 77,
                 "Height": 25,
                 "TextId": "__SingleUse_01BQ",
                 "TextRotation": "0",
@@ -481,9 +473,9 @@
               {
                 "Type": "TextArea",
                 "Name": "oilTempLabel",
-                "X": 18,
+                "X": 24,
                 "Y": 148,
-                "Width": 72,
+                "Width": 61,
                 "Height": 25,
                 "TextId": "__SingleUse_8L6D",
                 "TextRotation": "0",
@@ -511,9 +503,9 @@
               {
                 "Type": "TextArea",
                 "Name": "invTempLabel",
-                "X": 127,
+                "X": 133,
                 "Y": 60,
-                "Width": 72,
+                "Width": 61,
                 "Height": 25,
                 "TextId": "__SingleUse_4NBP",
                 "TextRotation": "0",
@@ -541,9 +533,9 @@
               {
                 "Type": "TextArea",
                 "Name": "batTempLabel",
-                "X": 18,
+                "X": 24,
                 "Y": 60,
-                "Width": 72,
+                "Width": 61,
                 "Height": 25,
                 "TextId": "__SingleUse_0E5L",
                 "TextRotation": "0",
@@ -579,16 +571,11 @@
             "Height": 49,
             "Components": [
               {
-                "Type": "BoxWithBorder",
-                "Name": "infoBackground",
+                "Type": "Image",
+                "Name": "infoFrame",
                 "Width": 220,
                 "Height": 49,
-                "BorderColor": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "BorderSize": 1
+                "RelativeFilename": "infoFrame.png"
               },
               {
                 "Type": "DigitalClock",
@@ -596,7 +583,7 @@
                 "X": 14,
                 "Y": 9,
                 "Width": 81,
-                "Height": 32,
+                "Height": 29,
                 "TextColor": {
                   "Red": 255,
                   "Green": 255,
@@ -609,8 +596,8 @@
               {
                 "Type": "Image",
                 "Name": "connIcon",
-                "X": 101,
-                "Y": 9,
+                "X": 95,
+                "Y": 8,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "__generated\\icon_theme_images_content_clear_32_32_666666.svg.png"
@@ -618,8 +605,8 @@
               {
                 "Type": "Image",
                 "Name": "warnIcon",
-                "X": 142,
-                "Y": 9,
+                "X": 136,
+                "Y": 8,
                 "Width": 29,
                 "Height": 29,
                 "RelativeFilename": "__generated\\icon_theme_images_alert_error_outline_29_29_666666.svg.png"
@@ -627,8 +614,8 @@
               {
                 "Type": "Image",
                 "Name": "radioIcon",
-                "X": 181,
-                "Y": 9,
+                "X": 175,
+                "Y": 8,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "__generated\\icon_theme_images_av_volume_off_32_32_666666.svg.png"

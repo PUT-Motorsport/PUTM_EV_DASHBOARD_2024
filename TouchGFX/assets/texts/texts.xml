@@ -82,7 +82,7 @@
         <Translation Language="GB">&lt;d&gt; km</Translation>
       </Text>
       <Text Id="__SingleUse_VUV9" Alignment="Left" TypographyId="Medium">
-        <Translation Language="GB">25.00</Translation>
+        <Translation Language="GB">99.00</Translation>
       </Text>
       <Text Id="__SingleUse_M7L5" Alignment="Right" TypographyId="Medium">
         <Translation Language="GB">&lt;d&gt; km</Translation>
@@ -90,7 +90,7 @@
       <Text Id="__SingleUse_GOF1" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">99</Translation>
       </Text>
-      <Text Id="__SingleUse_KZ23" Alignment="Left" TypographyId="Huge">
+      <Text Id="__SingleUse_KZ23" Alignment="Left" TypographyId="Large">
         <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_FPIE" Alignment="Left" TypographyId="Medium">
@@ -99,7 +99,7 @@
       <Text Id="__SingleUse_T6DT" Alignment="Center" TypographyId="Medium">
         <Translation Language="GB">&lt;d&gt; kW</Translation>
       </Text>
-      <Text Id="__SingleUse_4KU5" Alignment="Center" TypographyId="Huge">
+      <Text Id="__SingleUse_4KU5" Alignment="Center" TypographyId="Large">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_GQPI" Alignment="Center" TypographyId="Medium">
@@ -118,11 +118,10 @@
   </Texts>
   <Typographies>
     <Typography Id="Default" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Tiny" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Small" Font="verdana.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="0-9" />
-    <Typography Id="Normal" Font="verdana.ttf" Size="32" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Medium" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Large" Font="verdana.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Huge" Font="verdana.ttf" Size="120" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Tiny" Font="Rubik-Italic.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Small" Font="Rubik-Regular.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="0-9" />
+    <Typography Id="Normal" Font="Rubik-Regular.ttf" Size="32" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Medium" Font="Rubik-Regular.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Large" Font="Rubik-Bold.ttf" Size="120" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>
