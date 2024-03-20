@@ -79,13 +79,13 @@
         <Translation Language="GB">25.00</Translation>
       </Text>
       <Text Id="__SingleUse_FWQ5" Alignment="Right" TypographyId="Medium">
-        <Translation Language="GB">&lt;d&gt; km</Translation>
+        <Translation Language="GB">&lt;s&gt; km</Translation>
       </Text>
       <Text Id="__SingleUse_VUV9" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">99.00</Translation>
       </Text>
       <Text Id="__SingleUse_M7L5" Alignment="Right" TypographyId="Medium">
-        <Translation Language="GB">&lt;d&gt; km</Translation>
+        <Translation Language="GB">&lt;s&gt; km</Translation>
       </Text>
       <Text Id="__SingleUse_GOF1" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">99</Translation>
@@ -120,8 +120,8 @@
     <Typography Id="Default" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Tiny" Font="Rubik-Italic.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Small" Font="Rubik-Regular.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="0-9" />
-    <Typography Id="Normal" Font="Rubik-Regular.ttf" Size="32" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Medium" Font="Rubik-Regular.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Normal" Font="Rubik-Regular.ttf" Size="32" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789+-:." WildcardCharacterRanges="0-9" />
+    <Typography Id="Medium" Font="Rubik-Regular.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789." WildcardCharacterRanges="0-9" />
     <Typography Id="Large" Font="Rubik-Bold.ttf" Size="120" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

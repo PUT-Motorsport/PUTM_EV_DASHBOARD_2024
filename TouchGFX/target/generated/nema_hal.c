@@ -44,7 +44,7 @@
 #define NEMAGFX_MEM_POOL_SIZE          10240 /* NemaGFX byte pool size in byte */
 
 LOCATION_PRAGMA_NOLOAD("Nemagfx_Memory_Pool_Buffer")
-static uint8_t nemagfx_pool_mem[NEMAGFX_MEM_POOL_SIZE]; /* NemaGFX memory pool */
+static uint8_t nemagfx_pool_mem[NEMAGFX_MEM_POOL_SIZE] LOCATION_ATTRIBUTE_NOLOAD("Nemagfx_Memory_Pool_Buffer"); /* NemaGFX memory pool */
 
 static nema_ringbuffer_t ring_buffer_str;
 volatile static int last_cl_id = -1;
