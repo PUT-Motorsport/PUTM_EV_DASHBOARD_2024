@@ -27,6 +27,27 @@ public:
 
     virtual ~MainScreenPresenter() {}
 
+    void setClock(uint32_t time);
+    void setConnection(bool status);
+    void setWarning(bool status);
+    void setRadio(bool status);
+    void setBatteryTemperature(uint8_t temperature);
+    void setInverterTemperature(uint8_t temperature);
+    void setOilTemperature(uint8_t temperature);
+    void setOilPressure(uint8_t pressure);
+    void setCoolantTemperature(uint8_t temperature);
+    void setCoolantPressure(uint8_t pressure);
+    void setPace(int32_t pace);
+    void setSpeed(uint8_t speed);
+    void setSoc(uint8_t soc);
+    void setRpm(uint16_t rpm);
+    void setPower(uint8_t power);
+    void setDistance(uint16_t distance);
+    void setRange(uint16_t range);
+    void setCurrentLap(uint32_t time);
+    void setLastLap(uint32_t time);
+    void setBestLap(uint32_t time);
+
 private:
     MainScreenPresenter();
 

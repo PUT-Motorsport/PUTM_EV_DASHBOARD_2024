@@ -735,21 +735,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_boxprogress_normal_small.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_icon_theme_images_alert_error_outline_29_29_666666.svg.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_alert_error_outline_29_29_666666.svg.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_icon_theme_images_av_volume_off_32_32_666666.svg.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_av_volume_off_32_32_666666.svg.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_icon_theme_images_content_clear_32_32_666666.svg.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_content_clear_32_32_666666.svg.cpp</locationURI>
-		</link>
-		<link>
 			<name>Application/User/generated/image_PUTM_Logo.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_PUTM_Logo.cpp</locationURI>
@@ -765,9 +750,54 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_battery.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_bolt.cpp</name>
+			<name>Application/User/generated/image_battery_crit.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_bolt.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_battery_crit.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_battery_warn.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_battery_warn.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_conn_off.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_conn_off.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_conn_on.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_conn_on.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coolant.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_coolant.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coolant_crit.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_coolant_crit.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coolant_pressure.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_coolant_pressure.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coolant_pressure_crit.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_coolant_pressure_crit.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coolant_pressure_warn.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_coolant_pressure_warn.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coolant_warn.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_coolant_warn.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_dataBackground.cpp</name>
@@ -775,24 +805,59 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_dataBackground.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_engine-coolant.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_engine-coolant.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_hot-water.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_hot-water.cpp</locationURI>
-		</link>
-		<link>
 			<name>Application/User/generated/image_infoFrame.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_infoFrame.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_inverter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_inverter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_inverter_crit.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_inverter_crit.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_inverter_warn.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_inverter_warn.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_odometryBackground.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_odometryBackground.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oil.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_oil.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oil_crit.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_oil_crit.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oil_pressure.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_oil_pressure.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oil_pressure_crit.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_oil_pressure_crit.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oil_pressure_warn.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_oil_pressure_warn.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oil_warn.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_oil_warn.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_paceGreenBackground.cpp</name>
@@ -810,9 +875,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_paceYellowBackground.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_pressure-gauge.cpp</name>
+			<name>Application/User/generated/image_radio_off.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_pressure-gauge.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_radio_off.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_radio_on.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_radio_on.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_timeBackground.cpp</name>
@@ -820,9 +890,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_timeBackground.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_water-gauge.cpp</name>
+			<name>Application/User/generated/image_warn_off.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_water-gauge.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_warn_off.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_warn_on.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_warn_on.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>

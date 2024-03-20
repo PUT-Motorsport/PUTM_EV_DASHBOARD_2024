@@ -11,6 +11,28 @@ public:
     virtual ~MainScreenView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+
+    void updateClock(uint32_t time);
+    void updateConnection(bool status);
+    void updateWarning(bool status);
+    void updateRadio(bool status);
+    void updateBatteryTemperature(uint8_t temperature);
+    void updateInverterTemperature(uint8_t temperature);
+    void updateOilTemperature(uint8_t temperature);
+    void updateOilPressure(uint8_t pressure);
+    void updateCoolantTemperature(uint8_t temperature);
+    void updateCoolantPressure(uint8_t pressure);
+    void updatePace(int32_t pace);
+    void updateSpeed(uint8_t speed);
+    void updateSoc(uint8_t soc);
+    void updateRpm(uint16_t rpm);
+    void updatePower(uint8_t power);
+    void updateDistance(uint16_t distance);
+    void updateRange(uint16_t range);
+    void updateCurrentLap(uint32_t time);
+    void updateLastLap(uint32_t time);
+    void updateBestLap(uint32_t time);
+
 protected:
 };
 

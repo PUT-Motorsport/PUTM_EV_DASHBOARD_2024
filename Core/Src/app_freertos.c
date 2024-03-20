@@ -24,7 +24,7 @@
 #include "cmsis_os2.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,6 +60,18 @@ const osThreadAttr_t TouchGFXTask_attributes = {
   .priority = (osPriority_t) osPriorityLow,
   .stack_size = 8192 * 4
 };
+/* Definitions for communicationTask */
+osThreadId_t communicationTaskHandle;
+const osThreadAttr_t communicationTask_attributes = {
+  .name = "communicationTask",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for communicationQueue */
+osMessageQueueId_t communicationQueueHandle;
+const osMessageQueueAttr_t communicationQueue_attributes = {
+  .name = "communicationQueue"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -68,6 +80,7 @@ const osThreadAttr_t TouchGFXTask_attributes = {
 
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
+void CommunicationTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -137,6 +150,8 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_TIMERS */
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
+  /* creation of communicationQueue */
+  communicationQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &communicationQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -146,6 +161,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
+
+  /* creation of communicationTask */
+  communicationTaskHandle = osThreadNew(CommunicationTask, NULL, &communicationTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -172,6 +190,70 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END defaultTask */
+}
+
+/* USER CODE BEGIN Header_CommunicationTask */
+/**
+* @brief Function implementing the communicationTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CommunicationTask */
+void CommunicationTask(void *argument)
+{
+  /* USER CODE BEGIN communicationTask */
+	typedef struct {
+	    uint32_t time;
+	    _Bool connection;
+	    _Bool warning;
+	    _Bool radio;
+	    uint8_t battery_temperature;
+	    uint8_t inverter_temperature;
+	    uint8_t oil_temperature;
+	    uint8_t oil_pressure;
+	    uint8_t coolant_temperature;
+	    uint8_t coolant_pressure;
+	    int32_t pace;
+	    uint8_t speed;
+	    uint8_t soc;
+	    uint16_t rpm;
+	    uint8_t power;
+	    uint16_t distance;
+	    uint16_t range;
+	    uint32_t current_lap;
+	    uint32_t last_lap;
+	    uint32_t best_lap;
+	} Data_TypeDef;
+
+	static Data_TypeDef data = {
+	        .time = 49020,
+	        .connection = false,
+	        .warning = false,
+	        .radio = false,
+	        .battery_temperature = 10,
+	        .inverter_temperature = 20,
+	        .oil_temperature = 30,
+	        .oil_pressure = 40,
+	        .coolant_temperature = 50,
+	        .coolant_pressure = 60,
+	        .pace = -2123,
+	        .speed = 120,
+	        .soc = 100,
+	        .rpm = 1500,
+	        .power = 70,
+	        .distance = 12000,
+	        .range = 23456,
+	        .current_lap = 677876,
+	        .last_lap = 1000,
+	        .best_lap = 60000,
+	};
+
+  /* Infinite loop */
+	for (;;) {
+		osMessageQueuePut(communicationQueueHandle, &data, 0, 0);
+		osDelay(100);
+	}
+  /* USER CODE END communicationTask */
 }
 
 /* Private application code --------------------------------------------------*/

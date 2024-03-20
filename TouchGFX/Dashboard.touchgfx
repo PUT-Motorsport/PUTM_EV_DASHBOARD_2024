@@ -72,7 +72,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "avgLapLabelText",
+                "Name": "bestLapLabelText",
                 "X": 137,
                 "Y": 152,
                 "Width": 68,
@@ -88,7 +88,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "avgLapText",
+                "Name": "bestLapText",
                 "X": 81,
                 "Y": 125,
                 "Width": 124,
@@ -104,12 +104,12 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_RMZ0",
                   "UseBuffer": true,
-                  "BufferSize": 10
+                  "BufferSize": 12
                 }
               },
               {
                 "Type": "TextArea",
-                "Name": "bestLapLabelText",
+                "Name": "lastLapLabelText",
                 "X": 138,
                 "Y": 100,
                 "Width": 67,
@@ -125,7 +125,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "bestLapText",
+                "Name": "lastLapText",
                 "X": 81,
                 "Y": 73,
                 "Width": 124,
@@ -141,7 +141,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_1QYQ",
                   "UseBuffer": true,
-                  "BufferSize": 10
+                  "BufferSize": 12
                 }
               },
               {
@@ -178,7 +178,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_NRU6",
                   "UseBuffer": true,
-                  "BufferSize": 10
+                  "BufferSize": 12
                 }
               }
             ]
@@ -232,7 +232,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_N3PA",
                   "UseBuffer": true,
-                  "BufferSize": 9
+                  "BufferSize": 10
                 }
               },
               {
@@ -269,7 +269,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_VUV9",
                   "UseBuffer": true,
-                  "BufferSize": 9
+                  "BufferSize": 10
                 }
               }
             ]
@@ -320,7 +320,7 @@
                 "IndicatorPositionWidth": 200,
                 "IndicatorPositionHeight": 10,
                 "ProgressRangeMax": 100,
-                "ProgressInitialValue": 80
+                "ProgressRangeSteps": 100
               },
               {
                 "Type": "TextArea",
@@ -394,7 +394,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_BYIL",
                   "UseBuffer": true,
-                  "BufferSize": 7
+                  "BufferSize": 8
                 }
               }
             ]
@@ -417,7 +417,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "coolantPressLabel",
+                "Name": "coolPressText",
                 "X": 125,
                 "Y": 236,
                 "Width": 77,
@@ -438,16 +438,16 @@
               },
               {
                 "Type": "Image",
-                "Name": "coolantPressIcon",
+                "Name": "coolPressIcon",
                 "X": 147,
                 "Y": 198,
                 "Width": 32,
                 "Height": 32,
-                "RelativeFilename": "water-gauge.png"
+                "RelativeFilename": "coolant_pressure.png"
               },
               {
                 "Type": "TextArea",
-                "Name": "coolantTempLabel",
+                "Name": "coolTempText",
                 "X": 24,
                 "Y": 236,
                 "Width": 61,
@@ -468,16 +468,16 @@
               },
               {
                 "Type": "Image",
-                "Name": "coolantTempIcon",
+                "Name": "coolTempIcon",
                 "X": 38,
                 "Y": 198,
                 "Width": 32,
                 "Height": 32,
-                "RelativeFilename": "engine-coolant.png"
+                "RelativeFilename": "coolant.png"
               },
               {
                 "Type": "TextArea",
-                "Name": "oilPressLabel",
+                "Name": "oilPressText",
                 "X": 125,
                 "Y": 148,
                 "Width": 77,
@@ -503,11 +503,11 @@
                 "Y": 110,
                 "Width": 32,
                 "Height": 32,
-                "RelativeFilename": "pressure-gauge.png"
+                "RelativeFilename": "oil_pressure.png"
               },
               {
                 "Type": "TextArea",
-                "Name": "oilTempLabel",
+                "Name": "oilTempText",
                 "X": 24,
                 "Y": 148,
                 "Width": 61,
@@ -533,11 +533,11 @@
                 "Y": 110,
                 "Width": 32,
                 "Height": 32,
-                "RelativeFilename": "hot-water.png"
+                "RelativeFilename": "oil.png"
               },
               {
                 "Type": "TextArea",
-                "Name": "invTempLabel",
+                "Name": "invTempText",
                 "X": 133,
                 "Y": 60,
                 "Width": 61,
@@ -563,11 +563,11 @@
                 "Y": 23,
                 "Width": 32,
                 "Height": 32,
-                "RelativeFilename": "bolt.png"
+                "RelativeFilename": "inverter.png"
               },
               {
                 "Type": "TextArea",
-                "Name": "batTempLabel",
+                "Name": "batTempText",
                 "X": 24,
                 "Y": 60,
                 "Width": 61,
@@ -613,10 +613,37 @@
                 "RelativeFilename": "infoFrame.png"
               },
               {
+                "Type": "Image",
+                "Name": "radioIcon",
+                "X": 173,
+                "Y": 8,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "radio_off.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "connIcon",
+                "X": 135,
+                "Y": 9,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "conn_off.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "warnIcon",
+                "X": 98,
+                "Y": 10,
+                "Width": 28,
+                "Height": 26,
+                "RelativeFilename": "warn_off.png"
+              },
+              {
                 "Type": "DigitalClock",
                 "Name": "clockWidget",
                 "X": 14,
-                "Y": 9,
+                "Y": 8,
                 "Width": 81,
                 "Height": 29,
                 "TextColor": {
@@ -627,33 +654,6 @@
                 "TextId": "__SingleUse_HJQD",
                 "DisplayLeadingZeroForHourIndicator": true,
                 "InitialHour": 12
-              },
-              {
-                "Type": "Image",
-                "Name": "connIcon",
-                "X": 95,
-                "Y": 8,
-                "Width": 32,
-                "Height": 32,
-                "RelativeFilename": "__generated\\icon_theme_images_content_clear_32_32_666666.svg.png"
-              },
-              {
-                "Type": "Image",
-                "Name": "warnIcon",
-                "X": 136,
-                "Y": 8,
-                "Width": 29,
-                "Height": 29,
-                "RelativeFilename": "__generated\\icon_theme_images_alert_error_outline_29_29_666666.svg.png"
-              },
-              {
-                "Type": "Image",
-                "Name": "radioIcon",
-                "X": 175,
-                "Y": 8,
-                "Width": 32,
-                "Height": 32,
-                "RelativeFilename": "__generated\\icon_theme_images_av_volume_off_32_32_666666.svg.png"
               }
             ]
           }

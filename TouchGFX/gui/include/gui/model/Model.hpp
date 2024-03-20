@@ -16,6 +16,7 @@ public:
     void tick();
 protected:
     ModelListener* modelListener;
+private:
 };
 
 #endif // MODEL_HPP
