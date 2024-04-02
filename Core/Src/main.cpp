@@ -45,7 +45,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "communication_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +66,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -76,7 +78,9 @@ static void SystemPower_Config(void);
 void MX_FREERTOS_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
-
+#ifdef __cplusplus
+}
+#endif
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -157,7 +161,17 @@ int main(void)
   /* Initialize interrupts */
   MX_NVIC_Init();
   /* USER CODE BEGIN 2 */
+  HAL_FDCAN_Start(&hfdcan1);
 
+  if (HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1) != HAL_OK)
+    {
+      /* PWM Generation Error */
+      Error_Handler();
+    }
+
+  /*Configure GPIO pin Output Level */
+
+  HAL_GPIO_WritePin(LCD_DISP_RESET_GPIO_Port, LCD_DISP_RESET_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Init scheduler */

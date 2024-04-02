@@ -107,9 +107,9 @@ const osMutexAttr_t timerDataMutex_attributes = {
 
 /* USER CODE END FunctionPrototypes */
 
-void StartTimerTask(void *argument);
+void Timer_Task(void *argument);
 extern void TouchGFX_Task(void *argument);
-void StartCommunicationTask(void *argument);
+extern void Communication_Task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -186,13 +186,13 @@ void MX_FREERTOS_Init(void) {
 	/* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
   /* creation of timerTask */
-  timerTaskHandle = osThreadNew(StartTimerTask, NULL, &timerTask_attributes);
+  timerTaskHandle = osThreadNew(Timer_Task, NULL, &timerTask_attributes);
 
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
   /* creation of communicationTask */
-  communicationTaskHandle = osThreadNew(StartCommunicationTask, NULL, &communicationTask_attributes);
+  communicationTaskHandle = osThreadNew(Communication_Task, NULL, &communicationTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
@@ -203,50 +203,25 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_EVENTS */
 
 }
-/* USER CODE BEGIN Header_StartTimerTask */
+/* USER CODE BEGIN Header_Timer_Task */
 /**
 * @brief Function implementing the timerTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartTimerTask */
-void StartTimerTask(void *argument)
+/* USER CODE END Header_Timer_Task */
+void Timer_Task(void *argument)
 {
   /* USER CODE BEGIN timerTask */
   /* Infinite loop */
 	for(;;) {
         if(osMutexAcquire(timerDataMutexHandle, osWaitForever) == osOK) {
-        	timerData.current_lap += 1;
 
             osMutexRelease(timerDataMutexHandle);
         }
 		osDelay(100);
 	}
   /* USER CODE END timerTask */
-}
-
-/* USER CODE BEGIN Header_StartCommunicationTask */
-/**
-* @brief Function implementing the communicationTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartCommunicationTask */
-void StartCommunicationTask(void *argument)
-{
-  /* USER CODE BEGIN communicationTask */
-  /* Infinite loop */
-	for(;;) {
-        if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-            sharedData.time += 60;
-            sharedData.rpm += 100;
-            sharedData.rpm %= DASH_RPM_MAX;
-
-            osMutexRelease(sharedDataMutexHandle);
-        }
-		osDelay(100);
-	}
-  /* USER CODE END communicationTask */
 }
 
 /* Private application code --------------------------------------------------*/

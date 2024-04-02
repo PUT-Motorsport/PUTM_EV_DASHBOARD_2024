@@ -1,0 +1,3 @@
+[submodule "Core/Inc/PUTM_EV_CAN_LIBRARY"]
+	path = Core/Inc/PUTM_EV_CAN_LIBRARY
+	url = git@github.com:PUT-Motorsport/PUTM_EV_CAN_LIBRARY.git

@@ -46,7 +46,7 @@ Make sure you have the following programs installed and updated:
 
 You can now work on the project.
 
-To flash the firmware, build it and then, program the target either using TouchGFX or STM32CubeIDE.
+To flash the firmware, build it and program the target either using TouchGFX or STM32CubeIDE.
 
 
 ## Icons

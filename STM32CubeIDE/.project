@@ -35,14 +35,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>Riverdi_50STM32U5A9.ioc</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Riverdi_50STM32U5A9.ioc</locationURI>
-		</link>
-		<link>
 			<name>MX25LM51245G_STM32U599J-DK.stldr</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/gcc/MX25LM51245G_STM32U599J-DK.stldr</locationURI>
+		</link>
+		<link>
+			<name>Riverdi_50STM32U5A9.ioc</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Riverdi_50STM32U5A9.ioc</locationURI>
 		</link>
 		<link>
 			<name>Drivers/BSP</name>
@@ -325,6 +325,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/app_freertos.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/Core/communication_task.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/communication_task.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/cordic.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/cordic.c</locationURI>
@@ -390,9 +395,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/ltdc.c</locationURI>
 		</link>
 		<link>
-			<name>Application/User/Core/main.c</name>
+			<name>Application/User/Core/main.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/main.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/main.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Core/memorymap.c</name>

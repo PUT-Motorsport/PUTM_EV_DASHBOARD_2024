@@ -53,6 +53,8 @@ void BusFault_Handler(void);
 void UsageFault_Handler(void);
 void DebugMon_Handler(void);
 void EXTI6_IRQHandler(void);
+void FDCAN1_IT0_IRQHandler(void);
+void FDCAN1_IT1_IRQHandler(void);
 void TIM2_IRQHandler(void);
 void GPU2D_IRQHandler(void);
 void GPU2D_ER_IRQHandler(void);
