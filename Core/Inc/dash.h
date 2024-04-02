@@ -12,9 +12,8 @@
 /* Public includes -----------------------------------------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
-/* Public typedefs -----------------------------------------------------------*/
 
-/* Public defines ------------------------------------------------------------*/
+/* Public typedefs -----------------------------------------------------------*/
 typedef struct {
 	uint32_t time;
 	_Bool connection;
@@ -40,6 +39,9 @@ typedef struct {
 	uint32_t last_lap;
 	uint32_t best_lap;
 } TimerData_TypeDef;
+
+/* Public defines ------------------------------------------------------------*/
+#define DASH_RPM_MAX 3000
 
 /* Public macros -------------------------------------------------------------*/
 

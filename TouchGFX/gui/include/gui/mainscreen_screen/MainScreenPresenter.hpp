@@ -48,10 +48,17 @@ public:
     void setLastLap(uint32_t time);
     void setBestLap(uint32_t time);
 
+    void toggleElements();
+
+    void setToggleWarning(bool toggle);
+
 private:
     MainScreenPresenter();
 
     MainScreenView& view;
+
+    unsigned int m_time;
+    bool m_toggleWarning;
 };
 
 #endif // MAINSCREENPRESENTER_HPP

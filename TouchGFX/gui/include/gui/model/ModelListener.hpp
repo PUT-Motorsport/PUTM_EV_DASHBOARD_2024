@@ -32,6 +32,8 @@ public:
     virtual void setLastLap(uint32_t time) {}
     virtual void setBestLap(uint32_t time) {}
 
+    virtual void toggleElements() {}
+
 protected:
 	Model *model;
 };

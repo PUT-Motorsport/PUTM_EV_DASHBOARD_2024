@@ -31,6 +31,7 @@ void MainScreenView::updateConnection(bool status) {
 	} else {
 		connIcon.setBitmap(Bitmap(BITMAP_CONN_OFF_ID));
 	}
+	connIcon.setVisible(true);
 	connIcon.invalidate();
 }
 
@@ -39,6 +40,7 @@ void MainScreenView::updateWarning(bool status) {
 		warnIcon.setBitmap(Bitmap(BITMAP_WARN_ON_ID));
 	} else {
 		warnIcon.setBitmap(Bitmap(BITMAP_WARN_OFF_ID));
+		warnIcon.setVisible(true);
 	}
 	warnIcon.invalidate();
 }
@@ -64,6 +66,8 @@ void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
 		batTempIcon.setBitmap(Bitmap(BITMAP_BATTERY_ID));
 		batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 	}
+	batTempIcon.setVisible(true);
+	batTempText.setVisible(true);
 	batTempIcon.invalidate();
 	batTempText.invalidate();
 }
@@ -80,6 +84,8 @@ void MainScreenView::updateInverterTemperature(uint8_t temperature) {
 		invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_ID));
 		invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 	}
+	invTempIcon.setVisible(true);
+	invTempText.setVisible(true);
 	invTempIcon.invalidate();
 	invTempText.invalidate();
 }
@@ -96,6 +102,8 @@ void MainScreenView::updateOilTemperature(uint8_t temperature) {
 		oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_ID));
 		oilTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 	}
+	oilTempIcon.setVisible(true);
+	oilTempText.setVisible(true);
 	oilTempIcon.invalidate();
 	oilTempText.invalidate();
 }
@@ -112,6 +120,8 @@ void MainScreenView::updateOilPressure(uint8_t pressure) {
 		oilPressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_ID));
 		oilPressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 	}
+	oilPressIcon.setVisible(true);
+	oilPressText.setVisible(true);
 	oilPressIcon.invalidate();
 	oilPressText.invalidate();
 }
@@ -128,6 +138,8 @@ void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
 		coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_ID));
 		coolTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 	}
+	coolTempIcon.setVisible(true);
+	coolTempText.setVisible(true);
 	coolTempIcon.invalidate();
 	coolTempText.invalidate();
 }
@@ -144,6 +156,8 @@ void MainScreenView::updateCoolantPressure(uint8_t pressure) {
 		coolPressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_ID));
 		coolPressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 	}
+	coolPressIcon.setVisible(true);
+	coolPressText.setVisible(true);
 	coolPressIcon.invalidate();
 	coolPressText.invalidate();
 }
@@ -160,6 +174,7 @@ void MainScreenView::updatePace(int32_t pace) {
 
 	float seconds = static_cast<float>(pace) / 1000.0f;
 	Unicode::snprintfFloat(paceTextBuffer, PACETEXT_SIZE, "%+#.3f", seconds);
+	paceText.setVisible(true);
 	paceText.invalidate();
 }
 
@@ -174,7 +189,7 @@ void MainScreenView::updateSoc(uint8_t soc) {
 }
 
 void MainScreenView::updateRpm(uint16_t rpm) {
-	uint8_t value = (rpm * 100) / 3000;
+	uint8_t value = (rpm * 100) / DASH_RPM_MAX;
 	rpmProgress.setValue(value);
 }
 
@@ -231,4 +246,9 @@ void MainScreenView::updateBestLap(uint32_t time) {
 
 	Unicode::snprintf(bestLapTextBuffer, BESTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, time);
 	bestLapText.invalidate();
+}
+
+void MainScreenView::toggleWarning() {
+    warnIcon.isVisible() ? warnIcon.setVisible(false) : warnIcon.setVisible(true);
+    warnIcon.invalidate();
 }

@@ -33,7 +33,11 @@ public:
     void updateLastLap(uint32_t time);
     void updateBestLap(uint32_t time);
 
+    void toggleWarning();
+
 protected:
+
+private:
 };
 
 #endif // MAINSCREENVIEW_HPP

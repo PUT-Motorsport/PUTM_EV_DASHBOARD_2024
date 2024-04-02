@@ -47,7 +47,7 @@
 Data_TypeDef sharedData = {
 	.time = 49820,
 	.connection = true,
-	.warning = false,
+	.warning = true,
 	.radio = false,
 	.battery_temperature = 10,
 	.inverter_temperature = 20,
@@ -64,10 +64,10 @@ Data_TypeDef sharedData = {
 };
 
 TimerData_TypeDef timerData = {
-	.pace = -2123,
-	.current_lap = 677876,
-	.last_lap = 1000,
-	.best_lap = 60000,
+	.pace = 0,
+	.current_lap = 0,
+	.last_lap = 0,
+	.best_lap = 0,
 };
 /* USER CODE END Variables */
 /* Definitions for timerTask */
@@ -239,6 +239,8 @@ void StartCommunicationTask(void *argument)
 	for(;;) {
         if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             sharedData.time += 60;
+            sharedData.rpm += 100;
+            sharedData.rpm %= DASH_RPM_MAX;
 
             osMutexRelease(sharedDataMutexHandle);
         }

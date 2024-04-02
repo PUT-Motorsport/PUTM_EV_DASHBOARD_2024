@@ -16,6 +16,8 @@ Model::Model() : modelListener(0) { }
 
 void Model::tick() {
 	if (modelListener != 0) {
+		modelListener->toggleElements();
+
 		if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 			m_sharedData = sharedData;
 			osMutexRelease(sharedDataMutexHandle);
@@ -34,7 +36,7 @@ void Model::tick() {
 
 			if (memcmp(&m_sharedData.connection, &m_sharedDataPrev.connection,
 					sizeof(m_sharedData.connection)) != 0) {
-				m_sharedDataPrev.connection = m_sharedData.connection;
+				m_sharedDataPrev.warning = m_sharedData.warning;
 				modelListener->setWarning(m_sharedData.connection);
 			}
 
