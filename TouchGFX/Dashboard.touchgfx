@@ -100,7 +100,6 @@
                   "Green": 153,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_RMZ0",
                   "UseBuffer": true,
@@ -137,7 +136,6 @@
                   "Green": 153,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_1QYQ",
                   "UseBuffer": true,
@@ -174,7 +172,6 @@
                   "Green": 146,
                   "Blue": 46
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_NRU6",
                   "UseBuffer": true,

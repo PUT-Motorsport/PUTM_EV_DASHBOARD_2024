@@ -1,20 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : app_freertos.c
-  * Description        : Code for freertos applications
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : app_freertos.c
+ * Description        : Code for freertos applications
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -24,7 +24,7 @@
 #include "cmsis_os2.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdbool.h>
+#include <dash.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,13 +44,37 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+Data_TypeDef sharedData = {
+	.time = 49820,
+	.connection = true,
+	.warning = false,
+	.radio = false,
+	.battery_temperature = 10,
+	.inverter_temperature = 20,
+	.oil_temperature = 30,
+	.oil_pressure = 40,
+	.coolant_temperature = 50,
+	.coolant_pressure = 60,
+	.speed = 120,
+	.soc = 100,
+	.rpm = 1500,
+	.power = 70,
+	.distance = 12000,
+	.range = 100,
+};
 
+TimerData_TypeDef timerData = {
+	.pace = -2123,
+	.current_lap = 677876,
+	.last_lap = 1000,
+	.best_lap = 60000,
+};
 /* USER CODE END Variables */
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .priority = (osPriority_t) osPriorityNormal,
+/* Definitions for timerTask */
+osThreadId_t timerTaskHandle;
+const osThreadAttr_t timerTask_attributes = {
+  .name = "timerTask",
+  .priority = (osPriority_t) osPriorityLow,
   .stack_size = 128 * 4
 };
 /* Definitions for TouchGFXTask */
@@ -65,12 +89,17 @@ osThreadId_t communicationTaskHandle;
 const osThreadAttr_t communicationTask_attributes = {
   .name = "communicationTask",
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4
+  .stack_size = 512 * 4
 };
-/* Definitions for communicationQueue */
-osMessageQueueId_t communicationQueueHandle;
-const osMessageQueueAttr_t communicationQueue_attributes = {
-  .name = "communicationQueue"
+/* Definitions for sharedDataMutex */
+osMutexId_t sharedDataMutexHandle;
+const osMutexAttr_t sharedDataMutex_attributes = {
+  .name = "sharedDataMutex"
+};
+/* Definitions for timerDataMutex */
+osMutexId_t timerDataMutexHandle;
+const osMutexAttr_t timerDataMutex_attributes = {
+  .name = "timerDataMutex"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,9 +107,9 @@ const osMessageQueueAttr_t communicationQueue_attributes = {
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void *argument);
+void StartTimerTask(void *argument);
 extern void TouchGFX_Task(void *argument);
-void CommunicationTask(void *argument);
+void StartCommunicationTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -90,42 +119,39 @@ void vApplicationIdleHook(void);
 void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName);
 
 /* USER CODE BEGIN 5 */
-void vApplicationMallocFailedHook(void)
-{
-   /* vApplicationMallocFailedHook() will only be called if
-   configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h. It is a hook
-   function that will get called if a call to pvPortMalloc() fails.
-   pvPortMalloc() is called internally by the kernel whenever a task, queue,
-   timer or semaphore is created. It is also called by various parts of the
-   demo application. If heap_1.c or heap_2.c are used, then the size of the
-   heap available to pvPortMalloc() is defined by configTOTAL_HEAP_SIZE in
-   FreeRTOSConfig.h, and the xPortGetFreeHeapSize() API function can be used
-   to query the size of free heap space that remains (although it does not
-   provide information on how the remaining heap might be fragmented). */
+void vApplicationMallocFailedHook(void) {
+	/* vApplicationMallocFailedHook() will only be called if
+	 configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h. It is a hook
+	 function that will get called if a call to pvPortMalloc() fails.
+	 pvPortMalloc() is called internally by the kernel whenever a task, queue,
+	 timer or semaphore is created. It is also called by various parts of the
+	 demo application. If heap_1.c or heap_2.c are used, then the size of the
+	 heap available to pvPortMalloc() is defined by configTOTAL_HEAP_SIZE in
+	 FreeRTOSConfig.h, and the xPortGetFreeHeapSize() API function can be used
+	 to query the size of free heap space that remains (although it does not
+	 provide information on how the remaining heap might be fragmented). */
 }
 /* USER CODE END 5 */
 
 /* USER CODE BEGIN 2 */
-void vApplicationIdleHook( void )
-{
-   /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
-   to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
-   task. It is essential that code added to this hook function never attempts
-   to block in any way (for example, call xQueueReceive() with a block time
-   specified, or call vTaskDelay()). If the application makes use of the
-   vTaskDelete() API function (as this demo application does) then it is also
-   important that vApplicationIdleHook() is permitted to return to its calling
-   function, because it is the responsibility of the idle task to clean up
-   memory allocated by the kernel to any task that has since been deleted. */
+void vApplicationIdleHook(void) {
+	/* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
+	 to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
+	 task. It is essential that code added to this hook function never attempts
+	 to block in any way (for example, call xQueueReceive() with a block time
+	 specified, or call vTaskDelay()). If the application makes use of the
+	 vTaskDelete() API function (as this demo application does) then it is also
+	 important that vApplicationIdleHook() is permitted to return to its calling
+	 function, because it is the responsibility of the idle task to clean up
+	 memory allocated by the kernel to any task that has since been deleted. */
 }
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN 4 */
-void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName)
-{
-   /* Run time stack overflow checking is performed if
-   configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
-   called if a stack overflow is detected. */
+void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName) {
+	/* Run time stack overflow checking is performed if
+	 configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
+	 called if a stack overflow is detected. */
 }
 /* USER CODE END 4 */
 
@@ -138,119 +164,84 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
+  /* creation of sharedDataMutex */
+  sharedDataMutexHandle = osMutexNew(&sharedDataMutex_attributes);
+
+  /* creation of timerDataMutex */
+  timerDataMutexHandle = osMutexNew(&timerDataMutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
+	/* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
+	/* add semaphores, ... */
   /* USER CODE END RTOS_SEMAPHORES */
 
   /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
+	/* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
-  /* creation of communicationQueue */
-  communicationQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &communicationQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
+	/* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* creation of timerTask */
+  timerTaskHandle = osThreadNew(StartTimerTask, NULL, &timerTask_attributes);
 
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
   /* creation of communicationTask */
-  communicationTaskHandle = osThreadNew(CommunicationTask, NULL, &communicationTask_attributes);
+  communicationTaskHandle = osThreadNew(StartCommunicationTask, NULL, &communicationTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+	/* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
+	/* add events, ... */
   /* USER CODE END RTOS_EVENTS */
 
 }
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_StartTimerTask */
 /**
-* @brief Function implementing the defaultTask thread.
+* @brief Function implementing the timerTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
+/* USER CODE END Header_StartTimerTask */
+void StartTimerTask(void *argument)
 {
-  /* USER CODE BEGIN defaultTask */
+  /* USER CODE BEGIN timerTask */
   /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END defaultTask */
+	for(;;) {
+        if(osMutexAcquire(timerDataMutexHandle, osWaitForever) == osOK) {
+        	timerData.current_lap += 1;
+
+            osMutexRelease(timerDataMutexHandle);
+        }
+		osDelay(100);
+	}
+  /* USER CODE END timerTask */
 }
 
-/* USER CODE BEGIN Header_CommunicationTask */
+/* USER CODE BEGIN Header_StartCommunicationTask */
 /**
 * @brief Function implementing the communicationTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_CommunicationTask */
-void CommunicationTask(void *argument)
+/* USER CODE END Header_StartCommunicationTask */
+void StartCommunicationTask(void *argument)
 {
   /* USER CODE BEGIN communicationTask */
-	typedef struct {
-	    uint32_t time;
-	    _Bool connection;
-	    _Bool warning;
-	    _Bool radio;
-	    uint8_t battery_temperature;
-	    uint8_t inverter_temperature;
-	    uint8_t oil_temperature;
-	    uint8_t oil_pressure;
-	    uint8_t coolant_temperature;
-	    uint8_t coolant_pressure;
-	    int32_t pace;
-	    uint8_t speed;
-	    uint8_t soc;
-	    uint16_t rpm;
-	    uint8_t power;
-	    uint16_t distance;
-	    uint16_t range;
-	    uint32_t current_lap;
-	    uint32_t last_lap;
-	    uint32_t best_lap;
-	} Data_TypeDef;
-
-	static Data_TypeDef data = {
-	        .time = 49020,
-	        .connection = false,
-	        .warning = false,
-	        .radio = false,
-	        .battery_temperature = 10,
-	        .inverter_temperature = 20,
-	        .oil_temperature = 30,
-	        .oil_pressure = 40,
-	        .coolant_temperature = 50,
-	        .coolant_pressure = 60,
-	        .pace = -2123,
-	        .speed = 120,
-	        .soc = 100,
-	        .rpm = 1500,
-	        .power = 70,
-	        .distance = 12000,
-	        .range = 23456,
-	        .current_lap = 677876,
-	        .last_lap = 1000,
-	        .best_lap = 60000,
-	};
-
   /* Infinite loop */
-	for (;;) {
-		osMessageQueuePut(communicationQueueHandle, &data, 0, 0);
+	for(;;) {
+        if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+            sharedData.time += 60;
+
+            osMutexRelease(sharedDataMutexHandle);
+        }
 		osDelay(100);
 	}
   /* USER CODE END communicationTask */

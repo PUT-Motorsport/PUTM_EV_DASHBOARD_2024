@@ -1,86 +1,163 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
-#include <cmsis_os2.h>
-#include <stdbool.h>
+
+#include "cmsis_os2.h"
+
+#include <string.h>
 
 extern "C" {
-extern osMessageQueueId_t communicationQueueHandle;
+	extern osMutexId_t sharedDataMutexHandle;
+	extern osMutexId_t timerDataMutexHandle;
+	extern Data_TypeDef sharedData;
+	extern TimerData_TypeDef timerData;
 }
 
-Model::Model() :
-		modelListener(0) {
-
-}
+Model::Model() : modelListener(0) { }
 
 void Model::tick() {
-	typedef struct {
-	    uint32_t time;
-	    _Bool connection;
-	    _Bool warning;
-	    _Bool radio;
-	    uint8_t battery_temperature;
-	    uint8_t inverter_temperature;
-	    uint8_t oil_temperature;
-	    uint8_t oil_pressure;
-	    uint8_t coolant_temperature;
-	    uint8_t coolant_pressure;
-	    int32_t pace;
-	    uint8_t speed;
-	    uint8_t soc;
-	    uint16_t rpm;
-	    uint8_t power;
-	    uint16_t distance;
-	    uint16_t range;
-	    uint32_t current_lap;
-	    uint32_t last_lap;
-	    uint32_t best_lap;
-	} Data_TypeDef;
-
-	static Data_TypeDef data = {
-	        .time = 49020,
-	        .connection = false,
-	        .warning = false,
-	        .radio = false,
-	        .battery_temperature = 10,
-	        .inverter_temperature = 20,
-	        .oil_temperature = 30,
-	        .oil_pressure = 40,
-	        .coolant_temperature = 50,
-	        .coolant_pressure = 60,
-	        .pace = -2123,
-	        .speed = 120,
-	        .soc = 100,
-	        .rpm = 1500,
-	        .power = 70,
-	        .distance = 12000,
-	        .range = 100,
-	        .current_lap = 677876,
-	        .last_lap = 1000,
-	        .best_lap = 60000,
-	};
-
 	if (modelListener != 0) {
-//		if (osMessageQueueGet(communicationQueueHandle, &data, 0, 0) == osOK) {
-			modelListener->setClock(data.time);
-			modelListener->setConnection(data.connection);
-			modelListener->setWarning(data.connection);
-			modelListener->setRadio(data.radio);
-			modelListener->setBatteryTemperature(data.battery_temperature);
-			modelListener->setInverterTemperature(data.inverter_temperature);
-			modelListener->setOilTemperature(data.oil_temperature);
-			modelListener->setOilPressure(data.oil_pressure);
-			modelListener->setCoolantTemperature(data.coolant_temperature);
-			modelListener->setCoolantPressure(data.coolant_pressure);
-			modelListener->setPace(data.pace);
-			modelListener->setSpeed(data.speed);
-			modelListener->setSoc(data.soc);
-			modelListener->setRpm(data.rpm);
-			modelListener->setPower(data.power);
-			modelListener->setDistance(data.distance);
-			modelListener->setRange(data.range);
-			modelListener->setCurrentLap(data.current_lap);
-			modelListener->setLastLap(data.last_lap);
-			modelListener->setBestLap(data.best_lap);
-//		}
+		if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+			m_sharedData = sharedData;
+			osMutexRelease(sharedDataMutexHandle);
+
+			if (memcmp(&m_sharedData, &m_sharedDataPrev, sizeof(m_sharedData))
+					!= 0) {
+				m_sharedDataPrev.time = m_sharedData.time;
+				modelListener->setClock(m_sharedData.time);
+			}
+
+			if (memcmp(&m_sharedData.connection, &m_sharedDataPrev.connection,
+					sizeof(m_sharedData.connection)) != 0) {
+				m_sharedDataPrev.connection = m_sharedData.connection;
+				modelListener->setConnection(m_sharedData.connection);
+			}
+
+			if (memcmp(&m_sharedData.connection, &m_sharedDataPrev.connection,
+					sizeof(m_sharedData.connection)) != 0) {
+				m_sharedDataPrev.connection = m_sharedData.connection;
+				modelListener->setWarning(m_sharedData.connection);
+			}
+
+			if (memcmp(&m_sharedData.radio, &m_sharedDataPrev.radio,
+					sizeof(m_sharedData.radio)) != 0) {
+				m_sharedDataPrev.radio = m_sharedData.radio;
+				modelListener->setRadio(m_sharedData.radio);
+			}
+
+			if (memcmp(&m_sharedData.battery_temperature,
+					&m_sharedDataPrev.battery_temperature,
+					sizeof(m_sharedData.battery_temperature)) != 0) {
+				m_sharedDataPrev.battery_temperature =
+						m_sharedData.battery_temperature;
+				modelListener->setBatteryTemperature(
+						m_sharedData.battery_temperature);
+			}
+
+			if (memcmp(&m_sharedData.inverter_temperature,
+					&m_sharedDataPrev.inverter_temperature,
+					sizeof(m_sharedData.inverter_temperature)) != 0) {
+				m_sharedDataPrev.inverter_temperature =
+						m_sharedData.inverter_temperature;
+				modelListener->setInverterTemperature(
+						m_sharedData.inverter_temperature);
+			}
+
+			if (memcmp(&m_sharedData.oil_temperature,
+					&m_sharedDataPrev.oil_temperature,
+					sizeof(m_sharedData.oil_temperature)) != 0) {
+				m_sharedDataPrev.oil_temperature = m_sharedData.oil_temperature;
+				modelListener->setOilTemperature(m_sharedData.oil_temperature);
+			}
+
+			if (memcmp(&m_sharedData.oil_pressure,
+					&m_sharedDataPrev.oil_pressure,
+					sizeof(m_sharedData.oil_pressure)) != 0) {
+				m_sharedDataPrev.oil_pressure = m_sharedData.oil_pressure;
+				modelListener->setOilPressure(m_sharedData.oil_pressure);
+			}
+
+			if (memcmp(&m_sharedData.coolant_temperature,
+					&m_sharedDataPrev.coolant_temperature,
+					sizeof(m_sharedData.coolant_temperature)) != 0) {
+				m_sharedDataPrev.coolant_temperature =
+						m_sharedData.coolant_temperature;
+				modelListener->setCoolantTemperature(
+						m_sharedData.coolant_temperature);
+			}
+
+			if (memcmp(&m_sharedData.coolant_pressure,
+					&m_sharedDataPrev.coolant_pressure,
+					sizeof(m_sharedData.coolant_pressure)) != 0) {
+				m_sharedDataPrev.coolant_pressure =
+						m_sharedData.coolant_pressure;
+				modelListener->setCoolantPressure(
+						m_sharedData.coolant_pressure);
+			}
+
+			if (memcmp(&m_sharedData.speed, &m_sharedDataPrev.speed,
+					sizeof(m_sharedData.speed)) != 0) {
+				m_sharedDataPrev.speed = m_sharedData.speed;
+				modelListener->setSpeed(m_sharedData.speed);
+			}
+
+			if (memcmp(&m_sharedData.soc, &m_sharedDataPrev.soc,
+					sizeof(m_sharedData.soc)) != 0) {
+				m_sharedDataPrev.soc = m_sharedData.soc;
+				modelListener->setSoc(m_sharedData.soc);
+			}
+
+			if (memcmp(&m_sharedData.rpm, &m_sharedDataPrev.rpm,
+					sizeof(m_sharedData.rpm)) != 0) {
+				m_sharedDataPrev.rpm = m_sharedData.rpm;
+				modelListener->setRpm(m_sharedData.rpm);
+			}
+
+			if (memcmp(&m_sharedData.power, &m_sharedDataPrev.power,
+					sizeof(m_sharedData.power)) != 0) {
+				m_sharedDataPrev.power = m_sharedData.power;
+				modelListener->setPower(m_sharedData.power);
+			}
+
+			if (memcmp(&m_sharedData.distance, &m_sharedDataPrev.distance,
+					sizeof(m_sharedData.distance)) != 0) {
+				m_sharedDataPrev.distance = m_sharedData.distance;
+				modelListener->setDistance(m_sharedData.distance);
+			}
+
+			if (memcmp(&m_sharedData.range, &m_sharedDataPrev.range,
+					sizeof(m_sharedData.range)) != 0) {
+				m_sharedDataPrev.range = m_sharedData.range;
+				modelListener->setRange(m_sharedData.range);
+			}
+		}
+
+		if (osMutexAcquire(timerDataMutexHandle, osWaitForever) == osOK) {
+			m_timerData = timerData;
+			osMutexRelease(timerDataMutexHandle);
+
+			if (memcmp(&m_timerData.pace, &m_timerDataPrev.pace,
+					sizeof(m_timerData.pace)) != 0) {
+				m_timerDataPrev.pace = m_timerData.pace;
+				modelListener->setPace(m_timerData.pace);
+			}
+
+			if (memcmp(&m_timerData.current_lap, &m_timerDataPrev.current_lap,
+					sizeof(m_timerData.current_lap)) != 0) {
+				m_timerDataPrev.current_lap = m_timerData.current_lap;
+				modelListener->setCurrentLap(m_timerData.current_lap);
+			}
+
+			if (memcmp(&m_timerData.last_lap, &m_timerDataPrev.last_lap,
+					sizeof(m_timerData.last_lap)) != 0) {
+				m_timerDataPrev.last_lap = m_timerData.last_lap;
+				modelListener->setLastLap(m_timerData.last_lap);
+			}
+
+			if (memcmp(&m_timerData.best_lap, &m_timerDataPrev.best_lap,
+					sizeof(m_timerData.best_lap)) != 0) {
+				m_timerDataPrev.best_lap = m_timerData.best_lap;
+				modelListener->setBestLap(m_timerData.best_lap);
+			}
+		}
 	}
 }

@@ -12,7 +12,7 @@
       <Text Id="__SingleUse_RMZ0" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">00:00.000</Translation>
       </Text>
-      <Text Id="__SingleUse_E4E9" Alignment="Right" TypographyId="Small">
+      <Text Id="__SingleUse_E4E9" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_ILZ2" Alignment="Right" TypographyId="Tiny">
@@ -21,7 +21,7 @@
       <Text Id="__SingleUse_NRU6" Alignment="Left" TypographyId="Normal">
         <Translation Language="GB">00:00.000</Translation>
       </Text>
-      <Text Id="__SingleUse_71SB" Alignment="Right" TypographyId="Normal">
+      <Text Id="__SingleUse_71SB" Alignment="Left" TypographyId="Normal">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_3C8O" Alignment="Right" TypographyId="Tiny">
@@ -30,7 +30,7 @@
       <Text Id="__SingleUse_1QYQ" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">00:00.000</Translation>
       </Text>
-      <Text Id="__SingleUse_YUNI" Alignment="Right" TypographyId="Small">
+      <Text Id="__SingleUse_YUNI" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_MOUC" Alignment="Left" TypographyId="Small">
