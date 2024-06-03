@@ -59,12 +59,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define LCD_DISP_RESET_Pin GPIO_PIN_7
 #define LCD_DISP_RESET_GPIO_Port GPIOH
+#define FUSE_LED_Pin GPIO_PIN_5
+#define FUSE_LED_GPIO_Port GPIOH
 #define CTP_RST_Pin GPIO_PIN_3
 #define CTP_RST_GPIO_Port GPIOE
-#define USR_BTN_1_Pin GPIO_PIN_3
-#define USR_BTN_1_GPIO_Port GPIOJ
-#define USR_LED_1_Pin GPIO_PIN_5
-#define USR_LED_1_GPIO_Port GPIOE
+#define SAFETY_LED_Pin GPIO_PIN_4
+#define SAFETY_LED_GPIO_Port GPIOH
+#define USR_BTN_Pin GPIO_PIN_3
+#define USR_BTN_GPIO_Port GPIOJ
+#define USR_LED_Pin GPIO_PIN_5
+#define USR_LED_GPIO_Port GPIOE
 #define CTP_INT_Pin GPIO_PIN_6
 #define CTP_INT_GPIO_Port GPIOE
 #define CTP_INT_EXTI_IRQn EXTI6_IRQn
@@ -72,6 +76,8 @@ void Error_Handler(void);
 #define USB_PWR_EN_GPIO_Port GPIOG
 #define USB_OVERCURRENT_Pin GPIO_PIN_0
 #define USB_OVERCURRENT_GPIO_Port GPIOJ
+#define RTD_BTN_Pin GPIO_PIN_4
+#define RTD_BTN_GPIO_Port GPIOI
 #define R_RST_Pin GPIO_PIN_4
 #define R_RST_GPIO_Port GPIOF
 #define R_CS_Pin GPIO_PIN_1

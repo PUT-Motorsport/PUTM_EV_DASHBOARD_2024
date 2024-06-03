@@ -42,12 +42,26 @@ Make sure you have the following programs installed and updated:
 > To update the project to a new TouchGFX version (if needed), follow the [Updating to a new TouchGFX Version](https://support.touchgfx.com/docs/miscellaneous/updating-to-a-new-touchgfx-version) guide.
 
 3. Generate the code: `Code` → `Generate Code`.
-4. Import the project into the STM32CubeIDE: `File` → `Open Project from Filesystem…` and select the `STM32CubeIDE` directory.
+4. Import the project into the STM32CubeIDE: `File` → `Open Project from Filesystem…` and select the `Dashboard` directory.
 
 You can now work on the project.
 
 To flash the firmware, build it and program the target either using TouchGFX or STM32CubeIDE.
 
+
+## Device Configuration Code Generation
+
+1. Rename `Dashboard/Core/Src/main.cpp` to `main.c`.
+2. Generate the code.
+3. Rename `main.c` back to `main.cpp`.
+4. Make sure that in the `STM32CubeIDE/.project`, the link points to the correct file:
+    ```
+    <link>
+      <name>Application/User/Core/main.cpp</name>
+      <type>1</type>
+      <locationURI>PARENT-1-PROJECT_LOC/Core/Src/main.cpp</locationURI>
+    </link>
+    ```
 
 ## Icons
 

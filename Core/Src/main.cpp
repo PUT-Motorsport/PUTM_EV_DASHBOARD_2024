@@ -45,6 +45,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "interface_task.h"
 #include "communication_task.h"
 /* USER CODE END Includes */
 
@@ -135,7 +136,6 @@ int main(void)
   MX_GPU2D_Init();
   MX_HASH_Init();
   MX_I2C1_Init();
-  MX_I2C2_Init();
   MX_I2C4_Init();
   MX_ICACHE_Init();
   MX_LPTIM2_Init();
@@ -170,7 +170,6 @@ int main(void)
     }
 
   /*Configure GPIO pin Output Level */
-
   HAL_GPIO_WritePin(LCD_DISP_RESET_GPIO_Port, LCD_DISP_RESET_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
@@ -323,7 +322,6 @@ static void MX_NVIC_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
 /* USER CODE END 4 */
 
 /**

@@ -40,6 +40,11 @@ typedef struct {
 	uint32_t best_lap;
 } TimerData_TypeDef;
 
+typedef struct {
+	_Bool debouncing;
+	_Bool rtd_button;
+} InterfaceData_TypeDef;
+
 /* Public defines ------------------------------------------------------------*/
 #define DASH_RPM_MAX 3000
 

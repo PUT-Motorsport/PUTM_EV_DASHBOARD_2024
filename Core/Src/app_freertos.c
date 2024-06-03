@@ -69,6 +69,10 @@ TimerData_TypeDef timerData = {
 	.last_lap = 0,
 	.best_lap = 0,
 };
+
+InterfaceData_TypeDef interfaceData = {
+	.rtd_button = false,
+};
 /* USER CODE END Variables */
 /* Definitions for timerTask */
 osThreadId_t timerTaskHandle;
@@ -91,6 +95,13 @@ const osThreadAttr_t communicationTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
   .stack_size = 512 * 4
 };
+/* Definitions for interfaceTask */
+osThreadId_t interfaceTaskHandle;
+const osThreadAttr_t interfaceTask_attributes = {
+  .name = "interfaceTask",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
 /* Definitions for sharedDataMutex */
 osMutexId_t sharedDataMutexHandle;
 const osMutexAttr_t sharedDataMutex_attributes = {
@@ -104,12 +115,27 @@ const osMutexAttr_t timerDataMutex_attributes = {
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
+void Interface_Task(void *argument) {
+	for (;;) {
+		if(HAL_GPIO_ReadPin(RTD_BTN_GPIO_Port, RTD_BTN_Pin) == GPIO_PIN_RESET) {
+			HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_SET);
+			interfaceData.rtd_button = true;
+		} else {
+			HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_RESET);
+			interfaceData.rtd_button = false;
+		}
 
+		osDelay(100);
+	}
+}
 /* USER CODE END FunctionPrototypes */
 
 void Timer_Task(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void Communication_Task(void *argument);
+extern void Interface_Task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -193,6 +219,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of communicationTask */
   communicationTaskHandle = osThreadNew(Communication_Task, NULL, &communicationTask_attributes);
+
+  /* creation of interfaceTask */
+  interfaceTaskHandle = osThreadNew(Interface_Task, NULL, &interfaceTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
