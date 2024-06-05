@@ -24,7 +24,9 @@
 #include "cmsis_os2.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <dash.h>
+#include "dash.h"
+#include "communication_task.h"
+#include "interface_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,22 +47,22 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 Data_TypeDef sharedData = {
-	.time = 49820,
+	.time = 0,
 	.connection = true,
 	.warning = true,
 	.radio = false,
-	.battery_temperature = 10,
-	.inverter_temperature = 20,
-	.oil_temperature = 30,
-	.oil_pressure = 40,
-	.coolant_temperature = 50,
-	.coolant_pressure = 60,
-	.speed = 120,
-	.soc = 100,
-	.rpm = 1500,
-	.power = 70,
-	.distance = 12000,
-	.range = 100,
+	.battery_temperature = 0,
+	.inverter_temperature = 0,
+	.oil_temperature = 0,
+	.oil_pressure = 0,
+	.coolant_temperature = 0,
+	.coolant_pressure = 0,
+	.speed = 0,
+	.soc = 0,
+	.rpm = 0,
+	.power = 0,
+	.distance = 0,
+	.range = 0,
 };
 
 TimerData_TypeDef timerData = {
@@ -71,7 +73,12 @@ TimerData_TypeDef timerData = {
 };
 
 InterfaceData_TypeDef interfaceData = {
-	.rtd_button = false,
+	.ready_to_drive_button = false,
+	.ts_activation_button = false,
+	.user_button = false,
+	.rtd_debouncing_timer = 0,
+	.tsa_debouncing_timer = 0,
+	.usr_debouncing_timer = 0,
 };
 /* USER CODE END Variables */
 /* Definitions for timerTask */
@@ -115,21 +122,7 @@ const osMutexAttr_t timerDataMutex_attributes = {
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-void Interface_Task(void *argument) {
-	for (;;) {
-		if(HAL_GPIO_ReadPin(RTD_BTN_GPIO_Port, RTD_BTN_Pin) == GPIO_PIN_RESET) {
-			HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_SET);
-			interfaceData.rtd_button = true;
-		} else {
-			HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_RESET);
-			interfaceData.rtd_button = false;
-		}
 
-		osDelay(100);
-	}
-}
 /* USER CODE END FunctionPrototypes */
 
 void Timer_Task(void *argument);

@@ -9,12 +9,15 @@ extern InterfaceData_TypeDef interfaceData;
 
 void Communication_Task(void *argument) {
 	for (;;) {
-		PUTM_CAN::DashboardMain main = { .rtd_button = 0, };
-		main.rtd_button = interfaceData.rtd_button;
+		PUTM_CAN::Dashboard frame = {
+				.ready_to_drive_button = interfaceData.ready_to_drive_button,
+				.ts_activation_button = interfaceData.ts_activation_button,
+				.user_button = interfaceData.user_button,
+		};
 
-		auto frame = PUTM_CAN::Can_tx_message<PUTM_CAN::DashboardMain>(main,
-				PUTM_CAN::can_tx_header_DASHBOARD_MAIN);
-		frame.send(hfdcan1);
+		auto message = PUTM_CAN::Can_tx_message<PUTM_CAN::Dashboard>(frame,
+				PUTM_CAN::can_tx_header_DASHBOARD);
+		message.send(hfdcan1);
 
 		if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 

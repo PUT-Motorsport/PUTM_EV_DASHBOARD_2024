@@ -385,6 +385,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/icache.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/Core/interface_task.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/interface_task.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/lptim.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/lptim.c</locationURI>
