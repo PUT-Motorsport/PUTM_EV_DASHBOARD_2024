@@ -6,6 +6,7 @@
 
 extern osMutexId_t sharedDataMutexHandle;
 extern InterfaceData_TypeDef interfaceData;
+extern Data_TypeDef sharedData;
 
 void Communication_Task(void *argument) {
 	for (;;) {
@@ -19,10 +20,17 @@ void Communication_Task(void *argument) {
 				PUTM_CAN::can_tx_header_DASHBOARD);
 		message.send(hfdcan1);
 
-		if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-
-			osMutexRelease(sharedDataMutexHandle);
+		// Receive
+		if(true) {
+			auto pc_data = PUTM_CAN::can.get_pc_main_data();
+			if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+				sharedData = {
+					 .speed = 50,
+				};
+				osMutexRelease(sharedDataMutexHandle);
+			}
 		}
+
 		osDelay(100);
 	}
 }

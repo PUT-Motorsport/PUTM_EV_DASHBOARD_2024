@@ -162,6 +162,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	HAL_FDCAN_Start(&hfdcan1);
 
+	HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_GROUP_RX_FIFO0, 0);
+
 	if (HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1) != HAL_OK) {
 		/* PWM Generation Error */
 		Error_Handler();
