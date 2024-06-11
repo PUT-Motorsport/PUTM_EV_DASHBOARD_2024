@@ -22,8 +22,8 @@ void Model::tick() {
 			m_sharedData = sharedData;
 			osMutexRelease(sharedDataMutexHandle);
 
-			if (memcmp(&m_sharedData, &m_sharedDataPrev, sizeof(m_sharedData))
-					!= 0) {
+			if (memcmp(&m_sharedData.time, &m_sharedDataPrev.time,
+					sizeof(m_sharedData.time)) != 0) {
 				m_sharedDataPrev.time = m_sharedData.time;
 				modelListener->setClock(m_sharedData.time);
 			}
@@ -34,10 +34,10 @@ void Model::tick() {
 				modelListener->setConnection(m_sharedData.connection);
 			}
 
-			if (memcmp(&m_sharedData.connection, &m_sharedDataPrev.connection,
-					sizeof(m_sharedData.connection)) != 0) {
+			if (memcmp(&m_sharedData.warning, &m_sharedDataPrev.warning,
+					sizeof(m_sharedData.warning)) != 0) {
 				m_sharedDataPrev.warning = m_sharedData.warning;
-				modelListener->setWarning(m_sharedData.connection);
+				modelListener->setWarning(m_sharedData.warning);
 			}
 
 			if (memcmp(&m_sharedData.radio, &m_sharedDataPrev.radio,
@@ -96,11 +96,11 @@ void Model::tick() {
 						m_sharedData.coolant_pressure);
 			}
 
-//			if (memcmp(&m_sharedData.speed, &m_sharedDataPrev.speed,
-//					sizeof(m_sharedData.speed)) != 0) {
+			if (memcmp(&m_sharedData.speed, &m_sharedDataPrev.speed,
+					sizeof(m_sharedData.speed)) != 0) {
 				m_sharedDataPrev.speed = m_sharedData.speed;
 				modelListener->setSpeed(m_sharedData.speed);
-//			}
+			}
 
 			if (memcmp(&m_sharedData.soc, &m_sharedDataPrev.soc,
 					sizeof(m_sharedData.soc)) != 0) {
