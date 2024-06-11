@@ -1456,7 +1456,7 @@ HAL_StatusTypeDef HAL_FDCAN_ConfigRxFifoOverwrite(FDCAN_HandleTypeDef *hfdcan, u
 
   if (hfdcan->State == HAL_FDCAN_STATE_READY)
   {
-    if (RxFifo == FDCAN_RX_FIFO0)
+    if (RxFifo == 0)
     {
       /* Select FIFO 0 Operation Mode */
       MODIFY_REG(hfdcan->Instance->RXGFC, FDCAN_RXGFC_F0OM, (OperationMode << FDCAN_RXGFC_F0OM_Pos));
@@ -2555,7 +2555,7 @@ uint32_t HAL_FDCAN_GetRxFifoFillLevel(const FDCAN_HandleTypeDef *hfdcan, uint32_
   /* Check function parameters */
   assert_param(IS_FDCAN_RX_FIFO(RxFifo));
 
-  if (RxFifo == FDCAN_RX_FIFO0)
+  if (RxFifo == 0)
   {
     FillLevel = hfdcan->Instance->RXF0S & FDCAN_RXF0S_F0FL;
   }

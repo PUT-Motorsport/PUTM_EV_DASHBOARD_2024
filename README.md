@@ -63,6 +63,11 @@ To flash the firmware, build it and program the target either using TouchGFX or 
     </link>
     ```
 
+> [!IMPORTANT]
+> For the CAN library to work correctly, the auto-generated HAL driver file needs to be patched.
+>
+> Make sure to restore any changes made by the generator to the `Dashboard/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_fdcan.c` file or the receiving won't work!
+
 ## Icons
 
 #### Google Material Library
