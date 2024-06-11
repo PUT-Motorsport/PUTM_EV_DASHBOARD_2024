@@ -96,11 +96,11 @@ void Model::tick() {
 						m_sharedData.coolant_pressure);
 			}
 
-			if (memcmp(&m_sharedData.speed, &m_sharedDataPrev.speed,
-					sizeof(m_sharedData.speed)) != 0) {
+//			if (memcmp(&m_sharedData.speed, &m_sharedDataPrev.speed,
+//					sizeof(m_sharedData.speed)) != 0) {
 				m_sharedDataPrev.speed = m_sharedData.speed;
 				modelListener->setSpeed(m_sharedData.speed);
-			}
+//			}
 
 			if (memcmp(&m_sharedData.soc, &m_sharedDataPrev.soc,
 					sizeof(m_sharedData.soc)) != 0) {

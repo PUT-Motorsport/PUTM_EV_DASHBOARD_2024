@@ -24,9 +24,8 @@ void Communication_Task(void *argument) {
 		if(true) {
 			auto pc_data = PUTM_CAN::can.get_pc_main_data();
 			if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-				sharedData = {
-					 .speed = 50,
-				};
+				sharedData.time += 1;
+				sharedData.speed = pc_data.vehicleSpeed;
 				osMutexRelease(sharedDataMutexHandle);
 			}
 		}
