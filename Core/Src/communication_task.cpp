@@ -5,8 +5,8 @@
 #include "cmsis_os2.h"
 
 extern osMutexId_t sharedDataMutexHandle;
-extern InterfaceData_TypeDef interfaceData;
 extern Data_TypeDef sharedData;
+extern InterfaceData_TypeDef interfaceData;
 
 void Communication_Task(void *argument) {
 	for (;;) {

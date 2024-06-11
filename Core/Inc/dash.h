@@ -16,8 +16,8 @@
 /* Public typedefs -----------------------------------------------------------*/
 typedef struct {
 	uint32_t time;
-	_Bool connection;
 	_Bool warning;
+	_Bool connection;
 	_Bool radio;
 	uint8_t battery_temperature;
 	uint8_t inverter_temperature;
@@ -41,6 +41,9 @@ typedef struct {
 } TimerData_TypeDef;
 
 typedef struct {
+	_Bool ams_led;
+	_Bool fuse_led;
+	_Bool safety_led;
     _Bool ready_to_drive_button;
     _Bool ts_activation_button;
     _Bool user_button;

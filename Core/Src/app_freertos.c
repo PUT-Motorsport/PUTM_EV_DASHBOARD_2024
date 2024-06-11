@@ -48,8 +48,8 @@
 /* USER CODE BEGIN Variables */
 Data_TypeDef sharedData = {
 	.time = 0,
-	.connection = true,
 	.warning = true,
+	.connection = false,
 	.radio = false,
 	.battery_temperature = 0,
 	.inverter_temperature = 0,
@@ -73,6 +73,9 @@ TimerData_TypeDef timerData = {
 };
 
 InterfaceData_TypeDef interfaceData = {
+	.ams_led = true,
+	.fuse_led = true,
+	.safety_led = true,
 	.ready_to_drive_button = false,
 	.ts_activation_button = false,
 	.user_button = false,
