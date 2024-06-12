@@ -73,15 +73,16 @@ TimerData_TypeDef timerData = {
 };
 
 InterfaceData_TypeDef interfaceData = {
+	.state_changed = false,
 	.ams_led = true,
 	.fuse_led = true,
 	.safety_led = true,
-	.ready_to_drive_button = false,
-	.ts_activation_button = false,
-	.user_button = false,
-	.rtd_debouncing_timer = 0,
-	.tsa_debouncing_timer = 0,
-	.usr_debouncing_timer = 0,
+	.rtd_button = false,
+	.tsa_button = false,
+	.usr_button = false,
+	.rtd_timer = 0,
+	.tsa_timer = 0,
+	.usr_timer = 0,
 };
 /* USER CODE END Variables */
 /* Definitions for timerTask */

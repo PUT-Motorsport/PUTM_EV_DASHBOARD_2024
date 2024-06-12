@@ -41,20 +41,25 @@ typedef struct {
 } TimerData_TypeDef;
 
 typedef struct {
+	_Bool state_changed;
 	_Bool ams_led;
 	_Bool fuse_led;
 	_Bool safety_led;
-    _Bool ready_to_drive_button;
-    _Bool ts_activation_button;
-    _Bool user_button;
-    uint32_t rtd_debouncing_timer;
-    uint32_t tsa_debouncing_timer;
-    uint32_t usr_debouncing_timer;
+	_Bool rtd_button;
+	_Bool tsa_button;
+	_Bool usr_button;
+	_Bool rtd_button_prev;
+	_Bool tsa_button_prev;
+	_Bool usr_button_prev;
+	uint32_t rtd_timer;
+	uint32_t tsa_timer;
+	uint32_t usr_timer;
 } InterfaceData_TypeDef;
 
 /* Public defines ------------------------------------------------------------*/
 #define DASH_RPM_MAX 3000
 #define DASH_BUTTON_DEBOUNCING_TIME 1000
+#define DASH_BUTTON_POOLING_RATE 25
 
 /* Public macros -------------------------------------------------------------*/
 

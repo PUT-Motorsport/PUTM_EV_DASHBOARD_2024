@@ -10,15 +10,19 @@ extern InterfaceData_TypeDef interfaceData;
 
 void Communication_Task(void *argument) {
 	for (;;) {
-		PUTM_CAN::Dashboard frame = {
-				.ready_to_drive_button = interfaceData.ready_to_drive_button,
-				.ts_activation_button = interfaceData.ts_activation_button,
-				.user_button = interfaceData.user_button,
-		};
-		auto message = PUTM_CAN::Can_tx_message<PUTM_CAN::Dashboard>(frame,
-				PUTM_CAN::can_tx_header_DASHBOARD);
+		if (interfaceData.state_changed) {
+			PUTM_CAN::Dashboard frame = {
+				.ready_to_drive_button = interfaceData.rtd_button,
+				.ts_activation_button = interfaceData.tsa_button,
+				.user_button = interfaceData.usr_button,
+			};
+			auto message = PUTM_CAN::Can_tx_message<PUTM_CAN::Dashboard>(frame,
+					PUTM_CAN::can_tx_header_DASHBOARD);
 
-		message.send(hfdcan1);
+			message.send(hfdcan1);
+
+			interfaceData.state_changed = false;
+		}
 
 		// Receive
 		if (PUTM_CAN::can.get_pc_new_data()) {
