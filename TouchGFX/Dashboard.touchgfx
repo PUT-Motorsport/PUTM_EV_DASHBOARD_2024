@@ -796,6 +796,55 @@
             }
           }
         ]
+      },
+      {
+        "Name": "NotificationScreen",
+        "Components": [
+          {
+            "Type": "BoxWithBorder",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "LockPosition": true,
+            "BorderColor": {
+              "Red": 255
+            },
+            "BorderSize": 20
+          },
+          {
+            "Type": "TextArea",
+            "Name": "notificationText",
+            "X": 30,
+            "Y": 189,
+            "Width": 740,
+            "Height": 122,
+            "TextId": "__SingleUse_KFWH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_IKMT",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ReturnToMainScreen",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1500
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "South",
+              "ActionComponent": "MainScreen"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

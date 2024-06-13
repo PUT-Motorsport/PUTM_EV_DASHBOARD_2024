@@ -196,6 +196,18 @@
     <Filter Include="Source Files\generated\gui_generated\bootscreen_screen">
       <UniqueIdentifier>B7E9B002-9A83-BB73-7329-6FB376936FE8</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\notificationscreen_screen">
+      <UniqueIdentifier>72FDE733-A9B5-2CBF-F5D0-94B32C0EF9D2</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\notificationscreen_screen">
+      <UniqueIdentifier>7AE6424C-CF07-30E9-C009-3A82FB355478</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\notificationscreen_screen">
+      <UniqueIdentifier>7D88AC6F-4966-DC56-6951-9DC798916494</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\notificationscreen_screen">
+      <UniqueIdentifier>90FC7242-F677-4E90-7E86-ACCCF58036EA</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -245,6 +257,15 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\bootscreen_screen\BootScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\bootscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\notificationscreen_screen\NotificationScreenPresenter.cpp">
+      <Filter>Source Files\gui\notificationscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\notificationscreen_screen\NotificationScreenView.cpp">
+      <Filter>Source Files\gui\notificationscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\notificationscreen_screen\NotificationScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\notificationscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -705,6 +726,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\bootscreen_screen\BootScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\bootscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenPresenter.hpp">
+      <Filter>Header Files\gui\notificationscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenView.hpp">
+      <Filter>Header Files\gui\notificationscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\notificationscreen_screen\NotificationScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\notificationscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

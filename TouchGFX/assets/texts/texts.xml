@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_IKMT" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">MESSAGE</Translation>
+      </Text>
+      <Text Id="__SingleUse_KFWH" Alignment="Center" TypographyId="Big">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_802D" Alignment="Right" TypographyId="Tiny">
         <Translation Language="GB">BEST LAP</Translation>
       </Text>
@@ -122,6 +128,7 @@
     <Typography Id="Small" Font="Rubik-Regular.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="0-9" />
     <Typography Id="Normal" Font="Rubik-Regular.ttf" Size="32" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789+-:." WildcardCharacterRanges="0-9" />
     <Typography Id="Medium" Font="Rubik-Regular.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789." WildcardCharacterRanges="0-9" />
+    <Typography Id="Big" Font="Rubik-Regular.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
     <Typography Id="Large" Font="Rubik-Bold.ttf" Size="120" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

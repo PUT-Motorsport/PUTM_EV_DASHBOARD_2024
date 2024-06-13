@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>Riverdi_50STM32U5A9</name>
-	<comment></comment>
+	<comment/>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -465,19 +465,149 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/usb_otg.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/TouchGFX/App/app_touchgfx.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/App/app_touchgfx.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/STM32TouchController.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/STM32TouchController.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/TouchGFXGPIO.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/TouchGFXGPIO.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/TouchGFXHAL.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/TouchGFXHAL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/generated/OSWrappers.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/OSWrappers.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/generated/STM32DMA.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/STM32DMA.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/generated/TouchGFXConfiguration.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/TouchGFXConfiguration.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/TouchGFXGeneratedHAL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/TouchGFX/target/generated/nema_hal.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/nema_hal.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/cmsis_os2.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/croutine.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/croutine.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/event_groups.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/list.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/list.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/port.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/port.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/portasm.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/queue.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/queue.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/stream_buffer.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/tasks.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/tasks.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/timers.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/timers.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/RTOS2/CMSIS/RTOS2/Heap/Heap_4/heap_4.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/BootScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/bootscreen_screen/BootScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/BootScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/bootscreen_screen/BootScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/FrontendApplication.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/MainScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/mainscreen_screen/MainScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/MainScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/mainscreen_screen/MainScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/Model.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/model/Model.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/NotificationScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/notificationscreen_screen/NotificationScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/NotificationScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/notificationscreen_screen/NotificationScreenView.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/ApplicationFontProvider.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/BitmapDatabase.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/BitmapDatabase.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/BootScreenViewBase.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/bootscreen_screen/BootScreenViewBase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/CachedFont.cpp</name>
@@ -515,14 +645,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Rubik_Regular_40_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Font_Rubik_Regular_80_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Rubik_Regular_80_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Font_verdana_10_4bpp_0.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_10_4bpp_0.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/FrontendApplicationBase.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/GeneratedFont.cpp</name>
@@ -555,24 +685,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Rubik_Regular_40_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Kerning_Rubik_Regular_80_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Rubik_Regular_80_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Kerning_verdana_10_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_10_4bpp.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/LanguageGb.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/LanguageGb.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/MainScreenViewBase.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/mainscreen_screen/MainScreenViewBase.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/SVGDatabase.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_Rubik_Bold_120_4bpp.cpp</name>
@@ -600,19 +720,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Rubik_Regular_40_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Table_Rubik_Regular_80_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Rubik_Regular_80_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Table_verdana_10_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_10_4bpp.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/Texts.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/Texts.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/TypedTextDatabase.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/TypedTextDatabase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/UnmappedDataFont.cpp</name>
@@ -625,6 +740,41 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/BootScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/bootscreen_screen/BootScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/FrontendApplicationBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/MainScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/mainscreen_screen/MainScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/NotificationScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/notificationscreen_screen/NotificationScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/BitmapDatabase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/BitmapDatabase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/SVGDatabase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_alternate_theme_images_widgets_boxprogress_normal_small.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_boxprogress_normal_small.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_PUTM_Logo.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_PUTM_Logo.cpp</locationURI>
@@ -633,11 +783,6 @@
 			<name>Application/User/generated/image_PUTM_intro_140.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_PUTM_intro_140.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_alternate_theme_images_widgets_boxprogress_normal_small.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_boxprogress_normal_small.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_battery.cpp</name>
@@ -795,134 +940,19 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_warn_on.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/BootScreenPresenter.cpp</name>
+			<name>Application/User/generated/LanguageGb.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/bootscreen_screen/BootScreenPresenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/LanguageGb.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/BootScreenView.cpp</name>
+			<name>Application/User/generated/Texts.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/bootscreen_screen/BootScreenView.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/Texts.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/FrontendApplication.cpp</name>
+			<name>Application/User/generated/TypedTextDatabase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/gui/MainScreenPresenter.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/mainscreen_screen/MainScreenPresenter.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/gui/MainScreenView.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/mainscreen_screen/MainScreenView.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/gui/Model.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/model/Model.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/App/app_touchgfx.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/App/app_touchgfx.c</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/STM32TouchController.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/STM32TouchController.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/TouchGFXGPIO.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/TouchGFXGPIO.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/TouchGFXHAL.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/TouchGFXHAL.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/generated/OSWrappers.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/OSWrappers.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/generated/STM32DMA.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/STM32DMA.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/generated/TouchGFXConfiguration.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/TouchGFXConfiguration.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/TouchGFXGeneratedHAL.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/TouchGFX/target/generated/nema_hal.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/target/generated/nema_hal.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/cmsis_os2.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/croutine.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/croutine.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/event_groups.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/list.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/list.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/port.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/port.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/portasm.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM33_NTZ/non_secure/portasm.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/queue.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/queue.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/stream_buffer.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/tasks.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/tasks.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Core/TZ_Non_Supported/timers.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/timers.c</locationURI>
-		</link>
-		<link>
-			<name>Middlewares/RTOS2/CMSIS/RTOS2/Heap/Heap_4/heap_4.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/TypedTextDatabase.cpp</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

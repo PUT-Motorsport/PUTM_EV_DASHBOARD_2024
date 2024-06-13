@@ -27,6 +27,9 @@
     <ClCompile Include="..\..\gui\src\bootscreen_screen\BootScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\bootscreen_screen\BootScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\bootscreen_screen\BootScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\notificationscreen_screen\NotificationScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\notificationscreen_screen\NotificationScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\notificationscreen_screen\NotificationScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -183,6 +186,9 @@
     <ClInclude Include="..\..\gui\include\gui\bootscreen_screen\BootScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\bootscreen_screen\BootScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\bootscreen_screen\BootScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\notificationscreen_screen\NotificationScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>
