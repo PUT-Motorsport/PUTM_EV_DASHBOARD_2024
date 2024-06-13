@@ -27,7 +27,7 @@ void MainScreenView::updateClock(uint32_t time) {
 
 void MainScreenView::updateConnection(bool status) {
 	if(status) {
-		connIcon.setBitmap(Bitmap(BITMAP_CONN_OFF_ID));
+		connIcon.setBitmap(Bitmap(BITMAP_CONN_ON_ID));
 	} else {
 		connIcon.setBitmap(Bitmap(BITMAP_CONN_OFF_ID));
 	}
@@ -37,8 +37,10 @@ void MainScreenView::updateConnection(bool status) {
 
 void MainScreenView::updateWarning(bool status) {
 	if(status) {
+		m_warning = true;
 		warnIcon.setBitmap(Bitmap(BITMAP_WARN_ON_ID));
 	} else {
+		m_warning = false;
 		warnIcon.setBitmap(Bitmap(BITMAP_WARN_OFF_ID));
 		warnIcon.setVisible(true);
 	}
@@ -249,6 +251,13 @@ void MainScreenView::updateBestLap(uint32_t time) {
 }
 
 void MainScreenView::toggleWarning() {
-    warnIcon.isVisible() ? warnIcon.setVisible(false) : warnIcon.setVisible(true);
-    warnIcon.invalidate();
+	if(m_time > 9) {
+		if(m_warning) {
+			warnIcon.isVisible() ? warnIcon.setVisible(false) : warnIcon.setVisible(true);
+			warnIcon.invalidate();
+		}
+		m_time = 0;
+	} else {
+		m_time++;
+	}
 }

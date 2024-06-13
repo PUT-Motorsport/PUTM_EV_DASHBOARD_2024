@@ -50,15 +50,10 @@ public:
 
     void toggleElements();
 
-    void setToggleWarning(bool toggle);
-
 private:
     MainScreenPresenter();
 
     MainScreenView& view;
-
-    unsigned int m_time;
-    bool m_toggleWarning;
 };
 
 #endif // MAINSCREENPRESENTER_HPP

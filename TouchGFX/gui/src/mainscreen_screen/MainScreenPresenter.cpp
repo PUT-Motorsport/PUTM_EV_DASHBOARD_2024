@@ -100,14 +100,5 @@ void MainScreenPresenter::setBestLap(uint32_t time) {
 }
 
 void MainScreenPresenter::toggleElements() {
-	if(m_time > 10) {
-		view.toggleWarning();
-		m_time = 0;
-	}
-	m_time++;
+	view.toggleWarning();
 }
-
-void MainScreenPresenter::setToggleWarning(bool toggle) {
-    m_toggleWarning = toggle;
-}
-

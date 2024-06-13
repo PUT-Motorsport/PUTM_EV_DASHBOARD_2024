@@ -38,6 +38,8 @@ public:
 protected:
 
 private:
+    unsigned int m_time;
+    bool m_warning;
 };
 
 #endif // MAINSCREENVIEW_HPP
