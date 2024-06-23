@@ -1,26 +1,28 @@
 #include "interface_task.h"
+#include "FreeRTOS.h"
 #include "cmsis_os2.h"
 #include "data.h"
-#include "fdcan.h"
+#include "gpio.h"
+#include "main.h"
 
 extern InterfaceData_TypeDef interfaceData;
 
 void Interface_Task(void* argument) {
     for(;;) {
         // LEDs
-        if(interfaceData.ams_led) {
+        if(interfaceData.ams_led || interfaceData.led_test) {
             HAL_GPIO_WritePin(AMS_LED_GPIO_Port, AMS_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(AMS_LED_GPIO_Port, AMS_LED_Pin, GPIO_PIN_RESET);
         }
 
-        if(interfaceData.safety_led) {
+        if(interfaceData.safety_led || interfaceData.led_test) {
             HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_RESET);
         }
 
-        if(interfaceData.fuse_led) {
+        if(interfaceData.fuse_led || interfaceData.led_test) {
             HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_RESET);
@@ -60,6 +62,6 @@ void Interface_Task(void* argument) {
             interfaceData.usr_timer = 0;
         }
 
-        osDelay(DASH_BUTTON_POOLING_RATE);
+        osDelay(pdMS_TO_TICKS(DASH_BUTTON_POOLING_RATE));
     }
 }

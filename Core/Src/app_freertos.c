@@ -27,6 +27,7 @@
 #include "communication_task.h"
 #include "data.h"
 #include "interface_task.h"
+#include "led_test_task.h"
 #include "timer_task.h"
 /* USER CODE END Includes */
 
@@ -61,6 +62,9 @@ const osThreadAttr_t communicationTask_attributes = {.name = "communicationTask"
 /* Definitions for interfaceTask */
 osThreadId_t interfaceTaskHandle;
 const osThreadAttr_t interfaceTask_attributes = {.name = "interfaceTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
+/* Definitions for ledTestTask */
+osThreadId_t ledTestTaskHandle;
+const osThreadAttr_t ledTestTask_attributes = {.name = "ledTestTask", .priority = (osPriority_t)osPriorityLow, .stack_size = 128 * 4};
 /* Definitions for sharedDataMutex */
 osMutexId_t sharedDataMutexHandle;
 const osMutexAttr_t sharedDataMutex_attributes = {.name = "sharedDataMutex"};
@@ -77,6 +81,7 @@ extern void Timer_Task(void* argument);
 extern void TouchGFX_Task(void* argument);
 extern void Communication_Task(void* argument);
 extern void Interface_Task(void* argument);
+extern void Led_Test_Task(void* argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -163,6 +168,9 @@ void MX_FREERTOS_Init(void) {
 
     /* creation of interfaceTask */
     interfaceTaskHandle = osThreadNew(Interface_Task, NULL, &interfaceTask_attributes);
+
+    /* creation of ledTestTask */
+    ledTestTaskHandle = osThreadNew(Led_Test_Task, NULL, &ledTestTask_attributes);
 
     /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */

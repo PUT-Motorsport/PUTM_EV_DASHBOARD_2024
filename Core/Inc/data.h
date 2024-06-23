@@ -1,6 +1,6 @@
 /**
  ******************************************************************************
- * @file           : dash.h
+ * @file           : data.h
  * @brief          : Dashboard data
  *
  ******************************************************************************
@@ -43,6 +43,7 @@ typedef struct {
 } TimerData_TypeDef;
 
 typedef struct {
+    _Bool led_test;
     _Bool ams_led;
     _Bool fuse_led;
     _Bool safety_led;
