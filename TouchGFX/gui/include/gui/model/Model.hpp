@@ -23,6 +23,7 @@ private:
     Data_TypeDef m_sharedDataPrev;
     TimerData_TypeDef m_timerData;
     TimerData_TypeDef m_timerDataPrev;
+    bool m_firstIter = true;
 };
 
 #endif // MODEL_HPP
