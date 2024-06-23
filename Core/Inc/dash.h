@@ -48,9 +48,9 @@ typedef struct {
 	_Bool rtd_button;
 	_Bool tsa_button;
 	_Bool usr_button;
-	_Bool rtd_button_prev;
-	_Bool tsa_button_prev;
-	_Bool usr_button_prev;
+	_Bool previous_rtd_button;
+	_Bool previous_tsa_button;
+	_Bool previous_usr_button;
 	uint32_t rtd_timer;
 	uint32_t tsa_timer;
 	uint32_t usr_timer;
