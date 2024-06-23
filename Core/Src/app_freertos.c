@@ -133,7 +133,7 @@ const osMutexAttr_t timerDataMutex_attributes = {
 
 /* USER CODE END FunctionPrototypes */
 
-void Timer_Task(void *argument);
+extern void Timer_Task(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void Communication_Task(void *argument);
 extern void Interface_Task(void *argument);
@@ -232,26 +232,6 @@ void MX_FREERTOS_Init(void) {
 	/* add events, ... */
   /* USER CODE END RTOS_EVENTS */
 
-}
-/* USER CODE BEGIN Header_Timer_Task */
-/**
-* @brief Function implementing the timerTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_Timer_Task */
-void Timer_Task(void *argument)
-{
-  /* USER CODE BEGIN timerTask */
-  /* Infinite loop */
-	for(;;) {
-        if(osMutexAcquire(timerDataMutexHandle, osWaitForever) == osOK) {
-
-            osMutexRelease(timerDataMutexHandle);
-        }
-		osDelay(100);
-	}
-  /* USER CODE END timerTask */
 }
 
 /* Private application code --------------------------------------------------*/
