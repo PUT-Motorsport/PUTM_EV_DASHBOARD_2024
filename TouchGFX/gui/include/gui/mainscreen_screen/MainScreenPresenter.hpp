@@ -31,6 +31,8 @@ public:
     void setConnection(bool status);
     void setWarning(bool status);
     void setRadio(bool status);
+    void setReadyToDrive(bool status);
+    void setInvertersReady(bool status);
     void setBatteryTemperature(uint8_t temperature);
     void setInverterTemperature(uint8_t temperature);
     void setOilTemperature(uint8_t temperature);

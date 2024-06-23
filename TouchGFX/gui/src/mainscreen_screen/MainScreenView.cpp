@@ -56,6 +56,24 @@ void MainScreenView::updateRadio(bool status) {
 	radioIcon.invalidate();
 }
 
+void MainScreenView::updateReadyToDrive(bool status) {
+	if(status) {
+		rtdText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	} else {
+		rtdText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+	}
+	rtdText.invalidate();
+}
+
+void MainScreenView::updateInvertersReady(bool status) {
+	if(status) {
+		invText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	} else {
+		invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+	}
+	invText.invalidate();
+}
+
 void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
 	Unicode::snprintf(batTempTextBuffer, BATTEMPTEXT_SIZE, "%d", temperature);
 	if(temperature > 50) {

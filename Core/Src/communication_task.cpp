@@ -44,6 +44,8 @@ void Communication_Task(void *argument) {
 			auto pc_data = PUTM_CAN::can.get_pc_main_data();
 			if (osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.speed = pc_data.vehicleSpeed;
+				sharedData.ready_to_drive = pc_data.rtd;
+				sharedData.inverters_ready = pc_data.inverters_ready;
 				sharedData.inverter_temperature = std::max(
 						std::max(pc_data.frontLeftInverterTemperature,
 								pc_data.frontRightInverterTemperature),
@@ -82,7 +84,7 @@ void Communication_Task(void *argument) {
 			}
 		}
 
-		// Reset the watchdog
+		// TODO: Reset the watchdog
 		//HAL_IWDG_Refresh(&hiwdg);
 
 		osDelay(100);

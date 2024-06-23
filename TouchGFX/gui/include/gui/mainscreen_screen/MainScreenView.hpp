@@ -16,6 +16,8 @@ public:
     void updateConnection(bool status);
     void updateWarning(bool status);
     void updateRadio(bool status);
+    void updateReadyToDrive(bool status);
+    void updateInvertersReady(bool status);
     void updateBatteryTemperature(uint8_t temperature);
     void updateInverterTemperature(uint8_t temperature);
     void updateOilTemperature(uint8_t temperature);

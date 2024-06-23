@@ -19,6 +19,8 @@ typedef struct {
 	_Bool warning;
 	_Bool connection;
 	_Bool radio;
+	_Bool ready_to_drive;
+	_Bool inverters_ready;
 	uint8_t battery_temperature;
 	uint8_t inverter_temperature;
 	uint8_t oil_temperature;

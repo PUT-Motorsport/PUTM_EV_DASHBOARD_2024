@@ -35,6 +35,14 @@ void MainScreenPresenter::setRadio(bool status) {
     view.updateRadio(status);
 }
 
+void MainScreenPresenter::setReadyToDrive(bool status) {
+    view.updateReadyToDrive(status);
+}
+
+void MainScreenPresenter::setInvertersReady(bool status) {
+    view.updateInvertersReady(status);
+}
+
 void MainScreenPresenter::setBatteryTemperature(uint8_t temperature) {
     view.updateBatteryTemperature(temperature);
 }

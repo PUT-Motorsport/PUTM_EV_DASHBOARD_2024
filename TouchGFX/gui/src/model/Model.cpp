@@ -46,6 +46,18 @@ void Model::tick() {
 				modelListener->setRadio(m_sharedData.radio);
 			}
 
+			if (memcmp(&m_sharedData.ready_to_drive, &m_sharedDataPrev.ready_to_drive,
+					sizeof(m_sharedData.ready_to_drive)) != 0) {
+				m_sharedDataPrev.ready_to_drive = m_sharedData.ready_to_drive;
+				modelListener->setReadyToDrive(m_sharedData.ready_to_drive);
+			}
+
+			if (memcmp(&m_sharedData.inverters_ready, &m_sharedDataPrev.inverters_ready,
+					sizeof(m_sharedData.inverters_ready)) != 0) {
+				m_sharedDataPrev.inverters_ready = m_sharedData.inverters_ready;
+				modelListener->setInvertersReady(m_sharedData.inverters_ready);
+			}
+
 			if (memcmp(&m_sharedData.battery_temperature,
 					&m_sharedDataPrev.battery_temperature,
 					sizeof(m_sharedData.battery_temperature)) != 0) {

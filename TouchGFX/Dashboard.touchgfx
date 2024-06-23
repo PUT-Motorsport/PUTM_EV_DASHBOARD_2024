@@ -56,6 +56,42 @@
             "Fadeable": true
           },
           {
+            "Type": "TextArea",
+            "Name": "rtdText",
+            "X": 625,
+            "Y": 405,
+            "Width": 77,
+            "Height": 48,
+            "LockPosition": true,
+            "TextId": "__SingleUse_ZXJZ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "invText",
+            "X": 106,
+            "Y": 405,
+            "Width": 65,
+            "Height": 48,
+            "LockPosition": true,
+            "TextId": "__SingleUse_Q3ZW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
             "Type": "Container",
             "Name": "timerContainer",
             "X": 553,
@@ -657,13 +693,13 @@
         ],
         "Interactions": [
           {
-            "InteractionName": "LogoFade",
+            "InteractionName": "ElementsFade",
             "Trigger": {
               "Type": "TriggerScreenEntered"
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Code": "logo.clearFadeAnimationEndedAction();\r\nlogo.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);"
+              "Code": "logo.clearFadeAnimationEndedAction();\r\nlogo.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);\r\n\r\ninvText.clearFadeAnimationEndedAction();\r\ninvText.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);\r\n\r\nrtdText.clearFadeAnimationEndedAction();\r\nrtdText.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);"
             }
           },
           {
@@ -793,6 +829,32 @@
               "EasingOption": "Out",
               "Duration": 600,
               "ActionComponent": "timerContainer"
+            }
+          },
+          {
+            "InteractionName": "InvAlpha",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionFade",
+              "Alpha": 0,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "invText"
+            }
+          },
+          {
+            "InteractionName": "RtdAlpha",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionFade",
+              "Alpha": 0,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "rtdText"
             }
           }
         ]

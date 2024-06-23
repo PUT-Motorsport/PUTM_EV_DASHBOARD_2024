@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_Q3ZW" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">INV</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZXJZ" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">RTD</Translation>
+      </Text>
       <Text Id="__SingleUse_IKMT" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">MESSAGE</Translation>
       </Text>
