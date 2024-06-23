@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void Timer_Task(void *argument);
+void Timer_Task(void* argument);
 
 #ifdef __cplusplus
 }

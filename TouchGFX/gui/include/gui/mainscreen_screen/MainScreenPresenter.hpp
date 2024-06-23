@@ -8,9 +8,8 @@ using namespace touchgfx;
 
 class MainScreenView;
 
-class MainScreenPresenter : public touchgfx::Presenter, public ModelListener
-{
-public:
+class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
+  public:
     MainScreenPresenter(MainScreenView& v);
 
     /**
@@ -52,10 +51,10 @@ public:
 
     void toggleElements();
 
-private:
+  private:
     MainScreenPresenter();
 
     MainScreenView& view;
 };
 
-#endif // MAINSCREENPRESENTER_HPP
+#endif  // MAINSCREENPRESENTER_HPP

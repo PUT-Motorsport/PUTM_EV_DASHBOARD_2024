@@ -1,23 +1,23 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : STM32TouchController.hpp
-  ******************************************************************************
-  * This file was created by TouchGFX Generator 4.23.1. This file is only
-  * generated once! Delete this file from your project and re-generate code
-  * using STM32CubeMX or change this file manually to update it.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : STM32TouchController.hpp
+ ******************************************************************************
+ * This file was created by TouchGFX Generator 4.23.1. This file is only
+ * generated once! Delete this file from your project and re-generate code
+ * using STM32CubeMX or change this file manually to update it.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* USER CODE BEGIN STM32TouchController */
@@ -35,10 +35,8 @@
  * @sa touchgfx::TouchController
  */
 
-class STM32TouchController : public touchgfx::TouchController
-{
-public:
-
+class STM32TouchController : public touchgfx::TouchController {
+  public:
     STM32TouchController() {}
 
     /**
@@ -65,7 +63,7 @@ public:
     virtual bool sampleTouch(int32_t& x, int32_t& y);
 };
 
-#endif // STM32TOUCHCONTROLLER_HPP
+#endif  // STM32TOUCHCONTROLLER_HPP
 
 /* USER CODE END STM32TouchController */
 

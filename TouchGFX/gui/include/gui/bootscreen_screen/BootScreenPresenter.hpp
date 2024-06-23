@@ -8,9 +8,8 @@ using namespace touchgfx;
 
 class BootScreenView;
 
-class BootScreenPresenter : public touchgfx::Presenter, public ModelListener
-{
-public:
+class BootScreenPresenter : public touchgfx::Presenter, public ModelListener {
+  public:
     BootScreenPresenter(BootScreenView& v);
 
     /**
@@ -27,10 +26,10 @@ public:
 
     virtual ~BootScreenPresenter() {}
 
-private:
+  private:
     BootScreenPresenter();
 
     BootScreenView& view;
 };
 
-#endif // BOOTSCREENPRESENTER_HPP
+#endif  // BOOTSCREENPRESENTER_HPP

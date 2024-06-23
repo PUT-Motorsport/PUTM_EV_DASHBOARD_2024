@@ -1,0 +1,10 @@
+---
+BasedOnStyle: LLVM
+AlignEscapedNewlines: Left
+IndentWidth: 4
+IndentWrappedFunctionNames: true
+PointerAlignment: Left
+SpacesBeforeTrailingComments: 2
+SpaceBeforeParens: Never
+ColumnLimit: 160
+...

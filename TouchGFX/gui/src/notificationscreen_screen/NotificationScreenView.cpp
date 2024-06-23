@@ -1,16 +1,7 @@
 #include <gui/notificationscreen_screen/NotificationScreenView.hpp>
 
-NotificationScreenView::NotificationScreenView()
-{
+NotificationScreenView::NotificationScreenView() {}
 
-}
+void NotificationScreenView::setupScreen() { NotificationScreenViewBase::setupScreen(); }
 
-void NotificationScreenView::setupScreen()
-{
-    NotificationScreenViewBase::setupScreen();
-}
-
-void NotificationScreenView::tearDownScreen()
-{
-    NotificationScreenViewBase::tearDownScreen();
-}
+void NotificationScreenView::tearDownScreen() { NotificationScreenViewBase::tearDownScreen(); }

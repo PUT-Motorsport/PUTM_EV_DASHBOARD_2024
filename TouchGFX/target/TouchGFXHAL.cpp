@@ -1,23 +1,23 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : TouchGFXHAL.cpp
-  ******************************************************************************
-  * This file was created by TouchGFX Generator 4.23.1. This file is only
-  * generated once! Delete this file from your project and re-generate code
-  * using STM32CubeMX or change this file manually to update it.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : TouchGFXHAL.cpp
+ ******************************************************************************
+ * This file was created by TouchGFX Generator 4.23.1. This file is only
+ * generated once! Delete this file from your project and re-generate code
+ * using STM32CubeMX or change this file manually to update it.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #include <TouchGFXHAL.hpp>
@@ -26,8 +26,7 @@
 
 using namespace touchgfx;
 
-void TouchGFXHAL::initialize()
-{
+void TouchGFXHAL::initialize() {
     // Calling parent implementation of initialize().
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -42,8 +41,7 @@ void TouchGFXHAL::initialize()
  *
  * @return The address of the frame buffer currently being displayed on the TFT.
  */
-uint16_t* TouchGFXHAL::getTFTFrameBuffer() const
-{
+uint16_t* TouchGFXHAL::getTFTFrameBuffer() const {
     // Calling parent implementation of getTFTFrameBuffer().
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -57,8 +55,7 @@ uint16_t* TouchGFXHAL::getTFTFrameBuffer() const
  *
  * @param [in] address New frame buffer address.
  */
-void TouchGFXHAL::setTFTFrameBuffer(uint16_t* address)
-{
+void TouchGFXHAL::setTFTFrameBuffer(uint16_t* address) {
     // Calling parent implementation of setTFTFrameBuffer(uint16_t* address).
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -74,8 +71,7 @@ void TouchGFXHAL::setTFTFrameBuffer(uint16_t* address)
  *
  * @see flushFrameBuffer().
  */
-void TouchGFXHAL::flushFrameBuffer(const touchgfx::Rect& rect)
-{
+void TouchGFXHAL::flushFrameBuffer(const touchgfx::Rect& rect) {
     // Calling parent implementation of flushFrameBuffer(const touchgfx::Rect& rect).
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -89,17 +85,13 @@ void TouchGFXHAL::flushFrameBuffer(const touchgfx::Rect& rect)
     TouchGFXGeneratedHAL::flushFrameBuffer(rect);
 }
 
-bool TouchGFXHAL::blockCopy(void* RESTRICT dest, const void* RESTRICT src, uint32_t numBytes)
-{
-    return TouchGFXGeneratedHAL::blockCopy(dest, src, numBytes);
-}
+bool TouchGFXHAL::blockCopy(void* RESTRICT dest, const void* RESTRICT src, uint32_t numBytes) { return TouchGFXGeneratedHAL::blockCopy(dest, src, numBytes); }
 
 /**
  * Configures the interrupts relevant for TouchGFX. This primarily entails setting
  * the interrupt priorities for the DMA and LCD interrupts.
  */
-void TouchGFXHAL::configureInterrupts()
-{
+void TouchGFXHAL::configureInterrupts() {
     // Calling parent implementation of configureInterrupts().
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -111,8 +103,7 @@ void TouchGFXHAL::configureInterrupts()
 /**
  * Used for enabling interrupts set in configureInterrupts()
  */
-void TouchGFXHAL::enableInterrupts()
-{
+void TouchGFXHAL::enableInterrupts() {
     // Calling parent implementation of enableInterrupts().
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -124,8 +115,7 @@ void TouchGFXHAL::enableInterrupts()
 /**
  * Used for disabling interrupts set in configureInterrupts()
  */
-void TouchGFXHAL::disableInterrupts()
-{
+void TouchGFXHAL::disableInterrupts() {
     // Calling parent implementation of disableInterrupts().
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -138,8 +128,7 @@ void TouchGFXHAL::disableInterrupts()
  * Configure the LCD controller to fire interrupts at VSYNC. Called automatically
  * once TouchGFX initialization has completed.
  */
-void TouchGFXHAL::enableLCDControllerInterrupt()
-{
+void TouchGFXHAL::enableLCDControllerInterrupt() {
     // Calling parent implementation of enableLCDControllerInterrupt().
     //
     // To overwrite the generated implementation, omit call to parent function
@@ -148,15 +137,9 @@ void TouchGFXHAL::enableLCDControllerInterrupt()
     TouchGFXGeneratedHAL::enableLCDControllerInterrupt();
 }
 
-bool TouchGFXHAL::beginFrame()
-{
-    return TouchGFXGeneratedHAL::beginFrame();
-}
+bool TouchGFXHAL::beginFrame() { return TouchGFXGeneratedHAL::beginFrame(); }
 
-void TouchGFXHAL::endFrame()
-{
-    TouchGFXGeneratedHAL::endFrame();
-}
+void TouchGFXHAL::endFrame() { TouchGFXGeneratedHAL::endFrame(); }
 
 /* USER CODE END TouchGFXHAL.cpp */
 

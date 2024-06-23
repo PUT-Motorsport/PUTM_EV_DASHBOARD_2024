@@ -1,23 +1,23 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : TouchGFXHAL.hpp
-  ******************************************************************************
-  * This file was created by TouchGFX Generator 4.23.1. This file is only
-  * generated once! Delete this file from your project and re-generate code
-  * using STM32CubeMX or change this file manually to update it.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : TouchGFXHAL.hpp
+ ******************************************************************************
+ * This file was created by TouchGFX Generator 4.23.1. This file is only
+ * generated once! Delete this file from your project and re-generate code
+ * using STM32CubeMX or change this file manually to update it.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 #ifndef TouchGFXHAL_HPP
 #define TouchGFXHAL_HPP
@@ -33,11 +33,11 @@
  *
  * @sa HAL
  */
-class TouchGFXHAL : public TouchGFXGeneratedHAL
-{
-public:
+class TouchGFXHAL : public TouchGFXGeneratedHAL {
+  public:
     /**
-     * @fn TouchGFXHAL::TouchGFXHAL(touchgfx::DMA_Interface& dma, touchgfx::LCD& display, touchgfx::TouchController& tc, uint16_t width, uint16_t height) : TouchGFXGeneratedHAL(dma, display, tc, width, height)
+     * @fn TouchGFXHAL::TouchGFXHAL(touchgfx::DMA_Interface& dma, touchgfx::LCD& display, touchgfx::TouchController& tc, uint16_t width, uint16_t height) :
+     * TouchGFXGeneratedHAL(dma, display, tc, width, height)
      *
      * @brief Constructor.
      *
@@ -49,9 +49,8 @@ public:
      * @param width            Width of the display.
      * @param height           Height of the display.
      */
-    TouchGFXHAL(touchgfx::DMA_Interface& dma, touchgfx::LCD& display, touchgfx::TouchController& tc, uint16_t width, uint16_t height) : TouchGFXGeneratedHAL(dma, display, tc, width, height)
-    {
-    }
+    TouchGFXHAL(touchgfx::DMA_Interface& dma, touchgfx::LCD& display, touchgfx::TouchController& tc, uint16_t width, uint16_t height)
+        : TouchGFXGeneratedHAL(dma, display, tc, width, height) {}
 
     virtual void initialize();
 
@@ -105,10 +104,7 @@ public:
      * Rect version.
      * @see HAL::flushFrameBuffer
      */
-    virtual void flushFrameBuffer()
-    {
-        TouchGFXGeneratedHAL::flushFrameBuffer();
-    }
+    virtual void flushFrameBuffer() { TouchGFXGeneratedHAL::flushFrameBuffer(); }
 
     /**
      * @fn virtual void TouchGFXHAL::flushFrameBuffer(const Rect& rect);
@@ -140,7 +136,7 @@ public:
      */
     virtual bool blockCopy(void* RESTRICT dest, const void* RESTRICT src, uint32_t numBytes);
 
-protected:
+  protected:
     /**
      * @fn virtual uint16_t* TouchGFXHAL::getTFTFrameBuffer() const;
      *
@@ -166,6 +162,6 @@ protected:
 
 /* USER CODE END TouchGFXHAL.hpp */
 
-#endif // TouchGFXHAL_HPP
+#endif  // TouchGFXHAL_HPP
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -1,29 +1,27 @@
-#include <platform/hal/simulator/sdl2/HALSDL2.hpp>
-#include <touchgfx/hal/NoDMA.hpp>
 #include <common/TouchGFXInit.hpp>
 #include <gui_generated/common/SimConstants.hpp>
 #include <platform/driver/touch/SDL2TouchController.hpp>
-#include <touchgfx/lcd/LCD.hpp>
-#include <stdlib.h>
+#include <platform/hal/simulator/sdl2/HALSDL2.hpp>
 #include <simulator/mainBase.hpp>
+#include <stdlib.h>
+#include <touchgfx/hal/NoDMA.hpp>
+#include <touchgfx/lcd/LCD.hpp>
 
 using namespace touchgfx;
 
 #ifdef __linux__
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
 #else
 #include <shellapi.h>
 #ifdef _UNICODE
 #error Cannot run in unicode mode
 #endif
-int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{
+int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     int argc;
     char** argv = touchgfx::HALSDL2::getArgv(&argc);
 #endif
 
-    touchgfx::NoDMA dma; //For windows/linux, DMA transfers are simulated
+    touchgfx::NoDMA dma;  // For windows/linux, DMA transfers are simulated
     LCD& lcd = setupLCD();
     touchgfx::SDL2TouchController tc;
 
@@ -36,9 +34,9 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     // Alternatively, instead of using printf(), always use
     // touchgfx_printf() which will ensure there is a console to write
     // to.
-    //touchgfx_enable_stdio();
+    // touchgfx_enable_stdio();
 
-    touchgfx::HAL::getInstance()->taskEntry(); //Never returns
+    touchgfx::HAL::getInstance()->taskEntry();  // Never returns
 
     return EXIT_SUCCESS;
 }

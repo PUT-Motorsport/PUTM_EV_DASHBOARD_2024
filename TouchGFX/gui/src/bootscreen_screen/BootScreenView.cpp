@@ -1,16 +1,7 @@
 #include <gui/bootscreen_screen/BootScreenView.hpp>
 
-BootScreenView::BootScreenView()
-{
+BootScreenView::BootScreenView() {}
 
-}
+void BootScreenView::setupScreen() { BootScreenViewBase::setupScreen(); }
 
-void BootScreenView::setupScreen()
-{
-    BootScreenViewBase::setupScreen();
-}
-
-void BootScreenView::tearDownScreen()
-{
-    BootScreenViewBase::tearDownScreen();
-}
+void BootScreenView::tearDownScreen() { BootScreenViewBase::tearDownScreen(); }

@@ -1,23 +1,23 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * File Name          : TouchGFXGPIO.cpp
-  ******************************************************************************
-  * This file was created by TouchGFX Generator 4.23.1. This file is only
-  * generated once! Delete this file from your project and re-generate code
-  * using STM32CubeMX or change this file manually to update it.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * File Name          : TouchGFXGPIO.cpp
+ ******************************************************************************
+ * This file was created by TouchGFX Generator 4.23.1. This file is only
+ * generated once! Delete this file from your project and re-generate code
+ * using STM32CubeMX or change this file manually to update it.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 #include <touchgfx/hal/GPIO.hpp>
@@ -44,18 +44,13 @@ using namespace touchgfx;
 /*
  * Perform configuration of IO pins.
  */
-void GPIO::init()
-{
-
-}
+void GPIO::init() {}
 
 /*
  * Sets a pin high.
  */
-void GPIO::set(GPIO_ID id)
-{
-    switch (id)
-    {
+void GPIO::set(GPIO_ID id) {
+    switch(id) {
     case GPIO::VSYNC_FREQ:
 #if defined(VSYNC_FREQ_GPIO_Port) && defined(VSYNC_FREQ_Pin)
         HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_SET);
@@ -82,10 +77,8 @@ void GPIO::set(GPIO_ID id)
 /*
  * Sets a pin low.
  */
-void GPIO::clear(GPIO_ID id)
-{
-    switch (id)
-    {
+void GPIO::clear(GPIO_ID id) {
+    switch(id) {
     case GPIO::VSYNC_FREQ:
 #if defined(VSYNC_FREQ_GPIO_Port) && defined(VSYNC_FREQ_Pin)
         HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
@@ -112,10 +105,8 @@ void GPIO::clear(GPIO_ID id)
 /*
  * Toggles a pin.
  */
-void GPIO::toggle(GPIO_ID id)
-{
-    switch (id)
-    {
+void GPIO::toggle(GPIO_ID id) {
+    switch(id) {
     case GPIO::VSYNC_FREQ:
 #if defined(VSYNC_FREQ_GPIO_Port) && defined(VSYNC_FREQ_Pin)
         HAL_GPIO_TogglePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin);
@@ -142,11 +133,9 @@ void GPIO::toggle(GPIO_ID id)
 /*
  * Gets the state of a pin.
  */
-bool GPIO::get(GPIO_ID id)
-{
+bool GPIO::get(GPIO_ID id) {
     GPIO_PinState bitstatus = GPIO_PIN_RESET;
-    switch (id)
-    {
+    switch(id) {
     case GPIO::VSYNC_FREQ:
 #if defined(VSYNC_FREQ_GPIO_Port) && defined(VSYNC_FREQ_Pin)
         bitstatus = HAL_GPIO_ReadPin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin);

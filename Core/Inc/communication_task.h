@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void Communication_Task(void *argument);
+void Communication_Task(void* argument);
 
 #ifdef __cplusplus
 }

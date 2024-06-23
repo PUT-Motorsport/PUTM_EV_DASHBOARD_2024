@@ -5,20 +5,18 @@
 
 class ModelListener;
 
-class Model
-{
-public:
+class Model {
+  public:
     Model();
 
-    void bind(ModelListener* listener)
-    {
-        modelListener = listener;
-    }
+    void bind(ModelListener* listener) { modelListener = listener; }
 
     void tick();
-protected:
+
+  protected:
     ModelListener* modelListener;
-private:
+
+  private:
     Data_TypeDef m_sharedData;
     Data_TypeDef m_sharedDataPrev;
     TimerData_TypeDef m_timerData;
@@ -26,4 +24,4 @@ private:
     bool m_firstIter = true;
 };
 
-#endif // MODEL_HPP
+#endif  // MODEL_HPP

@@ -1,12 +1,11 @@
 #ifndef MAINSCREENVIEW_HPP
 #define MAINSCREENVIEW_HPP
 
-#include <gui_generated/mainscreen_screen/MainScreenViewBase.hpp>
 #include <gui/mainscreen_screen/MainScreenPresenter.hpp>
+#include <gui_generated/mainscreen_screen/MainScreenViewBase.hpp>
 
-class MainScreenView : public MainScreenViewBase
-{
-public:
+class MainScreenView : public MainScreenViewBase {
+  public:
     MainScreenView();
     virtual ~MainScreenView() {}
     virtual void setupScreen();
@@ -37,11 +36,10 @@ public:
 
     void toggleWarning();
 
-protected:
-
-private:
+  protected:
+  private:
     unsigned int m_time;
     bool m_warning;
 };
 
-#endif // MAINSCREENVIEW_HPP
+#endif  // MAINSCREENVIEW_HPP

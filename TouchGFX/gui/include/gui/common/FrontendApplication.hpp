@@ -7,18 +7,17 @@ class FrontendHeap;
 
 using namespace touchgfx;
 
-class FrontendApplication : public FrontendApplicationBase
-{
-public:
+class FrontendApplication : public FrontendApplicationBase {
+  public:
     FrontendApplication(Model& m, FrontendHeap& heap);
-    virtual ~FrontendApplication() { }
+    virtual ~FrontendApplication() {}
 
-    virtual void handleTickEvent()
-    {
+    virtual void handleTickEvent() {
         model.tick();
         FrontendApplicationBase::handleTickEvent();
     }
-private:
+
+  private:
 };
 
-#endif // FRONTENDAPPLICATION_HPP
+#endif  // FRONTENDAPPLICATION_HPP

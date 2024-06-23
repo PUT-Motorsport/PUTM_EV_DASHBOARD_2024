@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void Interface_Task(void *argument);
+void Interface_Task(void* argument);
 
 #ifdef __cplusplus
 }

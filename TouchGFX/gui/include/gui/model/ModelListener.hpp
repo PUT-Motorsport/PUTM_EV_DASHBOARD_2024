@@ -6,10 +6,10 @@
 #include <stdint.h>
 
 class ModelListener {
-public:
-	ModelListener(): model(0) {}
-	virtual ~ModelListener() {}
-	void bind(Model *m) { model = m; }
+  public:
+    ModelListener() : model(0) {}
+    virtual ~ModelListener() {}
+    void bind(Model* m) { model = m; }
 
     virtual void setClock(uint32_t time) {}
     virtual void setConnection(bool status) {}
@@ -23,7 +23,7 @@ public:
     virtual void setOilPressure(uint8_t pressure) {}
     virtual void setCoolantTemperature(uint8_t temperature) {}
     virtual void setCoolantPressure(uint8_t pressure) {}
-    virtual void setPace(int32_t pace)  {}
+    virtual void setPace(int32_t pace) {}
     virtual void setSpeed(uint8_t speed) {}
     virtual void setSoc(uint8_t soc) {}
     virtual void setRpm(uint16_t rpm) {}
@@ -36,8 +36,8 @@ public:
 
     virtual void toggleElements() {}
 
-protected:
-	Model *model;
+  protected:
+    Model* model;
 };
 
-#endif // MODELLISTENER_HPP
+#endif  // MODELLISTENER_HPP

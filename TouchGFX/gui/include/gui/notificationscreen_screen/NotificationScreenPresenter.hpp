@@ -8,9 +8,8 @@ using namespace touchgfx;
 
 class NotificationScreenView;
 
-class NotificationScreenPresenter : public touchgfx::Presenter, public ModelListener
-{
-public:
+class NotificationScreenPresenter : public touchgfx::Presenter, public ModelListener {
+  public:
     NotificationScreenPresenter(NotificationScreenView& v);
 
     /**
@@ -27,10 +26,10 @@ public:
 
     virtual ~NotificationScreenPresenter() {}
 
-private:
+  private:
     NotificationScreenPresenter();
 
     NotificationScreenView& view;
 };
 
-#endif // NOTIFICATIONSCREENPRESENTER_HPP
+#endif  // NOTIFICATIONSCREENPRESENTER_HPP
