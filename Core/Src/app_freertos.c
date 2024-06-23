@@ -73,7 +73,6 @@ TimerData_TypeDef timerData = {
 };
 
 InterfaceData_TypeDef interfaceData = {
-	.state_changed = false,
 	.ams_led = true,
 	.fuse_led = true,
 	.safety_led = true,

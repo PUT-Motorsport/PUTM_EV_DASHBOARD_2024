@@ -41,7 +41,6 @@ typedef struct {
 } TimerData_TypeDef;
 
 typedef struct {
-	_Bool state_changed;
 	_Bool ams_led;
 	_Bool fuse_led;
 	_Bool safety_led;
