@@ -345,6 +345,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/dac.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/Core/data.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/data.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/dcache.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/dcache.c</locationURI>
