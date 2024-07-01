@@ -49,7 +49,7 @@ void MainScreenView::updateRadio(bool status) {
 
 void MainScreenView::updateReadyToDrive(bool status) {
     if(status) {
-        rtdText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        rtdText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
     } else {
         rtdText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
@@ -58,7 +58,7 @@ void MainScreenView::updateReadyToDrive(bool status) {
 
 void MainScreenView::updateInvertersReady(bool status) {
     if(status) {
-        invText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        invText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
     } else {
         invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }

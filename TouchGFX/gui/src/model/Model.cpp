@@ -19,6 +19,7 @@ void Model::tick() {
         modelListener->toggleElements();
 
         // TODO: Use templates
+        // FIXME: Not updating correctly after m_firstIter set to false
         if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             m_sharedData = sharedData;
             osMutexRelease(sharedDataMutexHandle);

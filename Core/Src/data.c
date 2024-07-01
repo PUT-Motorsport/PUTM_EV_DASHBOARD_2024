@@ -48,9 +48,9 @@ TimerData_TypeDef timerData = {
 
 InterfaceData_TypeDef interfaceData = {
     .led_test = true,
-    .ams_led = true,
-    .fuse_led = true,
-    .safety_led = true,
+    .ams_led = false,
+    .fuse_led = false,
+    .safety_led = false,
     .rtd_button = false,
     .tsa_button = false,
     .usr_button = false,
