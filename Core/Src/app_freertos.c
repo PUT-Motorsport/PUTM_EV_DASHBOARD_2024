@@ -58,13 +58,13 @@ osThreadId_t TouchGFXTaskHandle;
 const osThreadAttr_t TouchGFXTask_attributes = {.name = "TouchGFXTask", .priority = (osPriority_t)osPriorityLow, .stack_size = 8192 * 4};
 /* Definitions for communicationTask */
 osThreadId_t communicationTaskHandle;
-const osThreadAttr_t communicationTask_attributes = {.name = "communicationTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 512 * 4};
+const osThreadAttr_t communicationTask_attributes = {.name = "communicationTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
 /* Definitions for interfaceTask */
 osThreadId_t interfaceTaskHandle;
 const osThreadAttr_t interfaceTask_attributes = {.name = "interfaceTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
 /* Definitions for ledTestTask */
 osThreadId_t ledTestTaskHandle;
-const osThreadAttr_t ledTestTask_attributes = {.name = "ledTestTask", .priority = (osPriority_t)osPriorityLow, .stack_size = 128 * 4};
+const osThreadAttr_t ledTestTask_attributes = {.name = "ledTestTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
 /* Definitions for sharedDataMutex */
 osMutexId_t sharedDataMutexHandle;
 const osMutexAttr_t sharedDataMutex_attributes = {.name = "sharedDataMutex"};

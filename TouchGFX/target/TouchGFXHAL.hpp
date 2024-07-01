@@ -162,6 +162,6 @@ class TouchGFXHAL : public TouchGFXGeneratedHAL {
 
 /* USER CODE END TouchGFXHAL.hpp */
 
-#endif // TouchGFXHAL_HPP
+#endif  // TouchGFXHAL_HPP
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
