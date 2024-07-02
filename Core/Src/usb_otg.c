@@ -26,18 +26,20 @@
 
 /* USB_OTG_HS init function */
 
-void MX_USB_OTG_HS_USB_Init(void) {
+void MX_USB_OTG_HS_USB_Init(void)
+{
 
-    /* USER CODE BEGIN USB_OTG_HS_Init 0 */
+  /* USER CODE BEGIN USB_OTG_HS_Init 0 */
 
-    /* USER CODE END USB_OTG_HS_Init 0 */
+  /* USER CODE END USB_OTG_HS_Init 0 */
 
-    /* USER CODE BEGIN USB_OTG_HS_Init 1 */
+  /* USER CODE BEGIN USB_OTG_HS_Init 1 */
 
-    /* USER CODE END USB_OTG_HS_Init 1 */
-    /* USER CODE BEGIN USB_OTG_HS_Init 2 */
+  /* USER CODE END USB_OTG_HS_Init 1 */
+  /* USER CODE BEGIN USB_OTG_HS_Init 2 */
 
-    /* USER CODE END USB_OTG_HS_Init 2 */
+  /* USER CODE END USB_OTG_HS_Init 2 */
+
 }
 
 /* USER CODE BEGIN 1 */

@@ -1456,7 +1456,7 @@ HAL_StatusTypeDef HAL_FDCAN_ConfigRxFifoOverwrite(FDCAN_HandleTypeDef *hfdcan, u
 
   if (hfdcan->State == HAL_FDCAN_STATE_READY)
   {
-    if (RxFifo == 0)
+    if (RxFifo == FDCAN_RX_FIFO0)
     {
       /* Select FIFO 0 Operation Mode */
       MODIFY_REG(hfdcan->Instance->RXGFC, FDCAN_RXGFC_F0OM, (OperationMode << FDCAN_RXGFC_F0OM_Pos));
@@ -2225,7 +2225,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *hfdcan, uint32_t R
 
   if (state == HAL_FDCAN_STATE_BUSY)
   {
-    if (RxLocation == 0) /* Rx element is assigned to the Rx FIFO 0 */
+    if (RxLocation == FDCAN_RX_FIFO0) /* Rx element is assigned to the Rx FIFO 0 */
     {
       /* Check that the Rx FIFO 0 is not empty */
       if ((hfdcan->Instance->RXF0S & FDCAN_RXF0S_F0FL) == 0U)
@@ -2333,7 +2333,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *hfdcan, uint32_t R
       pRxData[ByteCounter] = pData[ByteCounter];
     }
 
-    if (RxLocation == 0) /* Rx element is assigned to the Rx FIFO 0 */
+    if (RxLocation == FDCAN_RX_FIFO0) /* Rx element is assigned to the Rx FIFO 0 */
     {
       /* Acknowledge the Rx FIFO 0 that the oldest element is read so that it increments the GetIndex */
       hfdcan->Instance->RXF0A = GetIndex;
@@ -2555,7 +2555,7 @@ uint32_t HAL_FDCAN_GetRxFifoFillLevel(const FDCAN_HandleTypeDef *hfdcan, uint32_
   /* Check function parameters */
   assert_param(IS_FDCAN_RX_FIFO(RxFifo));
 
-  if (RxFifo == 0)
+  if (RxFifo == FDCAN_RX_FIFO0)
   {
     FillLevel = hfdcan->Instance->RXF0S & FDCAN_RXF0S_F0FL;
   }

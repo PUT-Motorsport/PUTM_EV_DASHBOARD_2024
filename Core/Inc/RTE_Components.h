@@ -17,9 +17,9 @@
  ******************************************************************************
  */
 /* USER CODE END Header */
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __RTE_COMPONENTS_H__
-#define __RTE_COMPONENTS_H__
+  /* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef  __RTE_COMPONENTS_H__
+#define  __RTE_COMPONENTS_H__
 
 /* Defines ------------------------------------------------------------------*/
 /* STMicroelectronics.X-CUBE-TOUCHGFX.4.23.2 */

@@ -49,3 +49,4 @@ void MX_LPTIM2_Init(void);
 #endif
 
 #endif /* __LPTIM_H__ */
+

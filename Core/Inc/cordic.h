@@ -49,3 +49,4 @@ void MX_CORDIC_Init(void);
 #endif
 
 #endif /* __CORDIC_H__ */
+

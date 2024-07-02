@@ -52,3 +52,4 @@ void MX_SPI2_Init(void);
 #endif
 
 #endif /* __SPI_H__ */
+

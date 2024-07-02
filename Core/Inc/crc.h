@@ -49,3 +49,4 @@ void MX_CRC_Init(void);
 #endif
 
 #endif /* __CRC_H__ */
+

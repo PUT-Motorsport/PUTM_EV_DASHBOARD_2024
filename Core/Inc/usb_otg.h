@@ -47,3 +47,4 @@ void MX_USB_OTG_HS_USB_Init(void);
 #endif
 
 #endif /* __USB_OTG_H__ */
+

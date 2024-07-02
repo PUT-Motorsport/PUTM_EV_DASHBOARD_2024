@@ -49,3 +49,4 @@ void MX_RNG_Init(void);
 #endif
 
 #endif /* __RNG_H__ */
+

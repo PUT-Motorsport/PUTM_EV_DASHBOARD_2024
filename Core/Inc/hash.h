@@ -49,3 +49,4 @@ void MX_HASH_Init(void);
 #endif
 
 #endif /* __HASH_H__ */
+

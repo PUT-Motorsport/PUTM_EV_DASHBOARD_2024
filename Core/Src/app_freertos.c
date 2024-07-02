@@ -19,9 +19,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
-#include "cmsis_os2.h"
-#include "main.h"
 #include "task.h"
+#include "main.h"
+#include "cmsis_os2.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "communication_task.h"
@@ -32,6 +32,7 @@
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
+typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -52,43 +53,82 @@
 /* USER CODE END Variables */
 /* Definitions for timerTask */
 osThreadId_t timerTaskHandle;
-const osThreadAttr_t timerTask_attributes = {.name = "timerTask", .priority = (osPriority_t)osPriorityLow, .stack_size = 128 * 4};
+const osThreadAttr_t timerTask_attributes = {
+  .name = "timerTask",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 128 * 4
+};
 /* Definitions for TouchGFXTask */
 osThreadId_t TouchGFXTaskHandle;
-const osThreadAttr_t TouchGFXTask_attributes = {.name = "TouchGFXTask", .priority = (osPriority_t)osPriorityLow, .stack_size = 8192 * 4};
+uint32_t TouchGFXTaskBuffer[ 8192 ];
+osStaticThreadDef_t TouchGFXTaskControlBlock;
+const osThreadAttr_t TouchGFXTask_attributes = {
+  .name = "TouchGFXTask",
+  .stack_mem = &TouchGFXTaskBuffer[0],
+  .stack_size = sizeof(TouchGFXTaskBuffer),
+  .cb_mem = &TouchGFXTaskControlBlock,
+  .cb_size = sizeof(TouchGFXTaskControlBlock),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for communicationTask */
 osThreadId_t communicationTaskHandle;
-const osThreadAttr_t communicationTask_attributes = {.name = "communicationTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
+uint32_t communicationTaskBuffer[ 256 ];
+osStaticThreadDef_t communicationTaskControlBlock;
+const osThreadAttr_t communicationTask_attributes = {
+  .name = "communicationTask",
+  .stack_mem = &communicationTaskBuffer[0],
+  .stack_size = sizeof(communicationTaskBuffer),
+  .cb_mem = &communicationTaskControlBlock,
+  .cb_size = sizeof(communicationTaskControlBlock),
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for interfaceTask */
 osThreadId_t interfaceTaskHandle;
-const osThreadAttr_t interfaceTask_attributes = {.name = "interfaceTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
+uint32_t interfaceTaskBuffer[ 256 ];
+osStaticThreadDef_t interfaceTaskControlBlock;
+const osThreadAttr_t interfaceTask_attributes = {
+  .name = "interfaceTask",
+  .stack_mem = &interfaceTaskBuffer[0],
+  .stack_size = sizeof(interfaceTaskBuffer),
+  .cb_mem = &interfaceTaskControlBlock,
+  .cb_size = sizeof(interfaceTaskControlBlock),
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for ledTestTask */
 osThreadId_t ledTestTaskHandle;
-const osThreadAttr_t ledTestTask_attributes = {.name = "ledTestTask", .priority = (osPriority_t)osPriorityNormal, .stack_size = 128 * 4};
+const osThreadAttr_t ledTestTask_attributes = {
+  .name = "ledTestTask",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
 /* Definitions for sharedDataMutex */
 osMutexId_t sharedDataMutexHandle;
-const osMutexAttr_t sharedDataMutex_attributes = {.name = "sharedDataMutex"};
+const osMutexAttr_t sharedDataMutex_attributes = {
+  .name = "sharedDataMutex"
+};
 /* Definitions for timerDataMutex */
 osMutexId_t timerDataMutexHandle;
-const osMutexAttr_t timerDataMutex_attributes = {.name = "timerDataMutex"};
+const osMutexAttr_t timerDataMutex_attributes = {
+  .name = "timerDataMutex"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-extern void Timer_Task(void* argument);
-extern void TouchGFX_Task(void* argument);
-extern void Communication_Task(void* argument);
-extern void Interface_Task(void* argument);
-extern void Led_Test_Task(void* argument);
+extern void Timer_Task(void *argument);
+extern void TouchGFX_Task(void *argument);
+extern void Communication_Task(void *argument);
+extern void Interface_Task(void *argument);
+extern void Led_Test_Task(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* Hook prototypes */
 void vApplicationMallocFailedHook(void);
 void vApplicationIdleHook(void);
-void vApplicationStackOverflowHook(xTaskHandle xTask, char* pcTaskName);
+void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName);
 
 /* USER CODE BEGIN 5 */
 void vApplicationMallocFailedHook(void) {
@@ -128,60 +168,62 @@ void vApplicationStackOverflowHook(xTaskHandle xTask, char* pcTaskName) {
 /* USER CODE END 4 */
 
 /**
- * @brief  FreeRTOS initialization
- * @param  None
- * @retval None
- */
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
 void MX_FREERTOS_Init(void) {
-    /* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
-    /* USER CODE END Init */
-    /* creation of sharedDataMutex */
-    sharedDataMutexHandle = osMutexNew(&sharedDataMutex_attributes);
+  /* USER CODE END Init */
+  /* creation of sharedDataMutex */
+  sharedDataMutexHandle = osMutexNew(&sharedDataMutex_attributes);
 
-    /* creation of timerDataMutex */
-    timerDataMutexHandle = osMutexNew(&timerDataMutex_attributes);
+  /* creation of timerDataMutex */
+  timerDataMutexHandle = osMutexNew(&timerDataMutex_attributes);
 
-    /* USER CODE BEGIN RTOS_MUTEX */
+  /* USER CODE BEGIN RTOS_MUTEX */
     /* add mutexes, ... */
-    /* USER CODE END RTOS_MUTEX */
+  /* USER CODE END RTOS_MUTEX */
 
-    /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
     /* add semaphores, ... */
-    /* USER CODE END RTOS_SEMAPHORES */
+  /* USER CODE END RTOS_SEMAPHORES */
 
-    /* USER CODE BEGIN RTOS_TIMERS */
+  /* USER CODE BEGIN RTOS_TIMERS */
     /* start timers, add new ones, ... */
-    /* USER CODE END RTOS_TIMERS */
+  /* USER CODE END RTOS_TIMERS */
 
-    /* USER CODE BEGIN RTOS_QUEUES */
+  /* USER CODE BEGIN RTOS_QUEUES */
     /* add queues, ... */
-    /* USER CODE END RTOS_QUEUES */
-    /* creation of timerTask */
-    timerTaskHandle = osThreadNew(Timer_Task, NULL, &timerTask_attributes);
+  /* USER CODE END RTOS_QUEUES */
+  /* creation of timerTask */
+  timerTaskHandle = osThreadNew(Timer_Task, NULL, &timerTask_attributes);
 
-    /* creation of TouchGFXTask */
-    TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
+  /* creation of TouchGFXTask */
+  TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
-    /* creation of communicationTask */
-    communicationTaskHandle = osThreadNew(Communication_Task, NULL, &communicationTask_attributes);
+  /* creation of communicationTask */
+  communicationTaskHandle = osThreadNew(Communication_Task, NULL, &communicationTask_attributes);
 
-    /* creation of interfaceTask */
-    interfaceTaskHandle = osThreadNew(Interface_Task, NULL, &interfaceTask_attributes);
+  /* creation of interfaceTask */
+  interfaceTaskHandle = osThreadNew(Interface_Task, NULL, &interfaceTask_attributes);
 
-    /* creation of ledTestTask */
-    ledTestTaskHandle = osThreadNew(Led_Test_Task, NULL, &ledTestTask_attributes);
+  /* creation of ledTestTask */
+  ledTestTaskHandle = osThreadNew(Led_Test_Task, NULL, &ledTestTask_attributes);
 
-    /* USER CODE BEGIN RTOS_THREADS */
+  /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */
-    /* USER CODE END RTOS_THREADS */
+  /* USER CODE END RTOS_THREADS */
 
-    /* USER CODE BEGIN RTOS_EVENTS */
+  /* USER CODE BEGIN RTOS_EVENTS */
     /* add events, ... */
-    /* USER CODE END RTOS_EVENTS */
+  /* USER CODE END RTOS_EVENTS */
+
 }
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
 
 /* USER CODE END Application */
+
