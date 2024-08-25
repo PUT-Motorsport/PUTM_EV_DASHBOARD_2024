@@ -11,9 +11,6 @@
 #include <algorithm>
 
 extern osMutexId_t sharedDataMutexHandle;
-extern Data_TypeDef sharedData;
-extern TimeoutData_TypeDef timeoutData;
-extern InterfaceData_TypeDef interfaceData;
 
 void Communication_Task(void* argument) {
     for(;;) {
@@ -120,7 +117,6 @@ void Communication_Task(void* argument) {
         if(PUTM_CAN::can.get_bms_hv_main_new_data()) {
             timeoutData.bms_last_frame_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
             auto bms_hv_main_data = PUTM_CAN::can.get_bms_hv_main();
-            // TODO: Aquire mutex here
             if(bms_hv_main_data.ok) {
                 interfaceData.ams_led = false;
             } else {

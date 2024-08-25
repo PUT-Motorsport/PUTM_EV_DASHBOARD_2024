@@ -8,8 +8,6 @@
 extern "C" {
 extern osMutexId_t sharedDataMutexHandle;
 extern osMutexId_t timerDataMutexHandle;
-extern Data_TypeDef sharedData;
-extern TimerData_TypeDef timerData;
 }
 
 Model::Model() : modelListener(0) {}

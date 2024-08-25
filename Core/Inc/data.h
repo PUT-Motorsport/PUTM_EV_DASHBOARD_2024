@@ -71,6 +71,10 @@ typedef struct {
 /* Public macros -------------------------------------------------------------*/
 
 /* Public variables ----------------------------------------------------------*/
+extern Data_TypeDef sharedData;
+extern TimeoutData_TypeDef timeoutData;
+extern TimerData_TypeDef timerData;
+extern InterfaceData_TypeDef interfaceData;
 
 /* Public function prototypes ------------------------------------------------*/
 

@@ -5,8 +5,6 @@
 #include "gpio.h"
 #include "main.h"
 
-extern InterfaceData_TypeDef interfaceData;
-
 void Interface_Task(void* argument) {
     for(;;) {
         // LEDs
