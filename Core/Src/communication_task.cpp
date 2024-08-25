@@ -1,12 +1,18 @@
 #include "communication_task.h"
-#include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
-#include "cmsis_os2.h"
 #include "data.h"
+#include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
+
 #include "fdcan.h"
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
+#include "portable.h"
+#include "task.h"
+
 #include <algorithm>
 
 extern osMutexId_t sharedDataMutexHandle;
 extern Data_TypeDef sharedData;
+extern TimeoutData_TypeDef timeoutData;
 extern InterfaceData_TypeDef interfaceData;
 
 void Communication_Task(void* argument) {
@@ -41,38 +47,90 @@ void Communication_Task(void* argument) {
         message.send(hfdcan1);
 
         // Receive
+
+        // Frontbox
         if(PUTM_CAN::can.get_pc_new_data()) {
+            timeoutData.frontbox_last_frame_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
             auto pc_data = PUTM_CAN::can.get_pc_main_data();
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.speed = pc_data.vehicleSpeed;
+                // sharedData.time = pc_data.time;
+                sharedData.warning = false;
                 sharedData.ready_to_drive = pc_data.rtd;
-                sharedData.inverters_ready = pc_data.inverters_ready;
-                sharedData.inverter_temperature = std::max(std::max(pc_data.frontLeftInverterTemperature, pc_data.frontRightInverterTemperature),
-                                                           std::max(pc_data.rearLeftIverterTemperature, pc_data.rearRightIverterTemperature));
+                sharedData.inverters_ready = pc_data.invertersReady;
+                sharedData.inverter_temperature = std::max(pc_data.rearRightInverterTemperature, pc_data.rearLeftInverterTemperature);
+                sharedData.oil_temperature = std::max(pc_data.rearRightMotorTemperature, pc_data.rearLeftMotorTemperature);
+                sharedData.speed = pc_data.vehicleSpeed;
+                sharedData.rpm = pc_data.rpm;
+                sharedData.power = pc_data.power;
+
                 osMutexRelease(sharedDataMutexHandle);
             }
         }
 
-        if(PUTM_CAN::can.get_rearbox_temperature_new_data()) {
-            auto rearbox_temperature_data = PUTM_CAN::can.get_rearbox_temperature();
+        // Communication timeout warning
+		if(xTaskGetTickCount() * portTICK_PERIOD_MS - timeoutData.frontbox_last_frame_time > 500) {
+			sharedData.warning = true;
+		}
+
+//        if(PUTM_CAN::can.get_rearbox_temperature_new_data()) {
+//            auto rearbox_temperature_data = PUTM_CAN::can.get_rearbox_temperature();
+//
+//            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+//                sharedData.oil_temperature = std::max(rearbox_temperature_data.oil_temperature_l, rearbox_temperature_data.oil_temperature_r);
+//                sharedData.coolant_temperature = std::max(rearbox_temperature_data.coolant_temperature_in, rearbox_temperature_data.coolant_temperature_out);
+//
+//                osMutexRelease(sharedDataMutexHandle);
+//            }
+//        }
+
+//        if(PUTM_CAN::can.get_rearbox_miscellaneous_new_data()) {
+//            auto rearbox_miscellaneous_data = PUTM_CAN::can.get_rearbox_miscellaneous();
+//
+//            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+//                sharedData.coolant_pressure = std::min(rearbox_miscellaneous_data.coolant_pressure_in, rearbox_miscellaneous_data.coolant_pressure_out);
+//
+//                osMutexRelease(sharedDataMutexHandle);
+//            }
+//        }
+
+        // BMS HV
+        if(PUTM_CAN::can.get_bms_hv_main_new_data()) {
+            auto bms_hv_main = PUTM_CAN::can.get_bms_hv_main();
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.oil_temperature = std::max(rearbox_temperature_data.oil_temperature_l, rearbox_temperature_data.oil_temperature_r);
-                sharedData.coolant_temperature = std::max(rearbox_temperature_data.coolant_temperature_in, rearbox_temperature_data.coolant_temperature_out);
+                sharedData.soc = bms_hv_main.soc;
+                sharedData.battery_temperature = bms_hv_main.temp_max;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
         }
 
-        if(PUTM_CAN::can.get_rearbox_miscellaneous_new_data()) {
-            auto rearbox_miscellaneous_data = PUTM_CAN::can.get_rearbox_miscellaneous();
+        // BMS LV
+        if(PUTM_CAN::can.get_bms_lv_main_new_data()) {
+            auto bms_lv_main = PUTM_CAN::can.get_bms_lv_main();
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.coolant_pressure = std::min(rearbox_miscellaneous_data.coolant_pressure_in, rearbox_miscellaneous_data.coolant_pressure_out);
+                sharedData.coolant_temperature = bms_lv_main.temp_avg;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
         }
+
+        // AMS LED
+        if(PUTM_CAN::can.get_bms_hv_main_new_data()) {
+            timeoutData.bms_last_frame_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
+            auto bms_hv_main_data = PUTM_CAN::can.get_bms_hv_main();
+            // TODO: Aquire mutex here
+            if(bms_hv_main_data.ok) {
+                interfaceData.ams_led = false;
+            } else {
+                interfaceData.ams_led = true;
+            }
+        }
+
+		if(xTaskGetTickCount() * portTICK_PERIOD_MS - timeoutData.bms_last_frame_time > 500) {
+			interfaceData.ams_led = true;
+		}
 
         // TODO: Reset the watchdog
         // HAL_IWDG_Refresh(&hiwdg);

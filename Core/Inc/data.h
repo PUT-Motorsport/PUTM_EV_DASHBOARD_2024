@@ -36,6 +36,11 @@ typedef struct {
 } Data_TypeDef;
 
 typedef struct {
+	uint32_t bms_last_frame_time;
+	uint32_t frontbox_last_frame_time;
+} TimeoutData_TypeDef;
+
+typedef struct {
     int32_t pace;
     uint32_t current_lap;
     uint32_t last_lap;
@@ -59,7 +64,7 @@ typedef struct {
 } InterfaceData_TypeDef;
 
 /* Public defines ------------------------------------------------------------*/
-#define DASH_RPM_MAX 3000
+#define DASH_RPM_MAX 20000
 #define DASH_BUTTON_DEBOUNCING_TIME 1000
 #define DASH_BUTTON_POOLING_RATE 25
 

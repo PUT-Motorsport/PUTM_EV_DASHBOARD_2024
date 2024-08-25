@@ -39,6 +39,11 @@ Data_TypeDef sharedData = {
     .range = 0,
 };
 
+TimeoutData_TypeDef timeoutData = {
+    .bms_last_frame_time = 0,
+    .frontbox_last_frame_time = 0,
+};
+
 TimerData_TypeDef timerData = {
     .pace = 0,
     .current_lap = 0,
