@@ -21,6 +21,8 @@ typedef struct {
     _Bool radio;
     _Bool ready_to_drive;
     _Bool inverters_ready;
+    _Bool safety_front;
+    _Bool safety_rear;
     uint8_t battery_temperature;
     uint8_t inverter_temperature;
     uint8_t oil_temperature;
@@ -36,8 +38,10 @@ typedef struct {
 } Data_TypeDef;
 
 typedef struct {
-	uint32_t bms_last_frame_time;
+	uint32_t bms_hv_last_frame_time;
+	uint32_t bms_lv_last_frame_time;
 	uint32_t frontbox_last_frame_time;
+	uint32_t rearbox_last_frame_time;
 } TimeoutData_TypeDef;
 
 typedef struct {
@@ -64,6 +68,7 @@ typedef struct {
 } InterfaceData_TypeDef;
 
 /* Public defines ------------------------------------------------------------*/
+#define DASH_TIMEOUT_DURATION 800
 #define DASH_RPM_MAX 20000
 #define DASH_BUTTON_DEBOUNCING_TIME 1000
 #define DASH_BUTTON_POOLING_RATE 25

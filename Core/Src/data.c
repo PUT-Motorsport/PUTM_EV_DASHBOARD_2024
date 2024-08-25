@@ -25,6 +25,8 @@ Data_TypeDef sharedData = {
     .radio = false,
     .ready_to_drive = false,
     .inverters_ready = false,
+    .safety_front = true,
+    .safety_rear = true,
     .battery_temperature = 0,
     .inverter_temperature = 0,
     .oil_temperature = 0,
@@ -40,8 +42,10 @@ Data_TypeDef sharedData = {
 };
 
 TimeoutData_TypeDef timeoutData = {
-    .bms_last_frame_time = 0,
+    .bms_hv_last_frame_time = 0,
+    .bms_lv_last_frame_time = 0,
     .frontbox_last_frame_time = 0,
+    .rearbox_last_frame_time = 0,
 };
 
 TimerData_TypeDef timerData = {

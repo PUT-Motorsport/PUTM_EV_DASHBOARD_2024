@@ -15,6 +15,7 @@ extern osMutexId_t sharedDataMutexHandle;
 
 void Communication_Task(void* argument) {
     for(;;) {
+        // TX
         bool send_rtd_button = false;
         bool send_tsa_button = false;
         bool send_usr_button = false;
@@ -44,14 +45,15 @@ void Communication_Task(void* argument) {
 
         message.send(hfdcan1);
 
-        // Receive
+        // RX
+        uint32_t current_tick_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
         // Frontbox
         if(PUTM_CAN::can.get_pc_new_data()) {
-            timeoutData.frontbox_last_frame_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
+            timeoutData.frontbox_last_frame_time = current_tick_time;
             auto pc_data = PUTM_CAN::can.get_pc_main_data();
+
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                // sharedData.time = pc_data.time;
                 sharedData.warning = false;
                 sharedData.ready_to_drive = pc_data.rtd;
                 sharedData.inverters_ready = pc_data.invertersReady;
@@ -63,70 +65,64 @@ void Communication_Task(void* argument) {
 
                 osMutexRelease(sharedDataMutexHandle);
             }
-        }
-
-        // Communication timeout warning
-		if(xTaskGetTickCount() * portTICK_PERIOD_MS - timeoutData.frontbox_last_frame_time > 500) {
-			sharedData.warning = true;
-		}
-
-//        if(PUTM_CAN::can.get_rearbox_temperature_new_data()) {
-//            auto rearbox_temperature_data = PUTM_CAN::can.get_rearbox_temperature();
-//
-//            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-//                sharedData.oil_temperature = std::max(rearbox_temperature_data.oil_temperature_l, rearbox_temperature_data.oil_temperature_r);
-//                sharedData.coolant_temperature = std::max(rearbox_temperature_data.coolant_temperature_in, rearbox_temperature_data.coolant_temperature_out);
-//
-//                osMutexRelease(sharedDataMutexHandle);
-//            }
-//        }
-
-//        if(PUTM_CAN::can.get_rearbox_miscellaneous_new_data()) {
-//            auto rearbox_miscellaneous_data = PUTM_CAN::can.get_rearbox_miscellaneous();
-//
-//            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-//                sharedData.coolant_pressure = std::min(rearbox_miscellaneous_data.coolant_pressure_in, rearbox_miscellaneous_data.coolant_pressure_out);
-//
-//                osMutexRelease(sharedDataMutexHandle);
-//            }
-//        }
-
-        // BMS HV
-        if(PUTM_CAN::can.get_bms_hv_main_new_data()) {
-            auto bms_hv_main = PUTM_CAN::can.get_bms_hv_main();
-
+        } else if(current_tick_time - timeoutData.frontbox_last_frame_time > DASH_TIMEOUT_DURATION) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.soc = bms_hv_main.soc;
-                sharedData.battery_temperature = bms_hv_main.temp_max;
+                sharedData.warning = true;
+                sharedData.inverter_temperature = 0;
+                sharedData.oil_temperature = 0;
+                sharedData.speed = 0;
+                sharedData.rpm = 0;
+                sharedData.power = 0;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
-        }
+		}
 
         // BMS LV
         if(PUTM_CAN::can.get_bms_lv_main_new_data()) {
-            auto bms_lv_main = PUTM_CAN::can.get_bms_lv_main();
+            timeoutData.bms_lv_last_frame_time = current_tick_time;
+            auto bms_lv_main_data = PUTM_CAN::can.get_bms_lv_main();
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.coolant_temperature = bms_lv_main.temp_avg;
+                sharedData.coolant_temperature = bms_lv_main_data.temp_avg;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
-        }
+        } else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
+            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+                sharedData.coolant_temperature = 0;
 
-        // AMS LED
+                osMutexRelease(sharedDataMutexHandle);
+            }
+		}
+
+        // BMS HV
         if(PUTM_CAN::can.get_bms_hv_main_new_data()) {
-            timeoutData.bms_last_frame_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
+            timeoutData.bms_hv_last_frame_time = current_tick_time;
             auto bms_hv_main_data = PUTM_CAN::can.get_bms_hv_main();
+
             if(bms_hv_main_data.ok) {
                 interfaceData.ams_led = false;
             } else {
                 interfaceData.ams_led = true;
             }
-        }
 
-		if(xTaskGetTickCount() * portTICK_PERIOD_MS - timeoutData.bms_last_frame_time > 500) {
+            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+                sharedData.soc = bms_hv_main_data.soc;
+                sharedData.battery_temperature = bms_hv_main_data.temp_max;
+
+                osMutexRelease(sharedDataMutexHandle);
+            }
+        } else if(current_tick_time - timeoutData.bms_hv_last_frame_time > DASH_TIMEOUT_DURATION) {
 			interfaceData.ams_led = true;
+
+            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+                sharedData.soc = 0;
+                sharedData.battery_temperature = 0;
+
+                osMutexRelease(sharedDataMutexHandle);
+            }
+
 		}
 
         HAL_IWDG_Refresh(&hiwdg); // Every 250 ms
