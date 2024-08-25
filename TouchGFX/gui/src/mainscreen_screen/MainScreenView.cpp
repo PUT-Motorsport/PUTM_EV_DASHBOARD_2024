@@ -3,6 +3,25 @@
 #include "BitmapDatabase.hpp"
 #include <touchgfx/Color.hpp>
 
+#define BATTERY_TEMPERATURE_MIN 15
+#define BATTERY_TEMPERATURE_MID 35
+#define BATTERY_TEMPERATURE_MAX 45
+#define INVERTER_TEMPERATURE_MIN 15
+#define INVERTER_TEMPERATURE_MID 35
+#define INVERTER_TEMPERATURE_MAX 45
+#define OIL_TEMPERATURE_MIN 15
+#define OIL_TEMPERATURE_MID 35
+#define OIL_TEMPERATURE_MAX 45
+#define OIL_PRESSURE_MIN 1
+#define OIL_PRESSURE_MID 5
+#define OIL_PRESSURE_MAX 15
+#define COOLANT_TEMPERATURE_MIN 15
+#define COOLANT_TEMPERATURE_MID 35
+#define COOLANT_TEMPERATURE_MAX 45
+#define COOLANT_PRESSURE_MIN 1
+#define COOLANT_PRESSURE_MID 5
+#define COOLANT_PRESSURE_MAX 15
+
 MainScreenView::MainScreenView() {}
 
 void MainScreenView::setupScreen() { MainScreenViewBase::setupScreen(); }
@@ -67,10 +86,10 @@ void MainScreenView::updateInvertersReady(bool status) {
 
 void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
     Unicode::snprintf(batTempTextBuffer, BATTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > 50) {
+    if(temperature > BATTERY_TEMPERATURE_MAX || temperature < BATTERY_TEMPERATURE_MIN) {
         batTempIcon.setBitmap(Bitmap(BITMAP_BATTERY_CRIT_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > 30) {
+    } else if(temperature > BATTERY_TEMPERATURE_MID) {
         batTempIcon.setBitmap(Bitmap(BITMAP_BATTERY_WARN_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
@@ -85,10 +104,10 @@ void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
 
 void MainScreenView::updateInverterTemperature(uint8_t temperature) {
     Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > 50) {
+    if(temperature > INVERTER_TEMPERATURE_MAX || temperature < INVERTER_TEMPERATURE_MIN) {
         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
         invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > 30) {
+    } else if(temperature > INVERTER_TEMPERATURE_MID) {
         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
         invTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
@@ -103,10 +122,10 @@ void MainScreenView::updateInverterTemperature(uint8_t temperature) {
 
 void MainScreenView::updateOilTemperature(uint8_t temperature) {
     Unicode::snprintf(oilTempTextBuffer, OILTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > 50) {
+    if(temperature > OIL_TEMPERATURE_MAX || temperature < OIL_TEMPERATURE_MIN) {
         oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_CRIT_ID));
         oilTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > 30) {
+    } else if(temperature > OIL_TEMPERATURE_MID) {
         oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_WARN_ID));
         oilTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
@@ -121,10 +140,10 @@ void MainScreenView::updateOilTemperature(uint8_t temperature) {
 
 void MainScreenView::updateOilPressure(uint8_t pressure) {
     Unicode::snprintf(oilPressTextBuffer, OILPRESSTEXT_SIZE, "%d", pressure);
-    if(pressure > 50) {
+    if(pressure > OIL_PRESSURE_MAX || pressure < OIL_PRESSURE_MIN) {
         oilPressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_CRIT_ID));
         oilPressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(pressure > 30) {
+    } else if(pressure > OIL_PRESSURE_MID) {
         oilPressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_WARN_ID));
         oilPressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
@@ -139,10 +158,10 @@ void MainScreenView::updateOilPressure(uint8_t pressure) {
 
 void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
     Unicode::snprintf(coolTempTextBuffer, COOLTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > 50) {
+    if(temperature > COOLANT_TEMPERATURE_MAX || temperature < COOLANT_TEMPERATURE_MIN) {
         coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
         coolTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > 30) {
+    } else if(temperature > COOLANT_TEMPERATURE_MID) {
         coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_WARN_ID));
         coolTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
@@ -157,10 +176,10 @@ void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
 
 void MainScreenView::updateCoolantPressure(uint8_t pressure) {
     Unicode::snprintf(coolPressTextBuffer, COOLPRESSTEXT_SIZE, "%d", pressure);
-    if(pressure > 50) {
+    if(pressure > COOLANT_PRESSURE_MAX || pressure < COOLANT_PRESSURE_MIN) {
         coolPressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_CRIT_ID));
         coolPressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(pressure > 30) {
+    } else if(pressure > COOLANT_PRESSURE_MID) {
         coolPressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_WARN_ID));
         coolPressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
