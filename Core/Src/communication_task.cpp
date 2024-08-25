@@ -3,6 +3,7 @@
 #include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
 
 #include "fdcan.h"
+#include "iwdg.h"
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
 #include "portable.h"
@@ -128,8 +129,7 @@ void Communication_Task(void* argument) {
 			interfaceData.ams_led = true;
 		}
 
-        // TODO: Reset the watchdog
-        // HAL_IWDG_Refresh(&hiwdg);
+        HAL_IWDG_Refresh(&hiwdg); // Every 250 ms
 
         osDelay(100);
     }

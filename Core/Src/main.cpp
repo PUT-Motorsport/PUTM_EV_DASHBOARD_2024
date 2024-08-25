@@ -30,6 +30,7 @@
 #include "hash.h"
 #include "i2c.h"
 #include "icache.h"
+#include "iwdg.h"
 #include "lptim.h"
 #include "ltdc.h"
 #include "memorymap.h"
@@ -153,6 +154,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USART6_UART_Init();
   MX_USB_OTG_HS_USB_Init();
+  MX_IWDG_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
