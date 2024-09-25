@@ -30,7 +30,7 @@ typedef struct {
     uint8_t coolant_temperature;
     uint8_t coolant_pressure;
     uint8_t speed;
-    uint8_t soc;
+    uint16_t soc;
     uint16_t rpm;
     uint8_t power;
     uint16_t distance;
