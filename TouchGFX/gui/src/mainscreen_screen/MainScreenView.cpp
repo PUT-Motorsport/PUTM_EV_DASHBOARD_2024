@@ -87,13 +87,13 @@ void MainScreenView::updateInvertersReady(bool status) {
 void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
     Unicode::snprintf(batTempTextBuffer, BATTEMPTEXT_SIZE, "%d", temperature);
     if(temperature > BATTERY_TEMPERATURE_MAX || temperature < BATTERY_TEMPERATURE_MIN) {
-        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERY_CRIT_ID));
+        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > BATTERY_TEMPERATURE_MID) {
-        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERY_WARN_ID));
+        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
-        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERY_ID));
+        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
     batTempIcon.setVisible(true);
