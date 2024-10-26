@@ -15,6 +15,7 @@
 
 /* Public typedefs -----------------------------------------------------------*/
 typedef struct {
+	//TODO: dodać zmienne potrzebne do dwóch wyświetlaczy
     uint32_t time;
     _Bool warning;
     _Bool connection;
@@ -23,14 +24,19 @@ typedef struct {
     _Bool inverters_ready;
     _Bool safety_front;
     _Bool safety_rear;
-    uint8_t battery_temperature;
+    uint8_t battery_hv_temperature;
+    uint8_t battery_lv_temperature;
     uint8_t inverter_temperature;
     uint8_t oil_temperature;
     uint8_t oil_pressure;
     uint8_t coolant_temperature;
     uint8_t coolant_pressure;
+    uint8_t motor_front_left_temperature;
+    uint8_t motor_front_right_temperature;
+    uint8_t motor_rear_left_temperature;
+    uint8_t motor_rear_right_temperature;
     uint8_t speed;
-    uint16_t soc;
+    uint16_t soc; //hv
     uint16_t rpm;
     uint8_t power;
     uint16_t distance;

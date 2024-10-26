@@ -109,7 +109,7 @@ void Communication_Task(void* argument) {
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
                 sharedData.soc = bms_hv_main_data.soc / 10;
-                sharedData.battery_temperature = bms_hv_main_data.temp_max;
+                sharedData.battery_hv_temperature = bms_hv_main_data.temp_max;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
@@ -118,7 +118,7 @@ void Communication_Task(void* argument) {
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
                 sharedData.soc = 0;
-                sharedData.battery_temperature = 0;
+                sharedData.battery_hv_temperature = 0;
 
                 osMutexRelease(sharedDataMutexHandle);
             }

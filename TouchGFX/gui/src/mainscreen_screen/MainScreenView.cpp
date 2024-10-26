@@ -3,9 +3,9 @@
 #include "BitmapDatabase.hpp"
 #include <touchgfx/Color.hpp>
 
-#define BATTERY_TEMPERATURE_MIN 15
-#define BATTERY_TEMPERATURE_MID 35
-#define BATTERY_TEMPERATURE_MAX 45
+#define BATTERY_LV_TEMPERATURE_MIN 15
+#define BATTERY_LV_TEMPERATURE_MID 35
+#define BATTERY_LV_TEMPERATURE_MAX 45
 #define INVERTER_TEMPERATURE_MIN 20
 #define INVERTER_TEMPERATURE_MID 80
 #define INVERTER_TEMPERATURE_MAX 100
@@ -86,10 +86,10 @@ void MainScreenView::updateInvertersReady(bool status) {
 
 void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
     Unicode::snprintf(batTempTextBuffer, BATTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > BATTERY_TEMPERATURE_MAX || temperature < BATTERY_TEMPERATURE_MIN) {
+    if(temperature > BATTERY_LV_TEMPERATURE_MAX || temperature < BATTERY_LV_TEMPERATURE_MIN) {
         batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > BATTERY_TEMPERATURE_MID) {
+    } else if(temperature > BATTERY_LV_TEMPERATURE_MID) {
         batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
         batTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {

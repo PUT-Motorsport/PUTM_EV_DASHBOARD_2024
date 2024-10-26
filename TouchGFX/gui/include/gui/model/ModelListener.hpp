@@ -17,7 +17,7 @@ class ModelListener {
     virtual void setRadio(bool status) {}
     virtual void setReadyToDrive(bool status) {}
     virtual void setInvertersReady(bool status) {}
-    virtual void setBatteryTemperature(uint8_t temperature) {}
+    virtual void setBatteryHVTemperature(uint8_t temperature) {}
     virtual void setInverterTemperature(uint8_t temperature) {}
     virtual void setOilTemperature(uint8_t temperature) {}
     virtual void setOilPressure(uint8_t pressure) {}
