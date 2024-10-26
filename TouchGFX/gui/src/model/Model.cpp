@@ -56,11 +56,26 @@ void Model::tick() {
             m_sharedDataPrev.coolant_pressure = m_sharedData.coolant_pressure;
             modelListener->setCoolantPressure(m_sharedData.coolant_pressure);
 
+            m_sharedDataPrev.motor_front_left_temperature = m_sharedData.motor_front_left_temperature;
+            modelListener->setMotorFrontLeftTemperature(m_sharedData.motor_front_left_temperature);
+
+            m_sharedDataPrev.motor_front_right_temperature = m_sharedData.motor_front_right_temperature;
+            modelListener->setMotorFrontRightTemperature(m_sharedData.motor_front_right_temperature);
+
+            m_sharedDataPrev.motor_rear_left_temperature = m_sharedData.motor_rear_left_temperature;
+            modelListener->setMotorRearLeftTemperature(m_sharedData.motor_rear_left_temperature);
+
+            m_sharedDataPrev.motor_rear_right_temperature = m_sharedData.motor_rear_right_temperature;
+            modelListener->setMotorRearRightTemperature(m_sharedData.motor_rear_right_temperature);
+
             m_sharedDataPrev.speed = m_sharedData.speed;
             modelListener->setSpeed(m_sharedData.speed);
 
             m_sharedDataPrev.soc_hv = m_sharedData.soc_hv;
             modelListener->setSocHV(m_sharedData.soc_hv);
+
+            m_sharedDataPrev.soc_lv = m_sharedData.soc_lv;
+            modelListener->setSocLV(m_sharedData.soc_lv);
 
             m_sharedDataPrev.rpm = m_sharedData.rpm;
             modelListener->setRpm(m_sharedData.rpm);

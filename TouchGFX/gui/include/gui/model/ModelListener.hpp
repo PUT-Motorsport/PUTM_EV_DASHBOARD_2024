@@ -24,8 +24,15 @@ class ModelListener {
     virtual void setCoolantTemperature(uint8_t temperature) {}
     virtual void setCoolantPressure(uint8_t pressure) {}
     virtual void setPace(int32_t pace) {}
+
+    virtual void setMotorFrontLeftTemperature(uint8_t temperature) {}
+    virtual void setMotorFrontRightTemperature(uint8_t temperature) {}
+    virtual void setMotorRearLeftTemperature(uint8_t temperature) {}
+    virtual void setMotorRearRightTemperature(uint8_t temperature) {}
+
     virtual void setSpeed(uint8_t speed) {}
     virtual void setSocHV(uint8_t soc) {}
+    virtual void setSocLV(uint8_t soc) {}
     virtual void setRpm(uint16_t rpm) {}
     virtual void setPower(uint8_t power) {}
     virtual void setDistance(uint16_t distance) {}
