@@ -19,6 +19,10 @@ class MainScreenView : public MainScreenViewBase {
     void updateInvertersReady(bool status);
     void updateBatteryLvTemperature(uint8_t temperature);
     void updateInverterTemperature(uint8_t temperature);
+    void updateMotorFrontLeftTemperature(uint8_t temperature);
+    void updateMotorFrontRightTemperature(uint8_t temperature);
+    void updateMotorRearLeftTemperature(uint8_t temperature);
+    void updateMotorRearRightTemperature(uint8_t temperature);
     void updateOilTemperature(uint8_t temperature);
     void updateOilPressure(uint8_t pressure);
     void updateCoolantTemperature(uint8_t temperature);

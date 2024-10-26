@@ -25,6 +25,14 @@ void MainScreenPresenter::setBatteryLvTemperature(uint8_t temperature) { view.up
 
 void MainScreenPresenter::setInverterTemperature(uint8_t temperature) { view.updateInverterTemperature(temperature); }
 
+void MainScreenPresenter:: setMotorFrontLeftTemperature(uint8_t temperature) { view.updateMotorFrontLeftTemperature(temperature); }
+
+void MainScreenPresenter:: setMotorFrontRightTemperature(uint8_t temperature) { view.updateMotorFrontRightTemperature(temperature);}
+
+void MainScreenPresenter:: setMotorRearLeftTemperature(uint8_t temperature) { view.updateMotorRearLeftTemperature(temperature); }
+
+void MainScreenPresenter:: setMotorRearRightTemperature(uint8_t temperature) { view.updateMotorRearRightTemperature(temperature); }
+
 void MainScreenPresenter::setOilTemperature(uint8_t temperature) { view.updateOilTemperature(temperature); }
 
 void MainScreenPresenter::setOilPressure(uint8_t pressure) { view.updateOilPressure(pressure); }

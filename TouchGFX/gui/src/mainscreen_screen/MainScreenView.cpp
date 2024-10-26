@@ -6,6 +6,10 @@
 #define BATTERY_LV_TEMPERATURE_MIN 15
 #define BATTERY_LV_TEMPERATURE_MID 30
 #define BATTERY_LV_TEMPERATURE_MAX 40
+//TODO: uzupełnić odpowiednimi temperaturami
+#define MOTOR_TEMPERATURE_MIN 15
+#define MOTOR_TEMPERATURE_MID 30
+#define MOTOR_TEMPERATURE_MAX 40
 #define INVERTER_TEMPERATURE_MIN 20
 #define INVERTER_TEMPERATURE_MID 80
 #define INVERTER_TEMPERATURE_MAX 100
@@ -288,4 +292,40 @@ void MainScreenView::toggleWarning() {
     } else {
         m_time++;
     }
+}
+
+void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
+{
+//    Unicode::snprintf(, , "%d", temperature);
+//    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+//    {
+//        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+//    }
+//    else if(temperature > MOTOR_TEMPERATURE_MID)
+//    {
+//    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+//    }
+//    else
+//    {
+//    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+//    }
+//    carImage.setVisible(true);
+//    batLvTempText.setVisible(true);
+//    carImage.invalidate();
+//    batLvTempText.invalidate();
+}
+
+void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
+{
+
+}
+
+void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
+{
+
+}
+
+void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
+{
+
 }
