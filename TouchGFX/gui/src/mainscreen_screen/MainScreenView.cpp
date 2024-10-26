@@ -193,29 +193,29 @@ void MainScreenView::updateCoolantPressure(uint8_t pressure) {
 }
 
 void MainScreenView::updatePace(int32_t pace) {
-    if(pace > 0) {
-        paceBackground.setBitmap(Bitmap(BITMAP_PACEREDBACKGROUND_ID));
-    } else if(pace < 0) {
-        paceBackground.setBitmap(Bitmap(BITMAP_PACEGREENBACKGROUND_ID));
-    } else {
-        paceBackground.setBitmap(Bitmap(BITMAP_PACEYELLOWBACKGROUND_ID));
-    }
-    paceBackground.invalidate();
-
-    float seconds = static_cast<float>(pace) / 1000.0f;
-    Unicode::snprintfFloat(paceTextBuffer, PACETEXT_SIZE, "%+#.3f", seconds);
-    paceText.setVisible(true);
-    paceText.invalidate();
+//    if(pace > 0) {
+//        paceBackground.setBitmap(Bitmap(BITMAP_PACEREDBACKGROUND_ID));
+//    } else if(pace < 0) {
+//        paceBackground.setBitmap(Bitmap(BITMAP_PACEGREENBACKGROUND_ID));
+//    } else {
+//        paceBackground.setBitmap(Bitmap(BITMAP_PACEYELLOWBACKGROUND_ID));
+//    }
+//    paceBackground.invalidate();
+//
+//    float seconds = static_cast<float>(pace) / 1000.0f;
+//    Unicode::snprintfFloat(paceTextBuffer, PACETEXT_SIZE, "%+#.3f", seconds);
+//    paceText.setVisible(true);
+//    paceText.invalidate();
 }
 
 void MainScreenView::updateSpeed(uint8_t speed) {
-    Unicode::snprintf(speedTextBuffer, SPEEDTEXT_SIZE, "%d", speed);
-    speedText.invalidate();
+//    Unicode::snprintf(speedTextBuffer, SPEEDTEXT_SIZE, "%d", speed);
+//    speedText.invalidate();
 }
 
 void MainScreenView::updateSoc(uint8_t soc) {
-    Unicode::snprintf(socTextBuffer, SOCTEXT_SIZE, "%d", soc);
-    socText.invalidate();
+//    Unicode::snprintf(socTextBuffer, SOCTEXT_SIZE, "%d", soc);
+//    socText.invalidate();
 }
 
 void MainScreenView::updateRpm(uint16_t rpm) {
@@ -224,28 +224,28 @@ void MainScreenView::updateRpm(uint16_t rpm) {
 }
 
 void MainScreenView::updatePower(uint8_t power) {
-    Unicode::snprintf(powerTextBuffer, POWERTEXT_SIZE, "%d", power);
-    powerText.invalidate();
+//    Unicode::snprintf(powerTextBuffer, POWERTEXT_SIZE, "%d", power);
+//    powerText.invalidate();
 }
 
 void MainScreenView::updateDistance(uint16_t distance) {
-    float kilometers = static_cast<float>(distance) / 1000.0f;
-
-    Unicode::snprintfFloat(distanceTextBuffer, DISTANCETEXT_SIZE, "%#.2f", kilometers);
-    distanceText.invalidate();
+//    float kilometers = static_cast<float>(distance) / 1000.0f;
+//
+//    Unicode::snprintfFloat(distanceTextBuffer, DISTANCETEXT_SIZE, "%#.2f", kilometers);
+//    distanceText.invalidate();
 }
 
 void MainScreenView::updateRange(uint16_t range) {
-    if(range < 2000) {
-        rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else {
-        rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
-
-    float kilometers = static_cast<float>(range) / 1000.0f;
-
-    Unicode::snprintfFloat(rangeTextBuffer, RANGETEXT_SIZE, "%#.2f", kilometers);
-    rangeText.invalidate();
+//    if(range < 2000) {
+//        rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+//    } else {
+//        rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+//    }
+//
+//    float kilometers = static_cast<float>(range) / 1000.0f;
+//
+//    Unicode::snprintfFloat(rangeTextBuffer, RANGETEXT_SIZE, "%#.2f", kilometers);
+//    rangeText.invalidate();
 }
 
 void MainScreenView::updateCurrentLap(uint32_t time) {
