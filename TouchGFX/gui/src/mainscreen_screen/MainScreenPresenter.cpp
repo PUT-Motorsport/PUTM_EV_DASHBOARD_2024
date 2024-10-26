@@ -21,7 +21,7 @@ void MainScreenPresenter::setReadyToDrive(bool status) { view.updateReadyToDrive
 
 void MainScreenPresenter::setInvertersReady(bool status) { view.updateInvertersReady(status); }
 
-void MainScreenPresenter::setBatteryTemperature(uint8_t temperature) { view.updateBatteryTemperature(temperature); }
+void MainScreenPresenter::setBatteryLvTemperature(uint8_t temperature) { view.updateBatteryLvTemperature(temperature); }
 
 void MainScreenPresenter::setInverterTemperature(uint8_t temperature) { view.updateInverterTemperature(temperature); }
 

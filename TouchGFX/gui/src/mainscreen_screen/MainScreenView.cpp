@@ -4,8 +4,8 @@
 #include <touchgfx/Color.hpp>
 
 #define BATTERY_LV_TEMPERATURE_MIN 15
-#define BATTERY_LV_TEMPERATURE_MID 35
-#define BATTERY_LV_TEMPERATURE_MAX 45
+#define BATTERY_LV_TEMPERATURE_MID 30
+#define BATTERY_LV_TEMPERATURE_MAX 40
 #define INVERTER_TEMPERATURE_MIN 20
 #define INVERTER_TEMPERATURE_MID 80
 #define INVERTER_TEMPERATURE_MAX 100
@@ -84,22 +84,22 @@ void MainScreenView::updateInvertersReady(bool status) {
     invText.invalidate();
 }
 
-void MainScreenView::updateBatteryTemperature(uint8_t temperature) {
-    Unicode::snprintf(batTempTextBuffer, BATTEMPTEXT_SIZE, "%d", temperature);
+void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
+    Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", temperature);
     if(temperature > BATTERY_LV_TEMPERATURE_MAX || temperature < BATTERY_LV_TEMPERATURE_MIN) {
-        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
-        batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
+        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > BATTERY_LV_TEMPERATURE_MID) {
-        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
-        batTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+        batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
+        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
-        batTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
-        batTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
+        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
-    batTempIcon.setVisible(true);
-    batTempText.setVisible(true);
-    batTempIcon.invalidate();
-    batTempText.invalidate();
+    batLvTempIcon.setVisible(true);
+    batLvTempText.setVisible(true);
+    batLvTempIcon.invalidate();
+    batLvTempText.invalidate();
 }
 
 void MainScreenView::updateInverterTemperature(uint8_t temperature) {

@@ -32,7 +32,8 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setRadio(bool status);
     void setReadyToDrive(bool status);
     void setInvertersReady(bool status);
-    void setBatteryTemperature(uint8_t temperature);
+    void setBatteryHvTemperature(uint8_t temperature);
+    void setBatteryLvTemperature(uint8_t temperature);
     void setInverterTemperature(uint8_t temperature);
     void setOilTemperature(uint8_t temperature);
     void setOilPressure(uint8_t pressure);

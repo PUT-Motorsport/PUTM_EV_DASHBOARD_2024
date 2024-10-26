@@ -41,6 +41,9 @@ void Model::tick() {
             m_sharedDataPrev.battery_hv_temperature = m_sharedData.battery_hv_temperature;
             modelListener->setBatteryHVTemperature(m_sharedData.battery_hv_temperature);
 
+            m_sharedDataPrev.battery_lv_temperature = m_sharedData.battery_lv_temperature;
+            modelListener->setBatteryLVTemperature(m_sharedData.battery_lv_temperature);
+
             m_sharedDataPrev.inverter_temperature = m_sharedData.inverter_temperature;
             modelListener->setInverterTemperature(m_sharedData.inverter_temperature);
 
