@@ -59,8 +59,8 @@ void Model::tick() {
             m_sharedDataPrev.speed = m_sharedData.speed;
             modelListener->setSpeed(m_sharedData.speed);
 
-            m_sharedDataPrev.soc = m_sharedData.soc;
-            modelListener->setSoc(m_sharedData.soc);
+            m_sharedDataPrev.soc_hv = m_sharedData.soc_hv;
+            modelListener->setSocHV(m_sharedData.soc_hv);
 
             m_sharedDataPrev.rpm = m_sharedData.rpm;
             modelListener->setRpm(m_sharedData.rpm);

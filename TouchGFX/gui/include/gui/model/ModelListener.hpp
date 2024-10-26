@@ -25,7 +25,7 @@ class ModelListener {
     virtual void setCoolantPressure(uint8_t pressure) {}
     virtual void setPace(int32_t pace) {}
     virtual void setSpeed(uint8_t speed) {}
-    virtual void setSoc(uint8_t soc) {}
+    virtual void setSocHV(uint8_t soc) {}
     virtual void setRpm(uint16_t rpm) {}
     virtual void setPower(uint8_t power) {}
     virtual void setDistance(uint16_t distance) {}
