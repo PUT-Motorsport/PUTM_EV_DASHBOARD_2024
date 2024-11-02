@@ -90,6 +90,7 @@ void Communication_Task(void* argument) {
             auto bms_lv_main_data = PUTM_CAN::can.get_bms_lv_main();
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+            	sharedData.warning = false;
                 sharedData.coolant_temperature = bms_lv_main_data.temp_avg;
                 sharedData.battery_lv_temperature = bms_lv_main_data.temp_avg;
 
@@ -97,6 +98,7 @@ void Communication_Task(void* argument) {
             }
         } else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+            	sharedData.warning = true;
                 sharedData.coolant_temperature = 0;
                 sharedData.battery_lv_temperature = 0;
 
@@ -116,6 +118,7 @@ void Communication_Task(void* argument) {
             }
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+            	sharedData.warning = false;
                 sharedData.soc_hv = bms_hv_main_data.soc / 10;
                 sharedData.battery_hv_temperature = bms_hv_main_data.temp_max;
 
@@ -125,6 +128,7 @@ void Communication_Task(void* argument) {
 			interfaceData.ams_led = true;
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+            	sharedData.warning = true;
                 sharedData.soc_hv = 0;
                 sharedData.battery_hv_temperature = 0;
 
