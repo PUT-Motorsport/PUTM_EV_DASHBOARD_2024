@@ -49,6 +49,7 @@ typedef struct {
 	uint32_t bms_lv_last_frame_time;
 	uint32_t frontbox_last_frame_time;
 	uint32_t rearbox_last_frame_time;
+	uint32_t pc_last_frame_time;
 } TimeoutData_TypeDef;
 
 typedef struct {

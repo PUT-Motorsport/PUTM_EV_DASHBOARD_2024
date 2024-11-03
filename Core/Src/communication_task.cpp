@@ -58,12 +58,7 @@ void Communication_Task(void* argument) {
                 sharedData.warning = false;
                 sharedData.ready_to_drive = pc_data.rtd;
                 sharedData.inverters_ready = pc_data.invertersReady;
-//                sharedData.inverter_temperature = std::max(pc_data.rearRightInverterTemperature, pc_data.rearLeftInverterTemperature);
-//                sharedData.oil_temperature = std::max(pc_data.rearRightMotorTemperature, pc_data.rearLeftMotorTemperature);
-//                sharedData.motor_front_left_temperature = dane z kompa;
-//                sharedData.motor_front_right_temperature = dane z kompa;
-                sharedData.motor_rear_left_temperature = pc_data.rearLeftMotorTemperature;
-                sharedData.motor_rear_right_temperature = pc_data.rearRightMotorTemperature;
+
 
                 sharedData.speed = pc_data.vehicleSpeed;
                 sharedData.rpm = pc_data.rpm;
@@ -136,6 +131,50 @@ void Communication_Task(void* argument) {
             }
 
 		}
+
+
+        // PC
+        if(PUTM_CAN::can.get_pc_new_data())
+        {
+            timeoutData.pc_last_frame_time = current_tick_time;
+            auto pc_data = PUTM_CAN::can.get_pc_main_data();
+
+
+           if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+           {
+              sharedData.warning = false;
+              sharedData.connection = false;
+
+              //FIXME: Brakuje danych z PC
+              //sharedData.motor_front_left_temperature =
+              //sharedData.motor_front_right_temperature =
+			  sharedData.motor_rear_right_temperature = pc_data.rearRightMotorTemperature;
+			  sharedData.motor_rear_left_temperature = pc_data.rearLeftMotorTemperature;
+			  sharedData.rpm = pc_data.rpm;
+
+			  sharedData.speed = pc_data.vehicleSpeed;
+			  sharedData.power = pc_data.power;
+
+  			 osMutexRelease(sharedDataMutexHandle);
+		  }
+	     }
+        else if(current_tick_time - timeoutData.pc_last_frame_time > DASH_TIMEOUT_DURATION)
+        {
+
+		  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+		  {
+			sharedData.warning = true;
+			sharedData.connection = true;
+			sharedData.motor_rear_right_temperature = 0;
+			sharedData.motor_rear_left_temperature = 0;
+			sharedData.rpm = 0;
+			sharedData.speed = 0;
+			sharedData.power = 0;
+
+			osMutexRelease(sharedDataMutexHandle);
+		  }
+	     }
+
 
         HAL_IWDG_Refresh(&hiwdg); // Every 250 ms
 

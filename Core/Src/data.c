@@ -52,6 +52,7 @@ TimeoutData_TypeDef timeoutData = {
     .bms_lv_last_frame_time = 0,
     .frontbox_last_frame_time = 0,
     .rearbox_last_frame_time = 0,
+	.pc_last_frame_time = 0,
 };
 
 TimerData_TypeDef timerData = {
