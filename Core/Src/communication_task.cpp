@@ -53,16 +53,18 @@ void Communication_Task(void* argument) {
             timeoutData.frontbox_last_frame_time = current_tick_time;
             auto pc_data = PUTM_CAN::can.get_pc_main_data();
 
-            //FIXME: dodac odczyty danych z flaowników i poszczegolnych silnikow
+
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
                 sharedData.warning = false;
                 sharedData.ready_to_drive = pc_data.rtd;
                 sharedData.inverters_ready = pc_data.invertersReady;
 
+                sharedData.inverter_temperature = std::max(pc_data.rearRightInverterTemperature, pc_data.rearLeftInverterTemperature);
+                sharedData.oil_temperature = std::max(pc_data.rearRightMotorTemperature, pc_data.rearLeftMotorTemperature);
 
-                sharedData.speed = pc_data.vehicleSpeed;
-                sharedData.rpm = pc_data.rpm;
-                sharedData.power = pc_data.power;
+//                sharedData.speed = pc_data.vehicleSpeed;
+//                sharedData.rpm = pc_data.rpm;
+//                sharedData.power = pc_data.power;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
@@ -71,9 +73,9 @@ void Communication_Task(void* argument) {
                 sharedData.warning = true;
                 sharedData.inverter_temperature = 0;
                 sharedData.oil_temperature = 0;
-                sharedData.speed = 0;
-                sharedData.rpm = 0;
-                sharedData.power = 0;
+//                sharedData.speed = 0;
+//                sharedData.rpm = 0;
+//                sharedData.power = 0;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
