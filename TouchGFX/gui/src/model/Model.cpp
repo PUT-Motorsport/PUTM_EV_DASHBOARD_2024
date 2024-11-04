@@ -91,6 +91,68 @@ void Model::tick() {
 
             m_sharedDataPrev.range = m_sharedData.range;
             modelListener->setRange(m_sharedData.range);
+
+            //TODO: Dopisac funkcje dla Safety
+            m_sharedSafetyDataPrev.sense_left_kill = m_sharedSafetyData.sense_left_kill;
+            modelListener->setSafetyLeftKill(m_sharedSafetyData.sense_left_kill);
+
+            m_sharedSafetyDataPrev.sense_right_kill = m_sharedSafetyData.sense_right_kill;
+            modelListener->setSafetyRightKill(m_sharedSafetyData.sense_right_kill);
+
+            m_sharedSafetyDataPrev.sense_driver_kill = m_sharedSafetyData.sense_driver_kill;
+            modelListener->setSafetyDriverKill(m_sharedSafetyData.sense_driver_kill);
+
+            m_sharedSafetyDataPrev.sense_inertia = m_sharedSafetyData.sense_inertia;
+            modelListener->setSafetyInertia(m_sharedSafetyData.sense_inertia);
+
+            m_sharedSafetyDataPrev.sense_bspd = m_sharedSafetyData.sense_bspd;
+            modelListener->setSafetyBspd(m_sharedSafetyData.sense_bspd);
+
+            m_sharedSafetyDataPrev.sense_overtravel = m_sharedSafetyData.sense_overtravel;
+            modelListener->setSafetyOvertravel(m_sharedSafetyData.sense_overtravel);
+
+            m_sharedSafetyDataPrev.sense_right_wheel = m_sharedSafetyData.sense_right_wheel;
+            modelListener->setSafetyRightWheel(m_sharedSafetyData.sense_right_wheel);
+
+            m_sharedSafetyDataPrev.is_braking = m_sharedSafetyData.is_braking;
+            modelListener->setSafetyIsBraking(m_sharedSafetyData.is_braking);
+
+            m_sharedSafetyDataPrev.safety_rfu1 = m_sharedSafetyData.safety_rfu1;
+            modelListener->setSafetyRuf1(m_sharedSafetyData.safety_rfu1);
+
+            m_sharedSafetyDataPrev.safety_rfu2 = m_sharedSafetyData.safety_rfu2;
+            modelListener->setSafetyRuf2(m_sharedSafetyData.safety_rfu2);
+
+            m_sharedSafetyDataPrev.safety_asms = m_sharedSafetyData.safety_asms;
+            modelListener->setSafetyAsms(m_sharedSafetyData.safety_asms);
+
+            m_sharedSafetyDataPrev.safety_fw = m_sharedSafetyData.safety_fw;
+            modelListener->setSafetyFw(m_sharedSafetyData.safety_fw);
+
+            m_sharedSafetyDataPrev.safety_hv = m_sharedSafetyData.safety_hv;
+            modelListener->setSafetyHv(m_sharedSafetyData.safety_hv);
+
+            m_sharedSafetyDataPrev.safety_res = m_sharedSafetyData.safety_res;
+            modelListener->setSafetyRes(m_sharedSafetyData.safety_res);
+
+            m_sharedSafetyDataPrev.safety_hvd = m_sharedSafetyData.safety_hvd;
+            modelListener->setSafetyHvd(m_sharedSafetyData.safety_hvd);
+
+            m_sharedSafetyDataPrev.safety_inv = m_sharedSafetyData.safety_inv;
+            modelListener->setSafetyInv(m_sharedSafetyData.safety_inv);
+            //
+            m_sharedSafetyDataPrev.safety_wheel_fl = m_sharedSafetyData.safety_wheel_fl;
+            modelListener->setSafetyWheelFL(m_sharedSafetyData.safety_wheel_fl);
+
+            m_sharedSafetyDataPrev.safety_wheel_fr = m_sharedSafetyData.safety_wheel_fr;
+            modelListener->setSafetyWheelFR(m_sharedSafetyData.safety_wheel_fr);
+
+            m_sharedSafetyDataPrev.safety_wheel_rl = m_sharedSafetyData.safety_wheel_rl;
+            modelListener->setSafetyWheelRL(m_sharedSafetyData.safety_wheel_rl);
+
+            m_sharedSafetyDataPrev.safety_wheel_rr = m_sharedSafetyData.safety_wheel_rr;
+            modelListener->setSafetyWheelRR(m_sharedSafetyData.safety_wheel_rr);
+
         }
 
         if(osMutexAcquire(timerDataMutexHandle, osWaitForever) == osOK) {
