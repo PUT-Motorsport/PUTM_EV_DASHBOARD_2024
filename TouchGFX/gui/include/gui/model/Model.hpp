@@ -19,6 +19,8 @@ class Model {
   private:
     Data_TypeDef m_sharedData;
     Data_TypeDef m_sharedDataPrev;
+    SafetyData_TypeDef m_sharedSafetyData;
+    SafetyData_TypeDef m_sharedSafetyDataPrev;
     TimerData_TypeDef m_timerData;
     TimerData_TypeDef m_timerDataPrev;
 };

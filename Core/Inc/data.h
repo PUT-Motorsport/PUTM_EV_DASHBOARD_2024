@@ -22,8 +22,8 @@ typedef struct {
     _Bool radio;
     _Bool ready_to_drive;
     _Bool inverters_ready;
-    _Bool safety_front;
-    _Bool safety_rear;
+//    _Bool safety_front;
+//    _Bool safety_rear;
     uint8_t battery_hv_temperature;
     uint8_t battery_lv_temperature;
     uint8_t inverter_temperature;
@@ -43,6 +43,31 @@ typedef struct {
     uint16_t distance;
     uint16_t range;
 } Data_TypeDef;
+
+typedef struct{
+	//Frontbox Safety
+	_Bool sense_left_kill;
+	_Bool sense_right_kill;
+	_Bool sense_driver_kill;
+	_Bool sense_inertia;
+	_Bool sense_bspd;
+	_Bool sense_overtravel;
+	_Bool sense_right_wheel;
+	_Bool is_braking;
+	//Rearbox Safety
+	_Bool safety_rfu1;
+	_Bool safety_rfu2;
+	_Bool safety_asms;
+	_Bool safety_fw;
+	_Bool safety_hv;
+	_Bool safety_res;
+	_Bool safety_hvd;
+	_Bool safety_inv;
+	_Bool safety_wheel_fl;
+	_Bool safety_wheel_fr;
+	_Bool safety_wheel_rl;
+	_Bool safety_wheel_rr;
+}SafetyData_TypeDef;
 
 typedef struct {
 	uint32_t bms_hv_last_frame_time;
@@ -85,6 +110,7 @@ typedef struct {
 
 /* Public variables ----------------------------------------------------------*/
 extern Data_TypeDef sharedData;
+extern SafetyData_TypeDef SafetyData;
 extern TimeoutData_TypeDef timeoutData;
 extern TimerData_TypeDef timerData;
 extern InterfaceData_TypeDef interfaceData;

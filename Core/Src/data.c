@@ -25,8 +25,8 @@ Data_TypeDef sharedData = {
     .radio = false,
     .ready_to_drive = false,
     .inverters_ready = false,
-    .safety_front = true,
-    .safety_rear = true,
+//    .safety_front = true,
+//    .safety_rear = true,
     .battery_hv_temperature = 0,
 	.battery_lv_temperature = 0,
     .inverter_temperature = 0,
@@ -45,6 +45,32 @@ Data_TypeDef sharedData = {
     .power = 0,
     .distance = 0,
     .range = 0,
+};
+
+SafetyData_TypeDef SafetyData =
+{
+	//Frontbox Safety
+	.sense_left_kill = 0,
+	.sense_right_kill = 0,
+	.sense_driver_kill = 0,
+	.sense_inertia = 0,
+	.sense_bspd = 0,
+	.sense_overtravel = 0,
+	.sense_right_wheel = 0,
+	.is_braking = 0,
+	//Rearbox Safety
+	.safety_rfu1 = 0,
+	.safety_rfu2 = 0,
+	.safety_asms = 0,
+	.safety_fw = 0,
+	.safety_hv = 0,
+	.safety_res = 0,
+	.safety_hvd = 0,
+	.safety_inv = 0,
+	.safety_wheel_fl = 0,
+	.safety_wheel_fr = 0,
+	.safety_wheel_rl  = 0,
+	.safety_wheel_rr = 0,
 };
 
 TimeoutData_TypeDef timeoutData = {
