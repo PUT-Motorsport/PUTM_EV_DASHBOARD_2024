@@ -92,7 +92,7 @@ void Model::tick() {
             m_sharedDataPrev.range = m_sharedData.range;
             modelListener->setRange(m_sharedData.range);
 
-            //TODO: Dopisac funkcje dla Safety
+            //Safety
             m_sharedSafetyDataPrev.sense_left_kill = m_sharedSafetyData.sense_left_kill;
             modelListener->setSafetyLeftKill(m_sharedSafetyData.sense_left_kill);
 

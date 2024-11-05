@@ -22,8 +22,8 @@ typedef struct {
     _Bool radio;
     _Bool ready_to_drive;
     _Bool inverters_ready;
-//    _Bool safety_front;
-//    _Bool safety_rear;
+    _Bool safety_front;
+    _Bool safety_rear;
     uint8_t battery_hv_temperature;
     uint8_t battery_lv_temperature;
     uint8_t inverter_temperature;
