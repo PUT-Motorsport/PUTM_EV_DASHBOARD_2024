@@ -15,7 +15,6 @@
 
 /* Public typedefs -----------------------------------------------------------*/
 typedef struct {
-	//TODO: dodać zmienne potrzebne do dwóch wyświetlaczy
     uint32_t time;
     _Bool warning;
     _Bool connection;

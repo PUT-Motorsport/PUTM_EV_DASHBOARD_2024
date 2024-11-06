@@ -23,6 +23,8 @@ void MainScreenPresenter::setInvertersReady(bool status) { view.updateInvertersR
 
 void MainScreenPresenter::setBatteryLvTemperature(uint8_t temperature) { view.updateBatteryLvTemperature(temperature); }
 
+void MainScreenPresenter::setBatteryHvTemperature(uint8_t temperature) { view.updateBatteryHvTemperature(temperature); }
+
 void MainScreenPresenter::setInverterTemperature(uint8_t temperature) { view.updateInverterTemperature(temperature); }
 
 void MainScreenPresenter:: setMotorFrontLeftTemperature(uint8_t temperature) { view.updateMotorFrontLeftTemperature(temperature); }
@@ -45,7 +47,9 @@ void MainScreenPresenter::setPace(int32_t pace) { view.updatePace(pace); }
 
 void MainScreenPresenter::setSpeed(uint8_t speed) { view.updateSpeed(speed); }
 
-void MainScreenPresenter::setSoc(uint8_t soc) { view.updateSoc(soc); }
+void MainScreenPresenter::setSocLv(uint8_t soc) { view.updateSocLv(soc); }
+
+void MainScreenPresenter::setSocHv(uint8_t soc) { view.updateSocHv(soc); }
 
 void MainScreenPresenter::setRpm(uint16_t rpm) { view.updateRpm(rpm); }
 

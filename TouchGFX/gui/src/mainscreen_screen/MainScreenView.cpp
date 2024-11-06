@@ -217,9 +217,14 @@ void MainScreenView::updateSpeed(uint8_t speed) {
 //    speedText.invalidate();
 }
 
-void MainScreenView::updateSoc(uint8_t soc) {
+//void MainScreenView::updateSocHv(uint8_t soc) {
 //    Unicode::snprintf(socTextBuffer, SOCTEXT_SIZE, "%d", soc);
 //    socText.invalidate();
+//}
+
+void MainScreenView::updateSocLv(uint8_t soc) {
+    Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", soc);
+    batLvTempText.invalidate();
 }
 
 void MainScreenView::updateRpm(uint16_t rpm) {

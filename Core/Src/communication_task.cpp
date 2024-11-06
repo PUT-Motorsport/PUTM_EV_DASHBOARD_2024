@@ -81,7 +81,7 @@ void Communication_Task(void* argument) {
             }
 		}
 
-        //TODO:Frontbox Safety
+        //Frontbox Safety
 		if(PUTM_CAN::can.get_front_data_main_new_data())
 		{
 			timeoutData.frontbox_safety_last_frame_time = current_tick_time;
@@ -177,7 +177,6 @@ void Communication_Task(void* argument) {
 				safetyData.safety_wheel_rl = false;
 				safetyData.safety_wheel_rr = false;
 
-
 				osMutexRelease(sharedDataMutexHandle);
 			}
 		}
@@ -190,16 +189,18 @@ void Communication_Task(void* argument) {
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = false;
-                sharedData.coolant_temperature = bms_lv_main_data.temp_avg;
+                //sharedData.coolant_temperature = bms_lv_main_data.temp_avg;
                 sharedData.battery_lv_temperature = bms_lv_main_data.temp_avg;
+                sharedData.soc_lv = bms_lv_main_data.soc;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
         } else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = true;
-                sharedData.coolant_temperature = 0;
+                //sharedData.coolant_temperature = 0;
                 sharedData.battery_lv_temperature = 0;
+                sharedData.soc_lv = 0;
 
                 osMutexRelease(sharedDataMutexHandle);
             }

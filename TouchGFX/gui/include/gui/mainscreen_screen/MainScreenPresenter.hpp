@@ -45,7 +45,8 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setCoolantPressure(uint8_t pressure);
     void setPace(int32_t pace);
     void setSpeed(uint8_t speed);
-    void setSoc(uint8_t soc);
+    void setSocLv(uint8_t soc);
+    void setSocHv(uint8_t soc);
     void setRpm(uint16_t rpm);
     void setPower(uint8_t power);
     void setDistance(uint16_t distance);

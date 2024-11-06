@@ -18,6 +18,7 @@ class MainScreenView : public MainScreenViewBase {
     void updateReadyToDrive(bool status);
     void updateInvertersReady(bool status);
     void updateBatteryLvTemperature(uint8_t temperature);
+    void updateBatteryHvTemperature(uint8_t temperature);
     void updateInverterTemperature(uint8_t temperature);
     void updateMotorFrontLeftTemperature(uint8_t temperature);
     void updateMotorFrontRightTemperature(uint8_t temperature);
@@ -29,7 +30,8 @@ class MainScreenView : public MainScreenViewBase {
     void updateCoolantPressure(uint8_t pressure);
     void updatePace(int32_t pace);
     void updateSpeed(uint8_t speed);
-    void updateSoc(uint8_t soc);
+    void updateSocLv(uint8_t soc);
+    void updateSocHv(uint8_t soc);
     void updateRpm(uint16_t rpm);
     void updatePower(uint8_t power);
     void updateDistance(uint16_t distance);
