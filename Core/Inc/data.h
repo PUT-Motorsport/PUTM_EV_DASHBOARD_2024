@@ -73,7 +73,9 @@ typedef struct {
 	uint32_t bms_hv_last_frame_time;
 	uint32_t bms_lv_last_frame_time;
 	uint32_t frontbox_last_frame_time;
+	uint32_t frontbox_safety_last_frame_time;
 	uint32_t rearbox_last_frame_time;
+	uint32_t rearbox_safety_last_frame_time;
 	uint32_t pc_last_frame_time;
 } TimeoutData_TypeDef;
 
@@ -110,7 +112,7 @@ typedef struct {
 
 /* Public variables ----------------------------------------------------------*/
 extern Data_TypeDef sharedData;
-extern SafetyData_TypeDef SafetyData;
+extern SafetyData_TypeDef safetyData;
 extern TimeoutData_TypeDef timeoutData;
 extern TimerData_TypeDef timerData;
 extern InterfaceData_TypeDef interfaceData;

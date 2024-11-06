@@ -82,11 +82,54 @@ void Communication_Task(void* argument) {
 		}
 
         //TODO:Frontbox Safety
+		if(PUTM_CAN::can.get_front_data_main_new_data())
+		{
+			timeoutData.frontbox_safety_last_frame_time = current_tick_time;
+			auto frontbox_safety_data = PUTM_CAN::can.get_front_data_main_data();
+
+
+			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+			{
+				sharedData.warning = false;
+				sharedData.safety_front = false;
+
+				safetyData.sense_left_kill = frontbox_safety_data.sense_left_kill;
+				safetyData.sense_right_kill = frontbox_safety_data.sense_right_kill;
+				safetyData.sense_driver_kill = frontbox_safety_data.sense_driver_kill;
+				safetyData.sense_inertia = frontbox_safety_data.sense_inertia;
+				safetyData.sense_bspd = frontbox_safety_data.sense_bspd;
+				safetyData.sense_overtravel = frontbox_safety_data.sense_overtravel;
+				safetyData.sense_right_wheel = frontbox_safety_data.sense_right_wheel;
+				safetyData.is_braking = frontbox_safety_data.is_braking;
+
+				osMutexRelease(sharedDataMutexHandle);
+			}
+		}
+		else if(current_tick_time - timeoutData.frontbox_last_frame_time > DASH_TIMEOUT_DURATION)
+		{
+			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+			{
+				sharedData.warning = true;
+				sharedData.safety_front = true;
+
+				safetyData.sense_left_kill = false;
+				safetyData.sense_right_kill = false;
+				safetyData.sense_driver_kill = false;
+				safetyData.sense_inertia = false;
+				safetyData.sense_bspd = false;
+				safetyData.sense_overtravel = false;
+				safetyData.sense_right_wheel = false;
+				safetyData.is_braking = false;
+
+
+				osMutexRelease(sharedDataMutexHandle);
+			}
+		}
 
         //RearBox Safety
         if(PUTM_CAN::can.get_rearbox_safety_new_data())
         {
-			timeoutData.frontbox_last_frame_time = current_tick_time;
+			timeoutData.rearbox_safety_last_frame_time = current_tick_time;
 			auto rearbox_safety_data = PUTM_CAN::can.get_rearbox_safety();
 
 
@@ -96,18 +139,18 @@ void Communication_Task(void* argument) {
                 //We get data from the component so errors are detected
 				sharedData.safety_rear = false;
 
-				SafetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
-				SafetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
-				SafetyData.safety_asms = rearbox_safety_data.safety_asms;
-				SafetyData.safety_fw = rearbox_safety_data.safety_fw;
-				SafetyData.safety_hv = rearbox_safety_data.safety_hv;
-				SafetyData.safety_res = rearbox_safety_data.safety_res;
-				SafetyData.safety_hvd = rearbox_safety_data.safety_hvd;
-				SafetyData.safety_inv = rearbox_safety_data.safety_inv;
-				SafetyData.safety_wheel_fl = rearbox_safety_data.safety_wheel_fl;
-				SafetyData.safety_wheel_fr = rearbox_safety_data.safety_wheel_fr;
-				SafetyData.safety_wheel_rl = rearbox_safety_data.safety_wheel_rl;
-				SafetyData.safety_wheel_rr = rearbox_safety_data.safety_wheel_rr;
+				safetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
+				safetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
+				safetyData.safety_asms = rearbox_safety_data.safety_asms;
+				safetyData.safety_fw = rearbox_safety_data.safety_fw;
+				safetyData.safety_hv = rearbox_safety_data.safety_hv;
+				safetyData.safety_res = rearbox_safety_data.safety_res;
+				safetyData.safety_hvd = rearbox_safety_data.safety_hvd;
+				safetyData.safety_inv = rearbox_safety_data.safety_inv;
+				safetyData.safety_wheel_fl = rearbox_safety_data.safety_wheel_fl;
+				safetyData.safety_wheel_fr = rearbox_safety_data.safety_wheel_fr;
+				safetyData.safety_wheel_rl = rearbox_safety_data.safety_wheel_rl;
+				safetyData.safety_wheel_rr = rearbox_safety_data.safety_wheel_rr;
 
 
 				osMutexRelease(sharedDataMutexHandle);
@@ -121,18 +164,18 @@ void Communication_Task(void* argument) {
 				//we do not get data from the component so errors are not detected
 				sharedData.safety_rear = true;
 
-				SafetyData.safety_rfu1 = false;
-				SafetyData.safety_rfu2 = false;
-				SafetyData.safety_asms = false;
-				SafetyData.safety_fw = false;
-				SafetyData.safety_hv = false;
-				SafetyData.safety_res = false;
-				SafetyData.safety_hvd = false;
-				SafetyData.safety_inv = false;
-				SafetyData.safety_wheel_fl = false;
-				SafetyData.safety_wheel_fr = false;
-				SafetyData.safety_wheel_rl = false;
-				SafetyData.safety_wheel_rr = false;
+				safetyData.safety_rfu1 = false;
+				safetyData.safety_rfu2 = false;
+				safetyData.safety_asms = false;
+				safetyData.safety_fw = false;
+				safetyData.safety_hv = false;
+				safetyData.safety_res = false;
+				safetyData.safety_hvd = false;
+				safetyData.safety_inv = false;
+				safetyData.safety_wheel_fl = false;
+				safetyData.safety_wheel_fr = false;
+				safetyData.safety_wheel_rl = false;
+				safetyData.safety_wheel_rr = false;
 
 
 				osMutexRelease(sharedDataMutexHandle);
