@@ -317,20 +317,84 @@ void MainScreenView::toggleWarning() {
 
 void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 {
-
+    Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
+    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    {
+    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(temperature > MOTOR_TEMPERATURE_MID)
+    {
+    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    }
+    else
+    {
+    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+    carImage.setVisible(true);
+    motorFrontLefttext.setVisible(true);
+    carImage.invalidate();
+    motorFrontLefttext.invalidate();
 }
 
 void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
 {
-
+    Unicode::snprintf(motorFrontRighttextBuffer, MOTORFRONTRIGHTTEXT_SIZE, "%d", temperature);
+    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    {
+    	motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(temperature > MOTOR_TEMPERATURE_MID)
+    {
+    	motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    }
+    else
+    {
+    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+    carImage.setVisible(true);
+    motorFrontRighttext.setVisible(true);
+    carImage.invalidate();
+    motorFrontRighttext.invalidate();
 }
 
 void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 {
-
+    Unicode::snprintf(motorRearLefttextBuffer, MOTORREARLEFTTEXT_SIZE, "%d", temperature);
+    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    {
+    	motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(temperature > MOTOR_TEMPERATURE_MID)
+    {
+    	motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    }
+    else
+    {
+    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+    carImage.setVisible(true);
+    motorRearLefttext.setVisible(true);
+    carImage.invalidate();
+    motorRearLefttext.invalidate();
 }
 
 void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 {
-
+    Unicode::snprintf(motorRearRighttextBuffer, MOTORREARRIGHTTEXT_SIZE, "%d", temperature);
+    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    {
+    	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(temperature > MOTOR_TEMPERATURE_MID)
+    {
+    	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    }
+    else
+    {
+    	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+    carImage.setVisible(true);
+    motorRearRighttext.setVisible(true);
+    carImage.invalidate();
+    motorRearRighttext.invalidate();
 }
