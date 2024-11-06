@@ -6,10 +6,13 @@
 #define BATTERY_LV_TEMPERATURE_MIN 15
 #define BATTERY_LV_TEMPERATURE_MID 30
 #define BATTERY_LV_TEMPERATURE_MAX 40
+#define BATTERY_LV_SOC_MIN 20
+#define BATTERY_LV_SOC_MID 50
+#define BATTERY_LV_SOC_MAX 100
 //TODO: uzupełnić odpowiednimi temperaturami
-#define MOTOR_TEMPERATURE_MIN 15
-#define MOTOR_TEMPERATURE_MID 30
-#define MOTOR_TEMPERATURE_MAX 40
+#define MOTOR_TEMPERATURE_MIN 60
+#define MOTOR_TEMPERATURE_MID 90
+#define MOTOR_TEMPERATURE_MAX 110
 #define INVERTER_TEMPERATURE_MIN 20
 #define INVERTER_TEMPERATURE_MID 80
 #define INVERTER_TEMPERATURE_MAX 100
@@ -105,6 +108,22 @@ void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
     batLvTempIcon.invalidate();
     batLvTempText.invalidate();
 }
+
+void MainScreenView::updateSocLv(uint8_t soc) {
+//    Unicode::snprintf(batLvSoCTextBuffer, BATLVSOCTEXT_SIZE, "%d", soc);
+//    batLvTempText.invalidate();
+//
+//    if(soc > BATTERY_LV_SOC_MAX || temperature < BATTERY_LV_SOC_MIN) {
+//        batLvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+//    } else if(temperature > BATTERY_LV_SOC_MID) {
+//        batLvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+//    } else {
+//        batLvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+//    }
+//    batLvSoCText.setVisible(true);
+//    batLvSoCText.invalidate();
+}
+
 
 void MainScreenView::updateInverterTemperature(uint8_t temperature) {
     Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", temperature);
@@ -222,10 +241,7 @@ void MainScreenView::updateSpeed(uint8_t speed) {
 //    socText.invalidate();
 //}
 
-void MainScreenView::updateSocLv(uint8_t soc) {
-    Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", soc);
-    batLvTempText.invalidate();
-}
+
 
 void MainScreenView::updateRpm(uint16_t rpm) {
     uint8_t value = (rpm * 100) / DASH_RPM_MAX;
@@ -301,23 +317,7 @@ void MainScreenView::toggleWarning() {
 
 void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 {
-//    Unicode::snprintf(, , "%d", temperature);
-//    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
-//    {
-//        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-//    }
-//    else if(temperature > MOTOR_TEMPERATURE_MID)
-//    {
-//    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-//    }
-//    else
-//    {
-//    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-//    }
-//    carImage.setVisible(true);
-//    batLvTempText.setVisible(true);
-//    carImage.invalidate();
-//    batLvTempText.invalidate();
+
 }
 
 void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
