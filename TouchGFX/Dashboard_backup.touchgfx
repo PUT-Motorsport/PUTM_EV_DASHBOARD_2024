@@ -1,0 +1,963 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "BootScreen",
+        "Components": [
+          {
+            "Type": "AnimatedImage",
+            "Name": "logoAnimation",
+            "X": 175,
+            "Y": 105,
+            "Width": 450,
+            "Height": 270,
+            "FileNameFirst": "PUTM_intro_140.png",
+            "FileNameLast": "PUTM_intro_140.png",
+            "UpdateTicksInterval": 2000,
+            "StartOnLoad": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "SwitchToMainScreen",
+            "Trigger": {
+              "Type": "TriggerAnimationEnded",
+              "TriggerComponent": "logoAnimation"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "South",
+              "ActionComponent": "MainScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "MainScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "Visible": false,
+            "LockPosition": true
+          },
+          {
+            "Type": "Image",
+            "Name": "logo",
+            "X": 340,
+            "Y": 409,
+            "Width": 120,
+            "Height": 49,
+            "LockPosition": true,
+            "RelativeFilename": "PUTM_Logo.png",
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "invText",
+            "X": 106,
+            "Y": 405,
+            "Width": 65,
+            "Height": 48,
+            "TextId": "__SingleUse_Q3ZW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rtdText",
+            "X": 625,
+            "Y": 405,
+            "Width": 77,
+            "Height": 48,
+            "TextId": "__SingleUse_ZXJZ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "Container",
+            "Name": "timerContainer",
+            "X": 553,
+            "Y": 206,
+            "Width": 220,
+            "Height": 183,
+            "Components": [
+              {
+                "Type": "Image",
+                "Name": "timerFrame",
+                "Width": 220,
+                "Height": 183,
+                "RelativeFilename": "timeBackground.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "bestLapLabelText",
+                "X": 137,
+                "Y": 152,
+                "Width": 68,
+                "Height": 15,
+                "TextId": "__SingleUse_802D",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "bestLapText",
+                "X": 81,
+                "Y": 125,
+                "Width": 124,
+                "Height": 25,
+                "TextId": "__SingleUse_E4E9",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 25,
+                  "Green": 153,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_RMZ0",
+                  "UseBuffer": true,
+                  "BufferSize": 12
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "lastLapLabelText",
+                "X": 138,
+                "Y": 100,
+                "Width": 67,
+                "Height": 15,
+                "TextId": "__SingleUse_3C8O",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "lastLapText",
+                "X": 81,
+                "Y": 73,
+                "Width": 124,
+                "Height": 25,
+                "TextId": "__SingleUse_YUNI",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 25,
+                  "Green": 153,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_1QYQ",
+                  "UseBuffer": true,
+                  "BufferSize": 12
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "currentLapLabelText",
+                "X": 106,
+                "Y": 42,
+                "Width": 99,
+                "Height": 15,
+                "TextId": "__SingleUse_ILZ2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "currentLapText",
+                "X": 49,
+                "Y": 8,
+                "Width": 156,
+                "Height": 32,
+                "TextId": "__SingleUse_71SB",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 163,
+                  "Green": 146,
+                  "Blue": 46
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_NRU6",
+                  "UseBuffer": true,
+                  "BufferSize": 12
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "odometryContainer",
+            "X": 553,
+            "Y": 29,
+            "Width": 220,
+            "Height": 150,
+            "Components": [
+              {
+                "Type": "Image",
+                "Name": "odometryFrame",
+                "Width": 220,
+                "Height": 150,
+                "RelativeFilename": "odometryBackground.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rangeLabelText",
+                "X": 156,
+                "Y": 118,
+                "Width": 49,
+                "Height": 15,
+                "TextId": "__SingleUse_SMZ5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "rangeText",
+                "X": 32,
+                "Y": 75,
+                "Width": 173,
+                "Height": 48,
+                "TextId": "__SingleUse_FWQ5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_N3PA",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "distanceLabelText",
+                "X": 135,
+                "Y": 55,
+                "Width": 70,
+                "Height": 15,
+                "TextId": "__SingleUse_HR5K",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "distanceText",
+                "X": 32,
+                "Y": 13,
+                "Width": 172,
+                "Height": 48,
+                "TextId": "__SingleUse_M7L5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_VUV9",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "mainContainer",
+            "X": 276,
+            "Y": 105,
+            "Width": 250,
+            "Height": 294,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "powerText",
+                "X": 71,
+                "Y": 229,
+                "Width": 108,
+                "Height": 48,
+                "TextId": "__SingleUse_T6DT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_GOF1",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "BoxProgress",
+                "Name": "rpmProgress",
+                "X": 25,
+                "Y": 197,
+                "Width": 200,
+                "Height": 10,
+                "Color": {
+                  "Red": 25,
+                  "Green": 153,
+                  "Blue": 255
+                },
+                "Direction": "Right",
+                "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
+                "IndicatorPositionWidth": 200,
+                "IndicatorPositionHeight": 10,
+                "ProgressRangeMax": 100,
+                "ProgressRangeSteps": 100
+              },
+              {
+                "Type": "TextArea",
+                "Name": "socText",
+                "X": 12,
+                "Y": 46,
+                "Width": 226,
+                "Height": 121,
+                "TextId": "__SingleUse_4KU5",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_KZ23",
+                  "UseBuffer": true,
+                  "BufferSize": 4
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "speedText",
+                "X": 53,
+                "Y": 1,
+                "Width": 145,
+                "Height": 48,
+                "TextId": "__SingleUse_GQPI",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_FPIE",
+                  "UseBuffer": true,
+                  "BufferSize": 8
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "paceContainer",
+            "X": 301,
+            "Y": 29,
+            "Width": 200,
+            "Height": 49,
+            "Components": [
+              {
+                "Type": "Image",
+                "Name": "paceBackground",
+                "Width": 200,
+                "Height": 49,
+                "RelativeFilename": "paceYellowBackground.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "paceText",
+                "X": 46,
+                "Y": 5,
+                "Width": 108,
+                "Height": 32,
+                "TextId": "__SingleUse_F8RQ",
+                "TextRotation": "0",
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_BYIL",
+                  "UseBuffer": true,
+                  "BufferSize": 8
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "dataContainer",
+            "X": 28,
+            "Y": 104,
+            "Width": 220,
+            "Height": 285,
+            "Components": [
+              {
+                "Type": "Image",
+                "Name": "dataFrame",
+                "Width": 220,
+                "Height": 285,
+                "RelativeFilename": "dataBackground.png",
+                "Moveable": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "coolPressText",
+                "X": 125,
+                "Y": 236,
+                "Width": 77,
+                "Height": 25,
+                "TextId": "__SingleUse_PDYZ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_MOUC",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "coolPressIcon",
+                "X": 147,
+                "Y": 198,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "coolant_pressure.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "coolTempText",
+                "X": 24,
+                "Y": 236,
+                "Width": 61,
+                "Height": 25,
+                "TextId": "__SingleUse_MYN3",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_LTUT",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "coolTempIcon",
+                "X": 38,
+                "Y": 198,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "coolant.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "oilPressText",
+                "X": 125,
+                "Y": 148,
+                "Width": 77,
+                "Height": 25,
+                "TextId": "__SingleUse_01BQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_RX3A",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "oilPressIcon",
+                "X": 147,
+                "Y": 110,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "oil_pressure.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "oilTempText",
+                "X": 24,
+                "Y": 148,
+                "Width": 61,
+                "Height": 25,
+                "TextId": "__SingleUse_8L6D",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_M415",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "oilTempIcon",
+                "X": 38,
+                "Y": 110,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "oil.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "invTempText",
+                "X": 133,
+                "Y": 60,
+                "Width": 61,
+                "Height": 25,
+                "TextId": "__SingleUse_4NBP",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_74EP",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "invTempIcon",
+                "X": 147,
+                "Y": 23,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "inverter.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "batTempText",
+                "X": 24,
+                "Y": 60,
+                "Width": 61,
+                "Height": 25,
+                "TextId": "__SingleUse_0E5L",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_D2WE",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "batTempIcon",
+                "X": 38,
+                "Y": 23,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "battery.png"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "infoContainer",
+            "X": 28,
+            "Y": 29,
+            "Width": 220,
+            "Height": 49,
+            "Components": [
+              {
+                "Type": "Image",
+                "Name": "infoFrame",
+                "Width": 220,
+                "Height": 49,
+                "RelativeFilename": "infoFrame.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "radioIcon",
+                "X": 173,
+                "Y": 8,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "radio_off.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "connIcon",
+                "X": 135,
+                "Y": 9,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "conn_off.png"
+              },
+              {
+                "Type": "Image",
+                "Name": "warnIcon",
+                "X": 98,
+                "Y": 10,
+                "Width": 28,
+                "Height": 26,
+                "RelativeFilename": "warn_off.png"
+              },
+              {
+                "Type": "DigitalClock",
+                "Name": "clockWidget",
+                "X": 14,
+                "Y": 8,
+                "Width": 81,
+                "Height": 29,
+                "TextColor": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "TextId": "__SingleUse_HJQD",
+                "DisplayLeadingZeroForHourIndicator": true,
+                "InitialHour": 12
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ElementsFade",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "logo.clearFadeAnimationEndedAction();\r\nlogo.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);\r\n\r\ninvText.clearFadeAnimationEndedAction();\r\ninvText.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);\r\n\r\nrtdText.clearFadeAnimationEndedAction();\r\nrtdText.startFadeAnimation(255, 100, touchgfx::EasingEquations::linearEaseNone);"
+            }
+          },
+          {
+            "InteractionName": "LogoAlpha",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionFade",
+              "Alpha": 0,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "logo"
+            }
+          },
+          {
+            "InteractionName": "InfoContainerPosition",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 48,
+              "Y": 29,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "infoContainer"
+            }
+          },
+          {
+            "InteractionName": "DataContainerPosition",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 48,
+              "Y": 104,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "dataContainer"
+            }
+          },
+          {
+            "InteractionName": "OdometryContainerPosition",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 533,
+              "Y": 29,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "odometryContainer"
+            }
+          },
+          {
+            "InteractionName": "TimerContainerPosition",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 533,
+              "Y": 206,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "timerContainer"
+            }
+          },
+          {
+            "InteractionName": "InfoContainerMove",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 28,
+              "Y": 29,
+              "Easing": "Linear",
+              "EasingOption": "Out",
+              "Duration": 600,
+              "ActionComponent": "infoContainer"
+            }
+          },
+          {
+            "InteractionName": "DataContainerMove",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 28,
+              "Y": 104,
+              "Easing": "Linear",
+              "EasingOption": "Out",
+              "Duration": 600,
+              "ActionComponent": "dataContainer"
+            }
+          },
+          {
+            "InteractionName": "OdometryContainerMove",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 553,
+              "Y": 29,
+              "Easing": "Linear",
+              "EasingOption": "Out",
+              "Duration": 600,
+              "ActionComponent": "odometryContainer"
+            }
+          },
+          {
+            "InteractionName": "TimerContainerMove",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 553,
+              "Y": 206,
+              "Easing": "Linear",
+              "EasingOption": "Out",
+              "Duration": 600,
+              "ActionComponent": "timerContainer"
+            }
+          },
+          {
+            "InteractionName": "InvAlpha",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionFade",
+              "Alpha": 0,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "invText"
+            }
+          },
+          {
+            "InteractionName": "RtdAlpha",
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionFade",
+              "Alpha": 0,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "ActionComponent": "rtdText"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "NotificationScreen",
+        "Components": [
+          {
+            "Type": "BoxWithBorder",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "LockPosition": true,
+            "BorderColor": {
+              "Red": 255
+            },
+            "BorderSize": 20
+          },
+          {
+            "Type": "TextArea",
+            "Name": "notificationText",
+            "X": 30,
+            "Y": 189,
+            "Width": 740,
+            "Height": 122,
+            "TextId": "__SingleUse_KFWH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_IKMT",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ReturnToMainScreen",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1500
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "South",
+              "ActionComponent": "MainScreen"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "Dashboard",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 24,
+    "StartupScreenName": "BootScreen",
+    "SelectedStartupLanguage": "GB",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      24
+    ],
+    "AvailableLCDs": {
+      "24": "LCDGPU2D"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 800,
+        "Height": 480
+      }
+    ],
+    "PhysicalButtons": [],
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32U5",
+    "SubFamily": "STM32U599/5A9",
+    "Toolchain": "STM32CubeIDE",
+    "Platform": "m33",
+    "ProjectFile": "../Riverdi_50STM32U5A9.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [
+      "GPU2D"
+    ],
+    "AdditionalFeatures": []
+  },
+  "Version": "4.23.2",
+  "CreatedBy": "4.23.2"
+}
