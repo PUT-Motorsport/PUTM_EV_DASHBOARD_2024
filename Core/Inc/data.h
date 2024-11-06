@@ -75,6 +75,8 @@ typedef struct {
 	uint32_t frontbox_safety_last_frame_time;
 	uint32_t rearbox_last_frame_time;
 	uint32_t rearbox_safety_last_frame_time;
+	uint32_t rearbox_miscellaneous_last_frame_time;
+	uint32_t rearbox_temperatures_last_frame_time;
 	uint32_t pc_last_frame_time;
 } TimeoutData_TypeDef;
 

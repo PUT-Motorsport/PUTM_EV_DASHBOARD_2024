@@ -125,37 +125,6 @@ void Communication_Task(void* argument) {
 				osMutexRelease(sharedDataMutexHandle);
 			}
 		}
-
-        //RearBox Safety
-        if(PUTM_CAN::can.get_rearbox_safety_new_data())
-        {
-			timeoutData.rearbox_safety_last_frame_time = current_tick_time;
-			auto rearbox_safety_data = PUTM_CAN::can.get_rearbox_safety();
-
-
-			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
-			{
-				sharedData.warning = false;
-                //We get data from the component so errors are detected
-				sharedData.safety_rear = false;
-
-				safetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
-				safetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
-				safetyData.safety_asms = rearbox_safety_data.safety_asms;
-				safetyData.safety_fw = rearbox_safety_data.safety_fw;
-				safetyData.safety_hv = rearbox_safety_data.safety_hv;
-				safetyData.safety_res = rearbox_safety_data.safety_res;
-				safetyData.safety_hvd = rearbox_safety_data.safety_hvd;
-				safetyData.safety_inv = rearbox_safety_data.safety_inv;
-				safetyData.safety_wheel_fl = rearbox_safety_data.safety_wheel_fl;
-				safetyData.safety_wheel_fr = rearbox_safety_data.safety_wheel_fr;
-				safetyData.safety_wheel_rl = rearbox_safety_data.safety_wheel_rl;
-				safetyData.safety_wheel_rr = rearbox_safety_data.safety_wheel_rr;
-
-
-				osMutexRelease(sharedDataMutexHandle);
-			}
-		}
         else if(current_tick_time - timeoutData.frontbox_last_frame_time > DASH_TIMEOUT_DURATION)
         {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
@@ -181,6 +150,52 @@ void Communication_Task(void* argument) {
 			}
 		}
 
+
+		// RearBox Miscellaneous
+		if(PUTM_CAN::can.get_rearbox_miscellaneous_new_data()) {
+			timeoutData.rearbox_miscellaneous_last_frame_time = current_tick_time;
+			auto rearbox_miscellaneous_data = PUTM_CAN::can.get_rearbox_miscellaneous();
+
+			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+				sharedData.warning = false;
+
+				sharedData.coolant_pressure = std::max(rearbox_miscellaneous_data.coolant_pressure_out, rearbox_miscellaneous_data.coolant_pressure_in);
+
+				osMutexRelease(sharedDataMutexHandle);
+			}
+		} else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
+			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+				sharedData.warning = true;
+
+				sharedData.coolant_pressure = 0;
+
+				osMutexRelease(sharedDataMutexHandle);
+			}
+		}
+
+		// RearBox Temperature
+		if(PUTM_CAN::can.get_rearbox_temperature_new_data()) {
+			timeoutData.rearbox_temperatures_last_frame_time = current_tick_time;
+			auto rearbox_temperatures_data = PUTM_CAN::can.get_rearbox_temperature();
+
+			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+				sharedData.warning = false;
+
+				sharedData.coolant_temperature = std::max(rearbox_temperatures_data.coolant_temperature_out, rearbox_temperatures_data.coolant_temperature_in);
+				sharedData.oil_temperature = std::max(rearbox_temperatures_data.oil_temperature_l, rearbox_temperatures_data.oil_temperature_r);
+
+				osMutexRelease(sharedDataMutexHandle);
+			}
+		} else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
+			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+				sharedData.warning = true;
+
+				sharedData.coolant_temperature = 0;
+				sharedData.oil_temperature = 0;
+
+				osMutexRelease(sharedDataMutexHandle);
+			}
+		}
 
         // BMS LV
         if(PUTM_CAN::can.get_bms_lv_main_new_data()) {
