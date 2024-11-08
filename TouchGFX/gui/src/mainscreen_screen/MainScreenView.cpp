@@ -29,6 +29,7 @@
 #define COOLANT_PRESSURE_MID 5
 #define COOLANT_PRESSURE_MAX 15
 
+
 MainScreenView::MainScreenView() {}
 
 void MainScreenView::setupScreen() { MainScreenViewBase::setupScreen(); }
@@ -398,3 +399,312 @@ void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
     carImage.invalidate();
     motorRearRighttext.invalidate();
 }
+
+
+//Safety display
+
+void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue)
+{
+    Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", text);
+    sdcText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
+
+    Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
+    sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
+
+	sdcText.setVisible(true);
+	sdcText.invalidate();
+
+	sdcStatusLabelText.setVisible(true);
+	sdcStatusLabelText.invalidate();
+}
+
+
+void MainScreenView::updateSafetyFrontbox(bool status)
+{
+	if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+	else if(status)
+	{
+		setSafetyStatus("FSF", 255, 0, 0);
+	}
+}
+
+
+void MainScreenView::updateSafetyFrontboxLeftKill(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("LK", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+}
+
+
+void MainScreenView::updateSafetyFrontboxRightKill(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("RK", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyFrontboxDriverKill(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("DK", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyFrontboxInertia(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("INE", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyFrontboxBSPD(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("BSPD", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyFrontboxOvertravel(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("ORT", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyFrontboxRightWheel(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("RW", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyFrontboxIsBraking(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("IB", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+//Safety RearBox
+void MainScreenView::updateSafetyRearBox(bool status)
+{
+	if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+	else if(status)
+	{
+		setSafetyStatus("RSF", 255, 0, 0);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxRuf1(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("RUF1", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxRuf2(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("RUF2", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxAsms(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("ASMS", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxFw(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("FW", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxHv(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("HV", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxRes(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("RES", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxHvd(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("HVD", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxInv(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("INV", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxWheelFl(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("WFL", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxWheelFr(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("WFR", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+}
+
+void MainScreenView::updateSafetyRearBoxWheelRl(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("WRL", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+
+}
+
+void MainScreenView::updateSafetyRearBoxWheelRr(bool status)
+{
+	if(status)
+	{
+		setSafetyStatus("WRR", 255, 0, 0);
+	}
+	else if(!status)
+	{
+		setSafetyStatus("OK", 255, 255, 255);
+	}
+}
+
+
+
+
+
