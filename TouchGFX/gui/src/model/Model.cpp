@@ -71,23 +71,14 @@ void Model::tick() {
             m_sharedDataPrev.motor_rear_right_temperature = m_sharedData.motor_rear_right_temperature;
             modelListener->setMotorRearRightTemperature(m_sharedData.motor_rear_right_temperature);
 
-            m_sharedDataPrev.speed = m_sharedData.speed;
-            modelListener->setSpeed(m_sharedData.speed);
-
             m_sharedDataPrev.soc_hv = m_sharedData.soc_hv;
-            modelListener->setSocHV(m_sharedData.soc_hv);
+            modelListener->setSocHv(m_sharedData.soc_hv);
 
             m_sharedDataPrev.soc_lv = m_sharedData.soc_lv;
-            modelListener->setSocLV(m_sharedData.soc_lv);
+            modelListener->setSocLv(m_sharedData.soc_lv);
 
             m_sharedDataPrev.rpm = m_sharedData.rpm;
             modelListener->setRpm(m_sharedData.rpm);
-
-            m_sharedDataPrev.power = m_sharedData.power;
-            modelListener->setPower(m_sharedData.power);
-
-            m_sharedDataPrev.distance = m_sharedData.distance;
-            modelListener->setDistance(m_sharedData.distance);
 
             m_sharedDataPrev.range = m_sharedData.range;
             modelListener->setRange(m_sharedData.range);

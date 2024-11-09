@@ -23,8 +23,6 @@ void MainScreenPresenter::setInvertersReady(bool status) { view.updateInvertersR
 
 void MainScreenPresenter::setBatteryLvTemperature(uint8_t temperature) { view.updateBatteryLvTemperature(temperature); }
 
-void MainScreenPresenter::setBatteryHvTemperature(uint8_t temperature) { view.updateBatteryHvTemperature(temperature); }
-
 void MainScreenPresenter::setInverterTemperature(uint8_t temperature) { view.updateInverterTemperature(temperature); }
 
 void MainScreenPresenter:: setMotorFrontLeftTemperature(uint8_t temperature) { view.updateMotorFrontLeftTemperature(temperature); }
@@ -43,21 +41,7 @@ void MainScreenPresenter::setCoolantTemperature(uint8_t temperature) { view.upda
 
 void MainScreenPresenter::setCoolantPressure(uint8_t pressure) { view.updateCoolantPressure(pressure); }
 
-void MainScreenPresenter::setPace(int32_t pace) { view.updatePace(pace); }
-
-void MainScreenPresenter::setSpeed(uint8_t speed) { view.updateSpeed(speed); }
-
-void MainScreenPresenter::setSocLv(uint8_t soc) { view.updateSocLv(soc); }
-
-void MainScreenPresenter::setSocHv(uint8_t soc) { view.updateSocHv(soc); }
-
 void MainScreenPresenter::setRpm(uint16_t rpm) { view.updateRpm(rpm); }
-
-void MainScreenPresenter::setPower(uint8_t power) { view.updatePower(power); }
-
-void MainScreenPresenter::setDistance(uint16_t distance) { view.updateDistance(distance); }
-
-void MainScreenPresenter::setRange(uint16_t range) { view.updateRange(range); }
 
 void MainScreenPresenter::setCurrentLap(uint32_t time) { view.updateCurrentLap(time); }
 

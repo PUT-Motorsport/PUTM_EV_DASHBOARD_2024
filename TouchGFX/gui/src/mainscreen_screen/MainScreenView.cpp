@@ -110,20 +110,6 @@ void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
     batLvTempText.invalidate();
 }
 
-void MainScreenView::updateSocLv(uint8_t soc) {
-//    Unicode::snprintf(batLvSoCTextBuffer, BATLVSOCTEXT_SIZE, "%d", soc);
-//    batLvTempText.invalidate();
-//
-//    if(soc > BATTERY_LV_SOC_MAX || temperature < BATTERY_LV_SOC_MIN) {
-//        batLvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-//    } else if(temperature > BATTERY_LV_SOC_MID) {
-//        batLvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-//    } else {
-//        batLvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-//    }
-//    batLvSoCText.setVisible(true);
-//    batLvSoCText.invalidate();
-}
 
 
 void MainScreenView::updateInverterTemperature(uint8_t temperature) {
@@ -216,32 +202,6 @@ void MainScreenView::updateCoolantPressure(uint8_t pressure) {
     coolPressText.invalidate();
 }
 
-void MainScreenView::updatePace(int32_t pace) {
-//    if(pace > 0) {
-//        paceBackground.setBitmap(Bitmap(BITMAP_PACEREDBACKGROUND_ID));
-//    } else if(pace < 0) {
-//        paceBackground.setBitmap(Bitmap(BITMAP_PACEGREENBACKGROUND_ID));
-//    } else {
-//        paceBackground.setBitmap(Bitmap(BITMAP_PACEYELLOWBACKGROUND_ID));
-//    }
-//    paceBackground.invalidate();
-//
-//    float seconds = static_cast<float>(pace) / 1000.0f;
-//    Unicode::snprintfFloat(paceTextBuffer, PACETEXT_SIZE, "%+#.3f", seconds);
-//    paceText.setVisible(true);
-//    paceText.invalidate();
-}
-
-void MainScreenView::updateSpeed(uint8_t speed) {
-//    Unicode::snprintf(speedTextBuffer, SPEEDTEXT_SIZE, "%d", speed);
-//    speedText.invalidate();
-}
-
-//void MainScreenView::updateSocHv(uint8_t soc) {
-//    Unicode::snprintf(socTextBuffer, SOCTEXT_SIZE, "%d", soc);
-//    socText.invalidate();
-//}
-
 
 
 void MainScreenView::updateRpm(uint16_t rpm) {
@@ -249,30 +209,6 @@ void MainScreenView::updateRpm(uint16_t rpm) {
     rpmProgress.setValue(value);
 }
 
-void MainScreenView::updatePower(uint8_t power) {
-//    Unicode::snprintf(powerTextBuffer, POWERTEXT_SIZE, "%d", power);
-//    powerText.invalidate();
-}
-
-void MainScreenView::updateDistance(uint16_t distance) {
-//    float kilometers = static_cast<float>(distance) / 1000.0f;
-//
-//    Unicode::snprintfFloat(distanceTextBuffer, DISTANCETEXT_SIZE, "%#.2f", kilometers);
-//    distanceText.invalidate();
-}
-
-void MainScreenView::updateRange(uint16_t range) {
-//    if(range < 2000) {
-//        rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-//    } else {
-//        rangeText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-//    }
-//
-//    float kilometers = static_cast<float>(range) / 1000.0f;
-//
-//    Unicode::snprintfFloat(rangeTextBuffer, RANGETEXT_SIZE, "%#.2f", kilometers);
-//    rangeText.invalidate();
-}
 
 void MainScreenView::updateCurrentLap(uint32_t time) {
     uint8_t minutes = time / (1000 * 60);

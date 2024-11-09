@@ -27,6 +27,19 @@ public:
 
     virtual ~RaceScreenPresenter() {}
 
+    void setReadyToDrive(bool status);
+    void setInvertersReady(bool status);
+    void setSocLv(uint8_t soc);
+    void setSocHv(uint8_t soc);
+    void setTempHv(uint8_t temperature);
+    void setInverterTemperature(uint8_t temperature);
+    void setPace(int32_t pace);
+    void setRange(uint16_t range);
+    void setMotorTemp(uint8_t temperatureMotorFL,
+			   uint8_t temperatureMotorFR,
+			   uint8_t temperatureMotorRL,
+			   uint8_t temperatureMotorRR);
+
 private:
     RaceScreenPresenter();
 
