@@ -28,14 +28,7 @@ class MainScreenView : public MainScreenViewBase {
     void updateOilPressure(uint8_t pressure);
     void updateCoolantTemperature(uint8_t temperature);
     void updateCoolantPressure(uint8_t pressure);
-    void updatePace(int32_t pace);
-    void updateSpeed(uint8_t speed);
-    void updateSocLv(uint8_t soc);
-    void updateSocHv(uint8_t soc);
     void updateRpm(uint16_t rpm);
-    void updatePower(uint8_t power);
-    void updateDistance(uint16_t distance);
-    void updateRange(uint16_t range);
     void updateCurrentLap(uint32_t time);
     void updateLastLap(uint32_t time);
     void updateBestLap(uint32_t time);

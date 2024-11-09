@@ -233,24 +233,6 @@
           },
           {
             "Type": "Container",
-            "Name": "mainContainer",
-            "X": 276,
-            "Y": 105,
-            "Width": 250,
-            "Height": 294,
-            "Components": []
-          },
-          {
-            "Type": "Container",
-            "Name": "paceContainer",
-            "X": 301,
-            "Y": 29,
-            "Width": 200,
-            "Height": 49,
-            "Components": []
-          },
-          {
-            "Type": "Container",
             "Name": "dataContainer",
             "X": 28,
             "Y": 104,
