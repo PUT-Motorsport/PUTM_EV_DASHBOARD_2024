@@ -1055,7 +1055,7 @@
           },
           {
             "Type": "Image",
-            "Name": "image6",
+            "Name": "paceBackground",
             "X": 300,
             "Y": 22,
             "Width": 200,
