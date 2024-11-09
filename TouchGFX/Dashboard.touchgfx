@@ -841,6 +841,328 @@
         ]
       },
       {
+        "Name": "RaceScreen",
+        "Components": [
+          {
+            "Type": "TextArea",
+            "Name": "rtdText",
+            "X": 618,
+            "Y": 30,
+            "Width": 153,
+            "Height": 85,
+            "TextId": "__SingleUse_1R7P",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "invText",
+            "X": 33,
+            "Y": 30,
+            "Width": 129,
+            "Height": 85,
+            "TextId": "__SingleUse_WO7U",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "rangeboxProgress",
+            "X": 250,
+            "Y": 226,
+            "Width": 300,
+            "Height": 10,
+            "Color": {
+              "Green": 240,
+              "Blue": 255
+            },
+            "Direction": "Right",
+            "Preset": "alternate_theme\\presets\\boxprogress\\normal\\medium_active.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_medium.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "X": -20,
+            "Y": 161,
+            "Width": 220,
+            "Height": 150,
+            "RelativeFilename": "odometryBackground.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image1_1",
+            "X": 604,
+            "Y": 161,
+            "Width": 220,
+            "Height": 150,
+            "RelativeFilename": "odometryBackground.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "hvtempimage",
+            "X": 123,
+            "Y": 348,
+            "Width": 32,
+            "Height": 32,
+            "RelativeFilename": "batteryHV.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "motortempimage",
+            "X": 384,
+            "Y": 348,
+            "Width": 32,
+            "Height": 32,
+            "RelativeFilename": "engine.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "invtempimage",
+            "X": 662,
+            "Y": 348,
+            "Width": 32,
+            "Height": 32,
+            "RelativeFilename": "inverter.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "image5",
+            "X": 340,
+            "Y": 265,
+            "Width": 120,
+            "Height": 49,
+            "RelativeFilename": "PUTM_Logo.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "LvSoCText",
+            "X": 37,
+            "Y": 177,
+            "Width": 106,
+            "Height": 32,
+            "TextId": "__SingleUse_W2G6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_OS32",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "HvSoCText",
+            "X": 637,
+            "Y": 177,
+            "Width": 111,
+            "Height": 32,
+            "TextId": "__SingleUse_7BEM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_VYDS",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hvtemptext",
+            "X": 60,
+            "Y": 385,
+            "Width": 180,
+            "Height": 61,
+            "TextId": "__SingleUse_RLHN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_RN7T",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "motortemptext",
+            "X": 321,
+            "Y": 385,
+            "Width": 180,
+            "Height": 61,
+            "TextId": "__SingleUse_8VEK",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_Z7NR",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "invtemptext",
+            "X": 604,
+            "Y": 385,
+            "Width": 180,
+            "Height": 61,
+            "TextId": "__SingleUse_ZCU6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_Y3PD",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 359,
+            "Y": 102,
+            "Width": 82,
+            "Height": 25,
+            "TextId": "__SingleUse_NSAE",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 76,
+              "Green": 74,
+              "Blue": 74
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Image",
+            "Name": "image6",
+            "X": 300,
+            "Y": 22,
+            "Width": 200,
+            "Height": 49,
+            "RelativeFilename": "paceYellowBackground.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lvSocValueText",
+            "X": 19,
+            "Y": 226,
+            "Width": 164,
+            "Height": 61,
+            "TextId": "__SingleUse_0N79",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_IAS3",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hvSocValueText",
+            "X": 616,
+            "Y": 226,
+            "Width": 164,
+            "Height": 61,
+            "TextId": "__SingleUse_3XNI",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_SPYM",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "paceText",
+            "X": 346,
+            "Y": 30,
+            "Width": 108,
+            "Height": 32,
+            "TextId": "__SingleUse_MWB0",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_W4FH",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rangeText",
+            "X": 292,
+            "Y": 131,
+            "Width": 217,
+            "Height": 85,
+            "TextId": "__SingleUse_46P3",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_LC7I",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          }
+        ],
+        "Interactions": []
+      },
+      {
         "Name": "NotificationScreen",
         "Components": [
           {
