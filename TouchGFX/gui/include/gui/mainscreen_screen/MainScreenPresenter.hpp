@@ -48,6 +48,8 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setLastLap(uint32_t time);
     void setBestLap(uint32_t time);
 
+    void tick();
+
     void toggleElements();
 
   private:

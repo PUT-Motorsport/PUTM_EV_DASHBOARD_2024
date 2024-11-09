@@ -49,4 +49,13 @@ void MainScreenPresenter::setLastLap(uint32_t time) { view.updateLastLap(time); 
 
 void MainScreenPresenter::setBestLap(uint32_t time) { view.updateBestLap(time); }
 
+void MainScreenPresenter::tick()
+{
+    if (interfaceData.usr_button)
+    {
+    	 static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
+    	interfaceData.usr_button = false;
+    }
+}
+
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }

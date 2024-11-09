@@ -66,13 +66,19 @@ void RaceScreenView::updateSocLv(uint8_t soc)
     Unicode::snprintf(HvSoCTextBuffer, HVSOCTEXT_SIZE, "%d", soc);
     LvSoCText.invalidate();
 
-    if(soc < BATTERY_LV_SOC_MIN) {
+    if(soc < BATTERY_LV_SOC_MIN)
+    {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(soc < BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MID) {
+    }
+    else if(soc < BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MID)
+    {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
+    }
+    else
+    {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
+
     HvSoCText.setVisible(true);
     HvSoCText.invalidate();
 }

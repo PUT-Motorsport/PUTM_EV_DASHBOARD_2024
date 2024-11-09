@@ -62,9 +62,7 @@ void Communication_Task(void* argument) {
                 sharedData.inverter_temperature = std::max(pc_data.rearRightInverterTemperature, pc_data.rearLeftInverterTemperature);
                 sharedData.oil_temperature = std::max(pc_data.rearRightMotorTemperature, pc_data.rearLeftMotorTemperature);
 
-//                sharedData.speed = pc_data.vehicleSpeed;
-//                sharedData.rpm = pc_data.rpm;
-//                sharedData.power = pc_data.power;
+                sharedData.rpm = pc_data.rpm;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
@@ -73,9 +71,8 @@ void Communication_Task(void* argument) {
                 sharedData.warning = true;
                 sharedData.inverter_temperature = 0;
                 sharedData.oil_temperature = 0;
-//                sharedData.speed = 0;
-//                sharedData.rpm = 0;
-//                sharedData.power = 0;
+                sharedData.rpm = 0;
+
 
                 osMutexRelease(sharedDataMutexHandle);
             }
