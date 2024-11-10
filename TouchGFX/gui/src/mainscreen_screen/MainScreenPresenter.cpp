@@ -78,21 +78,28 @@ void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData)
 
 }
 
-//void MainScreenPresenter::tick()
-//{
-//    if (interfaceData.usr_button)
-//    {
-//    	static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
-//    	interfaceData.usr_button = false;
-//    }
-//}
-void MainScreenPresenter::switchScreen(bool status)
+void MainScreenPresenter::tick()
 {
-	if(status)
-	{
+
+	static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
+	interfaceData.usr_button = false;
+}
+//void MainScreenPresenter::switchScreen(bool status)
+//{
+//	if(status)
+//	{
 //		static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
 //	    interfaceData.usr_button = false;
+//	}
+//}
+
+void MainScreenPresenter::switchScreenMR()
+{
+	if(interfaceData.usr_button)
+	{
+		MainScreenPresenter::tick();
 	}
 }
+
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }

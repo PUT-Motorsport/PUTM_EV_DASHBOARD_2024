@@ -120,17 +120,17 @@ void RaceScreenView::updateTempHv(uint8_t temperature)
 
     if(temperature > BATTERY_HV_TEMPERATURE_MAX || temperature < BATTERY_HV_TEMPERATURE_MIN)
     {
-    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
+    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYHV_CRIT_ID));
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
     else if(temperature < BATTERY_HV_TEMPERATURE_MAX  && temperature > BATTERY_HV_TEMPERATURE_MID)
     {
-    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
+    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYHV_WARN_ID));
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
-    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
+    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYHV_ID));
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 

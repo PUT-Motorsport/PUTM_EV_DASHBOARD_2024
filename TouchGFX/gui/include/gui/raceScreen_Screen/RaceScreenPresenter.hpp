@@ -39,8 +39,8 @@ public:
 			   uint8_t temperatureMotorFR,
 			   uint8_t temperatureMotorRL,
 			   uint8_t temperatureMotorRR);
-//    void tick();
-    void switchScreen(bool status);
+    void tick();
+    void switchScreenRM();
 
 private:
     RaceScreenPresenter();
