@@ -47,8 +47,10 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setCurrentLap(uint32_t time);
     void setLastLap(uint32_t time);
     void setBestLap(uint32_t time);
+    void setSDC(SafetyData_TypeDef SafetyData);
 
-    void tick();
+//    void tick();
+    void switchScreen(bool status);
 
     void toggleElements();
 

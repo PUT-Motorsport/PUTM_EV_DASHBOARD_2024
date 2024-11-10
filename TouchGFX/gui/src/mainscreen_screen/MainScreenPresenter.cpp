@@ -49,13 +49,50 @@ void MainScreenPresenter::setLastLap(uint32_t time) { view.updateLastLap(time); 
 
 void MainScreenPresenter::setBestLap(uint32_t time) { view.updateBestLap(time); }
 
-void MainScreenPresenter::tick()
+void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData)
 {
-    if (interfaceData.usr_button)
-    {
-    	 static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
-    	interfaceData.usr_button = false;
-    }
+	//Frontbox Safety
+	view.updateSafetyFrontboxLeftKill(SafetyData.sense_left_kill);
+	view.updateSafetyFrontboxRightKill(SafetyData.sense_right_kill);
+	view.updateSafetyFrontboxDriverKill(SafetyData.sense_driver_kill);
+	view.updateSafetyFrontboxInertia(SafetyData.sense_inertia);
+	view.updateSafetyFrontboxBSPD(SafetyData.sense_bspd);
+	view.updateSafetyFrontboxOvertravel(SafetyData.sense_overtravel);
+	view.updateSafetyFrontboxRightWheel(SafetyData.sense_right_wheel);
+	view.updateSafetyFrontboxIsBraking(SafetyData.is_braking);
+
+	//RearBox Safety
+	view.updateSafetyRearBoxRuf1(SafetyData.safety_rfu1);
+	view.updateSafetyRearBoxRuf2(SafetyData.safety_rfu2);
+	view.updateSafetyRearBoxAsms(SafetyData.safety_asms);
+	view.updateSafetyRearBoxFw(SafetyData.safety_fw);
+	view.updateSafetyRearBoxHv(SafetyData.safety_hv);
+	view.updateSafetyRearBoxRes(SafetyData.safety_res);
+	view.updateSafetyRearBoxHvd(SafetyData.safety_hvd);
+	view.updateSafetyRearBoxInv(SafetyData.safety_inv);
+	view.updateSafetyRearBoxWheelFl(SafetyData.safety_wheel_fl);
+	view.updateSafetyRearBoxWheelFr(SafetyData.safety_wheel_fr);
+	view.updateSafetyRearBoxWheelRl(SafetyData.safety_wheel_rl);
+	view.updateSafetyRearBoxWheelRr(SafetyData.safety_wheel_rr);
+
+
+}
+
+//void MainScreenPresenter::tick()
+//{
+//    if (interfaceData.usr_button)
+//    {
+//    	static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
+//    	interfaceData.usr_button = false;
+//    }
+//}
+void MainScreenPresenter::switchScreen(bool status)
+{
+	if(status)
+	{
+//		static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
+//	    interfaceData.usr_button = false;
+	}
 }
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }

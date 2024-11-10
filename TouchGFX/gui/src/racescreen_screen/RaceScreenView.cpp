@@ -63,44 +63,53 @@ void RaceScreenView::updateInvertersReady(bool status)
 
 void RaceScreenView::updateSocLv(uint8_t soc)
 {
-    Unicode::snprintf(HvSoCTextBuffer, HVSOCTEXT_SIZE, "%d", soc);
-    LvSoCText.invalidate();
+    Unicode::snprintf(lvSocValueTextBuffer, LVSOCVALUETEXT_SIZE, "%d", soc);
+
 
     if(soc < BATTERY_LV_SOC_MIN)
     {
-    	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
     else if(soc < BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MID)
     {
-    	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
-    	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
-    HvSoCText.setVisible(true);
-    HvSoCText.invalidate();
+    lvSocValueText.setVisible(true);
+    lvSocValueText.invalidate();
+    LvSoCText.setVisible(true);
+    LvSoCText.invalidate();
 }
 
 void RaceScreenView::updateSocHv(uint8_t soc)
 {
-    Unicode::snprintf(HvSoCTextBuffer, HVSOCTEXT_SIZE, "%d", soc);
-    HvSoCText.invalidate();
+    Unicode::snprintf(hvSocValueTextBuffer, HVSOCVALUETEXT_SIZE, "%d", soc);
 
     if(soc < BATTERY_HV_SOC_MIN)
     {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
     else if(soc < BATTERY_HV_SOC_MAX && soc > BATTERY_HV_SOC_MID)
     {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
+    hvSocValueText.setVisible(true);
+    hvSocValueText.invalidate();
     HvSoCText.setVisible(true);
     HvSoCText.invalidate();
 }
@@ -112,23 +121,23 @@ void RaceScreenView::updateTempHv(uint8_t temperature)
     if(temperature > BATTERY_HV_TEMPERATURE_MAX || temperature < BATTERY_HV_TEMPERATURE_MIN)
     {
     	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
-        HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
     else if(temperature < BATTERY_HV_TEMPERATURE_MAX  && temperature > BATTERY_HV_TEMPERATURE_MID)
     {
     	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
-        HvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
     	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
-        HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
     hvtempimage.setVisible(true);
-    HvSoCText.setVisible(true);
+    hvtemptext.setVisible(true);
     hvtempimage.invalidate();
-    HvSoCText.invalidate();
+    hvtemptext.invalidate();
 }
 
 void RaceScreenView::updateInverterTemperature(uint8_t temperature)

@@ -822,15 +822,12 @@
           },
           {
             "InteractionName": "ChangeScreenMR",
+            "HasCompletedTrigger": true,
             "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 30
+              "Type": "TriggerNone"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
-              "ActionComponent": "RaceScreen"
+              "Type": "ActionNone"
             }
           }
         ]
@@ -1052,7 +1049,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "textArea1",
+            "Name": "rangeText",
             "X": 359,
             "Y": 102,
             "Width": 82,
@@ -1135,7 +1132,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "rangeText",
+            "Name": "rangeValueText",
             "X": 292,
             "Y": 131,
             "Width": 217,
@@ -1158,15 +1155,12 @@
         "Interactions": [
           {
             "InteractionName": "ChangeScreenRM",
+            "HasCompletedTrigger": true,
             "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 30
+              "Type": "TriggerNone"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
-              "ActionComponent": "MainScreen"
+              "Type": "ActionNone"
             }
           }
         ]
