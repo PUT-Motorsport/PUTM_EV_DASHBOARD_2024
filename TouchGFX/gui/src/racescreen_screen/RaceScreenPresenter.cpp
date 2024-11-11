@@ -37,27 +37,3 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 																						 temperatureMotorRL,
 																						 temperatureMotorRR);}
 
-void RaceScreenPresenter::tick()
-{
-
-	static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
-	interfaceData.usr_button = false;
-
-}
-
-void RaceScreenPresenter::switchScreenRM()
-{
-	if(interfaceData.usr_button)
-	{
-		RaceScreenPresenter::tick();
-	}
-}
-
-//void RaceScreenPresenter::switchScreen(bool status)
-//{
-//	if(status)
-//	{
-//	static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
-//    interfaceData.usr_button = false;
-//	}
-//}

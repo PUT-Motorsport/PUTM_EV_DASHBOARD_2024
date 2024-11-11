@@ -819,19 +819,6 @@
               "EasingOption": "In",
               "ActionComponent": "rtdText"
             }
-          },
-          {
-            "InteractionName": "ChangeScreenMR",
-            "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 10
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
-              "ActionComponent": "RaceScreen"
-            }
           }
         ]
       },
@@ -1155,21 +1142,7 @@
             "RelativeFilename": "odometryBackground.png"
           }
         ],
-        "Interactions": [
-          {
-            "InteractionName": "ChangeScreenRM",
-            "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 10
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
-              "ActionComponent": "MainScreen"
-            }
-          }
-        ]
+        "Interactions": []
       },
       {
         "Name": "NotificationScreen",
