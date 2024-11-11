@@ -30,6 +30,9 @@
     <ClCompile Include="..\..\gui\src\notificationscreen_screen\NotificationScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\notificationscreen_screen\NotificationScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\notificationscreen_screen\NotificationScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\racescreen_screen\RaceScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\racescreen_screen\RaceScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\racescreen_screen\RaceScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -189,6 +192,9 @@
     <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\notificationscreen_screen\NotificationScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\racescreen_screen\RaceScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\racescreen_screen\RaceScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\racescreen_screen\RaceScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

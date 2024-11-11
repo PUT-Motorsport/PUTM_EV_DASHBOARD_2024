@@ -1,5 +1,5 @@
-#ifndef STM32GPU2DHAL_HPP
-#define STM32GPU2DHAL_HPP
+#ifndef TOUCHGFX_HALGPU2D_HPP
+#define TOUCHGFX_HALGPU2D_HPP
 
 #include <touchgfx/hal/HAL.hpp>
 
@@ -25,26 +25,26 @@ public:
      */
     HALGPU2D(touchgfx::DMA_Interface& dma, touchgfx::LCD& display, touchgfx::TouchController& tc, uint16_t width, uint16_t height);
 
-    /** 
-     * This function is responsible for initializing the HALGPU2D and the entire framework. 
+    /**
+     * This function is responsible for initializing the HALGPU2D and the entire framework.
      *
      * @param  clSize  Size of the GPU2D command list in bytes. Suggested value is 8192.
      *
      * @note The command list size has a big impact on performance. 8192 is a good value in most cases,
-     *       so go with that if unsure. Recommended values are 4-8KB. Due to the nature of command lists, 
+     *       so go with that if unsure. Recommended values are 4-8KB. Due to the nature of command lists,
      *       assigning a larger buffer size might actually cause a decrease in performance.
      */
     void initialize(int clSize);
-    
-    /** 
-     * This function is responsible for initializing the HALGPU2D and the entire framework. 
+
+    /**
+     * This function is responsible for initializing the HALGPU2D and the entire framework.
      * The default implementation will assign a GPU2D command list buffer of 8192 bytes.
      *
      * @see void initialize(int clSize);
      */
-    void initialize() 
-    { 
-        initialize(8192); 
+    void initialize()
+    {
+        initialize(8192);
     }
 
     /**
@@ -106,7 +106,7 @@ public:
     {
         submitOnEndFrame = true;
     }
-    
+
     /**
      * @fn void clearFrameBuffer();
      *
@@ -174,12 +174,12 @@ protected:
     virtual void endFrame();
 
 private:
-    static HALGPU2D* gpu2dHAL;              // Singleton HAL instance
-    nema_cmdlist_t   execBuf;              // Command list buffer for GPU2D
+    static HALGPU2D* gpu2dHAL; // Singleton HAL instance
+    nema_cmdlist_t execBuf;    // Command list buffer for GPU2D
     bool dma2dActive;
     bool submitOnEndFrame;
 };
 
 } // namespace touchgfx
 
-#endif // STM32GPU2DHAL_HPP
+#endif // TOUCHGFX_HALGPU2D_HPP

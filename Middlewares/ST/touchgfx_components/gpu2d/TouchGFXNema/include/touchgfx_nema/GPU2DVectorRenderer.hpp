@@ -1,5 +1,5 @@
-#ifndef GPU2DVECTORRENDERER_HPP
-#define GPU2DVECTORRENDERER_HPP
+#ifndef TOUCHGFX_GPU2DVECTORRENDERER_HPP
+#define TOUCHGFX_GPU2DVECTORRENDERER_HPP
 
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/hal/VectorRenderer.hpp>
@@ -136,21 +136,27 @@ public:
      *
      * @param  miterLimit ignored
      */
-    virtual void setStrokeMiterLimit(float miterLimit) {}
+    virtual void setStrokeMiterLimit(float miterLimit)
+    {
+    }
 
     /**
      * Stroke line join is unsupported in GPU2D
      *
      * @param  lineJoin ignored
      */
-    virtual void setStrokeLineJoin(VGStrokeLineJoin lineJoin) {}
+    virtual void setStrokeLineJoin(VGStrokeLineJoin lineJoin)
+    {
+    }
 
     /**
      * Line cap type is unsupported in GPU2D
      *
      * @param  lineCap ignored
      */
-    virtual void setStrokeLineCap(VGStrokeLineCap lineCap) {}
+    virtual void setStrokeLineCap(VGStrokeLineCap lineCap)
+    {
+    }
 };
-}
-#endif
+} //namespace touchgfx
+#endif // TOUCHGFX_GPU2DVECTORRENDERER_HPP

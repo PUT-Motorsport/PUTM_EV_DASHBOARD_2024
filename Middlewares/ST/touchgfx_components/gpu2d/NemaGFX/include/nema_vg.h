@@ -78,14 +78,22 @@ void nema_vg_init_stencil_prealloc(int width, int height, nema_buffer_t stencil_
 /** \brief Reinitialize NemaVG library after a gpu powerofff
  *
  */
-void nema_vg_reinit();
+void nema_vg_reinit(void);
 
 /** \brief Deinitialize NemaVG library. Free memory from implicitly allocated objects (stencil buffer
  *  if created inside the library, lut buffer and tsvgs' path, paint and gradient buffers)
  *
  *
  */
-void nema_vg_deinit();
+void nema_vg_deinit(void);
+
+/** \brief Initialize NemaVG library for a new thread.
+ * Must be called for every new thread that is used.
+ *
+ *
+ */
+void nema_vg_thread_init(void);
+
 
 // -------------------------------------------------------------------------------
 //                           PATH DRAW

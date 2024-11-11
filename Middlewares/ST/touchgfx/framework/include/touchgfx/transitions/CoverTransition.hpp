@@ -2,7 +2,7 @@
 * Copyright (c) 2018(-2024) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.23.2 distribution.
+* This file is part of the TouchGFX 4.24.1 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -193,6 +193,14 @@ public:
         }
 
         screenContainer->add(solid);
+    }
+
+    /**
+     * Cover transition does not require an invalidation. Invalidation
+     * is handled by the class. Do no invalidation initially.
+     */
+    virtual void invalidate()
+    {
     }
 
 private:

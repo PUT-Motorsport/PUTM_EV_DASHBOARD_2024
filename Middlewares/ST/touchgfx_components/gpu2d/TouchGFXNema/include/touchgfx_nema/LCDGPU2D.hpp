@@ -1,5 +1,5 @@
-#ifndef LCDGPU2D_HPP
-#define LCDGPU2D_HPP
+#ifndef TOUCHGFX_LCDGPU2D_HPP
+#define TOUCHGFX_LCDGPU2D_HPP
 
 #include <stdarg.h>
 #include <touchgfx/Bitmap.hpp>
@@ -425,6 +425,14 @@ private:
 
     LZW9DictionaryEntry lzw9Dictionary[MAX_DICT_SIZE];
 
+    static const uint16_t INDEX_TABLE_SIZE = 64U;
+
+    union
+    {
+        PixelRGB565 indexTable16[INDEX_TABLE_SIZE];
+        PixelARGB8888 indexTable32[INDEX_TABLE_SIZE];
+    };
+
     /**
      * @fn int UVtoCorner(float u, float v);
      *
@@ -444,6 +452,105 @@ private:
      * @param v The vertical texture coordinate
      */
     int UVtoCornerQuad(float u, float v);
+
+    //Software/DMA2D implementations for RGB compressed bitmaps
+
+    /**
+     * Blits a 2D QOI-compressed source array to the framebuffer performing alpha-blending.
+     * If format is not supported by the DMA a software blend is performed.
+     *
+     * @param  sourceData The source pointer (points to the beginning of the data).
+     * @param  format     The compressed image format.
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedRGB(const uint8_t* sourceData, Bitmap::BitmapFormat format, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed RGB565 source to the 16bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed RGB565 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedRGB565_16BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed ARGB8888 source to the 16bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed ARGB8888 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedARGB8888_16BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed RGB888 source to the 24bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed RGB888 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedRGB888_24BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed ARGB8888 source to the 24bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed ARGB8888 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedARGB8888_24BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed RGB565 source to the 32bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed RGB565 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedRGB565_32BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed RGB888 source to the 32bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed RGB888 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedRGB888_32BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
+
+    /**
+     * Blits a QOI-compressed ARGB8888 source to the 32bpp framebuffer performing alpha-blending per
+     * pixel using DMA acceleration if available or software implementation otherwise.
+     *
+     * @param  sourceData The QOI-compressed ARGB8888 source pointer (points to the beginning of the data).
+     * @param  source     The location and dimensions of the source.
+     * @param  blitRect   A rectangle describing what region is to be drawn.
+     * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+     *                    solid, no blending)
+     */
+    void blitCopyCompressedARGB8888_32BPP(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha);
 
     //Software/DMA2D implementations for L8 bitmaps
 
@@ -1256,4 +1363,4 @@ private:
 };
 
 } // namespace touchgfx
-#endif // LCDGPU2D_HPP
+#endif // TOUCHGFX_LCDGPU2D_HPP
