@@ -74,11 +74,17 @@ void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData)
 	view.updateSafetyRearBoxWheelFr(SafetyData.safety_wheel_fr);
 	view.updateSafetyRearBoxWheelRl(SafetyData.safety_wheel_rl);
 	view.updateSafetyRearBoxWheelRr(SafetyData.safety_wheel_rr);
-
-
 }
 
-
+void MainScreenPresenter::switchScreenMR()
+{
+	if(interfaceData.usr_button)
+	{
+		//FIXME: SPrawdizć czy ta zależność poprawnie działa i ewentualnie szuakć innego rozwiązania
+		static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
+		interfaceData.usr_button = false;
+	}
+}
 
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }

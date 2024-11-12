@@ -37,3 +37,12 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 																						 temperatureMotorRL,
 																						 temperatureMotorRR);}
 
+void RaceScreenPresenter::switchScreenRM()
+{
+	if(interfaceData.usr_button)
+	{
+		//FIXME: SPrawdizć czy ta zależność poprawnie działa i ewentualnie szuakć innego rozwiązania
+		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
+		interfaceData.usr_button = false;
+	}
+}
