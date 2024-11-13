@@ -36,29 +36,30 @@ class MainScreenView : public MainScreenViewBase {
     void updateSafetyFrontbox(bool status);
     void updateSafetyRearBox(bool status);
 
-    void updateSafetyFrontboxLeftKill(bool status);
-    void updateSafetyFrontboxRightKill(bool status);
-    void updateSafetyFrontboxDriverKill(bool status);
-    void updateSafetyFrontboxInertia(bool status);
-    void updateSafetyFrontboxBSPD(bool status);
-    void updateSafetyFrontboxOvertravel(bool status);
-    void updateSafetyFrontboxRightWheel(bool status);
-    void updateSafetyFrontboxIsBraking(bool status);
-
-    void updateSafetyRearBoxRuf1(bool status);
-    void updateSafetyRearBoxRuf2(bool status);
-    void updateSafetyRearBoxAsms(bool status);
-    void updateSafetyRearBoxFw(bool status);
-    void updateSafetyRearBoxHv(bool status);
-    void updateSafetyRearBoxRes(bool status);
-    void updateSafetyRearBoxHvd(bool status);
-    void updateSafetyRearBoxInv(bool status);
-    void updateSafetyRearBoxWheelFl(bool status);
-    void updateSafetyRearBoxWheelFr(bool status);
-    void updateSafetyRearBoxWheelRl(bool status);
-    void updateSafetyRearBoxWheelRr(bool status);
+//    void updateSafetyFrontboxLeftKill(bool status);
+//    void updateSafetyFrontboxRightKill(bool status);
+//    void updateSafetyFrontboxDriverKill(bool status);
+//    void updateSafetyFrontboxInertia(bool status);
+//    void updateSafetyFrontboxBSPD(bool status);
+//    void updateSafetyFrontboxOvertravel(bool status);
+//    void updateSafetyFrontboxRightWheel(bool status);
+//    void updateSafetyFrontboxIsBraking(bool status);
+//
+//    void updateSafetyRearBoxRuf1(bool status);
+//    void updateSafetyRearBoxRuf2(bool status);
+//    void updateSafetyRearBoxAsms(bool status);
+//    void updateSafetyRearBoxFw(bool status);
+//    void updateSafetyRearBoxHv(bool status);
+//    void updateSafetyRearBoxRes(bool status);
+//    void updateSafetyRearBoxHvd(bool status);
+//    void updateSafetyRearBoxInv(bool status);
+//    void updateSafetyRearBoxWheelFl(bool status);
+//    void updateSafetyRearBoxWheelFr(bool status);
+//    void updateSafetyRearBoxWheelRl(bool status);
+//    void updateSafetyRearBoxWheelRr(bool status);
 
     void setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue);
+    void updateSDC(SafetyData_TypeDef *status);
 
     void toggleWarning();
 
