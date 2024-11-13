@@ -1,0 +1,27 @@
+RearBox:
+    safety_rear = RSF
+
+    safety_rfu1 - RUF1
+    safety_rfu2 - RUF2
+    safety_asms - ASMS
+    safety_fw  - FW
+    safety_hv  - HV
+    safety_res - RES
+    safety_hvd - HVD
+    safety_inv - INV
+    safety_wheel_fl - WFL
+    safety_wheel_fr - WFR
+    safety_wheel_rl - WRL
+    safety_wheel_rr - WRR
+
+Frotbox:
+    safety_front = FSF
+
+    left_kill - LK
+    right_kill - RK
+    driver_kill - DK
+    inertia - INE
+    bspd - BSPD
+    overtravel - ORT
+    right_wheel - RH
+    is_braking - IB
