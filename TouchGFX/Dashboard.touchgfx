@@ -877,7 +877,7 @@
             "Type": "BoxProgress",
             "Name": "rangeboxProgress",
             "X": 250,
-            "Y": 226,
+            "Y": 293,
             "Width": 300,
             "Height": 10,
             "Color": {
@@ -921,18 +921,9 @@
           },
           {
             "Type": "Image",
-            "Name": "image5",
-            "X": 340,
-            "Y": 265,
-            "Width": 120,
-            "Height": 49,
-            "RelativeFilename": "PUTM_Logo.png"
-          },
-          {
-            "Type": "Image",
             "Name": "paceBackground",
             "X": 300,
-            "Y": 22,
+            "Y": 6,
             "Width": 200,
             "Height": 49,
             "RelativeFilename": "paceYellowBackground.png"
@@ -940,10 +931,10 @@
           {
             "Type": "TextArea",
             "Name": "paceText",
-            "X": 346,
-            "Y": 30,
-            "Width": 108,
-            "Height": 32,
+            "X": 333,
+            "Y": 6,
+            "Width": 135,
+            "Height": 48,
             "TextId": "__SingleUse_J3NR",
             "TextRotation": "0",
             "AutoSize": true,
@@ -955,27 +946,11 @@
           },
           {
             "Type": "TextArea",
-            "Name": "rangeText",
-            "X": 347,
-            "Y": 99,
-            "Width": 106,
-            "Height": 32,
-            "TextId": "__SingleUse_74QS",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 102,
-              "Green": 102,
-              "Blue": 102
-            },
-            "AutoSize": true
-          },
-          {
-            "Type": "TextArea",
             "Name": "rangeValueText",
-            "X": 292,
-            "Y": 135,
-            "Width": 217,
-            "Height": 85,
+            "X": 254,
+            "Y": 170,
+            "Width": 296,
+            "Height": 111,
             "TextId": "__SingleUse_Y024",
             "TextRotation": "0",
             "Color": {
@@ -1154,6 +1129,27 @@
             "Width": 220,
             "Height": 150,
             "RelativeFilename": "odometryBackground.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "LapValueText",
+            "X": 344,
+            "Y": 55,
+            "Width": 116,
+            "Height": 111,
+            "TextId": "__SingleUse_JION",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_A6WO",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
           }
         ],
         "Interactions": [
