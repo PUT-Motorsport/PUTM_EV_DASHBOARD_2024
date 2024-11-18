@@ -216,7 +216,7 @@
           },
           {
             "Type": "Container",
-            "Name": "odometryContainer",
+            "Name": "SdcContainer",
             "X": 553,
             "Y": 29,
             "Width": 220,
@@ -224,10 +224,53 @@
             "Components": [
               {
                 "Type": "Image",
-                "Name": "odometryFrame",
+                "Name": "SdcFrame",
                 "Width": 220,
                 "Height": 150,
-                "RelativeFilename": "odometryBackground.png"
+                "RelativeFilename": "odometryBackground.png",
+                "Moveable": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sdcText",
+                "X": 39,
+                "Y": 66,
+                "Width": 155,
+                "Height": 66,
+                "TextId": "__SingleUse_JD9Q",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_QORS",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Moveable": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sdcStatusLabelText",
+                "X": 5,
+                "Y": 16,
+                "Width": 211,
+                "Height": 41,
+                "TextId": "__SingleUse_CW86",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_O4LY",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                },
+                "Moveable": true
               }
             ]
           },
@@ -398,13 +441,22 @@
                 "RelativeFilename": "inverter.png"
               },
               {
+                "Type": "Image",
+                "Name": "batLvTempIcon",
+                "X": 38,
+                "Y": 24,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "batteryLV.png"
+              },
+              {
                 "Type": "TextArea",
                 "Name": "batLvTempText",
                 "X": 24,
-                "Y": 60,
+                "Y": 63,
                 "Width": 61,
                 "Height": 25,
-                "TextId": "__SingleUse_0E5L",
+                "TextId": "__SingleUse_WADS",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -413,19 +465,10 @@
                 },
                 "AutoSize": true,
                 "Wildcard1": {
-                  "TextId": "__SingleUse_D2WE",
+                  "TextId": "__SingleUse_F9O2",
                   "UseBuffer": true,
                   "BufferSize": 6
                 }
-              },
-              {
-                "Type": "Image",
-                "Name": "batLvTempIcon",
-                "X": 38,
-                "Y": 23,
-                "Width": 32,
-                "Height": 32,
-                "RelativeFilename": "batteryLV.png"
               }
             ]
           },
@@ -598,7 +641,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "textArea2",
+            "Name": "RpmText",
             "X": 375,
             "Y": 12,
             "Width": 52,
@@ -611,47 +654,6 @@
               "Blue": 102
             },
             "AutoSize": true
-          },
-          {
-            "Type": "TextArea",
-            "Name": "sdcStatusLabelText",
-            "X": 570,
-            "Y": 44,
-            "Width": 191,
-            "Height": 32,
-            "TextId": "__SingleUse_CW86",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_O4LY",
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "sdcText",
-            "X": 588,
-            "Y": 97,
-            "Width": 155,
-            "Height": 66,
-            "TextId": "__SingleUse_JD9Q",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "__SingleUse_QORS",
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
           }
         ],
         "Interactions": [
@@ -707,7 +709,7 @@
             }
           },
           {
-            "InteractionName": "OdometryContainerPosition",
+            "InteractionName": "SdcContainerPosition",
             "Trigger": {
               "Type": "TriggerScreenTransitionBegins"
             },
@@ -717,7 +719,7 @@
               "Y": 29,
               "Easing": "Linear",
               "EasingOption": "In",
-              "ActionComponent": "odometryContainer"
+              "ActionComponent": "SdcContainer"
             }
           },
           {
@@ -759,13 +761,12 @@
               "X": 28,
               "Y": 104,
               "Easing": "Linear",
-              "EasingOption": "Out",
-              "Duration": 600,
+              "EasingOption": "In",
               "ActionComponent": "dataContainer"
             }
           },
           {
-            "InteractionName": "OdometryContainerMove",
+            "InteractionName": "SdcContainerMove",
             "Trigger": {
               "Type": "TriggerScreenEntered"
             },
@@ -776,7 +777,7 @@
               "Easing": "Linear",
               "EasingOption": "Out",
               "Duration": 600,
-              "ActionComponent": "odometryContainer"
+              "ActionComponent": "SdcContainer"
             }
           },
           {
@@ -1226,7 +1227,7 @@
       "Height": 480
     },
     "SelectedColorDepth": 24,
-    "StartupScreenName": "BootScreen",
+    "StartupScreenName": "MainScreen",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",

@@ -6,6 +6,24 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_O4LY" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">SDC STATUS</Translation>
+      </Text>
+      <Text Id="__SingleUse_CW86" Alignment="Center" TypographyId="Normal">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_QORS" Alignment="Left" TypographyId="MediumPlus">
+        <Translation Language="GB">OK</Translation>
+      </Text>
+      <Text Id="__SingleUse_JD9Q" Alignment="Center" TypographyId="MediumPlus">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_F9O2" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_WADS" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; °C</Translation>
+      </Text>
       <Text Id="__SingleUse_A6WO" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">10</Translation>
       </Text>
@@ -72,41 +90,29 @@
       <Text Id="__SingleUse_J3NR" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_QORS" Alignment="Left" TypographyId="MediumPlus">
-        <Translation Language="GB">OK</Translation>
-      </Text>
-      <Text Id="__SingleUse_JD9Q" Alignment="Center" TypographyId="MediumPlus">
-        <Translation Language="GB">&lt;s&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_O4LY" Alignment="Left" TypographyId="Normal">
-        <Translation Language="GB">SDC STATUS</Translation>
-      </Text>
-      <Text Id="__SingleUse_CW86" Alignment="Center" TypographyId="Normal">
-        <Translation Language="GB">&lt;s&gt;</Translation>
-      </Text>
       <Text Id="__SingleUse_7G62" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">RPM</Translation>
       </Text>
       <Text Id="__SingleUse_TGUD" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_BSQR" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_6N5S" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_66KO" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_2BDP" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_LJIB" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_1FAU" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_E71Z" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
@@ -178,12 +184,6 @@
         <Translation Language="GB">99</Translation>
       </Text>
       <Text Id="__SingleUse_4NBP" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">&lt;d&gt; °C</Translation>
-      </Text>
-      <Text Id="__SingleUse_D2WE" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
-      </Text>
-      <Text Id="__SingleUse_0E5L" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt; °C</Translation>
       </Text>
       <Text Id="__SingleUse_SMZ5" Alignment="Right" TypographyId="Tiny">
