@@ -37,6 +37,8 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 																						 temperatureMotorRL,
 																						 temperatureMotorRR);}
 
+void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
+
 void RaceScreenPresenter::switchScreenRM()
 {
 	if(interfaceData.usr_button)

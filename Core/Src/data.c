@@ -45,6 +45,7 @@ Data_TypeDef sharedData = {
     .power = 0,
     .distance = 0,
     .range = 0,
+	.lap_counter = 0.
 };
 
 SafetyData_TypeDef safetyData =

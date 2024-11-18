@@ -21,7 +21,7 @@
       <Text Id="__SingleUse_F9O2" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">99</Translation>
       </Text>
-      <Text Id="__SingleUse_WADS" Alignment="Left" TypographyId="Small">
+      <Text Id="__SingleUse_WADS" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt; °C</Translation>
       </Text>
       <Text Id="__SingleUse_A6WO" Alignment="Left" TypographyId="Huge">

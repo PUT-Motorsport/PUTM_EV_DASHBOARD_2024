@@ -35,6 +35,7 @@ typedef struct {
     uint8_t motor_rear_left_temperature;
     uint8_t motor_rear_right_temperature;
     uint8_t speed;
+    uint8_t lap_counter;
     uint16_t soc_hv;
 	uint16_t soc_lv;
     uint16_t rpm;

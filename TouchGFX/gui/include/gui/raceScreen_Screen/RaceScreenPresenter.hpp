@@ -39,6 +39,7 @@ public:
 			   uint8_t temperatureMotorFR,
 			   uint8_t temperatureMotorRL,
 			   uint8_t temperatureMotorRR);
+    void setLap(uint8_t value);
     void switchScreenRM();
 
 private:

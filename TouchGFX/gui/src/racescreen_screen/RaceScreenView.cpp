@@ -192,6 +192,14 @@ void RaceScreenView::updatePace(int32_t pace)
 void RaceScreenView::updateRange(uint16_t range)
 {
  //TODO: opracowanie sposobu wyznaczanie realnej wartości
+ //TODO: Jeżeli detla wartość jest dodaatnia wyświetlać na zielono, jeżeli nie na czerwono
+}
+
+void RaceScreenView::updateLap(uint8_t value)
+{
+	Unicode::snprintf(LapValueTextBuffer, LAPVALUETEXT_SIZE, "%d", value);
+	LapValueText.setVisible(true);
+	LapValueText.invalidate();
 }
 
 void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,

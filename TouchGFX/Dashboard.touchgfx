@@ -1115,7 +1115,7 @@
           },
           {
             "Type": "Image",
-            "Name": "image6",
+            "Name": "LvSocFrame",
             "X": -20,
             "Y": 164,
             "Width": 220,
@@ -1124,7 +1124,7 @@
           },
           {
             "Type": "Image",
-            "Name": "image7",
+            "Name": "HvSocFrame",
             "X": 607,
             "Y": 161,
             "Width": 220,
