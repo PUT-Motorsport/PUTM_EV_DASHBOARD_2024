@@ -71,6 +71,8 @@ void Error_Handler(void);
 #define INTERNAL_BTN_GPIO_Port GPIOJ
 #define INTERNAL_LED_Pin GPIO_PIN_5
 #define INTERNAL_LED_GPIO_Port GPIOE
+#define RADIO_BT_Pin GPIO_PIN_7
+#define RADIO_BT_GPIO_Port GPIOJ
 #define CTP_INT_Pin GPIO_PIN_6
 #define CTP_INT_GPIO_Port GPIOE
 #define CTP_INT_EXTI_IRQn EXTI6_IRQn
@@ -78,6 +80,10 @@ void Error_Handler(void);
 #define USB_PWR_EN_GPIO_Port GPIOG
 #define USB_OVERCURRENT_Pin GPIO_PIN_0
 #define USB_OVERCURRENT_GPIO_Port GPIOJ
+#define DRS_BT_Pin GPIO_PIN_10
+#define DRS_BT_GPIO_Port GPIOJ
+#define USR_BT2_Pin GPIO_PIN_8
+#define USR_BT2_GPIO_Port GPIOJ
 #define RTD_BTN_Pin GPIO_PIN_4
 #define RTD_BTN_GPIO_Port GPIOI
 #define R_RST_Pin GPIO_PIN_4

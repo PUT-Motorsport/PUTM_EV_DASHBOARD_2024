@@ -420,6 +420,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/ltdc.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/Core/main.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/main.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/Core/main.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/main.cpp</locationURI>

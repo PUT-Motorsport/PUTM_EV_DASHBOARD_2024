@@ -122,11 +122,11 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(CTP_RST_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = INTERNAL_BTN_Pin;
+  /*Configure GPIO pins : PJPin PJPin PJPin PJPin */
+  GPIO_InitStruct.Pin = INTERNAL_BTN_Pin|RADIO_BT_Pin|DRS_BT_Pin|USR_BT2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(INTERNAL_BTN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOJ, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = INTERNAL_LED_Pin;
