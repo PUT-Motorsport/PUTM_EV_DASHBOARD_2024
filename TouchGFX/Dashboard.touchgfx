@@ -823,15 +823,12 @@
           },
           {
             "InteractionName": "ChangeScreenMR",
-            "HasCompletedTrigger": true,
             "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 30
+              "Type": "TriggerNone"
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
+              "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "RaceScreen"
             }
           }
@@ -1156,15 +1153,12 @@
         "Interactions": [
           {
             "InteractionName": "ChangeScreenRM",
-            "HasCompletedTrigger": true,
             "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 30
+              "Type": "TriggerNone"
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
+              "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "MainScreen"
             }
           }

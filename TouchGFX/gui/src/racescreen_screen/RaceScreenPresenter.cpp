@@ -27,7 +27,7 @@ void RaceScreenPresenter::setInverterTemperature(uint8_t temperature) {view.upda
 
 void RaceScreenPresenter::setPace(int32_t pace) {view.updatePace(pace);}
 
-void RaceScreenPresenter::setRange(uint16_t range) {view.updatePace(range);}
+void RaceScreenPresenter::setRange(uint16_t range) {view.updateRange(range);}
 
 void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 									   uint8_t temperatureMotorFR,
@@ -44,7 +44,7 @@ void RaceScreenPresenter::switchScreenRM()
 	if(interfaceData.usr_button)
 	{
 		//FIXME: SPrawdizć czy ta zależność poprawnie działa i ewentualnie szuakć innego rozwiązania
-		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
+		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
 		interfaceData.usr_button = false;
 	}
 }
