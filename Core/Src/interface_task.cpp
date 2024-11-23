@@ -49,7 +49,7 @@ void Interface_Task(void* argument) {
             interfaceData.tsa_timer = 0;
         }
 
-        if(HAL_GPIO_ReadPin(USR_BTN_GPIO_Port, USR_BTN_Pin) == GPIO_PIN_RESET) {
+        if(HAL_GPIO_ReadPin(SS_BTN_GPIO_Port, SS_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.usr_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.usr_button = true;
             } else {
