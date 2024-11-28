@@ -95,6 +95,8 @@ typedef struct {
     _Bool safety_led;
     _Bool rtd_button;
     _Bool tsa_button;
+    _Bool cs_button;
+    _Bool drs_button;
     _Bool usr_button;
     _Bool previous_rtd_button;
     _Bool previous_tsa_button;
@@ -102,6 +104,8 @@ typedef struct {
     uint32_t rtd_timer;
     uint32_t tsa_timer;
     uint32_t usr_timer;
+    uint32_t drs_timer;
+    uint32_t cs_timer;
 } InterfaceData_TypeDef;
 
 /* Public defines ------------------------------------------------------------*/

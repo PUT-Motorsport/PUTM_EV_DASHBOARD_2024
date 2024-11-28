@@ -134,10 +134,11 @@ void RaceScreenView::updateTempHv(uint8_t temperature)
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
-    hvtempimage.setVisible(true);
+
     hvtemptext.setVisible(true);
-    hvtempimage.invalidate();
     hvtemptext.invalidate();
+    hvtempimage.setVisible(true);
+    hvtempimage.invalidate();
 }
 
 void RaceScreenView::updateInverterTemperature(uint8_t temperature)
@@ -160,10 +161,11 @@ void RaceScreenView::updateInverterTemperature(uint8_t temperature)
         invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
-    invtempimage.setVisible(true);
     invtemptext.setVisible(true);
-    invtempimage.invalidate();
     invtemptext.invalidate();
+    invtempimage.setVisible(true);
+    invtempimage.invalidate();
+
 }
 
 void RaceScreenView::updatePace(int32_t pace)
@@ -213,26 +215,29 @@ void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
 	uint8_t highestTemperature = std::max(frontMotor, rearMotor);
 
     Unicode::snprintf(motortemptextBuffer, MOTORTEMPTEXT_SIZE, "%d", highestTemperature);
-
+    //TODO:Change picture in motor
     if(highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
     {
-    	motortempimage.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
+    	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_CRIT_ID));
     	motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
     else if(highestTemperature > MOTOR_TEMPERATURE_MID)
     {
-    	motortempimage.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
+    	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_WARN_ID));
     	motortemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
-    	motortempimage.setBitmap(Bitmap(BITMAP_INVERTER_ID));
+    	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_ID));
     	motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
-    motortempimage.setVisible(true);
-    motortemptext.setVisible(true);
-    motortempimage.invalidate();
-    motortemptext.invalidate();
 
+    motortemptext.setVisible(true);
+    motortemptext.invalidate();
+    motortempimage.setVisible(true);
+    motortempimage.invalidate();
 }
+
+
+

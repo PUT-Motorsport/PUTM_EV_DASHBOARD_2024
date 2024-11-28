@@ -236,7 +236,7 @@
                 "X": 39,
                 "Y": 66,
                 "Width": 155,
-                "Height": 66,
+                "Height": 72,
                 "TextId": "__SingleUse_JD9Q",
                 "TextRotation": "0",
                 "Color": {
@@ -828,7 +828,8 @@
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "South",
               "ActionComponent": "RaceScreen"
             }
           }
@@ -1158,7 +1159,8 @@
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
+              "ScreenTransitionType": "ScreenTransitionCover",
+              "ScreenTransitionDirection": "South",
               "ActionComponent": "MainScreen"
             }
           }
@@ -1221,7 +1223,7 @@
       "Height": 480
     },
     "SelectedColorDepth": 24,
-    "StartupScreenName": "MainScreen",
+    "StartupScreenName": "BootScreen",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",

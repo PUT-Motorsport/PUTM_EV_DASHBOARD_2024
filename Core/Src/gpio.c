@@ -82,7 +82,7 @@ void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(AMS_LED_GPIO_Port, AMS_LED_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : PAPin PAPin */
-  GPIO_InitStruct.Pin = TSA_BTN_Pin|DRS_BT_Pin;
+  GPIO_InitStruct.Pin = TSA_BTN_Pin|DRS_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -189,16 +189,16 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(R_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = RADIO_BT_Pin;
+  GPIO_InitStruct.Pin = USR_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(RADIO_BT_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(USR_BTN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
-  GPIO_InitStruct.Pin = SS_BTN_Pin;
+  GPIO_InitStruct.Pin = CS_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(SS_BTN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(CS_BTN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = AMS_LED_Pin;

@@ -49,7 +49,18 @@ void Interface_Task(void* argument) {
             interfaceData.tsa_timer = 0;
         }
 
-        if(HAL_GPIO_ReadPin(SS_BTN_GPIO_Port, SS_BTN_Pin) == GPIO_PIN_RESET) {
+        if(HAL_GPIO_ReadPin(CS_BTN_GPIO_Port, CS_BTN_Pin) == GPIO_PIN_RESET) {
+            if(interfaceData.cs_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
+                interfaceData.cs_button = true;
+            } else {
+                interfaceData.cs_timer += DASH_BUTTON_POOLING_RATE;
+            }
+        } else {
+            interfaceData.cs_button = false;
+            interfaceData.cs_timer = 0;
+        }
+
+        if(HAL_GPIO_ReadPin(USR_BTN_GPIO_Port, USR_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.usr_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.usr_button = true;
             } else {
@@ -58,6 +69,17 @@ void Interface_Task(void* argument) {
         } else {
             interfaceData.usr_button = false;
             interfaceData.usr_timer = 0;
+        }
+
+        if(HAL_GPIO_ReadPin(DRS_BTN_GPIO_Port, DRS_BTN_Pin) == GPIO_PIN_RESET) {
+            if(interfaceData.drs_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
+                interfaceData.usr_button = true;
+            } else {
+                interfaceData.drs_timer += DASH_BUTTON_POOLING_RATE;
+            }
+        } else {
+            interfaceData.drs_button = false;
+            interfaceData.drs_timer = 0;
         }
 
         osDelay(pdMS_TO_TICKS(DASH_BUTTON_POOLING_RATE));

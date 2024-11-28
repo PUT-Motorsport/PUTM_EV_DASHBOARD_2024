@@ -100,6 +100,8 @@ InterfaceData_TypeDef interfaceData = {
     .safety_led = false,
     .rtd_button = false,
     .tsa_button = false,
+    .cs_button = false,
+    .drs_button = false,
     .usr_button = false,
     .previous_rtd_button = false,
     .previous_tsa_button = false,
@@ -107,6 +109,8 @@ InterfaceData_TypeDef interfaceData = {
     .rtd_timer = 0,
     .tsa_timer = 0,
     .usr_timer = 0,
+	.drs_timer = 0,
+	.cs_timer =0,
 };
 
 /* Private function prototypes -----------------------------------------------*/

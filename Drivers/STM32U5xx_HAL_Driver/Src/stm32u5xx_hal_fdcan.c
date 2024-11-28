@@ -2224,7 +2224,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *hfdcan, uint32_t R
   assert_param(IS_FDCAN_RX_FIFO(RxLocation));
 
   if (state == HAL_FDCAN_STATE_BUSY)
-  {//TODO:Zmienić wartość w if na 0!!!!!
+  {
     if (RxLocation == 0) /* Rx element is assigned to the Rx FIFO 0 */
     {
       /* Check that the Rx FIFO 0 is not empty */
@@ -2332,7 +2332,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *hfdcan, uint32_t R
     {
       pRxData[ByteCounter] = pData[ByteCounter];
     }
-    //TODO:Zmienić wartość w if na 0!!!!!
+
     if (RxLocation == 0) /* Rx element is assigned to the Rx FIFO 0 */
     {
       /* Acknowledge the Rx FIFO 0 that the oldest element is read so that it increments the GetIndex */

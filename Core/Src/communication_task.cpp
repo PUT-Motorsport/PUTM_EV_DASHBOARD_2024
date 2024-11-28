@@ -30,16 +30,16 @@ void Communication_Task(void* argument) {
         }
         interfaceData.previous_tsa_button = interfaceData.tsa_button;
 
-        if(interfaceData.usr_button && !interfaceData.previous_usr_button) {
-            send_usr_button = true;
-        }
-        interfaceData.previous_usr_button = interfaceData.usr_button;
+//        if(interfaceData.usr_button && !interfaceData.previous_usr_button) {
+//            send_usr_button = true;
+//        }
+//        interfaceData.previous_usr_button = interfaceData.usr_button;
 
         // Send only if any button state is updated
         PUTM_CAN::Dashboard frame = {
             .ready_to_drive_button = send_rtd_button,
             .ts_activation_button = send_tsa_button,
-            .user_button = send_usr_button,
+//            .user_button = send_usr_button,
         };
         auto message = PUTM_CAN::Can_tx_message<PUTM_CAN::Dashboard>(frame, PUTM_CAN::can_tx_header_DASHBOARD);
 
