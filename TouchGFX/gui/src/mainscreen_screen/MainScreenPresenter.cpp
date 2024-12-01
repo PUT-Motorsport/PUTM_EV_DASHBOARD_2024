@@ -53,7 +53,7 @@ void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData) {view.updateSDC(
 
 void MainScreenPresenter::switchScreenMR()
 {
-	if(interfaceData.cs_button)
+	if(1 == interfaceData.cs_button)
 		{
 			static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
 			interfaceData.cs_button = false;

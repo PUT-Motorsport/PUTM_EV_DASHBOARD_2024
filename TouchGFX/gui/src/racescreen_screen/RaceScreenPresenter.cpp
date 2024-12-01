@@ -41,7 +41,7 @@ void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
 
 void RaceScreenPresenter::switchScreenRM()
 {
-	if(interfaceData.cs_button)
+	if(1 == interfaceData.cs_button)
 	{
 		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
 		interfaceData.cs_button = false;

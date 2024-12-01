@@ -27,7 +27,7 @@
       <Text Id="__SingleUse_A6WO" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">10</Translation>
       </Text>
-      <Text Id="__SingleUse_JION" Alignment="Left" TypographyId="Huge">
+      <Text Id="__SingleUse_JION" Alignment="Center" TypographyId="Huge">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_HHTI" Alignment="Left" TypographyId="MediumPlus">
@@ -57,7 +57,7 @@
       <Text Id="__SingleUse_74KA" Alignment="Left" TypographyId="MediumPlus">
         <Translation Language="GB">100</Translation>
       </Text>
-      <Text Id="__SingleUse_M41U" Alignment="Left" TypographyId="MediumPlus">
+      <Text Id="__SingleUse_M41U" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">&lt;d&gt;°C</Translation>
       </Text>
       <Text Id="__SingleUse_EE4R" Alignment="Left" TypographyId="MediumPlus">
@@ -241,6 +241,6 @@
     <Typography Id="Medium" Font="Rubik-Regular.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789." WildcardCharacterRanges="0-9" />
     <Typography Id="Big" Font="Rubik-Regular.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
     <Typography Id="MediumPlus" Font="Rubik-Regular.ttf" Size="65" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Huge" Font="Rubik-Regular.ttf" Size="110" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Huge" Font="Rubik-Regular.ttf" Size="125" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

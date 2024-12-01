@@ -341,11 +341,11 @@ void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 
 void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue)
 {
-    Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", text);
-    sdcText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
-
     Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
     sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
+
+    Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", text);
+    sdcText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
 
 	sdcText.setVisible(true);
 	sdcText.invalidate();
