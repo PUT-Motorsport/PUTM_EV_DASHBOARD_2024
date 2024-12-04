@@ -829,8 +829,7 @@
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
+              "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "RaceScreen"
             }
           }
@@ -1142,8 +1141,7 @@
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionCover",
-              "ScreenTransitionDirection": "South",
+              "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "MainScreen"
             }
           }

@@ -46,7 +46,7 @@ void RaceScreenPresenter::switchScreenRM()
 	{
 		if(1 == interfaceData.cs_button)
 		{
-			static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
+			static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
 		}
 	}
 }

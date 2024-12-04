@@ -40,26 +40,8 @@ class ModelListener {
     virtual void setBestLap(uint32_t time) {}
 
     //Safety
-    virtual void setSafetyLeftKill(bool status){}
-    virtual void setSafetyRightKill(bool status) {}
-    virtual void setSafetyDriverKill(bool status){}
-    virtual void setSafetyInertia(bool status) {}
-    virtual void setSafetyBspd(bool status){}
-    virtual void setSafetyOvertravel(bool status) {}
-    virtual void setSafetyRightWheel(bool status){}
-    virtual void setSafetyIsBraking(bool status) {}
-    virtual void setSafetyRuf1(bool status){}
-    virtual void setSafetyRuf2(bool status) {}
-    virtual void setSafetyAsms(bool status){}
-    virtual void setSafetyFw(bool status) {}
-    virtual void setSafetyHv(bool status){}
-    virtual void setSafetyRes(bool status) {}
-    virtual void setSafetyHvd(bool status){}
-    virtual void setSafetyInv(bool status) {}
-    virtual void setSafetyWheelFL(bool status){}
-    virtual void setSafetyWheelFR(bool status) {}
-    virtual void setSafetyWheelRL(bool status){}
-    virtual void setSafetyWheelRR(bool status) {}
+    virtual void setSafetyData(SafetyData_TypeDef& safetyData) {}
+
 
     virtual void toggleElements() {}
 

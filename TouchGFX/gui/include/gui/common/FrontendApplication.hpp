@@ -18,6 +18,7 @@ class FrontendApplication : public FrontendApplicationBase {
     }
 
   private:
+
 };
 
 #endif  // FRONTENDAPPLICATION_HPP

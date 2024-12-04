@@ -26,6 +26,8 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
 
     virtual ~MainScreenPresenter() {}
 
+//    virtual void tick();
+
     void setClock(uint32_t time);
     void setConnection(bool status);
     void setWarning(bool status);

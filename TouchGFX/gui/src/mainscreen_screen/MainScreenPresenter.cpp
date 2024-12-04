@@ -5,9 +5,18 @@
 
 MainScreenPresenter::MainScreenPresenter(MainScreenView& v) : view(v) {}
 
-void MainScreenPresenter::activate() {screenStatus.MainScreen = true;}
+void MainScreenPresenter::activate()
+{
+	screenStatus.MainScreen = true;
+	//Application::getInstance()->registerTimerWidget(this);
+}
 
-void MainScreenPresenter::deactivate() {screenStatus.MainScreen = false;}
+void MainScreenPresenter::deactivate()
+{
+	screenStatus.MainScreen = false;
+	//Application::getInstance()->unregisterTimerWidget(this);
+}
+
 
 void MainScreenPresenter::setClock(uint32_t time) { view.updateClock(time); }
 
@@ -59,8 +68,12 @@ void MainScreenPresenter::switchScreenMR()
 	{
 		if(1 == interfaceData.cs_button)
 		{
-			static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
-			//FrontendApplicationBase::gotoRaceScreenScreenCoverTransitionSouth();
+			static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
 		}
 	}
 }
+
+//void MainScreenPresenter::tick()
+//{
+//	MainScreenPresenter::switchScreenMR();
+//}

@@ -111,6 +111,11 @@ osMutexId_t timerDataMutexHandle;
 const osMutexAttr_t timerDataMutex_attributes = {
   .name = "timerDataMutex"
 };
+/* Definitions for sdcDataMutex */
+osMutexId_t sdcDataMutexHandle;
+const osMutexAttr_t sdcDataMutex_attributes = {
+  .name = "sdcDataMutex"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -181,6 +186,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of timerDataMutex */
   timerDataMutexHandle = osMutexNew(&timerDataMutex_attributes);
+
+  /* creation of sdcDataMutex */
+  sdcDataMutexHandle = osMutexNew(&sdcDataMutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
     /* add mutexes, ... */
