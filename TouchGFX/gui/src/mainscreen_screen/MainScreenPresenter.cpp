@@ -5,9 +5,9 @@
 
 MainScreenPresenter::MainScreenPresenter(MainScreenView& v) : view(v) {}
 
-void MainScreenPresenter::activate() {}
+void MainScreenPresenter::activate() {screenStatus.MainScreen = true;}
 
-void MainScreenPresenter::deactivate() {}
+void MainScreenPresenter::deactivate() {screenStatus.MainScreen = false;}
 
 void MainScreenPresenter::setClock(uint32_t time) { view.updateClock(time); }
 
@@ -51,14 +51,16 @@ void MainScreenPresenter::setBestLap(uint32_t time) { view.updateBestLap(time); 
 
 void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData) {view.updateSDC(&SafetyData);}
 
+void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
+
 void MainScreenPresenter::switchScreenMR()
 {
-	if(1 == interfaceData.cs_button)
+	if(true == screenStatus.MainScreen)
+	{
+		if(1 == interfaceData.cs_button)
 		{
 			static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenCoverTransitionSouth();
-			interfaceData.cs_button = false;
+			//FrontendApplicationBase::gotoRaceScreenScreenCoverTransitionSouth();
 		}
+	}
 }
-
-
-void MainScreenPresenter::toggleElements() { view.toggleWarning(); }

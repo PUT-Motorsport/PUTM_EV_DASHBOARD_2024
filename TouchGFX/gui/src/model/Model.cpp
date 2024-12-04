@@ -13,6 +13,7 @@ extern osMutexId_t timerDataMutexHandle;
 Model::Model() : modelListener(0) {}
 
 void Model::tick() {
+
     if(modelListener != 0) {
         modelListener->toggleElements();
 

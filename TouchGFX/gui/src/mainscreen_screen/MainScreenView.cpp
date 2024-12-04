@@ -95,14 +95,14 @@ void MainScreenView::updateInvertersReady(bool status) {
 void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
     Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", temperature);
     if(temperature > BATTERY_LV_TEMPERATURE_MAX || temperature < BATTERY_LV_TEMPERATURE_MIN) {
-        batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
-        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
+    	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > BATTERY_LV_TEMPERATURE_MID) {
-        batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
-        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
+    	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
-        batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
-        batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
+    	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
     batLvTempIcon.setVisible(true);
     batLvTempText.setVisible(true);

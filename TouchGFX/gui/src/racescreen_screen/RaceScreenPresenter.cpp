@@ -9,9 +9,9 @@ RaceScreenPresenter::RaceScreenPresenter(RaceScreenView& v)
 
 }
 
-void RaceScreenPresenter::activate(){}
+void RaceScreenPresenter::activate(){screenStatus.RaceScreen = true;}
 
-void RaceScreenPresenter::deactivate(){}
+void RaceScreenPresenter::deactivate(){screenStatus.RaceScreen = false;}
 
 void RaceScreenPresenter::setReadyToDrive(bool status) {view.updateReadyToDrive(status);}
 
@@ -39,11 +39,14 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 
 void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
 
+
 void RaceScreenPresenter::switchScreenRM()
 {
-	if(1 == interfaceData.cs_button)
+	if(true == screenStatus.RaceScreen)
 	{
-		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
-		interfaceData.cs_button = false;
+		if(1 == interfaceData.cs_button)
+		{
+			static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenCoverTransitionSouth();
+		}
 	}
 }

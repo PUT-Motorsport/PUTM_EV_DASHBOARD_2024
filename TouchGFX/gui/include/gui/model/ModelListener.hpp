@@ -61,7 +61,6 @@ class ModelListener {
     virtual void setSafetyWheelRL(bool status){}
     virtual void setSafetyWheelRR(bool status) {}
 
-
     virtual void toggleElements() {}
 
   protected:
