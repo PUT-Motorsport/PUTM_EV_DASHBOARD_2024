@@ -133,7 +133,7 @@ void Model::tick() {
 			m_sharedSafetyDataPrev.safety_wheel_rr = m_sharedSafetyData.safety_wheel_rr;
 
 
-        	modelListener->setSafetyData(m_sharedSafetyData);
+        	modelListener->setSDC(m_sharedSafetyData);
 
 			osMutexRelease(sdcDataMutexHandle);
 

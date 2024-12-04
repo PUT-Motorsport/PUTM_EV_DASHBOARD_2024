@@ -31,7 +31,7 @@ public:
     void setInvertersReady(bool status);
     void setSocLv(uint8_t soc);
     void setSocHv(uint8_t soc);
-    void setTempHv(uint8_t temperature);
+    void setBatteryHVTemperature(uint8_t temperature);
     void setInverterTemperature(uint8_t temperature);
     void setPace(int32_t pace);
     void setRange(uint16_t range);

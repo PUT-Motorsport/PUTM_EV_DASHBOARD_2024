@@ -16,7 +16,7 @@ public:
     void updateInvertersReady(bool status);
     void updateSocLv(uint8_t soc);
     void updateSocHv(uint8_t soc);
-    void updateTempHv(uint8_t temperature);
+    void updateBatteryHVTemperature(uint8_t temperature);
     void updateInverterTemperature(uint8_t temperature);
     void updatePace(int32_t pace);
     void updateRange(uint16_t range);

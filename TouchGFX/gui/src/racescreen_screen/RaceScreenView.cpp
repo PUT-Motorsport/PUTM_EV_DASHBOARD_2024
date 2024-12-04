@@ -114,7 +114,7 @@ void RaceScreenView::updateSocHv(uint8_t soc)
     HvSoCText.invalidate();
 }
 
-void RaceScreenView::updateTempHv(uint8_t temperature)
+void RaceScreenView::updateBatteryHVTemperature(uint8_t temperature)
 {
     Unicode::snprintf(hvtemptextBuffer , HVTEMPTEXT_SIZE , "%d", temperature);
 

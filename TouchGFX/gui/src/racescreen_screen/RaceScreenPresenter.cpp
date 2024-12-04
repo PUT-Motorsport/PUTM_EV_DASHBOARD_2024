@@ -21,7 +21,7 @@ void RaceScreenPresenter::setSocLv(uint8_t soc) {view.updateSocLv(soc);}
 
 void RaceScreenPresenter::setSocHv(uint8_t soc) {view.updateSocHv(soc);}
 
-void RaceScreenPresenter::setTempHv(uint8_t temperature) {view.updateTempHv(temperature);}
+void RaceScreenPresenter::setBatteryHVTemperature(uint8_t temperature) {view.updateBatteryHVTemperature(temperature);}
 
 void RaceScreenPresenter::setInverterTemperature(uint8_t temperature) {view.updateInverterTemperature(temperature);}
 

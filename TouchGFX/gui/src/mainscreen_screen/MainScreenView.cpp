@@ -386,48 +386,68 @@ void MainScreenView::updateSafetyRearBox(bool status)
 
 void MainScreenView::updateSDC(SafetyData_TypeDef *status)
 {
-	_Bool *fields[] = {
-	        &status->sense_left_kill, &status->sense_right_kill, &status->sense_driver_kill,
-	        &status->sense_inertia, &status->sense_bspd, &status->sense_overtravel,
-	        &status->sense_right_wheel, &status->is_braking, &status->safety_rfu1,
-	        &status->safety_rfu2, &status->safety_asms, &status->safety_fw,
-	        &status->safety_hv, &status->safety_res, &status->safety_hvd,
-	        &status->safety_inv, &status->safety_wheel_fl, &status->safety_wheel_fr,
-	        &status->safety_wheel_rl, &status->safety_wheel_rr
-	    };
 
-	const char *error_names[] = {
-	        "LK", "RK", "DK","INE", "BSPD", "ORT","RH", "IB",
-			"RFU1","RFU2", "ASMS", "FW","HV", "RES", "HVD","INV", "WFL", "WFR","WRL", "WRR"
-	    };
+    _Bool *fields[] = {
+        &status->sense_left_kill,     // Left Kill Switch
+        &status->sense_right_kill,    // Right Kill Switch
+        &status->sense_driver_kill,   // Cockpit Kill Switch
+        &status->sense_bspd,          // BSPD (Brake System Plausibility Device)
+        &status->sense_inertia,       // Inertia Switch
+        &status->safety_res,          // RES (Ready-to-Enable Switch)
+        &status->safety_asms,         // AMS (Accumulator Management System)
+        &status->sense_overtravel,    // BOTS (Brake Overtravel Switch)
+        &status->safety_hvd,          // HVD (High Voltage Disconnect Interlock)
+        &status->safety_hv,           // High Voltage System Safety
+        &status->safety_inv,          // Inverter Safety
+        &status->is_braking,
+        &status->safety_fw,
+        &status->safety_wheel_fl,     // Front Left Wheel Sensor
+        &status->safety_wheel_fr,     // Front Right Wheel Sensor
+        &status->safety_wheel_rl,     // Rear Left Wheel Sensor
+        &status->safety_wheel_rr      // Rear Right Wheel Sensor
+    };
 
-	    int error_count = 0;
-	    int first_error_index = -1;
 
-	    // Przechodzimy przez tablicę i liczymy błędy
-	    for (int i = 0; i < sizeof(fields) / sizeof(fields[0]); i++) {
-	        if (*fields[i]) {
-	            error_count++;
-	            if (first_error_index == -1) {
-	                first_error_index = i;  // Zapisujemy pierwszy napotkany błąd
-	            }
-	        }
-	    }
+    const char *error_names[] = {
+        "LK", "RK", "DK",    // Left, Right, and Cockpit Kill Switches
+        "BSPD", "INE",       // BSPD and Inertia Switch
+        "RES", "ASMS",       // RES and AMS
+        "ORT",               // BOTS (Overtravel)
+        "HVD", "HV", "INV",  // HVD, High Voltage System, Inverter
+        "IB", "FW",
+        "WFL", "WFR",        // Front Left and Right Wheel Sensors
+        "WRL", "WRR"         // Rear Left and Right Wheel Sensors
+    };
 
-	    // Wyświetlanie wyników
-	    if (error_count == 0)
-	    {
-	    	setSafetyStatus("OK", 255, 255, 255);
-	    }
-	    else if (error_count == 1)
-	    {
-	    	setSafetyStatus(error_names[first_error_index], 255, 255, 255);
-	    }
-	    else
-	    {
-	    	setSafetyStatus("MER!", 255, 255, 255);
-	    }
+    int error_count = 0;         // Counter for the number of detected errors
+    int first_error_index = -1;  // Index of the first detected error in the fields array
+
+    // Iterate through the fields array to detect the first error
+    for (int i = 0; i < sizeof(fields) / sizeof(fields[0]); i++)
+    {
+        if (*fields[i])
+        { // Check if the current field indicates an error
+            error_count++; // Increment error count
+            if (first_error_index == -1)
+            {
+                first_error_index = i;  // Store the index of the first detected error
+            }
+        }
+    }
+
+
+    if (error_count == 0)
+    {
+        setSafetyStatus("OK", 255, 255, 255); //SDC OK
+    }
+    else if (first_error_index != -1)
+    {
+        setSafetyStatus(error_names[first_error_index], 255, 0, 0); //Display element that broke the circuit first
+    }
+
 }
+
+
 
 
 
