@@ -113,6 +113,14 @@ InterfaceData_TypeDef interfaceData = {
 	.cs_timer =0,
 };
 
+ScreenStatus_TypeDef screenStatus = {
+	.MainScreen = false,
+	.RaceScreen = false,
+	.NotificationScreen = false,
+};
+
+
+
 /* Private function prototypes -----------------------------------------------*/
 
 /* Public function prototypes ------------------------------------------------*/

@@ -108,6 +108,14 @@ typedef struct {
     uint32_t cs_timer;
 } InterfaceData_TypeDef;
 
+typedef struct{
+	_Bool MainScreen;
+	_Bool RaceScreen;
+	_Bool NotificationScreen;
+}ScreenStatus_TypeDef;
+
+
+
 /* Public defines ------------------------------------------------------------*/
 #define DASH_TIMEOUT_DURATION 800
 #define DASH_RPM_MAX 20000
@@ -122,6 +130,8 @@ extern SafetyData_TypeDef safetyData;
 extern TimeoutData_TypeDef timeoutData;
 extern TimerData_TypeDef timerData;
 extern InterfaceData_TypeDef interfaceData;
+extern ScreenStatus_TypeDef screenStatus;
+
 
 /* Public function prototypes ------------------------------------------------*/
 
