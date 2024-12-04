@@ -58,10 +58,10 @@
           {
             "Type": "TextArea",
             "Name": "invText",
-            "X": 106,
-            "Y": 405,
-            "Width": 65,
-            "Height": 48,
+            "X": 88,
+            "Y": 400,
+            "Width": 104,
+            "Height": 66,
             "TextId": "__SingleUse_Q3ZW",
             "TextRotation": "0",
             "Color": {
@@ -75,10 +75,10 @@
           {
             "Type": "TextArea",
             "Name": "rtdText",
-            "X": 625,
-            "Y": 405,
-            "Width": 77,
-            "Height": 48,
+            "X": 618,
+            "Y": 400,
+            "Width": 124,
+            "Height": 66,
             "TextId": "__SingleUse_ZXJZ",
             "TextRotation": "0",
             "Color": {
@@ -441,22 +441,13 @@
                 "RelativeFilename": "inverter.png"
               },
               {
-                "Type": "Image",
-                "Name": "batLvTempIcon",
-                "X": 38,
-                "Y": 24,
-                "Width": 32,
-                "Height": 32,
-                "RelativeFilename": "batteryLV.png"
-              },
-              {
                 "Type": "TextArea",
                 "Name": "batLvTempText",
                 "X": 24,
                 "Y": 63,
                 "Width": 61,
                 "Height": 25,
-                "TextId": "__SingleUse_WADS",
+                "TextId": "__SingleUse_T6ID",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
@@ -465,10 +456,19 @@
                 },
                 "AutoSize": true,
                 "Wildcard1": {
-                  "TextId": "__SingleUse_F9O2",
+                  "TextId": "__SingleUse_3SOH",
                   "UseBuffer": true,
-                  "BufferSize": 6
+                  "BufferSize": 10
                 }
+              },
+              {
+                "Type": "Image",
+                "Name": "batLvTempIcon",
+                "X": 38,
+                "Y": 27,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "batteryLV.png"
               }
             ]
           },
@@ -823,6 +823,7 @@
           },
           {
             "InteractionName": "ChangeScreenMR",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerNone"
             },
@@ -1135,6 +1136,7 @@
         "Interactions": [
           {
             "InteractionName": "ChangeScreenRM",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerNone"
             },
@@ -1165,9 +1167,9 @@
             "Type": "TextArea",
             "Name": "notificationText",
             "X": 30,
-            "Y": 189,
+            "Y": 43,
             "Width": 740,
-            "Height": 122,
+            "Height": 394,
             "TextId": "__SingleUse_KFWH",
             "TextRotation": "0",
             "Color": {

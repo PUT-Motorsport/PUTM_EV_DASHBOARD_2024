@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_3SOH" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">99</Translation>
+      </Text>
+      <Text Id="__SingleUse_T6ID" Alignment="Center" TypographyId="Small">
+        <Translation Language="GB">&lt;d&gt; °C</Translation>
+      </Text>
       <Text Id="__SingleUse_O4LY" Alignment="Left" TypographyId="Normal">
         <Translation Language="GB">SDC STATUS</Translation>
       </Text>
@@ -17,12 +23,6 @@
       </Text>
       <Text Id="__SingleUse_JD9Q" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">&lt;s&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_F9O2" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
-      </Text>
-      <Text Id="__SingleUse_WADS" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">&lt;d&gt; °C</Translation>
       </Text>
       <Text Id="__SingleUse_A6WO" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">10</Translation>
@@ -117,16 +117,16 @@
       <Text Id="__SingleUse_E71Z" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_Q3ZW" Alignment="Center" TypographyId="Medium">
+      <Text Id="__SingleUse_Q3ZW" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">INV</Translation>
       </Text>
-      <Text Id="__SingleUse_ZXJZ" Alignment="Center" TypographyId="Medium">
+      <Text Id="__SingleUse_ZXJZ" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">RTD</Translation>
       </Text>
-      <Text Id="__SingleUse_IKMT" Alignment="Left" TypographyId="Big">
+      <Text Id="__SingleUse_IKMT" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">MESSAGE</Translation>
       </Text>
-      <Text Id="__SingleUse_KFWH" Alignment="Center" TypographyId="Big">
+      <Text Id="__SingleUse_KFWH" Alignment="Center" TypographyId="Huge">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_802D" Alignment="Right" TypographyId="Tiny">
