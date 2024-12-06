@@ -2,12 +2,9 @@
 #include <gui/racescreen_screen/RaceScreenPresenter.hpp>
 
 #include <touchgfx/hal/HAL.hpp>
+#include "stm32u5xx_hal.h"
 
-RaceScreenPresenter::RaceScreenPresenter(RaceScreenView& v)
-    : view(v)
-{
-
-}
+RaceScreenPresenter::RaceScreenPresenter(RaceScreenView& v): view(v){}
 
 void RaceScreenPresenter::activate(){screenStatus.RaceScreen = true;}
 
@@ -39,14 +36,19 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 
 void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
 
+static uint32_t lastScreenSwitchTime = 0;
+const uint32_t DEBOUNCE_TIME_MS = 500;
 
 void RaceScreenPresenter::switchScreenRM()
 {
-	if(true == screenStatus.RaceScreen)
+	uint32_t currentTime = HAL_GetTick();
+
+	if (screenStatus.RaceScreen &&
+		interfaceData.cs_button == 1 &&
+		(currentTime - lastScreenSwitchTime > DEBOUNCE_TIME_MS))
 	{
-		if(1 == interfaceData.cs_button)
-		{
-			static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
-		}
+		lastScreenSwitchTime = currentTime;
+		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+		screenStatus.RaceScreen = false;
 	}
 }

@@ -42,8 +42,10 @@ class ModelListener {
     virtual void setBatteryHVTemperature(uint8_t temperature) {}
     virtual void setPace(int32_t pace) {}
 
+    virtual void switchScreenRM(){}
+    virtual void switchScreenMR(){}
+    virtual void toggleElements(){}
 
-    virtual void toggleElements() {}
 
   protected:
     Model* model;

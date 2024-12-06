@@ -71,7 +71,7 @@ void RaceScreenView::updateSocLv(uint8_t soc)
     	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(soc < BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MID)
+    else if(soc < BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MIN)
     {
     	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
@@ -97,7 +97,7 @@ void RaceScreenView::updateSocHv(uint8_t soc)
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(soc < BATTERY_HV_SOC_MAX && soc > BATTERY_HV_SOC_MID)
+    else if(soc < BATTERY_HV_SOC_MAX && soc > BATTERY_HV_SOC_MIN)
     {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
@@ -215,7 +215,7 @@ void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
 	uint8_t highestTemperature = std::max(frontMotor, rearMotor);
 
     Unicode::snprintf(motortemptextBuffer, MOTORTEMPTEXT_SIZE, "%d", highestTemperature);
-    //TODO:Change picture in motor
+
     if(highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
     {
     	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_CRIT_ID));
@@ -234,8 +234,8 @@ void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
 
 
     motortemptext.setVisible(true);
-    motortemptext.invalidate();
     motortempimage.setVisible(true);
+    motortemptext.invalidate();
     motortempimage.invalidate();
 }
 

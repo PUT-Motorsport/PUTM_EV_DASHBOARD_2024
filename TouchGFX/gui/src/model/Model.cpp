@@ -17,6 +17,9 @@ void Model::tick() {
 
     if(modelListener != 0) {
         modelListener->toggleElements();
+        modelListener->switchScreenMR();
+        modelListener->switchScreenRM();
+
 
         if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             m_sharedData = sharedData;

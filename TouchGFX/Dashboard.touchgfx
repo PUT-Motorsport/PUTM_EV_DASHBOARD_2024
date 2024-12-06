@@ -1026,7 +1026,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_XLNF",
               "UseBuffer": true,
-              "BufferSize": 6
+              "BufferSize": 10
             }
           },
           {
@@ -1047,7 +1047,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_QJ4J",
               "UseBuffer": true,
-              "BufferSize": 6
+              "BufferSize": 10
             }
           },
           {

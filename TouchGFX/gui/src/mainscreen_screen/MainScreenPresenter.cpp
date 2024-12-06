@@ -2,21 +2,13 @@
 #include <gui/mainscreen_screen/MainScreenView.hpp>
 
 #include <touchgfx/hal/HAL.hpp>
+#include "stm32u5xx_hal.h"
 
 MainScreenPresenter::MainScreenPresenter(MainScreenView& v) : view(v) {}
 
-void MainScreenPresenter::activate()
-{
-	screenStatus.MainScreen = true;
-	//Application::getInstance()->registerTimerWidget(this);
-}
+void MainScreenPresenter::activate(){ screenStatus.MainScreen = true; }
 
-void MainScreenPresenter::deactivate()
-{
-	screenStatus.MainScreen = false;
-	//Application::getInstance()->unregisterTimerWidget(this);
-}
-
+void MainScreenPresenter::deactivate(){	screenStatus.MainScreen = false; }
 
 void MainScreenPresenter::setClock(uint32_t time) { view.updateClock(time); }
 
@@ -62,18 +54,20 @@ void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData) {view.updateSDC(
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 
+static uint32_t lastScreenSwitchTime = 0;
+const uint32_t DEBOUNCE_TIME_MS = 500;
+
 void MainScreenPresenter::switchScreenMR()
 {
-	if(true == screenStatus.MainScreen)
+	uint32_t currentTime = HAL_GetTick();
+
+	if (screenStatus.MainScreen &&
+		interfaceData.cs_button == 1 &&
+	    (currentTime - lastScreenSwitchTime > DEBOUNCE_TIME_MS))
 	{
-		if(1 == interfaceData.cs_button)
-		{
-			static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
-		}
+        lastScreenSwitchTime = currentTime;
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
+        screenStatus.MainScreen = false;
 	}
 }
 
-//void MainScreenPresenter::tick()
-//{
-//	MainScreenPresenter::switchScreenMR();
-//}
