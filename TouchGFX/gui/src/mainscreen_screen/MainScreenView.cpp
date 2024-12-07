@@ -338,7 +338,6 @@ void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 
 
 //Safety display
-
 void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue)
 {
     Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
@@ -354,7 +353,7 @@ void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t gree
 	sdcStatusLabelText.invalidate();
 }
 
-
+//Safety Frontbox
 void MainScreenView::updateSafetyFrontbox(bool status)
 {
 	if(!status)

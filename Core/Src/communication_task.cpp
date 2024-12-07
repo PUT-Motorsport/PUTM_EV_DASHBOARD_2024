@@ -48,35 +48,7 @@ void Communication_Task(void* argument) {
         // RX
         uint32_t current_tick_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
-        // Frontbox
-        if(PUTM_CAN::can.get_pc_new_data()) {
-            timeoutData.frontbox_last_frame_time = current_tick_time;
-            auto pc_data = PUTM_CAN::can.get_pc_main_data();
 
-
-            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.warning = false;
-                sharedData.ready_to_drive = pc_data.rtd;
-                sharedData.inverters_ready = pc_data.invertersReady;
-
-                sharedData.inverter_temperature = std::max(pc_data.rearRightInverterTemperature, pc_data.rearLeftInverterTemperature);
-                sharedData.oil_temperature = std::max(pc_data.rearRightMotorTemperature, pc_data.rearLeftMotorTemperature);
-
-                sharedData.rpm = pc_data.rpm;
-
-                osMutexRelease(sharedDataMutexHandle);
-            }
-        } else if(current_tick_time - timeoutData.frontbox_last_frame_time > DASH_TIMEOUT_DURATION) {
-            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
-                sharedData.warning = true;
-                sharedData.inverter_temperature = 0;
-                sharedData.oil_temperature = 0;
-                sharedData.rpm = 0;
-
-
-                osMutexRelease(sharedDataMutexHandle);
-            }
-		}
 
         //Frontbox Safety
 		if(PUTM_CAN::can.get_front_data_main_new_data())
@@ -102,7 +74,7 @@ void Communication_Task(void* argument) {
 				osMutexRelease(sharedDataMutexHandle);
 			}
 		}
-		else if(current_tick_time - timeoutData.frontbox_last_frame_time > DASH_TIMEOUT_DURATION)
+		else if(current_tick_time - timeoutData.frontbox_safety_last_frame_time > DASH_TIMEOUT_DURATION)
 		{
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
 			{
@@ -118,34 +90,62 @@ void Communication_Task(void* argument) {
 				safetyData.sense_right_wheel = false;
 				safetyData.is_braking = false;
 
-
 				osMutexRelease(sharedDataMutexHandle);
 			}
 		}
-        else if(current_tick_time - timeoutData.frontbox_last_frame_time > DASH_TIMEOUT_DURATION)
+
+
+		//Rearbox Safety
+        if(PUTM_CAN::can.get_rearbox_safety_new_data())
         {
+        	timeoutData.rearbox_safety_last_frame_time = current_tick_time;
+        	auto rearbox_safety_data = PUTM_CAN::can.get_rearbox_safety();
+
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
 			{
 				sharedData.warning = true;
 				//we do not get data from the component so errors are not detected
 				sharedData.safety_rear = true;
 
-				safetyData.safety_rfu1 = false;
-				safetyData.safety_rfu2 = false;
-				safetyData.safety_asms = false;
-				safetyData.safety_fw = false;
-				safetyData.safety_hv = false;
-				safetyData.safety_res = false;
-				safetyData.safety_hvd = false;
-				safetyData.safety_inv = false;
-				safetyData.safety_wheel_fl = false;
-				safetyData.safety_wheel_fr = false;
-				safetyData.safety_wheel_rl = false;
-				safetyData.safety_wheel_rr = false;
+				safetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
+				safetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
+				safetyData.safety_asms = rearbox_safety_data.safety_asms;
+				safetyData.safety_fw = rearbox_safety_data.safety_fw;
+				safetyData.safety_hv = rearbox_safety_data.safety_hv;
+				safetyData.safety_res = rearbox_safety_data.safety_res;
+				safetyData.safety_hvd = rearbox_safety_data.safety_hvd;
+				safetyData.safety_inv = rearbox_safety_data.safety_inv;
+				safetyData.safety_wheel_fl = rearbox_safety_data.safety_wheel_fl;
+				safetyData.safety_wheel_fr = rearbox_safety_data.safety_wheel_fr;
+				safetyData.safety_wheel_rl = rearbox_safety_data.safety_wheel_rl;
+				safetyData.safety_wheel_rr = rearbox_safety_data.safety_wheel_rr;
 
 				osMutexRelease(sharedDataMutexHandle);
 			}
 		}
+        else if(current_tick_time - timeoutData.rearbox_safety_last_frame_time > DASH_TIMEOUT_DURATION)
+        		{
+        			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+        			{
+        				sharedData.warning = true;
+        				sharedData.safety_rear = true;
+
+        				safetyData.safety_rfu1 = false;
+        				safetyData.safety_rfu2 = false;
+        				safetyData.safety_asms = false;
+        				safetyData.safety_fw = false;
+        				safetyData.safety_hv = false;
+        				safetyData.safety_res = false;
+        				safetyData.safety_hvd = false;
+        				safetyData.safety_inv = false;
+        				safetyData.safety_wheel_fl = false;
+        				safetyData.safety_wheel_fr = false;
+        				safetyData.safety_wheel_rl = false;
+        				safetyData.safety_wheel_rr = false;
+
+        				osMutexRelease(sharedDataMutexHandle);
+        			}
+        		}
 
 
 		// RearBox Miscellaneous
@@ -160,7 +160,7 @@ void Communication_Task(void* argument) {
 
 				osMutexRelease(sharedDataMutexHandle);
 			}
-		} else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
+		} else if(current_tick_time - timeoutData.rearbox_miscellaneous_last_frame_time > DASH_TIMEOUT_DURATION) {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.warning = true;
 
@@ -183,7 +183,7 @@ void Communication_Task(void* argument) {
 
 				osMutexRelease(sharedDataMutexHandle);
 			}
-		} else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
+		} else if(current_tick_time - timeoutData.rearbox_temperatures_last_frame_time > DASH_TIMEOUT_DURATION) {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.warning = true;
 
