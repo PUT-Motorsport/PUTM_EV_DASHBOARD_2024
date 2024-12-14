@@ -857,10 +857,10 @@
           },
           {
             "Type": "TextArea",
-            "Name": "invText",
+            "Name": "drsText",
             "X": 48,
             "Y": 30,
-            "Width": 129,
+            "Width": 156,
             "Height": 85,
             "TextId": "__SingleUse_6NEI",
             "TextRotation": "0",

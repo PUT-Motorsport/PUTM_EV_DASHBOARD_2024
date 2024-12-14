@@ -106,6 +106,7 @@ InterfaceData_TypeDef interfaceData = {
     .previous_rtd_button = false,
     .previous_tsa_button = false,
     .previous_usr_button = false,
+	.drs_status = false,
     .rtd_timer = 0,
     .tsa_timer = 0,
     .usr_timer = 0,

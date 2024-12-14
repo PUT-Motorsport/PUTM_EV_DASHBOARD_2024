@@ -54,18 +54,10 @@ void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData) {view.updateSDC(
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 
-static uint32_t lastScreenSwitchTime = 0;
-const uint32_t DEBOUNCE_TIME_MS = 500;
-
 void MainScreenPresenter::switchScreenMR()
 {
-	uint32_t currentTime = HAL_GetTick();
-
-	if (screenStatus.MainScreen &&
-		interfaceData.cs_button == 1 &&
-	    (currentTime - lastScreenSwitchTime > DEBOUNCE_TIME_MS))
+	if (screenStatus.MainScreen && interfaceData.cs_button == 1)
 	{
-        lastScreenSwitchTime = currentTime;
         static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
         screenStatus.MainScreen = false;
 	}

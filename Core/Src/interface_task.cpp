@@ -6,6 +6,9 @@
 #include "main.h"
 
 void Interface_Task(void* argument) {
+
+	volatile uint32_t last_button_cs_press = 0;
+
     for(;;) {
         // LEDs
         if(interfaceData.ams_led || interfaceData.led_test) {
@@ -26,7 +29,10 @@ void Interface_Task(void* argument) {
             HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_RESET);
         }
 
+
+
         // Buttons
+        //RDT button
         if(HAL_GPIO_ReadPin(RTD_BTN_GPIO_Port, RTD_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.rtd_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.rtd_button = true;
@@ -38,6 +44,7 @@ void Interface_Task(void* argument) {
             interfaceData.rtd_timer = 0;
         }
 
+        //TSA button
         if(HAL_GPIO_ReadPin(TSA_BTN_GPIO_Port, TSA_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.tsa_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.tsa_button = true;
@@ -49,17 +56,24 @@ void Interface_Task(void* argument) {
             interfaceData.tsa_timer = 0;
         }
 
-        if(HAL_GPIO_ReadPin(CS_BTN_GPIO_Port, CS_BTN_Pin) == GPIO_PIN_RESET) {
-            if(interfaceData.cs_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
-                interfaceData.cs_button = true;
-            } else {
-                interfaceData.cs_timer += DASH_BUTTON_POOLING_RATE;
-            }
-        } else {
-            interfaceData.cs_button = false;
-            interfaceData.cs_timer = 0;
+
+        //Change screen button
+        if(HAL_GPIO_ReadPin(CS_BTN_GPIO_Port, CS_BTN_Pin) == GPIO_PIN_RESET)
+        {
+        	uint32_t current_time = HAL_GetTick();
+
+        	if((current_time - last_button_cs_press) >= DASH_BUTTON_DEBOUNCING_TIME)
+        	{
+        		interfaceData.cs_button = true;
+        		last_button_cs_press = current_time;
+        	}
+        	else
+        	{
+        		interfaceData.cs_button = false;
+        	}
         }
 
+        //Usr button (free)
         if(HAL_GPIO_ReadPin(USR_BTN_GPIO_Port, USR_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.usr_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.usr_button = true;
@@ -71,16 +85,19 @@ void Interface_Task(void* argument) {
             interfaceData.usr_timer = 0;
         }
 
-        if(HAL_GPIO_ReadPin(DRS_BTN_GPIO_Port, DRS_BTN_Pin) == GPIO_PIN_RESET) {
-            if(interfaceData.drs_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
-                interfaceData.usr_button = true;
-            } else {
+        //DRS button
+        if(HAL_GPIO_ReadPin(DRS_BTN_GPIO_Port, DRS_BTN_Pin) == GPIO_PIN_RESET)
+        {
+            if(interfaceData.drs_timer >= DASH_BUTTON_DEBOUNCING_TIME)
+            {
+                interfaceData.usr_button = !interfaceData.usr_button;
+            }
+            else
+            {
                 interfaceData.drs_timer += DASH_BUTTON_POOLING_RATE;
             }
-        } else {
-            interfaceData.drs_button = false;
-            interfaceData.drs_timer = 0;
         }
+
 
         osDelay(pdMS_TO_TICKS(DASH_BUTTON_POOLING_RATE));
     }

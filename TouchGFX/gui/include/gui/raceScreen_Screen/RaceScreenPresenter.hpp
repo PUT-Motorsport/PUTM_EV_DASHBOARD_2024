@@ -28,7 +28,7 @@ public:
     virtual ~RaceScreenPresenter() {}
 
     void setReadyToDrive(bool status);
-    void setInvertersReady(bool status);
+    void setDrsStatus(bool status);
     void setSocLv(uint8_t soc);
     void setSocHv(uint8_t soc);
     void setBatteryHVTemperature(uint8_t temperature);

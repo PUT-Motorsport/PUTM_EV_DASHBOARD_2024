@@ -12,7 +12,7 @@ void RaceScreenPresenter::deactivate(){screenStatus.RaceScreen = false;}
 
 void RaceScreenPresenter::setReadyToDrive(bool status) {view.updateReadyToDrive(status);}
 
-void RaceScreenPresenter::setInvertersReady(bool status) {view.updateInvertersReady(status);}
+void RaceScreenPresenter::setDrsStatus(bool status) {view.updateDrsStatus(status);}
 
 void RaceScreenPresenter::setSocLv(uint8_t soc) {view.updateSocLv(soc);}
 
@@ -36,18 +36,11 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 
 void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
 
-static uint32_t lastScreenSwitchTime = 0;
-const uint32_t DEBOUNCE_TIME_MS = 500;
 
 void RaceScreenPresenter::switchScreenRM()
 {
-	uint32_t currentTime = HAL_GetTick();
-
-	if (screenStatus.RaceScreen &&
-		interfaceData.cs_button == 1 &&
-		(currentTime - lastScreenSwitchTime > DEBOUNCE_TIME_MS))
+	if (screenStatus.RaceScreen && interfaceData.cs_button == 1)
 	{
-		lastScreenSwitchTime = currentTime;
 		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
 		screenStatus.RaceScreen = false;
 	}

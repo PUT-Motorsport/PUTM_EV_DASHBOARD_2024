@@ -48,17 +48,18 @@ void RaceScreenView::updateReadyToDrive(bool status)
     rtdText.invalidate();
 }
 
-void RaceScreenView::updateInvertersReady(bool status)
+void RaceScreenView::updateDrsStatus(bool status)
 {
-    if(status)
-    {
-        invText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
-    }
-    else
-    {
-        invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
-    }
-    invText.invalidate();
+	if(status)
+	{
+		drsText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+	}
+	else
+	{
+		drsText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+	}
+
+	drsText.invalidate();
 }
 
 void RaceScreenView::updateSocLv(uint8_t soc)

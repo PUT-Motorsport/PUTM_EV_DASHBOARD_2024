@@ -13,7 +13,7 @@ public:
     virtual void tearDownScreen();
 
     void updateReadyToDrive(bool status);
-    void updateInvertersReady(bool status);
+    void updateDrsStatus(bool status);
     void updateSocLv(uint8_t soc);
     void updateSocHv(uint8_t soc);
     void updateBatteryHVTemperature(uint8_t temperature);
