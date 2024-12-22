@@ -45,6 +45,7 @@ class ModelListener {
 
     virtual void switchScreenRM(){}
     virtual void switchScreenMR(){}
+    virtual void setCheckErrors(){}
     virtual void toggleElements(){}
 
 

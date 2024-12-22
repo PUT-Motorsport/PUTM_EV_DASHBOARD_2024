@@ -26,6 +26,8 @@ class NotificationScreenPresenter : public touchgfx::Presenter, public ModelList
 
     virtual ~NotificationScreenPresenter() {}
 
+    virtual void setCheckErrors();
+
   private:
     NotificationScreenPresenter();
 

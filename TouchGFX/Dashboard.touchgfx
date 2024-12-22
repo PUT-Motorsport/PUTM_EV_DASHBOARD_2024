@@ -832,6 +832,18 @@
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "RaceScreen"
             }
+          },
+          {
+            "InteractionName": "ChangeScreenMN",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "NotificationScreen"
+            }
           }
         ]
       },
@@ -1144,6 +1156,18 @@
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "MainScreen"
             }
+          },
+          {
+            "InteractionName": "ChangeScreenRN",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "NotificationScreen"
+            }
           }
         ]
       },
@@ -1180,21 +1204,7 @@
             }
           }
         ],
-        "Interactions": [
-          {
-            "InteractionName": "ReturnToMainScreen",
-            "Trigger": {
-              "Type": "TriggerOnEveryTick",
-              "TickCount": 1500
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionWipe",
-              "ScreenTransitionDirection": "South",
-              "ActionComponent": "MainScreen"
-            }
-          }
-        ]
+        "Interactions": []
       }
     ],
     "CustomContainerDefinitions": [],

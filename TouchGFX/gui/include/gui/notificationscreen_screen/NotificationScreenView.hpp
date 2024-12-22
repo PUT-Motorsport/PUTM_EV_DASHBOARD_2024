@@ -11,6 +11,8 @@ class NotificationScreenView : public NotificationScreenViewBase {
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    void updateCheckErrors();
+
   protected:
 };
 

@@ -141,5 +141,8 @@ void Model::tick() {
 			osMutexRelease(sdcDataMutexHandle);
 
         }
+
+        //Error checking after reading all values
+        modelListener->setCheckErrors();
     }
 }
