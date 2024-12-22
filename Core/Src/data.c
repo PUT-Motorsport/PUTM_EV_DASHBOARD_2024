@@ -25,11 +25,22 @@ Data_TypeDef sharedData = {
     .radio = false,
     .ready_to_drive = false,
     .inverters_ready = false,
+    .inv_FL_status = false,
+    .inv_FR_status = false,
+    .inv_RL_status = false,
+    .inv_RR_status = false,
+    .inv_FL_error = false,
+    .inv_FR_error = false,
+    .inv_RL_error = false,
+    .inv_RR_error = false,
     .safety_front = true,
     .safety_rear = true,
     .battery_hv_temperature = 0,
 	.battery_lv_temperature = 0,
-    .inverter_temperature = 0,
+    .frontRightInverterTemperature = 0,
+    .frontLeftInverterTemperature = 0,
+    .rearRightInverterTemperature = 0,
+    .rearLeftInverterTemperature = 0,
     .oil_temperature = 0,
     .oil_pressure = 0,
     .coolant_temperature = 0,
@@ -84,6 +95,7 @@ TimeoutData_TypeDef timeoutData = {
 	.rearbox_miscellaneous_last_frame_time = 0,
 	.rearbox_temperatures_last_frame_time = 0,
 	.pc_last_frame_time = 0,
+	.pc_temp_last_frame_time
 };
 
 TimerData_TypeDef timerData = {

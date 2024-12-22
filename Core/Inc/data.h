@@ -21,11 +21,22 @@ typedef struct {
     _Bool radio;
     _Bool ready_to_drive;
     _Bool inverters_ready;
+    _Boll inv_FL_status;
+    _Bool inv_FR_status;
+    _Bool inv_RL_status;
+    _Bool inv_RR_status;
+    _Bool inv_FL_error;
+    _Bool inv_FR_error;
+    _Bool inv_RL_error;
+    _Bool inv_RR_error;
     _Bool safety_front;
     _Bool safety_rear;
     uint8_t battery_hv_temperature;
     uint8_t battery_lv_temperature;
-    uint8_t inverter_temperature;
+    uint8_t frontRightInverterTemperature;
+    uint8_t frontLeftInverterTemperature;
+    uint8_t rearRightInverterTemperature;
+    uint8_t rearLeftInverterTemperature;
     uint8_t oil_temperature;
     uint8_t oil_pressure;
     uint8_t coolant_temperature;
@@ -79,6 +90,7 @@ typedef struct {
 	uint32_t rearbox_miscellaneous_last_frame_time;
 	uint32_t rearbox_temperatures_last_frame_time;
 	uint32_t pc_last_frame_time;
+	uint32_t pc_temp_last_frame_time;
 } TimeoutData_TypeDef;
 
 typedef struct {

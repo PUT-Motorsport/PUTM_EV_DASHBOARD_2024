@@ -262,15 +262,19 @@ void Communication_Task(void* argument) {
               sharedData.warning = false;
               sharedData.connection = false;
 
-              //FIXME: Brakuje danych z PC
-              //sharedData.motor_front_left_temperature =
-              //sharedData.motor_front_right_temperature =
-			  sharedData.motor_rear_right_temperature = pc_data.rearRightMotorTemperature;
-			  sharedData.motor_rear_left_temperature = pc_data.rearLeftMotorTemperature;
-			  sharedData.rpm = pc_data.rpm;
+              sharedData.inverters_ready = pc_data.invertersReady;
+              sharedData.speed = pc_data.vehicleSpeed;
+              sharedData.rpm = pc_data.rpm;
 
-			  sharedData.speed = pc_data.vehicleSpeed;
-			  sharedData.power = pc_data.power;
+              sharedData.inv_FL_status = pc_data.inv_FL_status;
+              sharedData.inv_FR_status = pc_data.inv_FR_status;
+              sharedData.inv_RL_status = pc_data.inv_RL_status;
+              sharedData.inv_RR_status = pc_data.inv_RR_status;
+
+              sharedData.inv_FL_error = pc_data.inv_FL_error;
+              sharedData.inv_FR_error = pc_data.inv_FR_error;
+              sharedData.inv_RL_error = pc_data.inv_RL_error;
+              sharedData.inv_RR_error = pc_data.inv_RR_error;
 
   			 osMutexRelease(sharedDataMutexHandle);
 		  }
@@ -282,15 +286,72 @@ void Communication_Task(void* argument) {
 		  {
 			sharedData.warning = true;
 			sharedData.connection = true;
-			sharedData.motor_rear_right_temperature = 0;
-			sharedData.motor_rear_left_temperature = 0;
-			sharedData.rpm = 0;
-			sharedData.speed = 0;
-			sharedData.power = 0;
+
+            sharedData.inverters_ready = 0;
+            sharedData.speed = 0;
+            sharedData.rpm = 0;
+
+            sharedData.inv_FL_status = 0;
+            sharedData.inv_FR_status = 0;
+            sharedData.inv_RL_status = 0;
+            sharedData.inv_RR_status = 0;
+
+            sharedData.inv_FL_error = 0;
+            sharedData.inv_FR_error = 0;
+            sharedData.inv_RL_error = 0;
+            sharedData.inv_RR_error = 0;
 
 			osMutexRelease(sharedDataMutexHandle);
 		  }
 	     }
+
+        //Pc temperature data
+        if(PUTM_CAN::can.get_pc_temperature_data_new_data())
+                {
+                    timeoutData.pc_temp_last_frame_time = current_tick_time;
+                    auto pc_temp_data = PUTM_CAN::can.get_pc_temperature_data();
+
+
+                   if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+                   {
+                      sharedData.warning = false;
+                      sharedData.connection = false;
+
+                      sharedData.frontRightInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
+                      sharedData.frontLeftInverterTemperature = pc_temp_data.frontLeftInverterTemperature;
+                      sharedData.rearRightInverterTemperature = pc_temp_data.rearRightInverterTemperature;
+                      sharedData.rearLeftInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
+
+                      sharedData.motor_front_left_temperature = pc_temp_data.frontLeftMotorTemperature;
+                      sharedData.motor_front_right_temperature = pc_temp_data.frontRightMotorTemperature;
+                      sharedData.motor_rear_left_temperature = pc_temp_data.rearLeftMotorTemperature;
+                      sharedData.motor_rear_right_temperature = pc_temp_data.rearRightMotorTemperature;
+
+          			 osMutexRelease(sharedDataMutexHandle);
+        		  }
+        	     }
+                else if(current_tick_time - timeoutData.pc_temp_last_frame_time > DASH_TIMEOUT_DURATION)
+                {
+
+        		  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+        		  {
+        			sharedData.warning = true;
+        			sharedData.connection = true;
+
+                    sharedData.frontRightInverterTemperature = 0;
+                    sharedData.frontLeftInverterTemperature = 0;
+                    sharedData.rearRightInverterTemperature = 0;
+                    sharedData.rearLeftInverterTemperature = 0;
+
+                    sharedData.motor_front_left_temperature = 0;
+                    sharedData.motor_front_right_temperature = 0;
+                    sharedData.motor_rear_left_temperature = 0;
+                    sharedData.motor_rear_right_temperature = 0;
+
+
+        			osMutexRelease(sharedDataMutexHandle);
+        		  }
+        	     }
 
 
         HAL_IWDG_Refresh(&hiwdg); // Every 250 ms
