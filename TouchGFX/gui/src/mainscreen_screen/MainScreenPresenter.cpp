@@ -20,11 +20,25 @@ void MainScreenPresenter::setRadio(bool status) { view.updateRadio(status); }
 
 void MainScreenPresenter::setReadyToDrive(bool status) { view.updateReadyToDrive(status); }
 
-void MainScreenPresenter::setInvertersReady(bool status) { view.updateInvertersReady(status); }
+void MainScreenPresenter::setInvertersStatus(bool inv_ready,
+											 bool inv_FL_status,
+											 bool inv_FR_status,
+											 bool inv_RL_status,
+											 bool inv_RR_status,
+											 bool inv_FL_error,
+											 bool inv_FR_error,
+											 bool inv_RL_error,
+											 bool inv_RR_error) { view.updateInvertersStatus(inv_ready,
+													 	 	 	 	 	 	 	 	 	 	 inv_FL_status,
+													 	 	 	 	 	 	 	 	 	 	 inv_FR_status,
+																							 inv_RL_status,
+																							 inv_RR_status,
+																							 inv_FL_error,
+																							 inv_FR_error,
+																							 inv_RL_error,
+																							 inv_RR_error); }
 
 void MainScreenPresenter::setBatteryLvTemperature(uint8_t temperature) { view.updateBatteryLvTemperature(temperature); }
-
-void MainScreenPresenter::setInverterTemperature(uint8_t temperature) { view.updateInverterTemperature(temperature); }
 
 void MainScreenPresenter:: setMotorFrontLeftTemperature(uint8_t temperature) { view.updateMotorFrontLeftTemperature(temperature); }
 
@@ -49,6 +63,14 @@ void MainScreenPresenter::setCurrentLap(uint32_t time) { view.updateCurrentLap(t
 void MainScreenPresenter::setLastLap(uint32_t time) { view.updateLastLap(time); }
 
 void MainScreenPresenter::setBestLap(uint32_t time) { view.updateBestLap(time); }
+
+void MainScreenPresenter::setInverterTemperature(uint8_t inv_FL_temperature,
+												 uint8_t inv_FR_temperature,
+												 uint8_t inv_RL_temperature,
+												 uint8_t inv_RR_temperature) { view.updateInverterTemperature(inv_FL_temperature,
+														 	 	 	 	 	 	 	 	 	 	 	 	 	  inv_FR_temperature,
+																											  inv_RL_temperature,
+																											  inv_RR_temperature); }
 
 void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData) {view.updateSDC(&SafetyData);}
 

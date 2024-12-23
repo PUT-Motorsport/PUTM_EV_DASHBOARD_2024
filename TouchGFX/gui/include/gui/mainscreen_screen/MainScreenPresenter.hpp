@@ -33,10 +33,17 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setWarning(bool status);
     void setRadio(bool status);
     void setReadyToDrive(bool status);
-    void setInvertersReady(bool status);
+    void setInvertersStatus(bool inv_ready,
+    						bool inv_FL_status,
+    					    bool inv_FR_status,
+							bool inv_RL_status,
+							bool inv_RR_status,
+							bool inv_FL_error,
+							bool inv_FR_error,
+							bool inv_RL_error,
+							bool inv_RR_error);
     void setBatteryHvTemperature(uint8_t temperature);
     void setBatteryLvTemperature(uint8_t temperature);
-    void setInverterTemperature(uint8_t temperature);
     void setMotorFrontLeftTemperature(uint8_t temperature);
     void setMotorFrontRightTemperature(uint8_t temperature);
     void setMotorRearLeftTemperature(uint8_t temperature);
@@ -50,6 +57,10 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setLastLap(uint32_t time);
     void setBestLap(uint32_t time);
     void setSDC(SafetyData_TypeDef SafetyData);
+    void setInverterTemperature(uint8_t inv_FL_temperature,
+       							uint8_t inv_FR_temperature,
+   								uint8_t inv_RL_temperature,
+   								uint8_t inv_RR_temperature);
 
     void switchScreenMR();
 

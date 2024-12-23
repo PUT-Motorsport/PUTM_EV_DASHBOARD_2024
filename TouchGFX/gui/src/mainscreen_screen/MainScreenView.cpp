@@ -3,6 +3,8 @@
 #include "BitmapDatabase.hpp"
 #include <touchgfx/Color.hpp>
 
+#include <algorithm>
+
 #define BATTERY_LV_TEMPERATURE_MIN 15
 #define BATTERY_LV_TEMPERATURE_MID 30
 #define BATTERY_LV_TEMPERATURE_MAX 40
@@ -83,13 +85,35 @@ void MainScreenView::updateReadyToDrive(bool status) {
     rtdText.invalidate();
 }
 
-void MainScreenView::updateInvertersReady(bool status) {
-    if(status) {
-        invText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
-    } else {
-        invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
-    }
-    invText.invalidate();
+void MainScreenView::updateInvertersStatus(bool inv_ready,
+										   bool inv_FL_status,
+										   bool inv_FR_status,
+										   bool inv_RL_status,
+										   bool inv_RR_status,
+										   bool inv_FL_error,
+										   bool inv_FR_error,
+										   bool inv_RL_error,
+										   bool inv_RR_error)
+{
+
+if(inv_ready)
+{
+	//Inv work correct
+    invText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+}
+else if (inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)
+{
+	//Error inv
+	invText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+}
+else if (!inv_FL_status || !inv_FR_status || !inv_RL_status || !inv_RR_status)
+{
+	//Inv Unknown working status
+	invText.setColor(touchgfx::Color::getColorFromRGB(255, 155, 0));
+}
+
+ invText.invalidate();
+
 }
 
 void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
@@ -112,12 +136,21 @@ void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
 
 
 
-void MainScreenView::updateInverterTemperature(uint8_t temperature) {
-    Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > INVERTER_TEMPERATURE_MAX || temperature < INVERTER_TEMPERATURE_MIN) {
+void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
+											   uint8_t inv_FR_temperature,
+											   uint8_t inv_RL_temperature,
+											   uint8_t inv_RR_temperature) {
+
+	uint8_t inv_front_temp = std::max(inv_FL_temperature, inv_FR_temperature);
+	uint8_t inv_rear_temp = std::max(inv_RL_temperature, inv_RR_temperature);
+	uint8_t inv_temp_highest = std::max(inv_front_temp, inv_rear_temp);
+
+
+    Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
+    if(inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN) {
         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
         invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > INVERTER_TEMPERATURE_MID) {
+    } else if(inv_temp_highest > INVERTER_TEMPERATURE_MID) {
         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
         invTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {

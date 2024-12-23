@@ -17,7 +17,15 @@ class ModelListener {
     virtual void setWarning(bool status) {}
     virtual void setRadio(bool status) {}
     virtual void setReadyToDrive(bool status) {}
-    virtual void setInvertersReady(bool status) {}
+    virtual void setInvertersStatus(bool inv_ready,
+    							    bool inv_FL_status,
+									bool inv_FR_status,
+									bool inv_RL_status,
+									bool inv_RR_status,
+									bool inv_FL_error,
+									bool inv_FR_error,
+									bool inv_RL_error,
+									bool inv_RR_error) {}
     virtual void setDrsStatus(bool status) {}
     virtual void setBatteryLVTemperature(uint8_t temperature) {}
     virtual void setOilTemperature(uint8_t temperature) {}
@@ -33,7 +41,10 @@ class ModelListener {
     virtual void setMotorRearRightTemperature(uint8_t temperature) {}
     virtual void setSDC(SafetyData_TypeDef& safetyData) {}
 
-    virtual void setInverterTemperature(uint8_t temperature) {}
+    virtual void setInverterTemperature(uint8_t inv_FL_temperature,
+    									uint8_t inv_FR_temperature,
+										uint8_t inv_RL_temperature,
+										uint8_t inv_RR_temperature) {}
 
     //Race Screen
     virtual void setSocHv(uint8_t soc) {}

@@ -40,7 +40,25 @@ void Model::tick() {
             modelListener->setReadyToDrive(m_sharedData.ready_to_drive);
 
             m_sharedDataPrev.inverters_ready = m_sharedData.inverters_ready;
-            modelListener->setInvertersReady(m_sharedData.inverters_ready);
+            m_sharedDataPrev.inv_FL_status = m_sharedData.inv_FL_status;
+            m_sharedDataPrev.inv_FR_status = m_sharedData.inv_FR_status;
+            m_sharedDataPrev.inv_RL_status = m_sharedData.inv_RL_status;
+            m_sharedDataPrev.inv_RR_status = m_sharedData.inv_RR_status;
+
+            m_sharedDataPrev.inv_FL_error = m_sharedData.inv_FL_error;
+            m_sharedDataPrev.inv_FR_error = m_sharedData.inv_FR_error;
+            m_sharedDataPrev.inv_RL_error = m_sharedData.inv_RL_error;
+            m_sharedDataPrev.inv_RR_error = m_sharedData.inv_RR_error;
+
+            modelListener->setInvertersStatus(m_sharedData.inverters_ready,
+            								  m_sharedData.inv_FL_status,
+            								  m_sharedData.inv_FR_status,
+											  m_sharedData.inv_RL_status,
+											  m_sharedData.inv_RR_status,
+											  m_sharedData.inv_FL_error,
+											  m_sharedData.inv_FR_error,
+											  m_sharedData.inv_RL_error,
+											  m_sharedData.inv_RR_error);
 
             m_sharedDataPrev.battery_hv_temperature = m_sharedData.battery_hv_temperature;
             modelListener->setBatteryHVTemperature(m_sharedData.battery_hv_temperature);
@@ -48,8 +66,15 @@ void Model::tick() {
             m_sharedDataPrev.battery_lv_temperature = m_sharedData.battery_lv_temperature;
             modelListener->setBatteryLVTemperature(m_sharedData.battery_lv_temperature);
 
-            m_sharedDataPrev.inverter_temperature = m_sharedData.inverter_temperature;
-            modelListener->setInverterTemperature(m_sharedData.inverter_temperature);
+            m_sharedDataPrev.frontRightInverterTemperature = m_sharedData.frontRightInverterTemperature;
+            m_sharedDataPrev.frontLeftInverterTemperature = m_sharedData.frontLeftInverterTemperature;
+            m_sharedDataPrev.rearRightInverterTemperature = m_sharedData.rearRightInverterTemperature;
+            m_sharedDataPrev.rearLeftInverterTemperature = m_sharedData.rearLeftInverterTemperature;
+
+            modelListener->setInverterTemperature(m_sharedData.frontLeftInverterTemperature,
+            									  m_sharedData.frontRightInverterTemperature,
+												  m_sharedData.rearLeftInverterTemperature,
+												  m_sharedData.rearRightInverterTemperature);
 
             m_sharedDataPrev.oil_temperature = m_sharedData.oil_temperature;
             modelListener->setOilTemperature(m_sharedData.oil_temperature);

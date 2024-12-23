@@ -21,7 +21,7 @@ typedef struct {
     _Bool radio;
     _Bool ready_to_drive;
     _Bool inverters_ready;
-    _Boll inv_FL_status;
+    _Bool inv_FL_status;
     _Bool inv_FR_status;
     _Bool inv_RL_status;
     _Bool inv_RR_status;
