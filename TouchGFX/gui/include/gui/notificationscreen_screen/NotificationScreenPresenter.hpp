@@ -26,7 +26,19 @@ class NotificationScreenPresenter : public touchgfx::Presenter, public ModelList
 
     virtual ~NotificationScreenPresenter() {}
 
-    virtual void setCheckErrors();
+    virtual void setCheckErrors(bool bspd,
+    							uint8_t inv_FL_temperature,
+								uint8_t inv_FR_temperature,
+								uint8_t inv_RL_temperature,
+								uint8_t inv_RR_temperature,
+								uint8_t lv_temp,
+								uint8_t hv_temp,
+								uint8_t lv_soc,
+								uint8_t hv_soc,
+								uint8_t motor_fl_temp,
+								uint8_t motor_fr_temp,
+								uint8_t motor_rl_temp,
+								uint8_t motor_rr_temp);
 
   private:
     NotificationScreenPresenter();

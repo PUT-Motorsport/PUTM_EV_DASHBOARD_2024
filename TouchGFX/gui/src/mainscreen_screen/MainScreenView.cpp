@@ -141,10 +141,7 @@ void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
 											   uint8_t inv_RL_temperature,
 											   uint8_t inv_RR_temperature) {
 
-	uint8_t inv_front_temp = std::max(inv_FL_temperature, inv_FR_temperature);
-	uint8_t inv_rear_temp = std::max(inv_RL_temperature, inv_RR_temperature);
-	uint8_t inv_temp_highest = std::max(inv_front_temp, inv_rear_temp);
-
+	uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
 
     Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
     if(inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN) {
