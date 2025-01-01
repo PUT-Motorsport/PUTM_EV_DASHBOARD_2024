@@ -1,13 +1,20 @@
 #include <gui/notificationscreen_screen/NotificationScreenView.hpp>
 #include <algorithm>
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
+#include "portable.h"
+#include "task.h"
 
 //TODO: Uzupełnić realnymi wartościami
-#define HV_CRIT_TEMP 60
+#define HV_CRIT_TEMP 45
 #define HV_CRIT_SOC 20
 #define LV_CRIT_TEMP 35
-#define LV_CRIT_SOC 15
-#define MOTOR_CRIT_TEMP 95
-#define INV_CRIT_TEMP 100
+#define LV_CRIT_SOC 20
+#define MOTOR_CRIT_TEMP 80
+#define INV_CRIT_TEMP 40
+
+uint32_t lastToggleTime;
+ScreenStatus_TypeDef previousScreen; //Save previous screen
 
 NotificationScreenView::NotificationScreenView() {}
 
@@ -29,9 +36,8 @@ void NotificationScreenView::updateCheckErrors(bool bspd,
 											   uint8_t motor_rl_temp,
 											   uint8_t motor_rr_temp)
 {
-    int errorCount = 0; // Dnager counter
+    int errorCount = 0; // Danger counter
     const char* lastErrorMessage = nullptr; // Storing the last danger message
-    ScreenStatus_TypeDef previousScreen; //Save previous screen
 
     // Helper function for danger handling
     auto checkError = [&](bool condition, const char* errorMessage) {
@@ -77,39 +83,54 @@ void NotificationScreenView::updateCheckErrors(bool bspd,
         notificationText.invalidate();
     }
 
-    if (errorCount > 0)
-    {
-    	//check previous display
-    	if(1 == screenStatus.RaceScreen)
-    	{
-    		previousScreen.RaceScreen = 1;
-    		previousScreen.MainScreen = 0;
-    	}
-    	else if(1 == screenStatus.MainScreen)
-    	{
-    		previousScreen.RaceScreen = 0;
-    		previousScreen.MainScreen = 1;
-    	}
+    if (errorCount > 0) {
+            if (!screenStatus.NotificationScreen) {
+                // Save the previous screen state
+                previousScreen.RaceScreen = screenStatus.RaceScreen;
+                previousScreen.MainScreen = screenStatus.MainScreen;
 
-        // Display danger
-        static_cast<FrontendApplication*>(Application::getInstance())->gotoNotificationScreenScreenNoTransition();
-        Unicode::snprintf(notificationTextBuffer, NOTIFICATIONTEXT_SIZE, "%s", lastErrorMessage);
-        notificationText.setVisible(true);
-        notificationText.invalidate();
+                // Display the Notification Screen
+                screenStatus.NotificationScreen = true;
+                lastToggleTime = xTaskGetTickCount() * portTICK_PERIOD_MS; // Record the current time
+
+                static_cast<FrontendApplication*>(Application::getInstance())->gotoNotificationScreenScreenNoTransition();
+                Unicode::snprintf(notificationTextBuffer, NOTIFICATIONTEXT_SIZE, "%s", lastErrorMessage);
+                notificationText.setVisible(true);
+                notificationText.invalidate();
+            } else {
+                // Check if it's time to toggle the screen
+                if ((xTaskGetTickCount() * portTICK_PERIOD_MS) - lastToggleTime >= 1000) { // 1000 ms = 1 second
+                    lastToggleTime = xTaskGetTickCount() * portTICK_PERIOD_MS; // Update the time
+                    toggleScreen();
+                }
+            }
+        } else {
+            if (screenStatus.NotificationScreen) {
+                // Stop notification and return to the previous screen
+            	screenStatus.NotificationScreen = false;
+                if (previousScreen.RaceScreen) {
+                    static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
+                } else if (previousScreen.MainScreen) {
+                    static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+                }
+            }
+        }
     }
-    else
-    {
-    	//check previous display
-    	if(1 == previousScreen.RaceScreen)
-    	{
-    		static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
-    	}
-    	else if(1 == previousScreen.MainScreen)
-    	{
-    		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
-    	}
+
+
+void NotificationScreenView::toggleScreen()
+{
+    if (screenStatus.NotificationScreen) {
+        // Go back to the previous screen
+        if (previousScreen.RaceScreen) {
+            static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
+        } else if (previousScreen.MainScreen) {
+            static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+        }
+    } else {
+        // Display the Notification Screen
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoNotificationScreenScreenNoTransition();
     }
 }
-
 
 

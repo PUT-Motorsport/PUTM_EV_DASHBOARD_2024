@@ -24,6 +24,7 @@ class NotificationScreenView : public NotificationScreenViewBase {
 						   uint8_t motor_fr_temp,
 						   uint8_t motor_rl_temp,
 						   uint8_t motor_rr_temp);
+    void toggleScreen();
 
   protected:
 };
