@@ -95,7 +95,7 @@ TimeoutData_TypeDef timeoutData = {
 	.rearbox_miscellaneous_last_frame_time = 0,
 	.rearbox_temperatures_last_frame_time = 0,
 	.pc_last_frame_time = 0,
-	.pc_temp_last_frame_time
+	.pc_temp_last_frame_time = 0,
 };
 
 TimerData_TypeDef timerData = {

@@ -90,7 +90,7 @@ void Interface_Task(void* argument) {
         {
             if(interfaceData.drs_timer >= DASH_BUTTON_DEBOUNCING_TIME)
             {
-                interfaceData.usr_button = !interfaceData.usr_button;
+                interfaceData.drs_button = !interfaceData.drs_button;
             }
             else
             {
