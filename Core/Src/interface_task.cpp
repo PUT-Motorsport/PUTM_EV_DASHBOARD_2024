@@ -56,22 +56,22 @@ void Interface_Task(void* argument) {
             interfaceData.tsa_timer = 0;
         }
 
-
         //Change screen button
         if(HAL_GPIO_ReadPin(CS_BTN_GPIO_Port, CS_BTN_Pin) == GPIO_PIN_RESET)
         {
-        	uint32_t current_time = HAL_GetTick();
+            	uint32_t current_time = HAL_GetTick();
 
-        	if((current_time - last_button_cs_press) >= DASH_BUTTON_DEBOUNCING_TIME)
-        	{
-        		interfaceData.cs_button = true;
-        		last_button_cs_press = current_time;
-        	}
-        	else
-        	{
-        		interfaceData.cs_button = false;
-        	}
-        }
+            		if((current_time - last_button_cs_press) >= 1000)
+            		{
+            			interfaceData.cs_button = true;
+            			last_button_cs_press = current_time;
+            		}
+            		else
+            		{
+            			interfaceData.cs_button = false;
+            		}
+         }
+
 
         //Usr button (free)
         if(HAL_GPIO_ReadPin(USR_BTN_GPIO_Port, USR_BTN_Pin) == GPIO_PIN_RESET) {
