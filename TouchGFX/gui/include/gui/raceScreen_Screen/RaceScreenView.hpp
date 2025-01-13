@@ -17,7 +17,10 @@ public:
     void updateSocLv(uint8_t soc);
     void updateSocHv(uint8_t soc);
     void updateBatteryHVTemperature(uint8_t temperature);
-    void updateInverterTemperature(uint8_t temperature);
+    void updateInverterTemperature(uint8_t inv_FL_temperature,
+			   	   	   	   	   	   uint8_t inv_FR_temperature,
+								   uint8_t inv_RL_temperature,
+								   uint8_t inv_RR_temperature);
     void updatePace(int32_t pace);
     void updateRange(uint16_t range);
     void updateMotorTemp(uint8_t temperatureMotorFL,

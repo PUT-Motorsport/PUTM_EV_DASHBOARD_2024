@@ -38,6 +38,10 @@ class ModelListener {
     virtual void setMotorFrontLeftTemperature(uint8_t temperature) {}
     virtual void setMotorFrontRightTemperature(uint8_t temperature) {}
     virtual void setMotorRearLeftTemperature(uint8_t temperature) {}
+    virtual void setMotorTemp(uint8_t temperatureMotorFL,
+    						  uint8_t temperatureMotorFR,
+    						  uint8_t temperatureMotorRL,
+    					      uint8_t temperatureMotorRR){}
     virtual void setMotorRearRightTemperature(uint8_t temperature) {}
     virtual void setSDC(SafetyData_TypeDef& safetyData) {}
 

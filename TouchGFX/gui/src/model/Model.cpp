@@ -100,6 +100,11 @@ void Model::tick() {
             m_sharedDataPrev.motor_rear_right_temperature = m_sharedData.motor_rear_right_temperature;
             modelListener->setMotorRearRightTemperature(m_sharedData.motor_rear_right_temperature);
 
+            modelListener->setMotorTemp(m_sharedData.motor_front_left_temperature,
+            						    m_sharedData.motor_front_right_temperature,
+										m_sharedData.motor_rear_left_temperature,
+										m_sharedData.motor_rear_right_temperature);
+
             m_sharedDataPrev.soc_hv = m_sharedData.soc_hv;
             modelListener->setSocHv(m_sharedData.soc_hv);
 

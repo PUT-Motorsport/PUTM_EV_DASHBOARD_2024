@@ -20,7 +20,13 @@ void RaceScreenPresenter::setSocHv(uint8_t soc) {view.updateSocHv(soc);}
 
 void RaceScreenPresenter::setBatteryHVTemperature(uint8_t temperature) {view.updateBatteryHVTemperature(temperature);}
 
-void RaceScreenPresenter::setInverterTemperature(uint8_t temperature) {view.updateInverterTemperature(temperature);}
+void RaceScreenPresenter::setInverterTemperature(uint8_t inv_FL_temperature,
+												 uint8_t inv_FR_temperature,
+												 uint8_t inv_RL_temperature,
+												 uint8_t inv_RR_temperature) { view.updateInverterTemperature(inv_FL_temperature,
+				 	 	 	 	 	 	 	 	 	 	 	 	 	  	  	  	  	  	  	  	  	  	  	  inv_FR_temperature,
+																											  inv_RL_temperature,
+																											  inv_RR_temperature); }
 
 void RaceScreenPresenter::setPace(int32_t pace) {view.updatePace(pace);}
 

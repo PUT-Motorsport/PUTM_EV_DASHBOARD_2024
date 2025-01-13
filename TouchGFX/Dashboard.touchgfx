@@ -458,7 +458,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_3SOH",
                   "UseBuffer": true,
-                  "BufferSize": 10
+                  "BufferSize": 6
                 }
               },
               {
@@ -959,48 +959,6 @@
           },
           {
             "Type": "TextArea",
-            "Name": "invtemptext",
-            "X": 592,
-            "Y": 380,
-            "Width": 177,
-            "Height": 66,
-            "TextId": "__SingleUse_R8N4",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_K9Y2",
-              "UseBuffer": true,
-              "BufferSize": 6
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "motortemptext",
-            "X": 312,
-            "Y": 380,
-            "Width": 177,
-            "Height": 66,
-            "TextId": "__SingleUse_RR1I",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_EE4R",
-              "UseBuffer": true,
-              "BufferSize": 6
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "hvtemptext",
             "X": 55,
             "Y": 380,
@@ -1017,7 +975,49 @@
             "Wildcard1": {
               "TextId": "__SingleUse_74KA",
               "UseBuffer": true,
-              "BufferSize": 6
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "motortemptext",
+            "X": 312,
+            "Y": 380,
+            "Width": 177,
+            "Height": 66,
+            "TextId": "__SingleUse_AL8S",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_V7CI",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "invtemptext",
+            "X": 592,
+            "Y": 380,
+            "Width": 177,
+            "Height": 66,
+            "TextId": "__SingleUse_BMTW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZRNM",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {

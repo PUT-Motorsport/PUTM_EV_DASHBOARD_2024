@@ -38,7 +38,7 @@ void MainScreenPresenter::setInvertersStatus(bool inv_ready,
 																							 inv_RL_error,
 																							 inv_RR_error); }
 
-void MainScreenPresenter::setBatteryLvTemperature(uint8_t temperature) { view.updateBatteryLvTemperature(temperature); }
+void MainScreenPresenter::setBatteryLVTemperature(uint8_t temperature) { view.updateBatteryLvTemperature(temperature); }
 
 void MainScreenPresenter:: setMotorFrontLeftTemperature(uint8_t temperature) { view.updateMotorFrontLeftTemperature(temperature); }
 

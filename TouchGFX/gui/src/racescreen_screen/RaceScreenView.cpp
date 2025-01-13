@@ -142,31 +142,33 @@ void RaceScreenView::updateBatteryHVTemperature(uint8_t temperature)
     hvtempimage.invalidate();
 }
 
-void RaceScreenView::updateInverterTemperature(uint8_t temperature)
+void RaceScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
+											   uint8_t inv_FR_temperature,
+											   uint8_t inv_RL_temperature,
+											   uint8_t inv_RR_temperature) {
+
+uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+
+Unicode::snprintf(invtemptextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
+if(inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN)
 {
-    Unicode::snprintf(invtemptextBuffer, INVTEMPTEXT_SIZE, "%d", temperature);
-
-    if(temperature > INVERTER_TEMPERATURE_MAX || temperature < INVERTER_TEMPERATURE_MIN)
-    {
-    	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
-    	invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    }
-    else if(temperature > INVERTER_TEMPERATURE_MID)
-    {
-    	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
-        invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    }
-    else
-    {
-    	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_ID));
-        invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
-
-    invtemptext.setVisible(true);
-    invtemptext.invalidate();
-    invtempimage.setVisible(true);
-    invtempimage.invalidate();
-
+	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
+	invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+}
+else if(inv_temp_highest > INVERTER_TEMPERATURE_MID)
+{
+	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
+	invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+}
+else
+{
+	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_ID));
+	invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+}
+	invtempimage.setVisible(true);
+	invtemptext.setVisible(true);
+	invtempimage.invalidate();
+	invtemptext.invalidate();
 }
 
 void RaceScreenView::updatePace(int32_t pace)

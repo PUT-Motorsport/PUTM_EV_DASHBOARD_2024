@@ -32,7 +32,10 @@ public:
     void setSocLv(uint8_t soc);
     void setSocHv(uint8_t soc);
     void setBatteryHVTemperature(uint8_t temperature);
-    void setInverterTemperature(uint8_t temperature);
+    void setInverterTemperature(uint8_t inv_FL_temperature,
+								uint8_t inv_FR_temperature,
+								uint8_t inv_RL_temperature,
+								uint8_t inv_RR_temperature);
     void setPace(int32_t pace);
     void setRange(uint16_t range);
     void setMotorTemp(uint8_t temperatureMotorFL,

@@ -43,7 +43,7 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
 							bool inv_RL_error,
 							bool inv_RR_error);
     void setBatteryHvTemperature(uint8_t temperature);
-    void setBatteryLvTemperature(uint8_t temperature);
+    void setBatteryLVTemperature(uint8_t temperature);
     void setMotorFrontLeftTemperature(uint8_t temperature);
     void setMotorFrontRightTemperature(uint8_t temperature);
     void setMotorRearLeftTemperature(uint8_t temperature);

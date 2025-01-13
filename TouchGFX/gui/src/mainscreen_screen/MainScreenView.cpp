@@ -11,13 +11,13 @@
 #define BATTERY_LV_SOC_MIN 20
 #define BATTERY_LV_SOC_MID 50
 #define BATTERY_LV_SOC_MAX 90
-//TODO: uzupełnić odpowiednimi parametrami
 #define MOTOR_TEMPERATURE_MIN 5
 #define MOTOR_TEMPERATURE_MID 60
 #define MOTOR_TEMPERATURE_MAX 80
 #define INVERTER_TEMPERATURE_MIN 5
 #define INVERTER_TEMPERATURE_MID 30
 #define INVERTER_TEMPERATURE_MAX 40
+//TODO: uzupełnić odpowiednimi parametrami
 #define OIL_TEMPERATURE_MIN 5
 #define OIL_TEMPERATURE_MID 30
 #define OIL_TEMPERATURE_MAX 50
@@ -109,7 +109,7 @@ else if (inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)
 else if (!inv_FL_status || !inv_FR_status || !inv_RL_status || !inv_RR_status)
 {
 	//Inv Unknown working status
-	invText.setColor(touchgfx::Color::getColorFromRGB(255, 155, 0));
+	invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
 }
 
  invText.invalidate();
