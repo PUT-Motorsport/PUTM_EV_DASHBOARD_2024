@@ -33,8 +33,8 @@ Data_TypeDef sharedData = {
     .inv_FR_error = false,
     .inv_RL_error = false,
     .inv_RR_error = false,
-    .safety_front = true,
-    .safety_rear = true,
+    .safety_front = false,
+    .safety_rear = false,
     .battery_hv_temperature = 0,
 	.battery_lv_temperature = 0,
     .frontRightInverterTemperature = 0,
@@ -118,12 +118,13 @@ InterfaceData_TypeDef interfaceData = {
     .previous_rtd_button = false,
     .previous_tsa_button = false,
     .previous_usr_button = false,
+	.precharge_status = false,
 	.drs_status = false,
     .rtd_timer = 0,
     .tsa_timer = 0,
     .usr_timer = 0,
 	.drs_timer = 0,
-	.cs_timer =0,
+	.cs_timer = 0,
 };
 
 ScreenStatus_TypeDef screenStatus = {

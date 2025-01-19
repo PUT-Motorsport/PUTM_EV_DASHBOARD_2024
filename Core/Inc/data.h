@@ -116,6 +116,7 @@ typedef struct {
     _Bool previous_cs_button;
     _Bool previous_drs_button;
     _Bool drs_status;
+    _Bool precharge_status;
     uint32_t rtd_timer;
     uint32_t tsa_timer;
     uint32_t usr_timer;

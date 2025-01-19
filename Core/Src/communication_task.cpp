@@ -229,6 +229,12 @@ void Communication_Task(void* argument) {
                 interfaceData.ams_led = true;
             }
 
+            if(bms_hv_main_data.precharge) {
+                interfaceData.precharge_status = true;
+            } else {
+                interfaceData.precharge_status = false;
+            }
+
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = false;
                 sharedData.soc_hv = bms_hv_main_data.soc / 10;

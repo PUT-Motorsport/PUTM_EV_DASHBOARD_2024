@@ -17,13 +17,13 @@ void Interface_Task(void* argument) {
             HAL_GPIO_WritePin(AMS_LED_GPIO_Port, AMS_LED_Pin, GPIO_PIN_RESET);
         }
 
-        if(interfaceData.safety_led || interfaceData.led_test) {
+        if(sharedData.safety_front || sharedData.safety_rear) {
             HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_RESET);
         }
 
-        if(interfaceData.fuse_led || interfaceData.led_test) {
+        if(interfaceData.precharge_status) {
             HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_RESET);
