@@ -254,8 +254,8 @@
               {
                 "Type": "TextArea",
                 "Name": "sdcText",
-                "X": 39,
-                "Y": 66,
+                "X": 34,
+                "Y": 65,
                 "Width": 155,
                 "Height": 72,
                 "TextId": "__SingleUse_JD9Q",
@@ -1204,7 +1204,32 @@
             }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreenNM",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "MainScreen"
+            }
+          },
+          {
+            "InteractionName": "ChangeScreenNR",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "RaceScreen"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

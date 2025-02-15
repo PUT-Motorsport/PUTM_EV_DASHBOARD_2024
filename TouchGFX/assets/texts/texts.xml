@@ -127,7 +127,7 @@
         <Translation Language="GB">MESSAGE</Translation>
       </Text>
       <Text Id="__SingleUse_KFWH" Alignment="Center" TypographyId="Huge">
-        <Translation Language="GB">&lt;d&gt;</Translation>
+        <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_802D" Alignment="Right" TypographyId="Tiny">
         <Translation Language="GB">BEST LAP</Translation>

@@ -3,6 +3,7 @@
 
 #include <gui/mainscreen_screen/MainScreenPresenter.hpp>
 #include <gui_generated/mainscreen_screen/MainScreenViewBase.hpp>
+#include <array>
 
 class MainScreenView : public MainScreenViewBase {
   public:
@@ -43,11 +44,10 @@ class MainScreenView : public MainScreenViewBase {
     void updateCurrentLap(uint32_t time);
     void updateLastLap(uint32_t time);
     void updateBestLap(uint32_t time);
-    //Safety display
-    void updateSafetyFrontbox(bool status);
-    void updateSafetyRearBox(bool status);
 
     void toggleWarning();
+
+    //Safety display
     void setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue);
     void updateSDC(SafetyData_TypeDef *status);
 

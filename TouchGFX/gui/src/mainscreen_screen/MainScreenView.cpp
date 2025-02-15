@@ -383,88 +383,51 @@ void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t gree
 	sdcStatusLabelText.invalidate();
 }
 
-//Safety Frontbox
-void MainScreenView::updateSafetyFrontbox(bool status)
-{
-	if(!status)
-	{
-		setSafetyStatus("OK", 255, 255, 255);
-	}
-	else if(status)
-	{
-		setSafetyStatus("FSF", 255, 0, 0);
-	}
-}
-
-
-//Safety RearBox
-void MainScreenView::updateSafetyRearBox(bool status)
-{
-	if(!status)
-	{
-		setSafetyStatus("OK", 255, 255, 255);
-	}
-	else if(status)
-	{
-		setSafetyStatus("RSF", 255, 0, 0);
-	}
-
-}
-
-
-
 void MainScreenView::updateSDC(SafetyData_TypeDef *status)
 {
 
-    _Bool *fields[] = {
-        &status->sense_left_kill,     // Left Kill Switch
-        &status->sense_right_kill,    // Right Kill Switch
-        &status->sense_driver_kill,   // Cockpit Kill Switch
-        &status->sense_bspd,          // BSPD (Brake System Plausibility Device)
-        &status->sense_inertia,       // Inertia Switch
-        &status->safety_res,          // RES (Ready-to-Enable Switch)
-        &status->safety_asms,         // AMS (Accumulator Management System)
-        &status->sense_overtravel,    // BOTS (Brake Overtravel Switch)
-        &status->safety_hvd,          // HVD (High Voltage Disconnect Interlock)
-        &status->safety_hv,           // High Voltage System Safety
-        &status->safety_inv,          // Inverter Safety
-        &status->is_braking,
-        &status->safety_fw,
-        &status->safety_wheel_fl,     // Front Left Wheel Sensor
-        &status->safety_wheel_fr,     // Front Right Wheel Sensor
-        &status->safety_wheel_rl,     // Rear Left Wheel Sensor
-        &status->safety_wheel_rr      // Rear Right Wheel Sensor
-    };
+//FIXME: kolejność safety dostosowana do PM X
 
 
-    const char *error_names[] = {
-        "LK", "RK", "DK",    // Left, Right, and Cockpit Kill Switches
-        "BSPD", "INE",       // BSPD and Inertia Switch
-        "RES", "ASMS",       // RES and AMS
-        "ORT",               // BOTS (Overtravel)
-        "HVD", "HV", "INV",  // HVD, High Voltage System, Inverter
-        "IB", "FW",
-        "WFL", "WFR",        // Front Left and Right Wheel Sensors
-        "WRL", "WRR"         // Rear Left and Right Wheel Sensors
-    };
+	std::array<bool*, 14> fields =
+	{
+			&status->safety_wheel_rl,  // Rear Left Wheel Sensor
+			&status->safety_wheel_rr,  // Rear Right Wheel Sensor
+			&status->safety_wheel_fr,  // Front Right Wheel Sensor
+			&status->safety_wheel_fl,  // Front Left Wheel Sensor
+			&status->safety_hv,        // High Voltage System Safety
+			&status->safety_inv,       // Inverter Safety
+			&status->safety_asms,      // AMS (Accumulator Management System)
+ 			&status->sense_right_kill, // Right Kill Switch
+			&status->sense_left_kill,  // Left Kill Switch
+			&status->sense_driver_kill,// Cockpit Kill Switch
+			&status->sense_inertia,    // Inertia Switch
+			&status->sense_bspd,       // BSPD
+			&status->sense_overtravel, // BOTS
+			&status->safety_hvd        // HVD
+	};
+
+	std::array<const char*, 14> error_names =
+	{
+			"WRL", "WRR", "WFR", "WFL",
+			"HV", "INV", "ASMS",
+			"RK", "LK", "DK",
+			"INE", "BSPD", "ORT", "HVD"
+	};
 
     int error_count = 0;         // Counter for the number of detected errors
     int first_error_index = -1;  // Index of the first detected error in the fields array
 
     // Iterate through the fields array to detect the first error
-    for (int i = 0; i < sizeof(fields) / sizeof(fields[0]); i++)
-    {
-        if (*fields[i])
-        { // Check if the current field indicates an error
-            error_count++; // Increment error count
-            if (first_error_index == -1)
-            {
-                first_error_index = i;  // Store the index of the first detected error
-            }
+    for (int i = 0; i < fields.size(); i++) {
+        if (*fields[i]) {
+            first_error_index = i;
+            break;
         }
     }
 
 
+    // Display SDC Errors
     if (error_count == 0)
     {
         setSafetyStatus("OK", 255, 255, 255); //SDC OK

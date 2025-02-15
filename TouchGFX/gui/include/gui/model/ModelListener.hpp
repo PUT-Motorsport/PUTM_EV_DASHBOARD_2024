@@ -60,6 +60,8 @@ class ModelListener {
 
     virtual void switchScreenRM(){}
     virtual void switchScreenMR(){}
+
+    //Notification Screen
     virtual void setCheckErrors(bool bspd,
 	   	   	   	   	   	        uint8_t inv_FL_temperature,
 								uint8_t inv_FR_temperature,

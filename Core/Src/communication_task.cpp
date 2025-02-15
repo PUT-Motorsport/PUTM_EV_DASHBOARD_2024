@@ -103,9 +103,9 @@ void Communication_Task(void* argument) {
 
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
 			{
-				sharedData.warning = true;
+				sharedData.warning = false;
 				//we do not get data from the component so errors are not detected
-				sharedData.safety_rear = true;
+				sharedData.safety_rear = false;
 
 				safetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
 				safetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
