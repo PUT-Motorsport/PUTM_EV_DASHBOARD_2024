@@ -48,7 +48,11 @@ void Communication_Task(void* argument) {
         // RX
         uint32_t current_tick_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
-
+/*
+ Safety Note:
+ TRUE state - One of the SDC systems activated - SDC circuit open
+ FALSE state - SDC circuit close
+ */
 
         //Frontbox Safety
 		if(PUTM_CAN::can.get_front_data_main_new_data())
@@ -268,6 +272,8 @@ void Communication_Task(void* argument) {
               sharedData.warning = false;
               sharedData.connection = false;
 
+              sharedData.ready_to_drive = pc_data.rtd;
+
               sharedData.inverters_ready = pc_data.invertersReady;
               sharedData.speed = pc_data.vehicleSpeed;
               sharedData.rpm = pc_data.rpm;
@@ -292,6 +298,8 @@ void Communication_Task(void* argument) {
 		  {
 			sharedData.warning = true;
 			sharedData.connection = true;
+
+			sharedData.ready_to_drive = 0;
 
             sharedData.inverters_ready = 0;
             sharedData.speed = 0;
