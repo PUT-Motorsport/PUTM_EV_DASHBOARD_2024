@@ -98,6 +98,38 @@ void Communication_Task(void* argument) {
 			}
 		}
 
+		//Frontbox Brake pressure
+				if(PUTM_CAN::can.get_driver_input_main_new_data())
+				{
+					timeoutData.frontbox_driver_input_last_frame_time = current_tick_time;
+					auto frontbox_driver_data = PUTM_CAN::can.get_driver_input_main();
+
+
+					if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+					{
+						sharedData.warning = false;
+
+						sharedData.front_brake_pressure = frontbox_driver_data.brakePressureFront;
+						sharedData.rear_brake_pressure = frontbox_driver_data.brakePressureFront;
+
+
+						osMutexRelease(sharedDataMutexHandle);
+					}
+				}
+				else if(current_tick_time - timeoutData.frontbox_safety_last_frame_time > DASH_TIMEOUT_DURATION)
+				{
+					if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+					{
+						sharedData.warning = true;
+
+						sharedData.front_brake_pressure = 0;
+						sharedData.rear_brake_pressure = 0;
+
+
+						osMutexRelease(sharedDataMutexHandle);
+					}
+				}
+
 
 		//Rearbox Safety
         if(PUTM_CAN::can.get_rearbox_safety_new_data())

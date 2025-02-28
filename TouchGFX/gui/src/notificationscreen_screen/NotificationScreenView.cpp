@@ -7,9 +7,9 @@
 
 //TODO: Uzupełnić realnymi wartościami
 #define HV_CRIT_TEMP 45
-#define HV_CRIT_SOC 20
+#define HV_CRIT_SOC 80
 #define LV_CRIT_TEMP 35
-#define LV_CRIT_SOC 20
+#define LV_CRIT_SOC 10
 #define MOTOR_CRIT_TEMP 80
 #define INV_CRIT_TEMP 40
 

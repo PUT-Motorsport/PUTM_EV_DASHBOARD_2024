@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_2EHC" Alignment="Left" TypographyId="Tiny">
+        <Translation Language="GB">RearBrake</Translation>
+      </Text>
+      <Text Id="__SingleUse_BGUB" Alignment="Left" TypographyId="Tiny">
+        <Translation Language="GB">FrontBrake</Translation>
+      </Text>
       <Text Id="__SingleUse_ZRNM" Alignment="Left" TypographyId="MediumPlus">
         <Translation Language="GB">100</Translation>
       </Text>
@@ -157,10 +163,10 @@
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_MOUC" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_PDYZ" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">&lt;d&gt; kPa</Translation>
+        <Translation Language="GB">&lt;d&gt; bar</Translation>
       </Text>
       <Text Id="__SingleUse_LTUT" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">99</Translation>
@@ -169,10 +175,10 @@
         <Translation Language="GB">&lt;d&gt; °C</Translation>
       </Text>
       <Text Id="__SingleUse_RX3A" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">99</Translation>
+        <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="__SingleUse_01BQ" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">&lt;d&gt; kPa</Translation>
+        <Translation Language="GB">&lt;d&gt; bar</Translation>
       </Text>
       <Text Id="__SingleUse_M415" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">99</Translation>

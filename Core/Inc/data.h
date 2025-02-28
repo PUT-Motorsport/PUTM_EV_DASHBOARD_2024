@@ -41,6 +41,8 @@ typedef struct {
     uint8_t oil_pressure;
     uint8_t coolant_temperature;
     uint8_t coolant_pressure;
+    uint8_t front_brake_pressure;
+    uint8_t rear_brake_pressure;
     uint8_t motor_front_left_temperature;
     uint8_t motor_front_right_temperature;
     uint8_t motor_rear_left_temperature;
@@ -85,6 +87,7 @@ typedef struct {
 	uint32_t bms_lv_last_frame_time;
 	uint32_t frontbox_last_frame_time;
 	uint32_t frontbox_safety_last_frame_time;
+	uint32_t frontbox_driver_input_last_frame_time;
 	uint32_t rearbox_last_frame_time;
 	uint32_t rearbox_safety_last_frame_time;
 	uint32_t rearbox_miscellaneous_last_frame_time;

@@ -21,16 +21,12 @@
 #define OIL_TEMPERATURE_MIN 5
 #define OIL_TEMPERATURE_MID 30
 #define OIL_TEMPERATURE_MAX 50
-#define OIL_PRESSURE_MIN 1
-#define OIL_PRESSURE_MID 5
-#define OIL_PRESSURE_MAX 15
+#define BRAKE_PRESSURE_MIN 1
+#define BRAKE_PRESSURE_MID 5
+#define BRAKE_PRESSURE_MAX 15
 #define COOLANT_TEMPERATURE_MIN 5
 #define COOLANT_TEMPERATURE_MID 30
 #define COOLANT_TEMPERATURE_MAX 35
-#define COOLANT_PRESSURE_MIN 1
-#define COOLANT_PRESSURE_MID 5
-#define COOLANT_PRESSURE_MAX 15
-
 
 MainScreenView::MainScreenView() {}
 
@@ -118,7 +114,7 @@ else if (!inv_FL_status || !inv_FR_status || !inv_RL_status || !inv_RR_status)
 
 void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
     Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > BATTERY_LV_TEMPERATURE_MAX || temperature < BATTERY_LV_TEMPERATURE_MIN) {
+    if(temperature >= BATTERY_LV_TEMPERATURE_MAX || temperature <= BATTERY_LV_TEMPERATURE_MIN) {
     	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
     	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > BATTERY_LV_TEMPERATURE_MID) {
@@ -144,7 +140,7 @@ void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
 	uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
 
     Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
-    if(inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN) {
+    if(inv_temp_highest >= INVERTER_TEMPERATURE_MAX || inv_temp_highest <= INVERTER_TEMPERATURE_MIN) {
         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
         invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(inv_temp_highest > INVERTER_TEMPERATURE_MID) {
@@ -162,7 +158,7 @@ void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
 
 void MainScreenView::updateOilTemperature(uint8_t temperature) {
     Unicode::snprintf(oilTempTextBuffer, OILTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > OIL_TEMPERATURE_MAX || temperature < OIL_TEMPERATURE_MIN) {
+    if(temperature >= OIL_TEMPERATURE_MAX || temperature <= OIL_TEMPERATURE_MIN) {
         oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_CRIT_ID));
         oilTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > OIL_TEMPERATURE_MID) {
@@ -178,27 +174,45 @@ void MainScreenView::updateOilTemperature(uint8_t temperature) {
     oilTempText.invalidate();
 }
 
-void MainScreenView::updateOilPressure(uint8_t pressure) {
-    Unicode::snprintf(oilPressTextBuffer, OILPRESSTEXT_SIZE, "%d", pressure);
-    if(pressure > OIL_PRESSURE_MAX || pressure < OIL_PRESSURE_MIN) {
-        oilPressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_CRIT_ID));
-        oilPressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(pressure > OIL_PRESSURE_MID) {
-        oilPressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_WARN_ID));
-        oilPressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+void MainScreenView::updateFrontBrakePressure(uint16_t pressure) {
+    Unicode::snprintf(FrontBrakePressTextBuffer, FRONTBRAKEPRESSTEXT_SIZE, "%d", pressure);
+    if(pressure >= BRAKE_PRESSURE_MAX || pressure <= BRAKE_PRESSURE_MIN) {
+    	PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_CRIT_ID));
+        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    } else if(pressure > BRAKE_PRESSURE_MID) {
+    	PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_WARN_ID));
+        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
-        oilPressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_ID));
-        oilPressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_ID));
+        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
-    oilPressIcon.setVisible(true);
-    oilPressText.setVisible(true);
-    oilPressIcon.invalidate();
-    oilPressText.invalidate();
+    PressIcon.setVisible(true);
+    FrontBrakePressText.setVisible(true);
+    PressIcon.invalidate();
+    FrontBrakePressText.invalidate();
+}
+
+void MainScreenView::updateRearBrakePressure(uint16_t pressure) {
+    Unicode::snprintf(RearBrakePressTextBuffer, REARBRAKEPRESSTEXT_SIZE, "%d", pressure);
+    if(pressure >= BRAKE_PRESSURE_MAX || pressure <= BRAKE_PRESSURE_MIN) {
+    	PressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_CRIT_ID));
+    	FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    } else if(pressure > BRAKE_PRESSURE_MID) {
+    	PressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_WARN_ID));
+    	FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    } else {
+    	PressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_ID));
+    	FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+    PressIcon.setVisible(true);
+    FrontBrakePressText.setVisible(true);
+    PressIcon.invalidate();
+    FrontBrakePressText.invalidate();
 }
 
 void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
     Unicode::snprintf(coolTempTextBuffer, COOLTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature > COOLANT_TEMPERATURE_MAX || temperature < COOLANT_TEMPERATURE_MIN) {
+    if(temperature >= COOLANT_TEMPERATURE_MAX || temperature <= COOLANT_TEMPERATURE_MIN) {
         coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
         coolTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > COOLANT_TEMPERATURE_MID) {
@@ -212,24 +226,6 @@ void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
     coolTempText.setVisible(true);
     coolTempIcon.invalidate();
     coolTempText.invalidate();
-}
-
-void MainScreenView::updateCoolantPressure(uint8_t pressure) {
-    Unicode::snprintf(coolPressTextBuffer, COOLPRESSTEXT_SIZE, "%d", pressure);
-    if(pressure > COOLANT_PRESSURE_MAX || pressure < COOLANT_PRESSURE_MIN) {
-        coolPressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_CRIT_ID));
-        coolPressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(pressure > COOLANT_PRESSURE_MID) {
-        coolPressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_WARN_ID));
-        coolPressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
-        coolPressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_ID));
-        coolPressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
-    coolPressIcon.setVisible(true);
-    coolPressText.setVisible(true);
-    coolPressIcon.invalidate();
-    coolPressText.invalidate();
 }
 
 
@@ -285,7 +281,7 @@ void MainScreenView::toggleWarning() {
 void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 {
     Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
-    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
     {
     	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
@@ -306,7 +302,7 @@ void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
 {
     Unicode::snprintf(motorFrontRighttextBuffer, MOTORFRONTRIGHTTEXT_SIZE, "%d", temperature);
-    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
     {
     	motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
@@ -327,7 +323,7 @@ void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
 void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 {
     Unicode::snprintf(motorRearLefttextBuffer, MOTORREARLEFTTEXT_SIZE, "%d", temperature);
-    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
     {
     	motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
@@ -348,7 +344,7 @@ void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 {
     Unicode::snprintf(motorRearRighttextBuffer, MOTORREARRIGHTTEXT_SIZE, "%d", temperature);
-    if(temperature > MOTOR_TEMPERATURE_MAX || temperature < MOTOR_TEMPERATURE_MIN)
+    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
     {
     	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
@@ -383,60 +379,49 @@ void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t gree
 	sdcStatusLabelText.invalidate();
 }
 
-void MainScreenView::updateSDC(SafetyData_TypeDef *status)
+
+
+void MainScreenView::updateSDC(SafetyData_TypeDef status)
 {
+    std::array<bool, 14> fields = {
+        status.safety_wheel_rl,  // Rear Left Wheel Sensor
+        status.safety_wheel_rr,  // Rear Right Wheel Sensor
+        status.safety_wheel_fr,  // Front Right Wheel Sensor
+        status.safety_wheel_fl,  // Front Left Wheel Sensor
+        status.safety_hv,        // High Voltage System Safety
+        status.safety_inv,       // Inverter Safety
+        status.safety_asms,      // AMS (Accumulator Management System)
+        status.sense_right_kill, // Right Kill Switch
+        status.sense_left_kill,  // Left Kill Switch
+        status.sense_driver_kill,// Cockpit Kill Switch
+        status.sense_inertia,    // Inertia Switch
+        status.sense_bspd,       // BSPD
+        status.sense_overtravel, // BOTS
+        status.safety_hvd        // HVD
+    };
 
-//FIXME: kolejność safety dostosowana do PM X
+    std::array<const char*, 14> error_names = {
+        "WRL", "WRR", "WFR", "WFL",
+        "HV", "INV", "ASMS",
+        "RK", "LK", "DK",
+        "INE", "BSPD", "ORT", "HVD"
+    };
 
-
-	std::array<bool*, 14> fields =
-	{
-			&status->safety_wheel_rl,  // Rear Left Wheel Sensor
-			&status->safety_wheel_rr,  // Rear Right Wheel Sensor
-			&status->safety_wheel_fr,  // Front Right Wheel Sensor
-			&status->safety_wheel_fl,  // Front Left Wheel Sensor
-			&status->safety_hv,        // High Voltage System Safety
-			&status->safety_inv,       // Inverter Safety
-			&status->safety_asms,      // AMS (Accumulator Management System)
- 			&status->sense_right_kill, // Right Kill Switch
-			&status->sense_left_kill,  // Left Kill Switch
-			&status->sense_driver_kill,// Cockpit Kill Switch
-			&status->sense_inertia,    // Inertia Switch
-			&status->sense_bspd,       // BSPD
-			&status->sense_overtravel, // BOTS
-			&status->safety_hvd        // HVD
-	};
-
-	std::array<const char*, 14> error_names =
-	{
-			"WRL", "WRR", "WFR", "WFL",
-			"HV", "INV", "ASMS",
-			"RK", "LK", "DK",
-			"INE", "BSPD", "ORT", "HVD"
-	};
-
-    int error_count = 0;         // Counter for the number of detected errors
-    int first_error_index = -1;  // Index of the first detected error in the fields array
-
-    // Iterate through the fields array to detect the first error
+    int first_error_index = -1;
     for (int i = 0; i < fields.size(); i++) {
-        if (*fields[i]) {
+        if (fields[i]) {
             first_error_index = i;
             break;
         }
     }
 
-
-    // Display SDC Errors
-    if (error_count == 0)
-    {
-        setSafetyStatus("OK", 255, 255, 255); //SDC OK
+    if (first_error_index == -1) {
+        // Brak błędów - wyświetlamy "OK"
+        setSafetyStatus("OK", 255, 255, 255);
+    } else {
+        // Wyświetlamy pierwszy wykryty błąd
+        setSafetyStatus(error_names[first_error_index], 255, 0, 0);
     }
-    else if (first_error_index != -1)
-    {
-        setSafetyStatus(error_names[first_error_index], 255, 0, 0); //Display element that broke the circuit first
-    }
-
 }
 
 

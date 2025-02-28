@@ -29,9 +29,9 @@ class ModelListener {
     virtual void setDrsStatus(bool status) {}
     virtual void setBatteryLVTemperature(uint8_t temperature) {}
     virtual void setOilTemperature(uint8_t temperature) {}
-    virtual void setOilPressure(uint8_t pressure) {}
+    virtual void setFrontBrakePressure(uint16_t pressure) {}
     virtual void setCoolantTemperature(uint8_t temperature) {}
-    virtual void setCoolantPressure(uint8_t pressure) {}
+    virtual void setRearBrakePressure(uint16_t pressure) {}
     virtual void setCurrentLap(uint32_t time) {}
     virtual void setLastLap(uint32_t time) {}
     virtual void setBestLap(uint32_t time) {}
@@ -43,7 +43,7 @@ class ModelListener {
     						  uint8_t temperatureMotorRL,
     					      uint8_t temperatureMotorRR){}
     virtual void setMotorRearRightTemperature(uint8_t temperature) {}
-    virtual void setSDC(SafetyData_TypeDef& safetyData) {}
+    virtual void setSDC(SafetyData_TypeDef status) {}
 
     virtual void setInverterTemperature(uint8_t inv_FL_temperature,
     									uint8_t inv_FR_temperature,

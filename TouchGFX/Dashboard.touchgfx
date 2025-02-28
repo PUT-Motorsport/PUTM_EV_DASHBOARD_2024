@@ -292,10 +292,10 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "coolPressText",
-                "X": 125,
-                "Y": 236,
-                "Width": 77,
+                "Name": "RearBrakePressText",
+                "X": 130,
+                "Y": 230,
+                "Width": 87,
                 "Height": 25,
                 "TextId": "__SingleUse_PDYZ",
                 "TextRotation": "0",
@@ -308,14 +308,46 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_MOUC",
                   "UseBuffer": true,
-                  "BufferSize": 6
+                  "BufferSize": 16
                 }
               },
               {
+                "Type": "TextArea",
+                "Name": "RearBrakePressLabel",
+                "X": 136,
+                "Y": 200,
+                "Width": 74,
+                "Height": 15,
+                "TextId": "__SingleUse_2EHC",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FrontBrakePressLabel",
+                "X": 5,
+                "Y": 200,
+                "Width": 80,
+                "Height": 15,
+                "TextId": "__SingleUse_BGUB",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
                 "Type": "Image",
-                "Name": "coolPressIcon",
-                "X": 147,
-                "Y": 198,
+                "Name": "PressIcon",
+                "X": 94,
+                "Y": 195,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "coolant_pressure.png"
@@ -323,8 +355,8 @@
               {
                 "Type": "TextArea",
                 "Name": "coolTempText",
-                "X": 24,
-                "Y": 236,
+                "X": 133,
+                "Y": 148,
                 "Width": 61,
                 "Height": 25,
                 "TextId": "__SingleUse_MYN3",
@@ -344,18 +376,18 @@
               {
                 "Type": "Image",
                 "Name": "coolTempIcon",
-                "X": 38,
-                "Y": 198,
+                "X": 147,
+                "Y": 110,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "coolant.png"
               },
               {
                 "Type": "TextArea",
-                "Name": "oilPressText",
-                "X": 125,
-                "Y": 148,
-                "Width": 77,
+                "Name": "FrontBrakePressText",
+                "X": 2,
+                "Y": 230,
+                "Width": 87,
                 "Height": 25,
                 "TextId": "__SingleUse_01BQ",
                 "TextRotation": "0",
@@ -368,17 +400,8 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_RX3A",
                   "UseBuffer": true,
-                  "BufferSize": 6
+                  "BufferSize": 16
                 }
-              },
-              {
-                "Type": "Image",
-                "Name": "oilPressIcon",
-                "X": 147,
-                "Y": 110,
-                "Width": 32,
-                "Height": 32,
-                "RelativeFilename": "oil_pressure.png"
               },
               {
                 "Type": "TextArea",

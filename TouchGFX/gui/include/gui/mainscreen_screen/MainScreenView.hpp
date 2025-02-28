@@ -37,9 +37,9 @@ class MainScreenView : public MainScreenViewBase {
     void updateMotorRearLeftTemperature(uint8_t temperature);
     void updateMotorRearRightTemperature(uint8_t temperature);
     void updateOilTemperature(uint8_t temperature);
-    void updateOilPressure(uint8_t pressure);
+    void updateRearBrakePressure(uint16_t pressure);
     void updateCoolantTemperature(uint8_t temperature);
-    void updateCoolantPressure(uint8_t pressure);
+    void updateFrontBrakePressure(uint16_t pressure);
     void updateRpm(uint16_t rpm);
     void updateCurrentLap(uint32_t time);
     void updateLastLap(uint32_t time);
@@ -49,7 +49,7 @@ class MainScreenView : public MainScreenViewBase {
 
     //Safety display
     void setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue);
-    void updateSDC(SafetyData_TypeDef *status);
+    void updateSDC(SafetyData_TypeDef status);
 
   protected:
   private:

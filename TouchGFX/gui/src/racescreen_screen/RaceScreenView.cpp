@@ -67,12 +67,12 @@ void RaceScreenView::updateSocLv(uint8_t soc)
     Unicode::snprintf(lvSocValueTextBuffer, LVSOCVALUETEXT_SIZE, "%d", soc);
 
 
-    if(soc < BATTERY_LV_SOC_MIN)
+    if(soc <= BATTERY_LV_SOC_MIN)
     {
     	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(soc < BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MIN)
+    else if(soc <= BATTERY_LV_SOC_MAX && soc > BATTERY_LV_SOC_MIN)
     {
     	LvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     	lvSocValueText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
@@ -93,12 +93,12 @@ void RaceScreenView::updateSocHv(uint8_t soc)
 {
     Unicode::snprintf(hvSocValueTextBuffer, HVSOCVALUETEXT_SIZE, "%d", soc);
 
-    if(soc < BATTERY_HV_SOC_MIN)
+    if(soc <= BATTERY_HV_SOC_MIN)
     {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(soc < BATTERY_HV_SOC_MAX && soc > BATTERY_HV_SOC_MIN)
+    else if(soc <= BATTERY_HV_SOC_MAX && soc > BATTERY_HV_SOC_MIN)
     {
     	HvSoCText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     	hvSocValueText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));

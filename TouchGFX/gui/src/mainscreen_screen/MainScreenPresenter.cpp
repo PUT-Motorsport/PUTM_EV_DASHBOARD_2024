@@ -50,11 +50,11 @@ void MainScreenPresenter:: setMotorRearRightTemperature(uint8_t temperature) { v
 
 void MainScreenPresenter::setOilTemperature(uint8_t temperature) { view.updateOilTemperature(temperature); }
 
-void MainScreenPresenter::setOilPressure(uint8_t pressure) { view.updateOilPressure(pressure); }
+void MainScreenPresenter::setFrontBrakePressure(uint16_t pressure) { view.updateFrontBrakePressure(pressure); }
 
 void MainScreenPresenter::setCoolantTemperature(uint8_t temperature) { view.updateCoolantTemperature(temperature); }
 
-void MainScreenPresenter::setCoolantPressure(uint8_t pressure) { view.updateCoolantPressure(pressure); }
+void MainScreenPresenter::setRearBrakePressure(uint16_t pressure) { view.updateRearBrakePressure(pressure); }
 
 void MainScreenPresenter::setRpm(uint16_t rpm) { view.updateRpm(rpm); }
 
@@ -72,7 +72,7 @@ void MainScreenPresenter::setInverterTemperature(uint8_t inv_FL_temperature,
 																											  inv_RL_temperature,
 																											  inv_RR_temperature); }
 
-void MainScreenPresenter::setSDC(SafetyData_TypeDef SafetyData) {view.updateSDC(&SafetyData);}
+void MainScreenPresenter::setSDC(SafetyData_TypeDef status) {view.updateSDC(status);}
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 

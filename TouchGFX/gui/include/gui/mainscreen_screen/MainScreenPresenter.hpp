@@ -49,14 +49,14 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setMotorRearLeftTemperature(uint8_t temperature);
     void setMotorRearRightTemperature(uint8_t temperature);
     void setOilTemperature(uint8_t temperature);
-    void setOilPressure(uint8_t pressure);
+    void setFrontBrakePressure(uint16_t pressure);
     void setCoolantTemperature(uint8_t temperature);
-    void setCoolantPressure(uint8_t pressure);
+    void setRearBrakePressure(uint16_t pressure);
     void setRpm(uint16_t rpm);
     void setCurrentLap(uint32_t time);
     void setLastLap(uint32_t time);
     void setBestLap(uint32_t time);
-    void setSDC(SafetyData_TypeDef SafetyData);
+    void setSDC(SafetyData_TypeDef status);
     void setInverterTemperature(uint8_t inv_FL_temperature,
        							uint8_t inv_FR_temperature,
    								uint8_t inv_RL_temperature,

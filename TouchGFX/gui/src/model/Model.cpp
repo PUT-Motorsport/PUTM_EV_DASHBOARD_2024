@@ -79,14 +79,14 @@ void Model::tick() {
             m_sharedDataPrev.oil_temperature = m_sharedData.oil_temperature;
             modelListener->setOilTemperature(m_sharedData.oil_temperature);
 
-            m_sharedDataPrev.oil_pressure = m_sharedData.oil_pressure;
-            modelListener->setOilPressure(m_sharedData.oil_pressure);
+            m_sharedDataPrev.front_brake_pressure = m_sharedData.front_brake_pressure;
+            modelListener->setFrontBrakePressure(m_sharedData.front_brake_pressure);
 
             m_sharedDataPrev.coolant_temperature = m_sharedData.coolant_temperature;
             modelListener->setCoolantTemperature(m_sharedData.coolant_temperature);
 
-            m_sharedDataPrev.coolant_pressure = m_sharedData.coolant_pressure;
-            modelListener->setCoolantPressure(m_sharedData.coolant_pressure);
+            m_sharedDataPrev.rear_brake_pressure = m_sharedData.rear_brake_pressure;
+            modelListener->setRearBrakePressure(m_sharedData.rear_brake_pressure);
 
             m_sharedDataPrev.motor_front_left_temperature = m_sharedData.motor_front_left_temperature;
             modelListener->setMotorFrontLeftTemperature(m_sharedData.motor_front_left_temperature);
