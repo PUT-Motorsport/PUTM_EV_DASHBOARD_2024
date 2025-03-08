@@ -50,6 +50,9 @@ class ModelListener {
 										uint8_t inv_RL_temperature,
 										uint8_t inv_RR_temperature) {}
 
+    virtual void setRtdButtonPressed(bool status) {}
+    virtual void setTsaButtonPressed(bool status) {}
+
     //Race Screen
     virtual void setSocHv(uint8_t soc) {}
     virtual void setSocLv(uint8_t soc) {}

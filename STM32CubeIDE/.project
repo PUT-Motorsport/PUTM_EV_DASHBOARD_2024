@@ -660,6 +660,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Rubik_Italic_15_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Font_Rubik_Regular_115_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Rubik_Regular_115_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Font_Rubik_Regular_125_4bpp_0.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Rubik_Regular_125_4bpp_0.cpp</locationURI>
@@ -705,6 +710,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Rubik_Italic_15_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Kerning_Rubik_Regular_115_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Rubik_Regular_115_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Kerning_Rubik_Regular_125_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Rubik_Regular_125_4bpp.cpp</locationURI>
@@ -743,6 +753,11 @@
 			<name>Application/User/generated/Table_Rubik_Italic_15_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Rubik_Italic_15_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_Rubik_Regular_115_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Rubik_Regular_115_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_Rubik_Regular_125_4bpp.cpp</name>
@@ -1013,6 +1028,11 @@
 			<name>Application/User/generated/image_radio_on.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_radio_on.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_syg_led.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_syg_led.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_timeBackground.cpp</name>

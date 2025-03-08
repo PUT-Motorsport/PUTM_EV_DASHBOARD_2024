@@ -6,6 +6,21 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_GS52" Alignment="Left" TypographyId="Big_Puls">
+        <Translation Language="GB">+00.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_XYIR" Alignment="Center" TypographyId="Big_Puls">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_KABG" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">Lap</Translation>
+      </Text>
+      <Text Id="__SingleUse_B13S" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">+0.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_J3NR" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_2EHC" Alignment="Left" TypographyId="Tiny">
         <Translation Language="GB">RearBrake</Translation>
       </Text>
@@ -42,10 +57,10 @@
       <Text Id="__SingleUse_JD9Q" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_A6WO" Alignment="Left" TypographyId="Huge">
+      <Text Id="__SingleUse_A6WO" Alignment="Left" TypographyId="Big_Puls">
         <Translation Language="GB">10</Translation>
       </Text>
-      <Text Id="__SingleUse_JION" Alignment="Center" TypographyId="Huge">
+      <Text Id="__SingleUse_JION" Alignment="Center" TypographyId="Big_Puls">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_HHTI" Alignment="Left" TypographyId="MediumPlus">
@@ -84,17 +99,11 @@
       <Text Id="__SingleUse_6NEI" Alignment="Center" TypographyId="Big">
         <Translation Language="GB">DRS</Translation>
       </Text>
-      <Text Id="__SingleUse_86LY" Alignment="Left" TypographyId="Huge">
+      <Text Id="__SingleUse_86LY" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">25.00</Translation>
       </Text>
-      <Text Id="__SingleUse_Y024" Alignment="Center" TypographyId="Huge">
+      <Text Id="__SingleUse_Y024" Alignment="Center" TypographyId="Medium">
         <Translation Language="GB">&lt;d&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_B13S" Alignment="Left" TypographyId="Medium">
-        <Translation Language="GB">+0.000</Translation>
-      </Text>
-      <Text Id="__SingleUse_J3NR" Alignment="Left" TypographyId="Medium">
-        <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_7G62" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">RPM</Translation>
@@ -248,5 +257,6 @@
     <Typography Id="Big" Font="Rubik-Regular.ttf" Size="80" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
     <Typography Id="MediumPlus" Font="Rubik-Regular.ttf" Size="65" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Huge" Font="Rubik-Regular.ttf" Size="125" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Big_Puls" Font="Rubik-Regular.ttf" Size="115" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

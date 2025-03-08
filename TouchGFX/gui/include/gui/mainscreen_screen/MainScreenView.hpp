@@ -44,11 +44,12 @@ class MainScreenView : public MainScreenViewBase {
     void updateCurrentLap(uint32_t time);
     void updateLastLap(uint32_t time);
     void updateBestLap(uint32_t time);
+    void updateRtdButtonPressed(bool status);
+    void updateTsaButtonPressed(bool status);
 
     void toggleWarning();
 
     //Safety display
-    void setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue);
     void updateSDC(SafetyData_TypeDef status);
 
   protected:

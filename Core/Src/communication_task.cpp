@@ -12,6 +12,7 @@
 #include <algorithm>
 
 extern osMutexId_t sharedDataMutexHandle;
+extern osMutexId_t sdcDataMutexHandle;
 
 void Communication_Task(void* argument) {
     for(;;) {
@@ -61,7 +62,7 @@ void Communication_Task(void* argument) {
 			auto frontbox_safety_data = PUTM_CAN::can.get_front_data_main_data();
 
 
-			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+			if(osMutexAcquire(sdcDataMutexHandle, osWaitForever) == osOK)
 			{
 				sharedData.warning = false;
 				sharedData.safety_front = false;
@@ -75,12 +76,12 @@ void Communication_Task(void* argument) {
 				safetyData.sense_right_wheel = frontbox_safety_data.sense_right_wheel;
 				safetyData.is_braking = frontbox_safety_data.is_braking;
 
-				osMutexRelease(sharedDataMutexHandle);
+				osMutexRelease(sdcDataMutexHandle);
 			}
 		}
 		else if(current_tick_time - timeoutData.frontbox_safety_last_frame_time > DASH_TIMEOUT_DURATION)
 		{
-			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+			if(osMutexAcquire(sdcDataMutexHandle, osWaitForever) == osOK)
 			{
 				sharedData.warning = true;
 				sharedData.safety_front = true;
@@ -94,7 +95,7 @@ void Communication_Task(void* argument) {
 				safetyData.sense_right_wheel = false;
 				safetyData.is_braking = false;
 
-				osMutexRelease(sharedDataMutexHandle);
+				osMutexRelease(sdcDataMutexHandle);
 			}
 		}
 
@@ -137,7 +138,7 @@ void Communication_Task(void* argument) {
         	timeoutData.rearbox_safety_last_frame_time = current_tick_time;
         	auto rearbox_safety_data = PUTM_CAN::can.get_rearbox_safety();
 
-			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+			if(osMutexAcquire(sdcDataMutexHandle, osWaitForever) == osOK)
 			{
 				sharedData.warning = false;
 				//we do not get data from the component so errors are not detected
@@ -156,12 +157,12 @@ void Communication_Task(void* argument) {
 				safetyData.safety_wheel_rl = rearbox_safety_data.safety_wheel_rl;
 				safetyData.safety_wheel_rr = rearbox_safety_data.safety_wheel_rr;
 
-				osMutexRelease(sharedDataMutexHandle);
+				osMutexRelease(sdcDataMutexHandle);
 			}
 		}
         else if(current_tick_time - timeoutData.rearbox_safety_last_frame_time > DASH_TIMEOUT_DURATION)
         		{
-        			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+        			if(osMutexAcquire(sdcDataMutexHandle, osWaitForever) == osOK)
         			{
         				sharedData.warning = true;
         				sharedData.safety_rear = true;
@@ -179,7 +180,7 @@ void Communication_Task(void* argument) {
         				safetyData.safety_wheel_rl = false;
         				safetyData.safety_wheel_rr = false;
 
-        				osMutexRelease(sharedDataMutexHandle);
+        				osMutexRelease(sdcDataMutexHandle);
         			}
         		}
 

@@ -677,6 +677,24 @@
               "Blue": 102
             },
             "AutoSize": true
+          },
+          {
+            "Type": "Image",
+            "Name": "RTD_Led",
+            "X": 775,
+            "Y": 77,
+            "Width": 50,
+            "Height": 50,
+            "RelativeFilename": "syg_led.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "TSA_Led",
+            "X": 775,
+            "Y": 323,
+            "Width": 50,
+            "Height": 50,
+            "RelativeFilename": "syg_led.png"
           }
         ],
         "Interactions": [
@@ -935,23 +953,19 @@
             "RelativeFilename": "inverter.png"
           },
           {
-            "Type": "Image",
-            "Name": "paceBackground",
-            "X": 300,
-            "Y": 6,
-            "Width": 200,
-            "Height": 49,
-            "RelativeFilename": "paceYellowBackground.png"
-          },
-          {
             "Type": "TextArea",
             "Name": "paceText",
-            "X": 333,
-            "Y": 6,
+            "X": 225,
+            "Y": -203,
             "Width": 135,
             "Height": 48,
             "TextId": "__SingleUse_J3NR",
             "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
             "AutoSize": true,
             "Wildcard1": {
               "TextId": "__SingleUse_B13S",
@@ -962,10 +976,10 @@
           {
             "Type": "TextArea",
             "Name": "rangeValueText",
-            "X": 242,
-            "Y": 190,
-            "Width": 336,
-            "Height": 127,
+            "X": 347,
+            "Y": 286,
+            "Width": 107,
+            "Height": 48,
             "TextId": "__SingleUse_Y024",
             "TextRotation": "0",
             "Color": {
@@ -1148,10 +1162,9 @@
           {
             "Type": "TextArea",
             "Name": "LapValueText",
-            "X": 344,
-            "Y": 59,
-            "Width": 132,
-            "Height": 127,
+            "X": 340,
+            "Width": 121,
+            "Height": 116,
             "TextId": "__SingleUse_JION",
             "TextRotation": "0",
             "Color": {
@@ -1164,6 +1177,47 @@
               "TextId": "__SingleUse_A6WO",
               "UseBuffer": true,
               "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 372,
+            "Y": 115,
+            "Width": 69,
+            "Height": 48,
+            "TextId": "__SingleUse_KABG",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Image",
+            "Name": "paceBackground",
+            "X": 204,
+            "Y": 186,
+            "Width": 400,
+            "Height": 98,
+            "RelativeFilename": "paceYellowBackground.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pace",
+            "X": 209,
+            "Y": 161,
+            "Width": 391,
+            "Height": 116,
+            "TextId": "__SingleUse_XYIR",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_GS52",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           }
         ],

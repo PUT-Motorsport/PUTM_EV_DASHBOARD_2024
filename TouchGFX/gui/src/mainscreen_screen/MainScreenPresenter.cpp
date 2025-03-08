@@ -74,6 +74,10 @@ void MainScreenPresenter::setInverterTemperature(uint8_t inv_FL_temperature,
 
 void MainScreenPresenter::setSDC(SafetyData_TypeDef status) {view.updateSDC(status);}
 
+void MainScreenPresenter::setRtdButtonPressed(bool status) {view.updateRtdButtonPressed(status);}
+
+void MainScreenPresenter::setTsaButtonPressed(bool status) {view.updateTsaButtonPressed(status);}
+
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 
 void MainScreenPresenter::switchScreenMR()

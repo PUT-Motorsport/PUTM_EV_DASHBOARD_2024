@@ -364,23 +364,6 @@ void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 
 
 //Safety display
-void MainScreenView::setSafetyStatus(const char* text, uint8_t red, uint8_t green, uint8_t blue)
-{
-    Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
-    sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
-
-    Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", text);
-    sdcText.setColor(touchgfx::Color::getColorFromRGB(red, green, blue));
-
-	sdcText.setVisible(true);
-	sdcText.invalidate();
-
-	sdcStatusLabelText.setVisible(true);
-	sdcStatusLabelText.invalidate();
-}
-
-
-
 void MainScreenView::updateSDC(SafetyData_TypeDef status)
 {
     std::array<bool, 14> fields = {
@@ -415,12 +398,69 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         }
     }
 
+
     if (first_error_index == -1) {
         // Brak błędów - wyświetlamy "OK"
-        setSafetyStatus("OK", 255, 255, 255);
-    } else {
+        //setSafetyStatus("OK", 255, 255, 255);
+
+        Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
+        sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+
+        Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", "OK");
+        sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+
+    	sdcText.setVisible(true);
+    	sdcText.invalidate();
+
+    	sdcStatusLabelText.setVisible(true);
+    	sdcStatusLabelText.invalidate();
+
+    }
+    else
+    {
         // Wyświetlamy pierwszy wykryty błąd
-        setSafetyStatus(error_names[first_error_index], 255, 0, 0);
+        //setSafetyStatus(error_names[first_error_index], 255, 0, 0);
+
+        Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
+        sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+
+        Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", error_names[first_error_index]);
+        sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+
+    	sdcText.setVisible(true);
+    	sdcText.invalidate();
+
+    	sdcStatusLabelText.setVisible(true);
+    	sdcStatusLabelText.invalidate();
+    }
+}
+
+void MainScreenView::updateRtdButtonPressed(bool status)
+{
+    if(status)
+    {
+    	RTD_Led.setVisible(true);
+    	RTD_Led.invalidate();
+    }
+    else
+    {
+    	RTD_Led.setVisible(false);
+    	RTD_Led.invalidate();
+    }
+}
+
+
+void MainScreenView::updateTsaButtonPressed(bool status)
+{
+    if(status)
+    {
+    	TSA_Led.setVisible(true);
+    	TSA_Led.invalidate();
+    }
+    else
+    {
+    	TSA_Led.setVisible(false);
+    	TSA_Led.invalidate();
     }
 }
 

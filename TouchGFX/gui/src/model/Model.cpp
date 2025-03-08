@@ -117,6 +117,12 @@ void Model::tick() {
             m_sharedDataPrev.range = m_sharedData.range;
             modelListener->setRange(m_sharedData.range);
 
+            m_sharedDataPrev.rtd_button_pressed = m_sharedData.rtd_button_pressed;
+            modelListener->setRtdButtonPressed(m_sharedData.rtd_button_pressed);
+
+            m_sharedDataPrev.tsa_button_pressed = m_sharedData.tsa_button_pressed;
+            modelListener->setTsaButtonPressed(m_sharedData.tsa_button_pressed);
+
             osMutexRelease(sharedDataMutexHandle);
 
         }
@@ -166,7 +172,7 @@ void Model::tick() {
 			m_sharedSafetyDataPrev.safety_wheel_rr = m_sharedSafetyData.safety_wheel_rr;
 
 
-        	modelListener->setSDC(m_sharedSafetyData);
+			modelListener->setSDC(m_sharedSafetyData);
 
 			osMutexRelease(sdcDataMutexHandle);
 

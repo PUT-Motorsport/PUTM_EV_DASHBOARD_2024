@@ -61,6 +61,8 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
        							uint8_t inv_FR_temperature,
    								uint8_t inv_RL_temperature,
    								uint8_t inv_RR_temperature);
+    void setRtdButtonPressed(bool status);
+    void setTsaButtonPressed(bool status);
 
     void switchScreenMR();
 

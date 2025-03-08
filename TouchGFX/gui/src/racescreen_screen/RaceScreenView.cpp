@@ -198,6 +198,9 @@ void RaceScreenView::updateRange(uint16_t range)
 {
  //TODO: opracowanie sposobu wyznaczanie realnej wartości
  //TODO: Jeżeli detla wartość jest dodaatnia wyświetlać na zielono, jeżeli nie na czerwono
+ //Narazie nie mamy tego paramatru dlatego zostaje w kodzie wyłączony
+	rangeValueText.setVisible(false);
+	rangeValueText.invalidate();
 }
 
 void RaceScreenView::updateLap(uint8_t value)

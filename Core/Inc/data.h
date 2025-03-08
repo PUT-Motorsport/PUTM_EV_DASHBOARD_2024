@@ -31,6 +31,8 @@ typedef struct {
     _Bool inv_RR_error;
     _Bool safety_front;
     _Bool safety_rear;
+	_Bool rtd_button_pressed;
+	_Bool tsa_button_pressed;
     uint8_t battery_hv_temperature;
     uint8_t battery_lv_temperature;
     uint8_t frontRightInverterTemperature;
