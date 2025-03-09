@@ -691,7 +691,7 @@
             "Type": "Image",
             "Name": "TSA_Led",
             "X": 775,
-            "Y": 323,
+            "Y": 373,
             "Width": 50,
             "Height": 50,
             "RelativeFilename": "syg_led.png"

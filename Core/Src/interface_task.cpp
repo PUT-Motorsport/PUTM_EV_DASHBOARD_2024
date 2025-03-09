@@ -36,11 +36,13 @@ void Interface_Task(void* argument) {
         if(HAL_GPIO_ReadPin(RTD_BTN_GPIO_Port, RTD_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.rtd_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.rtd_button = true;
+                sharedData.rtd_button_pressed = true;
             } else {
                 interfaceData.rtd_timer += DASH_BUTTON_POOLING_RATE;
             }
         } else {
             interfaceData.rtd_button = false;
+            sharedData.rtd_button_pressed = false;
             interfaceData.rtd_timer = 0;
         }
 
@@ -48,11 +50,13 @@ void Interface_Task(void* argument) {
         if(HAL_GPIO_ReadPin(TSA_BTN_GPIO_Port, TSA_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.tsa_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.tsa_button = true;
+                sharedData.tsa_button_pressed = true;
             } else {
                 interfaceData.tsa_timer += DASH_BUTTON_POOLING_RATE;
             }
         } else {
             interfaceData.tsa_button = false;
+            sharedData.tsa_button_pressed = false;
             interfaceData.tsa_timer = 0;
         }
 

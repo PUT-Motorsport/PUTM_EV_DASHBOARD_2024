@@ -373,7 +373,7 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         status.safety_wheel_fl,  // Front Left Wheel Sensor
         status.safety_hv,        // High Voltage System Safety
         status.safety_inv,       // Inverter Safety
-        status.safety_asms,      // AMS (Accumulator Management System)
+        //status.safety_asms,      // AMS (Accumulator Management System)
         status.sense_right_kill, // Right Kill Switch
         status.sense_left_kill,  // Left Kill Switch
         status.sense_driver_kill,// Cockpit Kill Switch
@@ -403,11 +403,10 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         // Brak błędów - wyświetlamy "OK"
         //setSafetyStatus("OK", 255, 255, 255);
 
-        Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
-        sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-
-        Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", "OK");
-        sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("SDC Status"), sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE);
+    	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("OK"), sdcTextBuffer, SDCTEXT_SIZE);
+    	sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 
     	sdcText.setVisible(true);
     	sdcText.invalidate();
@@ -421,11 +420,10 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         // Wyświetlamy pierwszy wykryty błąd
         //setSafetyStatus(error_names[first_error_index], 255, 0, 0);
 
-        Unicode::snprintf(sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE, "%s", "SDC Status");
-        sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-
-        Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", error_names[first_error_index]);
-        sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("SDC Status"), sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE);
+    	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>(error_names[first_error_index]), sdcTextBuffer, SDCTEXT_SIZE);
+    	sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
 
     	sdcText.setVisible(true);
     	sdcText.invalidate();
