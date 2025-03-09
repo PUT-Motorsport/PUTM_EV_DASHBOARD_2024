@@ -50,7 +50,6 @@ typedef struct {
     uint8_t motor_rear_left_temperature;
     uint8_t motor_rear_right_temperature;
     uint8_t speed;
-    uint8_t lap_counter;
     uint16_t soc_hv;
 	uint16_t soc_lv;
     uint16_t rpm;
@@ -96,6 +95,7 @@ typedef struct {
 	uint32_t rearbox_temperatures_last_frame_time;
 	uint32_t pc_last_frame_time;
 	uint32_t pc_temp_last_frame_time;
+	uint32_t pc_laptimer_last_frame_time;
 } TimeoutData_TypeDef;
 
 typedef struct {
@@ -103,6 +103,7 @@ typedef struct {
     uint32_t current_lap;
     uint32_t last_lap;
     uint32_t best_lap;
+    uint8_t lap_counter;
 } TimerData_TypeDef;
 
 typedef struct {

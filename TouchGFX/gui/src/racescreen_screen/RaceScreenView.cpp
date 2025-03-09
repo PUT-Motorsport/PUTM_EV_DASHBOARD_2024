@@ -171,7 +171,7 @@ else
 	invtemptext.invalidate();
 }
 
-void RaceScreenView::updatePace(int32_t pace)
+void RaceScreenView::updatePace(int16_t pace)
 {
     if(pace > 0)
     {
@@ -194,20 +194,23 @@ void RaceScreenView::updatePace(int32_t pace)
     paceText.invalidate();
 }
 
-void RaceScreenView::updateRange(uint16_t range)
-{
- //TODO: opracowanie sposobu wyznaczanie realnej wartości
- //TODO: Jeżeli detla wartość jest dodaatnia wyświetlać na zielono, jeżeli nie na czerwono
- //Narazie nie mamy tego paramatru dlatego zostaje w kodzie wyłączony
-	rangeValueText.setVisible(false);
-	rangeValueText.invalidate();
-}
 
 void RaceScreenView::updateLap(uint8_t value)
 {
 	Unicode::snprintf(LapValueTextBuffer, LAPVALUETEXT_SIZE, "%d", value);
 	LapValueText.setVisible(true);
 	LapValueText.invalidate();
+}
+
+void RaceScreenView::updateBestLap(uint32_t time)
+{
+    uint8_t minutes = time / (1000 * 60);
+    time %= (1000 * 60);
+    uint8_t seconds = time / 1000;
+    time %= 1000;
+
+    Unicode::snprintf(bestLapTextBuffer, BESTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, time);
+    bestLapText.invalidate();
 }
 
 void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,

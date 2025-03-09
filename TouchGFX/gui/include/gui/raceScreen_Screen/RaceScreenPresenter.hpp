@@ -36,13 +36,13 @@ public:
 								uint8_t inv_FR_temperature,
 								uint8_t inv_RL_temperature,
 								uint8_t inv_RR_temperature);
-    void setPace(int32_t pace);
-    void setRange(uint16_t range);
+    void setPace(int16_t pace);
     void setMotorTemp(uint8_t temperatureMotorFL,
 			   uint8_t temperatureMotorFR,
 			   uint8_t temperatureMotorRL,
 			   uint8_t temperatureMotorRR);
     void setLap(uint8_t value);
+    void setBestLap(uint32_t time);
 
     void switchScreenRM();
 

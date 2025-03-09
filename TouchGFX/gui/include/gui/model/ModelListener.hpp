@@ -57,9 +57,10 @@ class ModelListener {
     virtual void setSocHv(uint8_t soc) {}
     virtual void setSocLv(uint8_t soc) {}
     virtual void setRpm(uint16_t rpm) {}
-    virtual void setRange(uint16_t range) {}
+    //virtual void setRange(uint16_t range) {}
     virtual void setBatteryHVTemperature(uint8_t temperature) {}
-    virtual void setPace(int32_t pace) {}
+    virtual void setPace(int16_t pace) {}
+    virtual void setLap(uint8_t value) {}
 
     virtual void switchScreenRM(){}
     virtual void switchScreenMR(){}

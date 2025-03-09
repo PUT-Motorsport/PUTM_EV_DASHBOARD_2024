@@ -21,13 +21,13 @@ public:
 			   	   	   	   	   	   uint8_t inv_FR_temperature,
 								   uint8_t inv_RL_temperature,
 								   uint8_t inv_RR_temperature);
-    void updatePace(int32_t pace);
-    void updateRange(uint16_t range);
     void updateMotorTemp(uint8_t temperatureMotorFL,
     					 uint8_t temperatureMotorFR,
 						 uint8_t temperatureMotorRL,
 						 uint8_t temperatureMotorRR);
+    void updatePace(int16_t pace);
     void updateLap(uint8_t value);
+    void updateBestLap(uint32_t time);
 protected:
 };
 

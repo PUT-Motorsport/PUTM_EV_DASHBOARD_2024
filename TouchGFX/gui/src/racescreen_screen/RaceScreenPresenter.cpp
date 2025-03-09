@@ -28,10 +28,6 @@ void RaceScreenPresenter::setInverterTemperature(uint8_t inv_FL_temperature,
 																											  inv_RL_temperature,
 																											  inv_RR_temperature); }
 
-void RaceScreenPresenter::setPace(int32_t pace) {view.updatePace(pace);}
-
-void RaceScreenPresenter::setRange(uint16_t range) {view.updateRange(range);}
-
 void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 									   uint8_t temperatureMotorFR,
 									   uint8_t temperatureMotorRL,
@@ -40,7 +36,11 @@ void RaceScreenPresenter::setMotorTemp(uint8_t temperatureMotorFL,
 																						 temperatureMotorRL,
 																						 temperatureMotorRR);}
 
+void RaceScreenPresenter::setPace(int16_t pace) {view.updatePace(pace);}
+
 void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
+
+void RaceScreenPresenter::setBestLap(uint32_t time){view.updateBestLap(time);}
 
 
 void RaceScreenPresenter::switchScreenRM()

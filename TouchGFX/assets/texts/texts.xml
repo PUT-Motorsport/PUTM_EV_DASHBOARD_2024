@@ -6,20 +6,20 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_GS52" Alignment="Left" TypographyId="Big_Puls">
-        <Translation Language="GB">+00.00</Translation>
+      <Text Id="__SingleUse_V4LM" Alignment="Left" TypographyId="MediumPlus">
+        <Translation Language="GB">00:00.000</Translation>
       </Text>
-      <Text Id="__SingleUse_XYIR" Alignment="Center" TypographyId="Big_Puls">
+      <Text Id="__SingleUse_A9QM" Alignment="Center" TypographyId="MediumPlus">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_GS52" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">+00.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_XYIR" Alignment="Center" TypographyId="Big">
         <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_KABG" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">Lap</Translation>
-      </Text>
-      <Text Id="__SingleUse_B13S" Alignment="Left" TypographyId="Medium">
-        <Translation Language="GB">+0.000</Translation>
-      </Text>
-      <Text Id="__SingleUse_J3NR" Alignment="Left" TypographyId="Medium">
-        <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_2EHC" Alignment="Left" TypographyId="Tiny">
         <Translation Language="GB">RearBrake</Translation>
@@ -98,12 +98,6 @@
       </Text>
       <Text Id="__SingleUse_6NEI" Alignment="Center" TypographyId="Big">
         <Translation Language="GB">DRS</Translation>
-      </Text>
-      <Text Id="__SingleUse_86LY" Alignment="Left" TypographyId="Medium">
-        <Translation Language="GB">25.00</Translation>
-      </Text>
-      <Text Id="__SingleUse_Y024" Alignment="Center" TypographyId="Medium">
-        <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_7G62" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">RPM</Translation>

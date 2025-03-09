@@ -114,8 +114,8 @@ void Model::tick() {
             m_sharedDataPrev.rpm = m_sharedData.rpm;
             modelListener->setRpm(m_sharedData.rpm);
 
-            m_sharedDataPrev.range = m_sharedData.range;
-            modelListener->setRange(m_sharedData.range);
+//            m_sharedDataPrev.range = m_sharedData.range;
+//            modelListener->setRange(m_sharedData.range);
 
             m_sharedDataPrev.rtd_button_pressed = m_sharedData.rtd_button_pressed;
             modelListener->setRtdButtonPressed(m_sharedData.rtd_button_pressed);
@@ -136,11 +136,14 @@ void Model::tick() {
             m_timerDataPrev.current_lap = m_timerData.current_lap;
             modelListener->setCurrentLap(m_timerData.current_lap);
 
-            m_timerDataPrev.last_lap = m_timerData.last_lap;
-            modelListener->setLastLap(m_timerData.last_lap);
+//            m_timerDataPrev.last_lap = m_timerData.last_lap;
+//            modelListener->setLastLap(m_timerData.last_lap);
 
             m_timerDataPrev.best_lap = m_timerData.best_lap;
             modelListener->setBestLap(m_timerData.best_lap);
+
+            m_timerDataPrev.lap_counter = m_timerData.lap_counter;
+            modelListener->setLap(m_timerData.lap_counter);
 
             osMutexRelease(timerDataMutexHandle);
         }

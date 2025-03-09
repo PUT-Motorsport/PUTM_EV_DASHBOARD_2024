@@ -400,6 +400,44 @@ void Communication_Task(void* argument) {
         		  }
         	     }
 
+        //Pc LapTimer data
+//        if(PUTM_CAN::can.get_pc_lap_timer_data_new_data())
+//        {
+//              timeoutData.pc_laptimer_last_frame_time = current_tick_time;
+//              auto pc_laptimer_data = PUTM_CAN::can.get_pc_lap_timer_data();
+//
+//
+//              if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+//              {
+//                    sharedData.warning = false;
+//                    sharedData.connection = false;
+//
+//                    timerData.pace = pc_laptimer_data.delta_time;
+//                    timerData.current_lap = pc_laptimer_data.currentLapTime;
+//                    timerData.best_lap = pc_laptimer_data.bestLapTime;
+//                    timerData.lap_counter = pc_laptimer_data.lap_counter;
+//
+//        			 osMutexRelease(sharedDataMutexHandle);
+//        	  }
+//          }
+//          else if(current_tick_time - timeoutData.pc_laptimer_last_frame_time > DASH_TIMEOUT_DURATION)
+//          {
+//
+//        	  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+//        	  {
+//        		 sharedData.warning = true;
+//        		 sharedData.connection = true;
+//
+//                 timerData.pace = 0;
+//                 timerData.current_lap = 0;
+//                 timerData.best_lap = 0;
+//                 timerData.lap_counter = 0;
+//
+//
+//        		 osMutexRelease(sharedDataMutexHandle);
+//        	   }
+//        }
+
 
         HAL_IWDG_Refresh(&hiwdg); // Every 250 ms
 

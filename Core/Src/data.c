@@ -60,7 +60,6 @@ Data_TypeDef sharedData = {
     .power = 0,
     .distance = 0,
     .range = 0,
-	.lap_counter = 0.
 };
 
 SafetyData_TypeDef safetyData =
@@ -101,6 +100,7 @@ TimeoutData_TypeDef timeoutData = {
 	.rearbox_temperatures_last_frame_time = 0,
 	.pc_last_frame_time = 0,
 	.pc_temp_last_frame_time = 0,
+	.pc_laptimer_last_frame_time = 0,
 };
 
 TimerData_TypeDef timerData = {
@@ -108,6 +108,7 @@ TimerData_TypeDef timerData = {
     .current_lap = 0,
     .last_lap = 0,
     .best_lap = 0,
+	.lap_counter = 0,
 };
 
 InterfaceData_TypeDef interfaceData = {
