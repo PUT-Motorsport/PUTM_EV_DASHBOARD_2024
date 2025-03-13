@@ -247,30 +247,326 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_O4LY",
                   "UseBuffer": true,
-                  "BufferSize": 12
+                  "BufferSize": 32
                 },
                 "Moveable": true
               },
               {
                 "Type": "TextArea",
-                "Name": "sdcText",
+                "Name": "safety_wheel_rl_Text",
+                "X": 33,
+                "Y": 50,
+                "Width": 160,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_XT04",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_TEIF",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_hv_Text",
+                "X": 56,
+                "Y": 50,
+                "Width": 109,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_42PE",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_LKPF",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_inv_Text",
+                "X": 53,
+                "Y": 50,
+                "Width": 129,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_GTCY",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_EO5I",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_asms_Text",
+                "X": 2,
+                "Y": 49,
+                "Width": 216,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_XNHQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_IQ5T",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sense_right_kill_Text",
+                "X": 60,
+                "Y": 50,
+                "Width": 100,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_IIPR",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_U9AT",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sense_left_kill_Text",
+                "X": 60,
+                "Y": 50,
+                "Width": 93,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_VQCC",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_O85S",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sense_driver_kill_Text",
+                "X": 60,
+                "Y": 50,
+                "Width": 103,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_2UVJ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_76BS",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sense_inertia_Text",
+                "X": 48,
+                "Y": 50,
+                "Width": 124,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_DLV8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_P3L0",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sense_bspd_Text",
+                "X": 8,
+                "Y": 53,
+                "Width": 208,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_YUZD",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_J9ZQ",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sense_overtravel_Text",
                 "X": 34,
-                "Y": 65,
-                "Width": 155,
-                "Height": 72,
-                "TextId": "__SingleUse_JD9Q",
+                "Y": 53,
+                "Width": 152,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_LWZ8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_7SMX",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_hvd_Text",
+                "X": 34,
+                "Y": 53,
+                "Width": 164,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_XVSQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_229D",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_wheel_fr_Text",
+                "X": 33,
+                "Y": 50,
+                "Width": 161,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_HINU",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_6NE9",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_wheel_fl_Text",
+                "X": 33,
+                "Y": 50,
+                "Width": 154,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_J65B",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OQUS",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_wheel_rr_Text",
+                "X": 33,
+                "Y": 50,
+                "Width": 167,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_J56P",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OFDW",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "sdcText",
+                "X": 59,
+                "Y": 50,
+                "Width": 102,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_HJOE",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
                 },
+                "AutoSize": true,
                 "Wildcard1": {
-                  "TextId": "__SingleUse_QORS",
+                  "TextId": "__SingleUse_QPH2",
                   "UseBuffer": true,
-                  "BufferSize": 10
-                },
-                "Moveable": true
+                  "BufferSize": 6
+                }
               }
             ]
           },
@@ -681,7 +977,7 @@
           {
             "Type": "Image",
             "Name": "RTD_Led",
-            "X": 775,
+            "X": 758,
             "Y": 77,
             "Width": 50,
             "Height": 50,
@@ -690,7 +986,7 @@
           {
             "Type": "Image",
             "Name": "TSA_Led",
-            "X": 775,
+            "X": 758,
             "Y": 373,
             "Width": 50,
             "Height": 50,

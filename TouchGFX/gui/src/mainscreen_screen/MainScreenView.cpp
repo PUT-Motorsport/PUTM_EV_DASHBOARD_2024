@@ -362,6 +362,45 @@ void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
     motorRearRighttext.invalidate();
 }
 
+void MainScreenView::displayError(uint8_t error_idx)
+{
+    using namespace touchgfx;
+
+    TextAreaWithOneWildcard* texts[] = {
+        &safety_wheel_rl_Text,  // 0
+        &safety_wheel_rr_Text,  // 1
+        &safety_wheel_fr_Text,  // 2
+        &safety_wheel_fl_Text,  // 3
+        &safety_hv_Text,        // 4
+        &safety_inv_Text,       // 5
+        &safety_asms_Text,      // 6
+        &sense_right_kill_Text, // 7
+        &sense_left_kill_Text,  // 8
+        &sense_driver_kill_Text,// 9
+        &sense_inertia_Text,    // 10
+        &sense_bspd_Text,       // 11
+        &sense_overtravel_Text, // 12
+        &safety_hvd_Text        // 13
+    };
+
+    const size_t num_texts = sizeof(texts) / sizeof(texts[0]);
+
+    // Najpierw wyłączamy widoczność wszystkich
+    for (size_t i = 0; i < num_texts; ++i)
+    {
+        texts[i]->setVisible(false);
+        texts[i]->invalidate();
+    }
+
+    // Następnie, jeśli indeks mieści się w zakresie, włączamy widoczny element
+    if (error_idx < num_texts)
+    {
+        texts[error_idx]->setVisible(true);
+        texts[error_idx]->invalidate();
+    }
+}
+
+
 
 //Safety display
 void MainScreenView::updateSDC(SafetyData_TypeDef status)
@@ -373,22 +412,16 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         status.safety_wheel_fl,  // Front Left Wheel Sensor
         status.safety_hv,        // High Voltage System Safety
         status.safety_inv,       // Inverter Safety
-        //status.safety_asms,      // AMS (Accumulator Management System)
+        // status.safety_asms,    // AMS (Accumulator Management System)
         status.sense_right_kill, // Right Kill Switch
         status.sense_left_kill,  // Left Kill Switch
         status.sense_driver_kill,// Cockpit Kill Switch
         status.sense_inertia,    // Inertia Switch
         status.sense_bspd,       // BSPD
-        status.sense_overtravel, // BOTS
+        status.sense_overtravel, // Overtravel (BOTS)
         status.safety_hvd        // HVD
     };
 
-    std::array<const char*, 14> error_names = {
-        "WRL", "WRR", "WFR", "WFL",
-        "HV", "INV", "ASMS",
-        "RK", "LK", "DK",
-        "INE", "BSPD", "ORT", "HVD"
-    };
 
     int first_error_index = -1;
     for (int i = 0; i < fields.size(); i++) {
@@ -398,40 +431,32 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         }
     }
 
-
-    if (first_error_index == -1) {
-        // Brak błędów - wyświetlamy "OK"
-        //setSafetyStatus("OK", 255, 255, 255);
-
-    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("SDC Status"), sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE);
+    // Wyświetlamy tylko skrót błędu lub komunikat "OK"
+    if (first_error_index == -1)
+    {
     	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("OK"), sdcTextBuffer, SDCTEXT_SIZE);
-    	sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", "OK");
+        sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 
-    	sdcText.setVisible(true);
-    	sdcText.invalidate();
-
-    	sdcStatusLabelText.setVisible(true);
-    	sdcStatusLabelText.invalidate();
-
+        sdcText.setVisible(true);
+        sdcText.invalidate();
+        sdcStatusLabelText.setVisible(true);
+        sdcStatusLabelText.invalidate();
     }
     else
     {
-        // Wyświetlamy pierwszy wykryty błąd
-        //setSafetyStatus(error_names[first_error_index], 255, 0, 0);
-
-    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>("SDC Status"), sdcStatusLabelTextBuffer, SDCSTATUSLABELTEXT_SIZE);
-    	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    	touchgfx::Unicode::fromUTF8(reinterpret_cast<const uint8_t*>(error_names[first_error_index]), sdcTextBuffer, SDCTEXT_SIZE);
-    	sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-
-    	sdcText.setVisible(true);
-    	sdcText.invalidate();
-
+    	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     	sdcStatusLabelText.setVisible(true);
     	sdcStatusLabelText.invalidate();
+    	sdcText.setVisible(false);
+    	sdcText.invalidate();
+    	displayError(first_error_index);
     }
+
 }
+
+
+
 
 void MainScreenView::updateRtdButtonPressed(bool status)
 {
