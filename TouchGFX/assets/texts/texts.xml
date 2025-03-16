@@ -6,6 +6,54 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_ULET" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">STOP&#10;CAR</Translation>
+      </Text>
+      <Text Id="__SingleUse_GK6V" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_W4GY" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">MOTOR TEMP&#10;TO HIGH</Translation>
+      </Text>
+      <Text Id="__SingleUse_8RWY" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_VRJO" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">BATTERY HV&#10;SOC LOW</Translation>
+      </Text>
+      <Text Id="__SingleUse_8VOE" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WWBF" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">BATTERY LV&#10;SOC LOW</Translation>
+      </Text>
+      <Text Id="__SingleUse_YQ2A" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_YJR2" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">BATTERY HV&#10;TEMP&#10; TO HIGH</Translation>
+      </Text>
+      <Text Id="__SingleUse_FVID" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_EMOK" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">BATTERY LV&#10;TEMP&#10; TO HIGH</Translation>
+      </Text>
+      <Text Id="__SingleUse_9PE6" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_HNUB" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">INVENTER&#10;TEMP&#10; TO HIGH</Translation>
+      </Text>
+      <Text Id="__SingleUse_MX7G" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_SNBB" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">BSPD &#10;ACTIVE</Translation>
+      </Text>
+      <Text Id="__SingleUse_85M9" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_NFRK" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">bar</Translation>
       </Text>

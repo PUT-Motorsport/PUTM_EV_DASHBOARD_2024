@@ -1554,17 +1554,187 @@
           {
             "Type": "TextArea",
             "Name": "notificationText",
-            "X": 30,
-            "Y": 43,
-            "Width": 740,
-            "Height": 394,
+            "X": 114,
+            "Y": 41,
+            "Width": 572,
+            "Height": 127,
+            "Visible": false,
+            "LockPosition": true,
             "TextId": "__SingleUse_KFWH",
             "TextRotation": "0",
             "Color": {
               "Red": 255
             },
+            "AutoSize": true,
             "Wildcard1": {
               "TextId": "__SingleUse_IKMT",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bspdErrorText",
+            "X": 187,
+            "Y": 113,
+            "Width": 427,
+            "Height": 254,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_85M9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_SNBB",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "invErrorText",
+            "X": 88,
+            "Y": 50,
+            "Width": 588,
+            "Height": 381,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_MX7G",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_HNUB",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lvTempErrorText",
+            "X": 18,
+            "Y": 44,
+            "Width": 728,
+            "Height": 381,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_9PE6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_EMOK",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hvTempErrorText",
+            "X": 18,
+            "Y": 44,
+            "Width": 746,
+            "Height": 381,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_FVID",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_YJR2",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lvSocErrorText",
+            "X": 18,
+            "Y": 113,
+            "Width": 728,
+            "Height": 254,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_YQ2A",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_WWBF",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hvSocErrorText",
+            "X": 18,
+            "Y": 113,
+            "Width": 746,
+            "Height": 254,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_8VOE",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_VRJO",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "motorTempErrorText",
+            "X": -5,
+            "Y": 101,
+            "Width": 774,
+            "Height": 254,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_8RWY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_W4GY",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "stopCarText",
+            "X": 226,
+            "Y": 91,
+            "Width": 348,
+            "Height": 254,
+            "LockPosition": true,
+            "TextId": "__SingleUse_GK6V",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_ULET",
               "UseBuffer": true,
               "BufferSize": 16
             }
