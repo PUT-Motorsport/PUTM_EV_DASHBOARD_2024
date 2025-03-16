@@ -6,6 +6,9 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_NFRK" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">bar</Translation>
+      </Text>
       <Text Id="__SingleUse_QPH2" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">OK</Translation>
       </Text>
@@ -250,10 +253,10 @@
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_MOUC" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">100</Translation>
+        <Translation Language="GB">10.00</Translation>
       </Text>
       <Text Id="__SingleUse_PDYZ" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">&lt;d&gt; bar</Translation>
+        <Translation Language="GB">&lt;d&gt; </Translation>
       </Text>
       <Text Id="__SingleUse_LTUT" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">99</Translation>
@@ -262,10 +265,10 @@
         <Translation Language="GB">&lt;d&gt; °C</Translation>
       </Text>
       <Text Id="__SingleUse_RX3A" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">100</Translation>
+        <Translation Language="GB">10.00</Translation>
       </Text>
       <Text Id="__SingleUse_01BQ" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">&lt;d&gt; bar</Translation>
+        <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_M415" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">99</Translation>

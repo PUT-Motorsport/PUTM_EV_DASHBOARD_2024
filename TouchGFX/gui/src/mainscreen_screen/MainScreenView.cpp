@@ -21,12 +21,13 @@
 #define OIL_TEMPERATURE_MIN 5
 #define OIL_TEMPERATURE_MID 30
 #define OIL_TEMPERATURE_MAX 50
-#define BRAKE_PRESSURE_MIN 1
-#define BRAKE_PRESSURE_MID 5
-#define BRAKE_PRESSURE_MAX 15
+#define BRAKE_PRESSURE_MIN 200
+#define BRAKE_PRESSURE_RTD_SET 850
+#define BRAKE_PRESSURE_MAX 1100
 #define COOLANT_TEMPERATURE_MIN 5
 #define COOLANT_TEMPERATURE_MID 30
 #define COOLANT_TEMPERATURE_MAX 35
+
 
 MainScreenView::MainScreenView() {}
 
@@ -175,39 +176,106 @@ void MainScreenView::updateOilTemperature(uint8_t temperature) {
 }
 
 void MainScreenView::updateFrontBrakePressure(uint16_t pressure) {
-    Unicode::snprintf(FrontBrakePressTextBuffer, FRONTBRAKEPRESSTEXT_SIZE, "%d", pressure);
-    if(pressure >= BRAKE_PRESSURE_MAX || pressure <= BRAKE_PRESSURE_MIN) {
-    	PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_CRIT_ID));
-        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(pressure > BRAKE_PRESSURE_MID) {
-    	PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_WARN_ID));
-        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
-    	PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_ID));
-        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
-    PressIcon.setVisible(true);
-    FrontBrakePressText.setVisible(true);
-    PressIcon.invalidate();
-    FrontBrakePressText.invalidate();
+
+	// Konwersja wartości czujnika do reprezentacji stałoprzecinkowej (skalowanej razy 100)
+	    const int Pmax_fixed = 12000;  // SENSOR_PMAX * 100 (120.00)
+	    const int Pmin_fixed = 20;     // SENSOR_PMIN * 100 (0.20)
+	    const int Vmax_fixed = 450;    // SENSOR_VMAX * 100 (4.50)
+	    const int Vmin_fixed = 50;     // SENSOR_VMIN * 100 (0.50)
+	    const int adc_max = 4095;      // Maksymalna wartość ADC (12-bitowy)
+
+	    // Obliczamy napięcie z ADC w jednostkach setnych woltów.
+	    // 3.3 V (referencyjne) * 100 = 330
+	    int voltage_fixed = (330 * pressure) / adc_max;
+
+	    // Obliczamy ciśnienie w setnych barów wg równania:
+	    // pressure_bar = ((Pmax - Pmin)/(Vmax - Vmin)) * (napięcie - Vmin) + Pmin
+	    int pressureHundredths = ((Pmax_fixed - Pmin_fixed) * (voltage_fixed - Vmin_fixed))
+	                             / (Vmax_fixed - Vmin_fixed) + Pmin_fixed;
+
+	    // Rozdzielenie części całkowitej i ułamkowej (setne)
+	    int pressureWhole = pressureHundredths / 100;
+	    int pressureFrac  = pressureHundredths % 100;
+
+	    // Formatowanie tekstu "XX.XX"
+	    Unicode::snprintf(FrontBrakePressTextBuffer, FRONTBRAKEPRESSTEXT_SIZE, "%02d.%02d", pressureWhole, pressureFrac);
+
+        PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_ID));
+
+	    if(pressure >= BRAKE_PRESSURE_RTD_SET)
+	    {
+	        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+	        FrontBrakePressLabel.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+
+	    }
+	    else if(pressure < BRAKE_PRESSURE_MIN ||  pressure > BRAKE_PRESSURE_MAX)
+	    {
+	        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	        FrontBrakePressLabel.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	    }
+	    else
+	    {
+	        FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	        FrontBrakePressLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	    }
+
+	    PressIcon.setVisible(true);
+	    FrontBrakePressText.setVisible(true);
+	    PressIcon.invalidate();
+	    FrontBrakePressText.invalidate();
+	    FrontBrakePressLabel.setVisible(true);
+	    FrontBrakePressLabel.invalidate();
 }
 
 void MainScreenView::updateRearBrakePressure(uint16_t pressure) {
-    Unicode::snprintf(RearBrakePressTextBuffer, REARBRAKEPRESSTEXT_SIZE, "%d", pressure);
-    if(pressure >= BRAKE_PRESSURE_MAX || pressure <= BRAKE_PRESSURE_MIN) {
-    	PressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_CRIT_ID));
-    	FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(pressure > BRAKE_PRESSURE_MID) {
-    	PressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_WARN_ID));
-    	FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
-    	PressIcon.setBitmap(Bitmap(BITMAP_COOLANT_PRESSURE_ID));
-    	FrontBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+
+	// Konwersja wartości czujnika do reprezentacji stałoprzecinkowej (skalowanej razy 100)
+	    const int Pmax_fixed = 12000;  // SENSOR_PMAX * 100 (120.00)
+	    const int Pmin_fixed = 20;     // SENSOR_PMIN * 100 (0.20)
+	    const int Vmax_fixed = 450;    // SENSOR_VMAX * 100 (4.50)
+	    const int Vmin_fixed = 50;     // SENSOR_VMIN * 100 (0.50)
+	    const int adc_max = 4095;      // Maksymalna wartość ADC (12-bitowy)
+
+	    // Obliczamy napięcie z ADC w jednostkach setnych woltów.
+	    // 3.3 V (referencyjne) * 100 = 330
+	    int voltage_fixed = (330 * pressure) / adc_max;
+
+	    // Obliczamy ciśnienie w setnych barów wg równania:
+	    // pressure_bar = ((Pmax - Pmin)/(Vmax - Vmin)) * (napięcie - Vmin) + Pmin
+	    int pressureHundredths = ((Pmax_fixed - Pmin_fixed) * (voltage_fixed - Vmin_fixed))
+	                             / (Vmax_fixed - Vmin_fixed) + Pmin_fixed;
+
+	    // Rozdzielenie części całkowitej i ułamkowej (setne)
+	    int pressureWhole = pressureHundredths / 100;
+	    int pressureFrac  = pressureHundredths % 100;
+
+    Unicode::snprintf(RearBrakePressTextBuffer, REARBRAKEPRESSTEXT_SIZE, "%02d.%02d", pressureWhole,pressureFrac);
+
+    PressIcon.setBitmap(Bitmap(BITMAP_OIL_PRESSURE_ID));
+
+    if(pressure >= BRAKE_PRESSURE_RTD_SET)
+    {
+    	RearBrakePressText.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    	RearBrakePressLabel.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+
     }
+    else if(pressure < BRAKE_PRESSURE_MIN ||  pressure > BRAKE_PRESSURE_MAX)
+    {
+    	RearBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        RearBrakePressLabel.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else
+    {
+    	RearBrakePressText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        RearBrakePressLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+
     PressIcon.setVisible(true);
-    FrontBrakePressText.setVisible(true);
+    RearBrakePressText.setVisible(true);
     PressIcon.invalidate();
-    FrontBrakePressText.invalidate();
+    RearBrakePressText.invalidate();
+    RearBrakePressLabel.setVisible(true);
+    RearBrakePressLabel.invalidate();
 }
 
 void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
@@ -412,7 +480,7 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         status.safety_wheel_fl,  // Front Left Wheel Sensor
         status.safety_hv,        // High Voltage System Safety
         status.safety_inv,       // Inverter Safety
-        // status.safety_asms,    // AMS (Accumulator Management System)
+        status.safety_asms,    // AMS (Accumulator Management System)
         status.sense_right_kill, // Right Kill Switch
         status.sense_left_kill,  // Left Kill Switch
         status.sense_driver_kill,// Cockpit Kill Switch
@@ -422,11 +490,15 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
         status.safety_hvd        // HVD
     };
 
-
     int first_error_index = -1;
-    for (int i = 0; i < fields.size(); i++) {
-        if (fields[i]) {
-            first_error_index = i;
+
+    // Używamy std::size_t do iteracji:
+    for (std::size_t i = 0; i < fields.size(); i++)
+    {
+        if (fields[i])
+        {
+            // Jeśli potrzebujemy zapisać w int, rzutujemy:
+            first_error_index = static_cast<int>(i);
             break;
         }
     }
@@ -434,7 +506,7 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
     // Wyświetlamy tylko skrót błędu lub komunikat "OK"
     if (first_error_index == -1)
     {
-    	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
         Unicode::snprintf(sdcTextBuffer, SDCTEXT_SIZE, "%s", "OK");
         sdcText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 
@@ -445,15 +517,15 @@ void MainScreenView::updateSDC(SafetyData_TypeDef status)
     }
     else
     {
-    	sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    	sdcStatusLabelText.setVisible(true);
-    	sdcStatusLabelText.invalidate();
-    	sdcText.setVisible(false);
-    	sdcText.invalidate();
-    	displayError(first_error_index);
+        sdcStatusLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        sdcStatusLabelText.setVisible(true);
+        sdcStatusLabelText.invalidate();
+        sdcText.setVisible(false);
+        sdcText.invalidate();
+        displayError(first_error_index);
     }
-
 }
+
 
 
 

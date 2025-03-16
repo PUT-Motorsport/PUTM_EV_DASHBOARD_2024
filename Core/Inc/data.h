@@ -43,8 +43,8 @@ typedef struct {
     uint8_t oil_pressure;
     uint8_t coolant_temperature;
     uint8_t coolant_pressure;
-    uint8_t front_brake_pressure;
-    uint8_t rear_brake_pressure;
+    uint16_t front_brake_pressure;
+    uint16_t rear_brake_pressure;
     uint8_t motor_front_left_temperature;
     uint8_t motor_front_right_temperature;
     uint8_t motor_rear_left_temperature;

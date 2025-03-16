@@ -247,7 +247,7 @@
                 "Wildcard1": {
                   "TextId": "__SingleUse_O4LY",
                   "UseBuffer": true,
-                  "BufferSize": 32
+                  "BufferSize": 16
                 },
                 "Moveable": true
               },
@@ -589,10 +589,10 @@
               {
                 "Type": "TextArea",
                 "Name": "RearBrakePressText",
-                "X": 130,
-                "Y": 230,
-                "Width": 87,
-                "Height": 25,
+                "X": 135,
+                "Y": 224,
+                "Width": 76,
+                "Height": 30,
                 "TextId": "__SingleUse_PDYZ",
                 "TextRotation": "0",
                 "Color": {
@@ -600,7 +600,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_MOUC",
                   "UseBuffer": true,
@@ -681,10 +680,10 @@
               {
                 "Type": "TextArea",
                 "Name": "FrontBrakePressText",
-                "X": 2,
-                "Y": 230,
-                "Width": 87,
-                "Height": 25,
+                "X": 15,
+                "Y": 224,
+                "Width": 76,
+                "Height": 30,
                 "TextId": "__SingleUse_01BQ",
                 "TextRotation": "0",
                 "Color": {
@@ -692,7 +691,6 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_RX3A",
                   "UseBuffer": true,
@@ -977,8 +975,8 @@
           {
             "Type": "Image",
             "Name": "RTD_Led",
-            "X": 758,
-            "Y": 77,
+            "X": 773,
+            "Y": 93,
             "Width": 50,
             "Height": 50,
             "RelativeFilename": "syg_led.png"
@@ -986,11 +984,27 @@
           {
             "Type": "Image",
             "Name": "TSA_Led",
-            "X": 758,
-            "Y": 373,
+            "X": 773,
+            "Y": 381,
             "Width": 50,
             "Height": 50,
             "RelativeFilename": "syg_led.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "barText",
+            "X": 119,
+            "Y": 356,
+            "Width": 38,
+            "Height": 25,
+            "TextId": "__SingleUse_NFRK",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
