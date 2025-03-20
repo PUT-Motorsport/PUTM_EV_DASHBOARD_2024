@@ -50,7 +50,7 @@ class MainScreenView : public MainScreenViewBase {
     void toggleWarning();
 
     //Safety display
-    void displayError(uint8_t error_idx);
+    void displayError(int error_idx);
     void updateSDC(SafetyData_TypeDef status);
 
   protected:

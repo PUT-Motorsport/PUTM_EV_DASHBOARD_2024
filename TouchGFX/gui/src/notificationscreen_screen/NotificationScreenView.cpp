@@ -204,7 +204,7 @@ void NotificationScreenView::updateCheckErrors(bool bspd,
 	    }
 
 	    // Toggle the screen every second if the notification screen is already visible
-	    if ((xTaskGetTickCount() * portTICK_PERIOD_MS) - lastToggleTime >= 1000)
+	    if ((xTaskGetTickCount() * portTICK_PERIOD_MS) - lastToggleTime >= 5000)
 	    {
 	        lastToggleTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
 	        toggleScreen();

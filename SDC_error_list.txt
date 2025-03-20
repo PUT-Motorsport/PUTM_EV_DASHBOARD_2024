@@ -20,8 +20,8 @@ Frotbox:
     left_kill - LK
     right_kill - RK
     driver_kill - DK
-    inertia - INE
+    inertia - INRT
     bspd - BSPD
-    overtravel - ORT
+    overtravel - BOTS
     right_wheel - RH
     is_braking - IB

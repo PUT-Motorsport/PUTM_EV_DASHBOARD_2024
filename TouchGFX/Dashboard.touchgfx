@@ -443,9 +443,9 @@
               {
                 "Type": "TextArea",
                 "Name": "sense_overtravel_Text",
-                "X": 34,
+                "X": 9,
                 "Y": 53,
-                "Width": 152,
+                "Width": 202,
                 "Height": 85,
                 "Visible": false,
                 "LockPosition": true,
