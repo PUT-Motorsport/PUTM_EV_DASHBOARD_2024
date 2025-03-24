@@ -99,10 +99,10 @@ typedef struct {
 } TimeoutData_TypeDef;
 
 typedef struct {
-    int32_t pace;
-    uint32_t current_lap;
-    uint32_t last_lap;
-    uint32_t best_lap;
+    int16_t pace;
+    uint16_t current_lap;
+    uint16_t last_lap;
+    uint16_t best_lap;
     uint8_t lap_counter;
 } TimerData_TypeDef;
 

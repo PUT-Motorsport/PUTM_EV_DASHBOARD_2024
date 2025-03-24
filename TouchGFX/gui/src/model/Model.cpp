@@ -136,8 +136,7 @@ void Model::tick() {
             m_timerDataPrev.current_lap = m_timerData.current_lap;
             modelListener->setCurrentLap(m_timerData.current_lap);
 
-//            m_timerDataPrev.last_lap = m_timerData.last_lap;
-//            modelListener->setLastLap(m_timerData.last_lap);
+            modelListener->setLastLap(m_timerData.current_lap);
 
             m_timerDataPrev.best_lap = m_timerData.best_lap;
             modelListener->setBestLap(m_timerData.best_lap);

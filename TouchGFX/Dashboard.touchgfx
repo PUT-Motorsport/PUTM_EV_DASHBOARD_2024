@@ -1218,7 +1218,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_V4LM",
               "UseBuffer": true,
-              "BufferSize": 12
+              "BufferSize": 32
             }
           },
           {
@@ -1465,7 +1465,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_A6WO",
               "UseBuffer": true,
-              "BufferSize": 6
+              "BufferSize": 16
             }
           },
           {
@@ -1506,7 +1506,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_GS52",
               "UseBuffer": true,
-              "BufferSize": 10
+              "BufferSize": 32
             }
           }
         ],
@@ -1724,7 +1724,7 @@
             "Name": "stopCarText",
             "X": 226,
             "Y": 91,
-            "Width": 348,
+            "Width": 312,
             "Height": 254,
             "LockPosition": true,
             "TextId": "__SingleUse_GK6V",

@@ -315,13 +315,25 @@ void MainScreenView::updateCurrentLap(uint32_t time) {
 }
 
 void MainScreenView::updateLastLap(uint32_t time) {
-    uint8_t minutes = time / (1000 * 60);
-    time %= (1000 * 60);
-    uint8_t seconds = time / 1000;
-    time %= 1000;
+	    // Statyczna zmienna zapamiętująca czas ostatniego okrążenia.
+	    // Przy pierwszym wywołaniu będzie wynosić 0.
+	    static uint32_t lastLapTime = 0;
 
-    Unicode::snprintf(lastLapTextBuffer, LASTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, time);
-    lastLapText.invalidate();
+	    // Wyświetlamy zapisany czas (ostatnie okrążenie)
+	    uint32_t displayTime = lastLapTime;
+
+	    // Aktualizujemy lastLapTime na bieżący czas okrążenia,
+	    // dzięki czemu przy kolejnym wywołaniu wyświetlimy właśnie ten czas.
+	    lastLapTime = time;
+
+	    // Obliczenia minut, sekund i milisekund dla displayTime
+	    uint8_t minutes = displayTime / (1000 * 60);
+	    displayTime %= (1000 * 60);
+	    uint8_t seconds = displayTime / 1000;
+	    displayTime %= 1000;
+
+	    Unicode::snprintf(lastLapTextBuffer, LASTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, displayTime);
+	    lastLapText.invalidate();
 }
 
 void MainScreenView::updateBestLap(uint32_t time) {

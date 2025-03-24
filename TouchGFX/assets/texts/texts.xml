@@ -157,7 +157,7 @@
         <Translation Language="GB">+00.000</Translation>
       </Text>
       <Text Id="__SingleUse_XYIR" Alignment="Center" TypographyId="Big">
-        <Translation Language="GB">&lt;s&gt;</Translation>
+        <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_KABG" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">Lap</Translation>

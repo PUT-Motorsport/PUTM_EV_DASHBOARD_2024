@@ -1,3 +1,4 @@
+
 #include <gui/racescreen_screen/RaceScreenView.hpp>
 
 #include "BitmapDatabase.hpp"
@@ -173,33 +174,56 @@ else
 
 void RaceScreenView::updatePace(int16_t pace)
 {
+//    // Dzielimy pace przez 1000, aby uzyskać liczbę sekund (część całkowita)
+//    int paceWhole = pace / 1000;
+//    // Obliczamy część ułamkową (milisekundy) – zawsze jako wartość dodatnia
+//    int paceFrac  = abs(pace % 1000);
+
+    // Formatowanie tekstu:
+    // - Jeśli pace jest dodatnie: dodajemy znak '+' przed liczbą.
+    // - Jeśli pace jest ujemne: wyświetlamy znak '-' oraz wartość bez znaku.
+    // - Jeśli pace wynosi zero: wyświetlamy "00.000"
+    // Liczba całkowita jest uzupełniana do dwóch miejsc (%02d), a część ułamkowa do trzech (%03d)
+
+    // Ustawienie bitmapy tła w zależności od wartości pace
+
+
     if(pace > 0)
     {
-    	paceBackground.setBitmap(Bitmap(BITMAP_PACEREDBACKGROUND_ID));
+//    	Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "+%d", paceFrac);
+//        Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "+%02d.%03d", paceWhole, paceFrac);
+        paceBackground.setBitmap(Bitmap(BITMAP_PACEREDBACKGROUND_ID));
     }
     else if(pace < 0)
     {
-    	paceBackground.setBitmap(Bitmap(BITMAP_PACEGREENBACKGROUND_ID));
+//    	Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "-%d", paceFrac);
+//        Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "-%02d.%03d", abs(paceWhole), paceFrac);
+        paceBackground.setBitmap(Bitmap(BITMAP_PACEGREENBACKGROUND_ID));
     }
     else
     {
-    	paceBackground.setBitmap(Bitmap(BITMAP_PACEYELLOWBACKGROUND_ID));
+        paceBackground.setBitmap(Bitmap(BITMAP_PACEYELLOWBACKGROUND_ID));
+        Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "00.000");
     }
-
-    paceBackground.invalidate();
 
     float seconds = static_cast<float>(pace) / 1000.0f;
     Unicode::snprintfFloat(paceTextBuffer, PACETEXT_SIZE, "%+#.3f", seconds);
+
     paceText.setVisible(true);
     paceText.invalidate();
+
+    paceBackground.setVisible(true);
+    paceBackground.invalidate();
+
 }
 
 
 void RaceScreenView::updateLap(uint8_t value)
 {
-	Unicode::snprintf(LapValueTextBuffer, LAPVALUETEXT_SIZE, "%d", value);
-	LapValueText.setVisible(true);
-	LapValueText.invalidate();
+    Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "%d", value);
+
+    paceText.setVisible(true);
+    paceText.invalidate();
 }
 
 void RaceScreenView::updateBestLap(uint32_t time)
