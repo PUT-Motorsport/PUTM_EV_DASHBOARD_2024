@@ -309,7 +309,7 @@ void Communication_Task(void* argument) {
 
               sharedData.inverters_ready = pc_data.invertersReady;
               sharedData.speed = pc_data.vehicleSpeed;
-              sharedData.rpm = pc_data.rpm;
+              sharedData.power = pc_data.torque_current;
 
               sharedData.inv_FL_status = pc_data.inv_FL_status;
               sharedData.inv_FR_status = pc_data.inv_FR_status;

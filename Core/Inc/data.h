@@ -53,7 +53,7 @@ typedef struct {
     uint16_t soc_hv;
 	uint16_t soc_lv;
     uint16_t rpm;
-    uint8_t power;
+    uint16_t power;
     uint16_t distance;
     uint16_t range;
 } Data_TypeDef;
