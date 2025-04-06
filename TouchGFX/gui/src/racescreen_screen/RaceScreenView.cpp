@@ -174,20 +174,6 @@ else
 
 void RaceScreenView::updatePace(int16_t pace)
 {
-//    // Dzielimy pace przez 1000, aby uzyskać liczbę sekund (część całkowita)
-//    int paceWhole = pace / 1000;
-//    // Obliczamy część ułamkową (milisekundy) – zawsze jako wartość dodatnia
-//    int paceFrac  = abs(pace % 1000);
-
-    // Formatowanie tekstu:
-    // - Jeśli pace jest dodatnie: dodajemy znak '+' przed liczbą.
-    // - Jeśli pace jest ujemne: wyświetlamy znak '-' oraz wartość bez znaku.
-    // - Jeśli pace wynosi zero: wyświetlamy "00.000"
-    // Liczba całkowita jest uzupełniana do dwóch miejsc (%02d), a część ułamkowa do trzech (%03d)
-
-    // Ustawienie bitmapy tła w zależności od wartości pace
-
-
     if(pace > 0)
     {
 //    	Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "+%d", paceFrac);

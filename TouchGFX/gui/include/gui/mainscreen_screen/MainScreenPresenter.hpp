@@ -1,3 +1,11 @@
+/**
+ * @file MainScreenPresenter.hpp
+ * @brief Declaration of the MainScreenPresenter class.
+ *
+ * The MainScreenPresenter class handles the logic for the main screen,
+ * communicating with the Model and updating the view accordingly.
+ */
+
 #ifndef MAINSCREENPRESENTER_HPP
 #define MAINSCREENPRESENTER_HPP
 
@@ -8,6 +16,10 @@ using namespace touchgfx;
 
 class MainScreenView;
 
+
+/**
+ * @brief Presenter for the main screen.
+ */
 class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
   public:
     MainScreenPresenter(MainScreenView& v);
@@ -28,6 +40,8 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
 
 //    virtual void tick();
 
+
+    // Methods to set the view
     void setClock(uint32_t time);
     void setConnection(bool status);
     void setWarning(bool status);
@@ -64,14 +78,21 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setRtdButtonPressed(bool status);
     void setTsaButtonPressed(bool status);
 
+    /**
+     * @brief Switches from the main screen to the race screen.
+     */
     void switchScreenMR();
 
+
+    /**
+     * @brief Toggles warning elements.
+     */
     void toggleElements();
 
   private:
     MainScreenPresenter();
 
-    MainScreenView& view;
+    MainScreenView& view; ///< Reference to the main screen view.
 };
 
 #endif  // MAINSCREENPRESENTER_HPP

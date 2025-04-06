@@ -1,3 +1,12 @@
+/**
+ * @file MainScreenView.hpp
+ * @brief Declaration of the MainScreenView class.
+ *
+ * The MainScreenView class defines the user interface for the main screen.
+ * It includes methods for updating various UI elements such as clock, connection status,
+ * warnings, temperatures, pressures, and more.
+ */
+
 #ifndef MAINSCREENVIEW_HPP
 #define MAINSCREENVIEW_HPP
 
@@ -5,13 +14,35 @@
 #include <gui_generated/mainscreen_screen/MainScreenViewBase.hpp>
 #include <array>
 
+
+/**
+ * @brief View for the main screen.
+ */
 class MainScreenView : public MainScreenViewBase {
   public:
+
+    /**
+     * @brief Constructor.
+     */
     MainScreenView();
+
+    /**
+     * @brief Destructor.
+     */
     virtual ~MainScreenView() {}
+
+    /**
+     * @brief Sets up the main screen.
+     */
     virtual void setupScreen();
+
+    /**
+     * @brief Tears down the main screen.
+     */
     virtual void tearDownScreen();
 
+
+    // Methods to update UI elements:
     void updateClock(uint32_t time);
     void updateConnection(bool status);
     void updateWarning(bool status);
@@ -47,16 +78,28 @@ class MainScreenView : public MainScreenViewBase {
     void updateRtdButtonPressed(bool status);
     void updateTsaButtonPressed(bool status);
 
+
+    /**
+     * @brief Toggles the warning display.
+     */
     void toggleWarning();
 
-    //Safety display
+    /**
+     * @brief Displays an error message.
+     * @param error_idx The index of the error.
+     */
     void displayError(int error_idx);
+
+    /**
+     * @brief Updates the safety display (SDC) based on the given status.
+     * @param status Structure containing the safety data.
+     */
     void updateSDC(SafetyData_TypeDef status);
 
   protected:
   private:
-    unsigned int m_time;
-    bool m_warning;
+    unsigned int m_time; ///< Helper variable for toggling warnings.
+    bool m_warning; ///< Flag indicating the warning status.
 };
 
 #endif  // MAINSCREENVIEW_HPP

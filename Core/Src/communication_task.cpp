@@ -1,3 +1,15 @@
+/**
+ * @file communication_task.cpp
+ * @brief Implements the Communication_Task function.
+ *
+ * This task is responsible for handling CAN communication. It sends CAN messages based on
+ * changes in button states, receives various CAN data packets (from frontbox, rearbox, BMS, etc.),
+ * updates shared and safety data structures accordingly, and refreshes the watchdog.
+ *
+ * The task continuously runs in a loop, periodically processing and updating data.
+ */
+
+
 #include "communication_task.h"
 #include "data.h"
 #include "PUTM_EV_CAN_LIBRARY/lib/can_interface.hpp"
@@ -16,26 +28,30 @@ extern osMutexId_t sdcDataMutexHandle;
 
 void Communication_Task(void* argument) {
     for(;;) {
-        // TX
+    	// TX: Determine which buttons have changed state and prepare a CAN frame
         bool send_rtd_button = false;
         bool send_tsa_button = false;
         bool send_drs_button = false;
 
+        // Check RTD button state change
         if(interfaceData.rtd_button && !interfaceData.previous_rtd_button) {
             send_rtd_button = true;
         }
         interfaceData.previous_rtd_button = interfaceData.rtd_button;
 
+        // Check TSA button state change
         if(interfaceData.tsa_button && !interfaceData.previous_tsa_button) {
             send_tsa_button = true;
         }
         interfaceData.previous_tsa_button = interfaceData.tsa_button;
 
+        // Check DRS button state change
         if(interfaceData.drs_button && !interfaceData.previous_drs_button) {
             send_drs_button = true;
         }
         interfaceData.previous_drs_button = interfaceData.drs_button;
 
+        // Create and send a CAN message with updated button states
         // Send only if any button state is updated
         PUTM_CAN::Dashboard frame = {
             .ready_to_drive_button = send_rtd_button,
@@ -46,7 +62,7 @@ void Communication_Task(void* argument) {
 
         message.send(hfdcan1);
 
-        // RX
+        // RX: Get the current tick time for timeout management
         uint32_t current_tick_time = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
 /*
@@ -99,7 +115,7 @@ void Communication_Task(void* argument) {
 			}
 		}
 
-		//Frontbox Brake pressure
+		// Process Frontbox Brake Pressure data
 				if(PUTM_CAN::can.get_driver_input_main_new_data())
 				{
 					timeoutData.frontbox_driver_input_last_frame_time = current_tick_time;
@@ -132,7 +148,7 @@ void Communication_Task(void* argument) {
 				}
 
 
-		//Rearbox Safety
+		// Process Frontbox Brake Pressure data
         if(PUTM_CAN::can.get_rearbox_safety_new_data())
         {
         	timeoutData.rearbox_safety_last_frame_time = current_tick_time;
@@ -185,7 +201,7 @@ void Communication_Task(void* argument) {
         		}
 
 
-		// RearBox Miscellaneous
+        // Process RearBox Miscellaneous data (e.g., coolant pressure)
 		if(PUTM_CAN::can.get_rearbox_miscellaneous_new_data()) {
 			timeoutData.rearbox_miscellaneous_last_frame_time = current_tick_time;
 			auto rearbox_miscellaneous_data = PUTM_CAN::can.get_rearbox_miscellaneous();
@@ -293,7 +309,7 @@ void Communication_Task(void* argument) {
 		}
 
 
-        // PC
+        // PC main data
         if(PUTM_CAN::can.get_pc_new_data())
         {
             timeoutData.pc_last_frame_time = current_tick_time;

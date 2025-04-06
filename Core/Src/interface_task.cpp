@@ -1,3 +1,12 @@
+/**
+ * @file interface_task.cpp
+ * @brief Implements the Interface_Task function.
+ *
+ * This task handles the user interface aspects such as reading button states
+ * and controlling the status of LEDs. It debounces button inputs and updates
+ * the interfaceData and sharedData structures accordingly.
+ */
+
 #include "interface_task.h"
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
@@ -10,19 +19,24 @@ void Interface_Task(void* argument) {
 	volatile uint32_t last_button_cs_press = 0;
 
     for(;;) {
-        // LEDs
+        // LEDs update:
+        // Set AMS LED based on ams_led flag or led_test flag.
         if(interfaceData.ams_led || interfaceData.led_test) {
             HAL_GPIO_WritePin(AMS_LED_GPIO_Port, AMS_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(AMS_LED_GPIO_Port, AMS_LED_Pin, GPIO_PIN_RESET);
         }
 
+
+        // Set SAFETY LED based on safety status.
         if(sharedData.safety_front || sharedData.safety_rear) {
             HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_SET);
         } else {
             HAL_GPIO_WritePin(SAFETY_LED_GPIO_Port, SAFETY_LED_Pin, GPIO_PIN_RESET);
         }
 
+
+        // Set FUSE LED based on precharge status.
         if(interfaceData.precharge_status) {
             HAL_GPIO_WritePin(FUSE_LED_GPIO_Port, FUSE_LED_Pin, GPIO_PIN_SET);
         } else {
@@ -31,8 +45,8 @@ void Interface_Task(void* argument) {
 
 
 
-        // Buttons
-        //RDT button
+        // Buttons processing:
+        // RTD button
         if(HAL_GPIO_ReadPin(RTD_BTN_GPIO_Port, RTD_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.rtd_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.rtd_button = true;
@@ -46,7 +60,7 @@ void Interface_Task(void* argument) {
             interfaceData.rtd_timer = 0;
         }
 
-        //TSA button
+        // TSA button
         if(HAL_GPIO_ReadPin(TSA_BTN_GPIO_Port, TSA_BTN_Pin) == GPIO_PIN_RESET) {
             if(interfaceData.tsa_timer >= DASH_BUTTON_DEBOUNCING_TIME) {
                 interfaceData.tsa_button = true;
@@ -60,7 +74,7 @@ void Interface_Task(void* argument) {
             interfaceData.tsa_timer = 0;
         }
 
-        //Change screen button
+        // Change screen (CS) button with debouncing
         if(HAL_GPIO_ReadPin(CS_BTN_GPIO_Port, CS_BTN_Pin) == GPIO_PIN_RESET)
         {
             	uint32_t current_time = HAL_GetTick();
@@ -89,7 +103,7 @@ void Interface_Task(void* argument) {
             interfaceData.usr_timer = 0;
         }
 
-        //DRS button
+        // DRS button: toggles its state when pressed
         if(HAL_GPIO_ReadPin(DRS_BTN_GPIO_Port, DRS_BTN_Pin) == GPIO_PIN_RESET)
         {
             if(interfaceData.drs_timer >= DASH_BUTTON_DEBOUNCING_TIME)
@@ -102,7 +116,7 @@ void Interface_Task(void* argument) {
             }
         }
 
-
+        // Delay between polling cycles
         osDelay(pdMS_TO_TICKS(DASH_BUTTON_POOLING_RATE));
     }
 }

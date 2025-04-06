@@ -1,3 +1,11 @@
+/**
+ * @file ModelListener.hpp
+ * @brief Definition of the ModelListener interface.
+ *
+ * The ModelListener interface defines methods that must be implemented
+ * by objects that want to receive updates from the Model.
+ */
+
 #ifndef MODELLISTENER_HPP
 #define MODELLISTENER_HPP
 
@@ -5,12 +13,32 @@
 
 #include <stdint.h>
 
+
+
+/**
+ * @brief The ModelListener interface.
+ */
 class ModelListener {
   public:
+
+    /**
+     * @brief Constructor.
+     */
     ModelListener() : model(0) {}
+
+    /**
+     * @brief Virtual destructor.
+     */
     virtual ~ModelListener() {}
+
+    /**
+     * @brief Binds the model to the listener.
+     * @param m Pointer to the model.
+     */
     void bind(Model* m) { model = m; }
 
+
+    // Methods for set the UI (default implementation does nothing)
     //Main Screen
     virtual void setClock(uint32_t time) {}
     virtual void setConnection(bool status) {}
@@ -83,7 +111,7 @@ class ModelListener {
 
 
   protected:
-    Model* model;
+    Model* model; ///< Associated model.
 };
 
 #endif  // MODELLISTENER_HPP
