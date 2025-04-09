@@ -3,6 +3,11 @@
 
 #include <touchgfx/hal/HAL.hpp>
 #include "stm32u5xx_hal.h"
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
+#include "task.h"
+
+uint32_t lastScreenSwitchMRTime = 0; ///< Global variable storing the time of the last screen switch (in milliseconds)
 
 MainScreenPresenter::MainScreenPresenter(MainScreenView& v) : view(v) {}
 
@@ -82,10 +87,24 @@ void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 
 void MainScreenPresenter::switchScreenMR()
 {
+//	if (screenStatus.MainScreen && interfaceData.cs_button == 1)
+//	{
+//        static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
+//        screenStatus.MainScreen = false;
+//	}
+
+	uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
+
+	if ((currentTime - lastScreenSwitchMRTime) < 1000)
+	{
+	    return;
+	}
+
 	if (screenStatus.MainScreen && interfaceData.cs_button == 1)
 	{
-        static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
-        screenStatus.MainScreen = false;
+	    static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
+	    screenStatus.MainScreen = false;
+	    lastScreenSwitchMRTime = currentTime;
 	}
 }
 

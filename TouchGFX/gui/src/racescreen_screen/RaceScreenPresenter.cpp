@@ -3,6 +3,11 @@
 
 #include <touchgfx/hal/HAL.hpp>
 #include "stm32u5xx_hal.h"
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
+#include "task.h"
+
+uint32_t lastScreenSwitchRMTime = 0; ///< Global variable storing the time of the last screen switch (in milliseconds)
 
 RaceScreenPresenter::RaceScreenPresenter(RaceScreenView& v): view(v){}
 
@@ -45,9 +50,23 @@ void RaceScreenPresenter::setBestLap(uint32_t time){view.updateBestLap(time);}
 
 void RaceScreenPresenter::switchScreenRM()
 {
+//	if (screenStatus.RaceScreen && interfaceData.cs_button == 1)
+//	{
+//		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+//		screenStatus.RaceScreen = false;
+//	}
+
+	uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
+
+	if ((currentTime - lastScreenSwitchRMTime) < 1000)
+	{
+	    return;
+	}
+
 	if (screenStatus.RaceScreen && interfaceData.cs_button == 1)
 	{
 		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
 		screenStatus.RaceScreen = false;
+		lastScreenSwitchRMTime = currentTime;
 	}
 }
