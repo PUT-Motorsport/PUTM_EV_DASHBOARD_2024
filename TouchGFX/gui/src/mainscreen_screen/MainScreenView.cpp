@@ -315,25 +315,32 @@ void MainScreenView::updateCurrentLap(uint32_t time) {
 }
 
 void MainScreenView::updateLastLap(uint32_t time) {
-	    // Statyczna zmienna zapamiętująca czas ostatniego okrążenia.
-	    // Przy pierwszym wywołaniu będzie wynosić 0.
-	    static uint32_t lastLapTime = 0;
+	// lastMeasurement przechowuje ostatnią zarejestrowaną wartość czasu bieżącego okrążenia.
+	// lastLap przechowuje zakończony czas okrążenia, który chcemy wyświetlić.
+	static uint32_t lastMeasurement = 0;
+	static uint32_t lastLap = 0;
 
-	    // Wyświetlamy zapisany czas (ostatnie okrążenie)
-	    uint32_t displayTime = lastLapTime;
+	// Jeżeli aktualny czas jest mniejszy niż poprzedni,
+    // oznacza to, że licznik został zresetowany – nowy okrązenie się rozpoczęło.
+    if(time < lastMeasurement)
+    {
+	// Zapisujemy końcowy czas poprzedniego okrążenia.
+	   lastLap = lastMeasurement;
 
-	    // Aktualizujemy lastLapTime na bieżący czas okrążenia,
-	    // dzięki czemu przy kolejnym wywołaniu wyświetlimy właśnie ten czas.
-	    lastLapTime = time;
+	   // Formatowanie ostatniego okrążenia do postaci MM:SS.mmm.
+	   uint32_t displayTime = lastLap;
+	   uint8_t minutes = displayTime / (1000 * 60);
+	   displayTime %= (1000 * 60);
+	   uint8_t seconds = displayTime / 1000;
+	   displayTime %= 1000;
 
-	    // Obliczenia minut, sekund i milisekund dla displayTime
-	    uint8_t minutes = displayTime / (1000 * 60);
-	    displayTime %= (1000 * 60);
-	    uint8_t seconds = displayTime / 1000;
-	    displayTime %= 1000;
 
-	    Unicode::snprintf(lastLapTextBuffer, LASTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, displayTime);
-	    lastLapText.invalidate();
+	   Unicode::snprintf(lastLapTextBuffer, LASTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, displayTime);
+	   lastLapText.invalidate();
+	  }
+
+	  // Aktualizujemy ostatnią zarejestrowaną wartość czasu okrążenia.
+	  lastMeasurement = time;
 }
 
 void MainScreenView::updateBestLap(uint32_t time) {
