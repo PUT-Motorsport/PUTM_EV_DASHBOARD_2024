@@ -93,18 +93,23 @@ void MainScreenPresenter::switchScreenMR()
 //        screenStatus.MainScreen = false;
 //	}
 
-	uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
+    static uint8_t previousButtonState = 0;
+    uint8_t currentButtonState = interfaceData.cs_button;
+    uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
-	if ((currentTime - lastScreenSwitchMRTime) < 1000)
-	{
-	    return;
-	}
+    if ((currentTime - lastScreenSwitchMRTime) < 1000)
+    {
+        previousButtonState = currentButtonState;
+        return;
+    }
 
-	if (screenStatus.MainScreen && interfaceData.cs_button == 1)
-	{
-	    static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
-	    screenStatus.MainScreen = false;
-	    lastScreenSwitchMRTime = currentTime;
-	}
+    if (screenStatus.MainScreen && (previousButtonState == 1) && (currentButtonState == 0))
+    {
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
+        screenStatus.MainScreen = false;
+        lastScreenSwitchMRTime = currentTime;
+    }
+
+    previousButtonState = currentButtonState;
 }
 

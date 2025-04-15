@@ -56,17 +56,29 @@ void RaceScreenPresenter::switchScreenRM()
 //		screenStatus.RaceScreen = false;
 //	}
 
-	uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
+    // Statyczna zmienna przechowująca poprzedni stan przycisku
+    static uint8_t previousButtonState = 0;
+    // Odczytujemy bieżący stan przycisku
+    uint8_t currentButtonState = interfaceData.cs_button;
 
-	if ((currentTime - lastScreenSwitchRMTime) < 1000)
-	{
-	    return;
-	}
+    // Pobieramy aktualny czas (w ms)
+    uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
-	if (screenStatus.RaceScreen && interfaceData.cs_button == 1)
-	{
-		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
-		screenStatus.RaceScreen = false;
-		lastScreenSwitchRMTime = currentTime;
-	}
+    // Zapobiegamy przełączaniu ekranów, jeśli od ostatniego przełączenia minęło mniej niż 1000 ms
+    if ((currentTime - lastScreenSwitchRMTime) < 1000)
+    {
+        previousButtonState = currentButtonState; // aktualizujemy stan
+        return;
+    }
+
+    // Wykrywanie opadającego zbocza: poprzedni stan był 1, a bieżący jest 0
+    if (screenStatus.RaceScreen && (previousButtonState == 1) && (currentButtonState == 0))
+    {
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+        screenStatus.RaceScreen = false;
+        lastScreenSwitchRMTime = currentTime;
+    }
+
+    // Zaktualizuj poprzedni stan przycisku do bieżącego stanu
+    previousButtonState = currentButtonState;
 }
