@@ -144,72 +144,82 @@ void RaceScreenView::updateBatteryHVTemperature(uint8_t temperature)
 }
 
 void RaceScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
-											   uint8_t inv_FR_temperature,
-											   uint8_t inv_RL_temperature,
-											   uint8_t inv_RR_temperature) {
+                                               uint8_t inv_FR_temperature,
+                                               uint8_t inv_RL_temperature,
+                                               uint8_t inv_RR_temperature)
+{
+        uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
 
-uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+        Unicode::snprintf(invtemptextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
 
-Unicode::snprintf(invtemptextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
-if(inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN)
-{
-	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
-	invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        if (inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN)
+        {
+            invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
+            invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        }
+        else if (inv_temp_highest > INVERTER_TEMPERATURE_MID)
+        {
+            invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
+            invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+        }
+        else
+        {
+            invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_ID));
+            invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        }
+
+
+    invtempimage.setVisible(true);
+    invtemptext.setVisible(true);
+    invtempimage.invalidate();
+    invtemptext.invalidate();
 }
-else if(inv_temp_highest > INVERTER_TEMPERATURE_MID)
-{
-	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
-	invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-}
-else
-{
-	invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_ID));
-	invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-}
-	invtempimage.setVisible(true);
-	invtemptext.setVisible(true);
-	invtempimage.invalidate();
-	invtemptext.invalidate();
-}
+
 
 void RaceScreenView::updatePace(int16_t pace)
 {
-    if(pace > 0)
+    // Set the appropriate background bitmap and format the pace text based on the sign of the pace value.
+    if (pace > 0)
     {
-//    	Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "+%d", paceFrac);
-//        Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "+%02d.%03d", paceWhole, paceFrac);
+        // For positive pace: set the red feedback background and prepend a '+' sign.
         paceBackground.setBitmap(Bitmap(BITMAP_PACEREDBACKGROUND_ID));
     }
-    else if(pace < 0)
+    else if (pace < 0)
     {
-//    	Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "-%d", paceFrac);
-//        Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "-%02d.%03d", abs(paceWhole), paceFrac);
+        // For negative pace: set the green background and prepend a '-' sign.
         paceBackground.setBitmap(Bitmap(BITMAP_PACEGREENBACKGROUND_ID));
     }
     else
     {
+        // For zero pace: set the yellow background and display "00.000".
         paceBackground.setBitmap(Bitmap(BITMAP_PACEYELLOWBACKGROUND_ID));
-        Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "00.000");
     }
-
-    float seconds = static_cast<float>(pace) / 1000.0f;
-    Unicode::snprintfFloat(paceTextBuffer, PACETEXT_SIZE, "%+#.3f", seconds);
-
-    paceText.setVisible(true);
-    paceText.invalidate();
 
     paceBackground.setVisible(true);
     paceBackground.invalidate();
+
+
+
+    // The "pace" value sent by the lap timer is multiplied by 1000
+    // to avoid sending a floating-point number.
+    // First, we obtain the absolute value to properly split it into seconds and milliseconds.
+    int absPace = static_cast<int>(abs(pace));
+    volatile int seconds = static_cast<int>(absPace / 1000);     // Whole part: seconds
+    volatile int milliseconds = static_cast<int>(absPace % 1000); // Fractional part: milliseconds
+
+    Unicode::snprintf(PaceTextBuffer, PACETEXT_SIZE, "%+02d.%03d", seconds, milliseconds);
+    PaceText.setVisible(true);
+    PaceText.invalidate();
 
 }
 
 
 void RaceScreenView::updateLap(uint8_t value)
 {
-    Unicode::snprintf(paceTextBuffer, PACETEXT_SIZE, "%d", value);
+    Unicode::snprintf(LapValueTextBuffer, LAPVALUETEXT_SIZE, "%d", value);
 
-    paceText.setVisible(true);
-    paceText.invalidate();
+    LapValueText.setVisible(true);
+    LapValueText.invalidate();
 }
 
 void RaceScreenView::updateBestLap(uint32_t time)
@@ -224,32 +234,33 @@ void RaceScreenView::updateBestLap(uint32_t time)
 }
 
 void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
-									 uint8_t temperatureMotorFR,
-									 uint8_t temperatureMotorRL,
-									 uint8_t temperatureMotorRR)
+                                     uint8_t temperatureMotorFR,
+                                     uint8_t temperatureMotorRL,
+                                     uint8_t temperatureMotorRR)
 {
-	uint8_t frontMotor = std::max(temperatureMotorFL, temperatureMotorFR);
-	uint8_t rearMotor = std::max(temperatureMotorRL, temperatureMotorRR);
 
-	uint8_t highestTemperature = std::max(frontMotor, rearMotor);
+        uint8_t frontMotor = std::max(temperatureMotorFL, temperatureMotorFR);
+        uint8_t rearMotor = std::max(temperatureMotorRL, temperatureMotorRR);
 
-    Unicode::snprintf(motortemptextBuffer, MOTORTEMPTEXT_SIZE, "%d", highestTemperature);
+        uint8_t highestTemperature = std::max(frontMotor, rearMotor);
 
-    if(highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
-    {
-    	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_CRIT_ID));
-    	motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    }
-    else if(highestTemperature > MOTOR_TEMPERATURE_MID)
-    {
-    	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_WARN_ID));
-    	motortemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    }
-    else
-    {
-    	motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_ID));
-    	motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
+        Unicode::snprintf(motortemptextBuffer, MOTORTEMPTEXT_SIZE, "%d", highestTemperature);
+
+        if (highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
+        {
+            motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_CRIT_ID));
+            motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        }
+        else if (highestTemperature > MOTOR_TEMPERATURE_MID)
+        {
+            motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_WARN_ID));
+            motortemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+        }
+        else
+        {
+            motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_ID));
+            motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        }
 
 
     motortemptext.setVisible(true);
@@ -257,6 +268,7 @@ void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
     motortemptext.invalidate();
     motortempimage.invalidate();
 }
+
 
 
 

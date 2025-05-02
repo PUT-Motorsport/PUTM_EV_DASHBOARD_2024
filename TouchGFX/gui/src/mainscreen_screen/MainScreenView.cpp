@@ -93,7 +93,7 @@ void MainScreenView::updateInvertersStatus(bool inv_ready,
 										   bool inv_RR_error)
 {
 
-if(inv_ready)
+if(inv_ready && (!inv_FL_error && !inv_FR_error && !inv_RL_error && !inv_RR_error))
 {
 	//Inv work correct
     invText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
@@ -103,9 +103,14 @@ else if (inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)
 	//Error inv
 	invText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
 }
-else if (!inv_FL_status || !inv_FR_status || !inv_RL_status || !inv_RR_status)
+else if (inv_ready && ((inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)))
 {
 	//Inv Unknown working status
+	invText.setColor(touchgfx::Color::getColorFromRGB(255, 153, 51));
+}
+else
+{
+	//Inv off
 	invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
 }
 
@@ -134,28 +139,32 @@ void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
 
 
 void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
-											   uint8_t inv_FR_temperature,
-											   uint8_t inv_RL_temperature,
-											   uint8_t inv_RR_temperature) {
+                                               uint8_t inv_FR_temperature,
+                                               uint8_t inv_RL_temperature,
+                                               uint8_t inv_RR_temperature)
+{
+        uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
 
-	uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+        Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
 
-    Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
-    if(inv_temp_highest >= INVERTER_TEMPERATURE_MAX || inv_temp_highest <= INVERTER_TEMPERATURE_MIN) {
-        invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
-        invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(inv_temp_highest > INVERTER_TEMPERATURE_MID) {
-        invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
-        invTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
-        invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_ID));
-        invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
+        if (inv_temp_highest >= INVERTER_TEMPERATURE_MAX || inv_temp_highest <= INVERTER_TEMPERATURE_MIN) {
+            invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
+            invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        } else if (inv_temp_highest > INVERTER_TEMPERATURE_MID) {
+            invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
+            invTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+        } else {
+            invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_ID));
+            invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        }
+
+
     invTempIcon.setVisible(true);
     invTempText.setVisible(true);
     invTempIcon.invalidate();
     invTempText.invalidate();
 }
+
 
 void MainScreenView::updateOilTemperature(uint8_t temperature) {
     Unicode::snprintf(oilTempTextBuffer, OILTEMPTEXT_SIZE, "%d", temperature);
@@ -367,40 +376,42 @@ void MainScreenView::toggleWarning() {
 
 void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 {
-    Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
-    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
-    {
-    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    }
-    else if(temperature > MOTOR_TEMPERATURE_MID)
-    {
-    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    }
-    else
-    {
-    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
-    carImage.setVisible(true);
-    motorFrontLefttext.setVisible(true);
-    carImage.invalidate();
-    motorFrontLefttext.invalidate();
+	  Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
+	  if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
+	  {
+	    motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	  }
+	  else if (temperature > MOTOR_TEMPERATURE_MID)
+	  {
+	    motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+	  }
+	  else
+	  {
+	    motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	  }
+
+	    carImage.setVisible(true);
+	    motorFrontLefttext.setVisible(true);
+	    carImage.invalidate();
+	    motorFrontLefttext.invalidate();
 }
 
 void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
 {
     Unicode::snprintf(motorFrontRighttextBuffer, MOTORFRONTRIGHTTEXT_SIZE, "%d", temperature);
-    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
+    if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
     {
-    	motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+      motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(temperature > MOTOR_TEMPERATURE_MID)
+    else if (temperature > MOTOR_TEMPERATURE_MID)
     {
-    	motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+      motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
-    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+      motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
+
     carImage.setVisible(true);
     motorFrontRighttext.setVisible(true);
     carImage.invalidate();
@@ -409,19 +420,22 @@ void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
 
 void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 {
-    Unicode::snprintf(motorRearLefttextBuffer, MOTORREARLEFTTEXT_SIZE, "%d", temperature);
-    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
-    {
-    	motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    }
-    else if(temperature > MOTOR_TEMPERATURE_MID)
-    {
-    	motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    }
-    else
-    {
-    	motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
+
+   Unicode::snprintf(motorRearLefttextBuffer, MOTORREARLEFTTEXT_SIZE, "%d", temperature);
+   if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
+   {
+     motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+   }
+   else if (temperature > MOTOR_TEMPERATURE_MID)
+   {
+     motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+   }
+   else
+   {
+     motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+   }
+
+
     carImage.setVisible(true);
     motorRearLefttext.setVisible(true);
     carImage.invalidate();
@@ -430,19 +444,21 @@ void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 
 void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 {
-    Unicode::snprintf(motorRearRighttextBuffer, MOTORREARRIGHTTEXT_SIZE, "%d", temperature);
-    if(temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
-    {
-    	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    }
-    else if(temperature > MOTOR_TEMPERATURE_MID)
-    {
-    	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    }
-    else
-    {
-    	motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
+   Unicode::snprintf(motorRearRighttextBuffer, MOTORREARRIGHTTEXT_SIZE, "%d", temperature);
+   if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
+   {
+     motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+   }
+   else if (temperature > MOTOR_TEMPERATURE_MID)
+   {
+     motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+   }
+   else
+   {
+     motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+   }
+
+
     carImage.setVisible(true);
     motorRearRighttext.setVisible(true);
     carImage.invalidate();

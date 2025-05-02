@@ -1218,7 +1218,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_V4LM",
               "UseBuffer": true,
-              "BufferSize": 32
+              "BufferSize": 12
             }
           },
           {
@@ -1433,7 +1433,7 @@
             "Type": "Image",
             "Name": "LvSocFrame",
             "X": -20,
-            "Y": 164,
+            "Y": 165,
             "Width": 220,
             "Height": 150,
             "RelativeFilename": "odometryBackground.png"
@@ -1495,16 +1495,16 @@
           },
           {
             "Type": "TextArea",
-            "Name": "paceText",
-            "X": 242,
-            "Y": 151,
+            "Name": "PaceText",
+            "X": 245,
+            "Y": 160,
             "Width": 324,
             "Height": 85,
-            "TextId": "__SingleUse_XYIR",
+            "TextId": "__SingleUse_L13M",
             "TextRotation": "0",
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_GS52",
+              "TextId": "__SingleUse_1OK9",
               "UseBuffer": true,
               "BufferSize": 32
             }

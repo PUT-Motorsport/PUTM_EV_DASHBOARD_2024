@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_1OK9" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">+00.000</Translation>
+      </Text>
+      <Text Id="__SingleUse_L13M" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_ULET" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">STOP&#10;CAR</Translation>
       </Text>
@@ -151,12 +157,6 @@
         <Translation Language="GB">00:00.000</Translation>
       </Text>
       <Text Id="__SingleUse_A9QM" Alignment="Center" TypographyId="MediumPlus">
-        <Translation Language="GB">&lt;d&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_GS52" Alignment="Left" TypographyId="Big">
-        <Translation Language="GB">+00.000</Translation>
-      </Text>
-      <Text Id="__SingleUse_XYIR" Alignment="Center" TypographyId="Big">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_KABG" Alignment="Left" TypographyId="Medium">
