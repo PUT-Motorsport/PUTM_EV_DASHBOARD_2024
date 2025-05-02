@@ -16,7 +16,6 @@ Model::Model() : modelListener(0) {}
 void Model::tick() {
 
     if(modelListener != 0) {
-        modelListener->toggleElements();
         modelListener->switchScreenMR();
         modelListener->switchScreenRM();
 
@@ -181,18 +180,6 @@ void Model::tick() {
         }
 
         //Error checking after reading all values
-        modelListener->setCheckErrors(m_sharedSafetyData.sense_bspd,
-        							  m_sharedData.frontLeftInverterTemperature,
-									  m_sharedData.frontRightInverterTemperature,
-									  m_sharedData.rearLeftInverterTemperature,
-									  m_sharedData.rearRightInverterTemperature,
-									  m_sharedData.battery_lv_temperature,
-									  m_sharedData.battery_hv_temperature,
-									  m_sharedData.soc_lv,
-									  m_sharedData.soc_hv,
-									  m_sharedData.motor_front_left_temperature,
-									  m_sharedData.motor_front_right_temperature,
-									  m_sharedData.motor_rear_left_temperature,
-									  m_sharedData.motor_rear_right_temperature);
+        modelListener->setCheckErrors(m_sharedSafetyData.sense_bspd);
     }
 }

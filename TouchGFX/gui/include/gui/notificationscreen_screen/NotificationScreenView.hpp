@@ -45,37 +45,8 @@ class NotificationScreenView : public NotificationScreenViewBase {
          * @brief Updates the notification view based on system error checks.
          *
          * @param bspd BSPD sensor status.
-         * @param inv_FL_temperature Temperature of the front left inverter.
-         * @param inv_FR_temperature Temperature of the front right inverter.
-         * @param inv_RL_temperature Temperature of the rear left inverter.
-         * @param inv_RR_temperature Temperature of the rear right inverter.
-         * @param lv_temp Low-voltage battery temperature.
-         * @param hv_temp High-voltage battery temperature.
-         * @param lv_soc Low-voltage battery SOC.
-         * @param hv_soc High-voltage battery SOC.
-         * @param motor_fl_temp Temperature of the front left motor.
-         * @param motor_fr_temp Temperature of the front right motor.
-         * @param motor_rl_temp Temperature of the rear left motor.
-         * @param motor_rr_temp Temperature of the rear right motor.
          */
-    void updateCheckErrors(bool bspd,
-	   	   	   	   	   	   uint8_t inv_FL_temperature,
-						   uint8_t inv_FR_temperature,
-						   uint8_t inv_RL_temperature,
-						   uint8_t inv_RR_temperature,
-						   uint8_t lv_temp,
-						   uint8_t hv_temp,
-						   uint8_t lv_soc,
-						   uint8_t hv_soc,
-						   uint8_t motor_fl_temp,
-						   uint8_t motor_fr_temp,
-						   uint8_t motor_rl_temp,
-						   uint8_t motor_rr_temp);
-
-    /**
-     * @brief Toggles the notification screen view.
-     */
-    void toggleScreen();
+    void updateCheckErrors(bool bspd);
 
   protected:
 };
