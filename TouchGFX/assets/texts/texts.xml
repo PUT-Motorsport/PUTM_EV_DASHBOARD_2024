@@ -6,11 +6,17 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_1OK9" Alignment="Left" TypographyId="Big">
+      <Text Id="__SingleUse_4D3J" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">+00.000</Translation>
       </Text>
-      <Text Id="__SingleUse_L13M" Alignment="Left" TypographyId="Big">
+      <Text Id="__SingleUse_WDBV" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_J3CE" Alignment="Left" TypographyId="Huge">
+        <Translation Language="GB">APPS&#10; ERROR</Translation>
+      </Text>
+      <Text Id="__SingleUse_EBYQ" Alignment="Center" TypographyId="Huge">
+        <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_ULET" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">STOP&#10;CAR</Translation>
@@ -159,7 +165,7 @@
       <Text Id="__SingleUse_A9QM" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">&lt;d&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_KABG" Alignment="Left" TypographyId="Medium">
+      <Text Id="__SingleUse_KABG" Alignment="Left" TypographyId="Normal">
         <Translation Language="GB">Lap</Translation>
       </Text>
       <Text Id="__SingleUse_2EHC" Alignment="Left" TypographyId="Tiny">
@@ -228,10 +234,10 @@
       <Text Id="__SingleUse_M41U" Alignment="Center" TypographyId="MediumPlus">
         <Translation Language="GB">&lt;d&gt;°C</Translation>
       </Text>
-      <Text Id="__SingleUse_VW91" Alignment="Center" TypographyId="Big">
+      <Text Id="__SingleUse_VW91" Alignment="Center" TypographyId="Medium">
         <Translation Language="GB">RTD</Translation>
       </Text>
-      <Text Id="__SingleUse_6NEI" Alignment="Center" TypographyId="Big">
+      <Text Id="__SingleUse_6NEI" Alignment="Center" TypographyId="Medium">
         <Translation Language="GB">DRS</Translation>
       </Text>
       <Text Id="__SingleUse_7G62" Alignment="Left" TypographyId="Small">

@@ -1204,8 +1204,8 @@
           {
             "Type": "TextArea",
             "Name": "bestLapText",
-            "X": 242,
-            "Y": 260,
+            "X": 238,
+            "Y": 123,
             "Width": 331,
             "Height": 74,
             "TextId": "__SingleUse_A9QM",
@@ -1224,10 +1224,10 @@
           {
             "Type": "TextArea",
             "Name": "rtdText",
-            "X": 616,
-            "Y": 22,
-            "Width": 153,
-            "Height": 85,
+            "X": 711,
+            "Y": 146,
+            "Width": 77,
+            "Height": 48,
             "TextId": "__SingleUse_VW91",
             "TextRotation": "0",
             "Color": {
@@ -1241,10 +1241,10 @@
           {
             "Type": "TextArea",
             "Name": "drsText",
-            "X": 48,
-            "Y": 30,
-            "Width": 156,
-            "Height": 85,
+            "X": 16,
+            "Y": 146,
+            "Width": 79,
+            "Height": 48,
             "TextId": "__SingleUse_6NEI",
             "TextRotation": "0",
             "Color": {
@@ -1348,10 +1348,10 @@
           {
             "Type": "TextArea",
             "Name": "LvSoCText",
-            "X": 37,
-            "Y": 170,
+            "X": 70,
+            "Y": 215,
             "Width": 106,
-            "Height": 32,
+            "Height": 38,
             "TextId": "__SingleUse_90LS",
             "TextRotation": "0",
             "Color": {
@@ -1369,10 +1369,10 @@
           {
             "Type": "TextArea",
             "Name": "HvSoCText",
-            "X": 652,
-            "Y": 170,
+            "X": 625,
+            "Y": 206,
             "Width": 111,
-            "Height": 32,
+            "Height": 38,
             "TextId": "__SingleUse_VIWS",
             "TextRotation": "0",
             "Color": {
@@ -1390,8 +1390,8 @@
           {
             "Type": "TextArea",
             "Name": "hvSocValueText",
-            "X": 627,
-            "Y": 220,
+            "X": 600,
+            "Y": 256,
             "Width": 161,
             "Height": 66,
             "TextId": "__SingleUse_BQBK",
@@ -1411,8 +1411,8 @@
           {
             "Type": "TextArea",
             "Name": "lvSocValueText",
-            "X": 11,
-            "Y": 220,
+            "X": 37,
+            "Y": 256,
             "Width": 177,
             "Height": 66,
             "TextId": "__SingleUse_4047",
@@ -1432,8 +1432,8 @@
           {
             "Type": "Image",
             "Name": "LvSocFrame",
-            "X": -20,
-            "Y": 165,
+            "X": 13,
+            "Y": 198,
             "Width": 220,
             "Height": 150,
             "RelativeFilename": "odometryBackground.png"
@@ -1441,8 +1441,8 @@
           {
             "Type": "Image",
             "Name": "HvSocFrame",
-            "X": 604,
-            "Y": 161,
+            "X": 568,
+            "Y": 194,
             "Width": 220,
             "Height": 150,
             "RelativeFilename": "odometryBackground.png"
@@ -1451,7 +1451,7 @@
             "Type": "TextArea",
             "Name": "LapValueText",
             "X": 340,
-            "Y": -15,
+            "Y": 180,
             "Width": 121,
             "Height": 116,
             "TextId": "__SingleUse_JION",
@@ -1471,42 +1471,41 @@
           {
             "Type": "TextArea",
             "Name": "Laptext",
-            "X": 370,
-            "Y": 101,
-            "Width": 69,
-            "Height": 48,
+            "X": 376,
+            "Y": 290,
+            "Width": 54,
+            "Height": 40,
             "TextId": "__SingleUse_KABG",
             "TextRotation": "0",
             "Color": {
               "Red": 102,
               "Green": 102,
               "Blue": 102
-            },
-            "AutoSize": true
+            }
           },
           {
             "Type": "Image",
             "Name": "paceBackground",
-            "X": 204,
-            "Y": 155,
-            "Width": 400,
-            "Height": 98,
+            "X": 128,
+            "Y": 5,
+            "Width": 550,
+            "Height": 130,
             "RelativeFilename": "paceYellowBackground.png"
           },
           {
             "Type": "TextArea",
             "Name": "PaceText",
-            "X": 245,
-            "Y": 160,
-            "Width": 324,
-            "Height": 85,
-            "TextId": "__SingleUse_L13M",
+            "X": 152,
+            "Y": -12,
+            "Width": 503,
+            "Height": 127,
+            "TextId": "__SingleUse_WDBV",
             "TextRotation": "0",
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_1OK9",
+              "TextId": "__SingleUse_4D3J",
               "UseBuffer": true,
-              "BufferSize": 32
+              "BufferSize": 16
             }
           }
         ],
@@ -1715,6 +1714,27 @@
             "AutoSize": true,
             "Wildcard1": {
               "TextId": "__SingleUse_W4GY",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "appsErrorText",
+            "X": 184,
+            "Y": 113,
+            "Width": 432,
+            "Height": 254,
+            "Visible": false,
+            "LockPosition": true,
+            "TextId": "__SingleUse_EBYQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_J3CE",
               "UseBuffer": true,
               "BufferSize": 16
             }
