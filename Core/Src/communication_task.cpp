@@ -88,6 +88,7 @@ void Communication_Task(void* argument) {
 				safetyData.sense_driver_kill = frontbox_safety_data.sense_driver_kill;
 				safetyData.sense_inertia = frontbox_safety_data.sense_inertia;
 				safetyData.sense_bspd = frontbox_safety_data.sense_bspd;
+				safetyData.sense_apps = frontbox_safety_data.apps;
 				safetyData.sense_overtravel = frontbox_safety_data.sense_overtravel;
 				safetyData.sense_right_wheel = frontbox_safety_data.sense_right_wheel;
 				safetyData.is_braking = frontbox_safety_data.is_braking;
@@ -107,6 +108,7 @@ void Communication_Task(void* argument) {
 				safetyData.sense_driver_kill = false;
 				safetyData.sense_inertia = false;
 				safetyData.sense_bspd = false;
+				safetyData.sense_apps = false;
 				safetyData.sense_overtravel = false;
 				safetyData.sense_right_wheel = false;
 				safetyData.is_braking = false;

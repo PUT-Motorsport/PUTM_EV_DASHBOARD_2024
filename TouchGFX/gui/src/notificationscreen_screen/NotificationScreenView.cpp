@@ -22,39 +22,45 @@ void NotificationScreenView::setupScreen() { NotificationScreenViewBase::setupSc
 
 void NotificationScreenView::tearDownScreen() { NotificationScreenViewBase::tearDownScreen(); }
 
-void NotificationScreenView::updateCheckErrors(bool bspd)
+void NotificationScreenView::updateCheckErrors(bool bspd, bool apps)
 {
-    // 1) tylko BSPD uruchamia Notification Screen:
-    bool bspdError = (bspd == 1);
-    if (bspdError && !screenStatus.NotificationScreen)
+    // Combine BSPD and APPS into a single error condition
+    bool errorActive = bspd || apps;
+
+    // If an error is active and Notification Screen is not already shown, open it
+    if (errorActive && !screenStatus.NotificationScreen)
     {
-        // zapamiętaj poprzedni ekran
+        // Save which screen was previously active
         previousScreen.RaceScreen = screenStatus.RaceScreen;
         previousScreen.MainScreen = screenStatus.MainScreen;
-        // wejdź na Notification Screen
+
+        // Switch to Notification Screen without transition
         screenStatus.NotificationScreen = true;
         static_cast<FrontendApplication*>(Application::getInstance())
             ->gotoNotificationScreenScreenNoTransition();
     }
 
-    // 2) logika zamykania przy przytrzymaniu CS ≥ 2 s:
-    static uint32_t csHoldStart   = 0;
-    static bool     csPrevState   = false;
-    bool             csCurrState  = interfaceData.cs_button;      // global z interface_task.cpp :contentReference[oaicite:4]{index=4}:contentReference[oaicite:5]{index=5}
-    uint32_t         nowMs        = xTaskGetTickCount() * portTICK_PERIOD_MS;
+    // Handle CS button hold logic for dismissing Notification Screen
+    static uint32_t csHoldStart = 0;   /**< Timestamp when CS press was first detected */
+    static bool     csPrevState = false; /**< Previous scan state of CS button */
+
+    bool     csCurrState = interfaceData.cs_button;  // Current state of CS button
+    uint32_t nowMs       = xTaskGetTickCount() * portTICK_PERIOD_MS;  // Current time in ms
 
     if (screenStatus.NotificationScreen)
     {
-        // wykrycie zbocza narastającego
+        // Detect rising edge of CS press
         if (csCurrState && !csPrevState)
         {
             csHoldStart = nowMs;
         }
-        // jeżeli trzymamy CS ≥ 2000 ms → zamknij Notification
+
+        // If CS is held for 2000 ms or more, dismiss Notification Screen
         if (csCurrState && (nowMs - csHoldStart >= 2000))
         {
             screenStatus.NotificationScreen = false;
-            // powrót do wcześniejszego ekranu
+
+            // Return to the screen that was active before Notification Screen
             if (previousScreen.RaceScreen)
             {
                 static_cast<FrontendApplication*>(Application::getInstance())
@@ -65,15 +71,19 @@ void NotificationScreenView::updateCheckErrors(bool bspd)
                 static_cast<FrontendApplication*>(Application::getInstance())
                     ->gotoMainScreenScreenNoTransition();
             }
-            // reset dla kolejnego użycia
+
+            // Reset hold timer for next use
             csHoldStart = 0;
         }
-        // zerowanie przy puszczeniu
+
+        // Reset hold timer when CS is released
         if (!csCurrState)
         {
             csHoldStart = 0;
         }
     }
+
+    // Store current CS state for next call comparison
     csPrevState = csCurrState;
 }
 

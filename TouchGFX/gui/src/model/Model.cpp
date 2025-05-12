@@ -156,6 +156,7 @@ void Model::tick() {
 			m_sharedSafetyDataPrev.sense_driver_kill = m_sharedSafetyData.sense_driver_kill;
 			m_sharedSafetyDataPrev.sense_inertia = m_sharedSafetyData.sense_inertia;
 			m_sharedSafetyDataPrev.sense_bspd = m_sharedSafetyData.sense_bspd;
+			m_sharedSafetyDataPrev.sense_apps = m_sharedSafetyData.sense_apps;
 			m_sharedSafetyDataPrev.sense_overtravel = m_sharedSafetyData.sense_overtravel;
 			m_sharedSafetyDataPrev.sense_right_wheel = m_sharedSafetyData.sense_right_wheel;
 			m_sharedSafetyDataPrev.is_braking = m_sharedSafetyData.is_braking;
@@ -180,6 +181,6 @@ void Model::tick() {
         }
 
         //Error checking after reading all values
-        modelListener->setCheckErrors(m_sharedSafetyData.sense_bspd);
+        modelListener->setCheckErrors(m_sharedSafetyData.sense_bspd, m_sharedSafetyData.sense_apps);
     }
 }

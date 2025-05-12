@@ -70,6 +70,7 @@ SafetyData_TypeDef safetyData =
 	.sense_driver_kill = 0,
 	.sense_inertia = 0,
 	.sense_bspd = 0,
+	.sense_apps = 0,
 	.sense_overtravel = 0,
 	.sense_right_wheel = 0,
 	.is_braking = 0,

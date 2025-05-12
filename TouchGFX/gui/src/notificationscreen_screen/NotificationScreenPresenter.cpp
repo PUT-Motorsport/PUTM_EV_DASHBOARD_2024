@@ -7,4 +7,4 @@ void NotificationScreenPresenter::activate() {screenStatus.NotificationScreen = 
 
 void NotificationScreenPresenter::deactivate() {screenStatus.NotificationScreen = false;}
 
-void NotificationScreenPresenter::setCheckErrors(bool bspd){ view.updateCheckErrors(bspd); }
+void NotificationScreenPresenter::setCheckErrors(bool bspd, bool apps){ view.updateCheckErrors(bspd, apps); }

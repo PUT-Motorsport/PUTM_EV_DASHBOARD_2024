@@ -65,6 +65,7 @@ typedef struct{
 	_Bool sense_driver_kill;
 	_Bool sense_inertia;
 	_Bool sense_bspd;
+	_Bool sense_apps;
 	_Bool sense_overtravel;
 	_Bool sense_right_wheel;
 	_Bool is_braking;

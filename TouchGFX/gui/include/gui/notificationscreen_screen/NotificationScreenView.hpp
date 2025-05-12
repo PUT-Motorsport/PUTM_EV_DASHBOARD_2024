@@ -46,7 +46,7 @@ class NotificationScreenView : public NotificationScreenViewBase {
          *
          * @param bspd BSPD sensor status.
          */
-    void updateCheckErrors(bool bspd);
+    void updateCheckErrors(bool bspd, bool apps);
 
   protected:
 };

@@ -94,7 +94,7 @@ class ModelListener {
     virtual void switchScreenMR(){}
 
     //Notification Screen
-    virtual void setCheckErrors(bool bspd){}
+    virtual void setCheckErrors(bool bspd, bool apps){}
 
 
   protected:
