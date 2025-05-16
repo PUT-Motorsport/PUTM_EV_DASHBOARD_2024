@@ -321,7 +321,7 @@ void Communication_Task(void* argument) {
            if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
            {
               sharedData.warning = false;
-              sharedData.connection = false;
+              sharedData.connection = true;
 
               sharedData.ready_to_drive = pc_data.rtd;
 
@@ -348,7 +348,7 @@ void Communication_Task(void* argument) {
 		  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
 		  {
 			sharedData.warning = true;
-			sharedData.connection = true;
+			sharedData.connection = false;
 
 			sharedData.ready_to_drive = 0;
 
@@ -380,7 +380,7 @@ void Communication_Task(void* argument) {
                    if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
                    {
                       sharedData.warning = false;
-                      sharedData.connection = false;
+                      sharedData.connection = true;
 
                       sharedData.frontRightInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
                       sharedData.frontLeftInverterTemperature = pc_temp_data.frontLeftInverterTemperature;
@@ -401,7 +401,7 @@ void Communication_Task(void* argument) {
         		  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
         		  {
         			sharedData.warning = true;
-        			sharedData.connection = true;
+        			sharedData.connection = false;
 
                     sharedData.frontRightInverterTemperature = 0;
                     sharedData.frontLeftInverterTemperature = 0;
@@ -428,7 +428,7 @@ void Communication_Task(void* argument) {
               if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
               {
                     sharedData.warning = false;
-                    sharedData.connection = false;
+                    sharedData.connection = true;
 
                     timerData.pace = pc_laptimer_data.delta_time;
                     timerData.current_lap = pc_laptimer_data.currentLapTime;
@@ -444,7 +444,7 @@ void Communication_Task(void* argument) {
         	  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
         	  {
         		 sharedData.warning = true;
-        		 sharedData.connection = true;
+        		 sharedData.connection = false;
 
                  timerData.pace = 0;
                  timerData.current_lap = 0;
@@ -455,6 +455,58 @@ void Communication_Task(void* argument) {
         		 osMutexRelease(sharedDataMutexHandle);
         	   }
         }
+
+
+        //Pdu channel
+        if(PUTM_CAN::can.get_pdu_channel_new_data())
+        {
+              timeoutData.pdu_channel_last_frame_time = current_tick_time;
+              auto pdu_channnel = PUTM_CAN::can.get_pdu_channel_data();
+
+
+              if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+              {
+                    sharedData.warning = false;
+
+                    sharedData.pc_status = pdu_channnel.pc_status;
+                    sharedData.fan_status = pdu_channnel.fan_status;
+                    sharedData.pump_status = pdu_channnel.pump_status;
+                    sharedData.inverter_status = pdu_channnel.inverter_status;
+                    sharedData.fbox_status = pdu_channnel.fbox_status;
+                    sharedData.sdc_status = pdu_channnel.sdc_status;
+                    sharedData.dash_status = pdu_channnel.dash_status;
+                    sharedData.tsal_hv_status = pdu_channnel.tsal_hv_status;
+                    sharedData.rbox_diagport_brake_l_status = pdu_channnel.rbox_diagport_brake_l_status;
+                    sharedData.brake_ir_air_status = pdu_channnel.brake_ir_air_status;
+
+
+
+
+        			osMutexRelease(sharedDataMutexHandle);
+        	  }
+          }
+          else if(current_tick_time - timeoutData.pdu_channel_last_frame_time > DASH_TIMEOUT_DURATION)
+          {
+
+        	  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+        	  {
+        		 sharedData.warning = true;
+
+        		 sharedData.pc_status = false;
+        		 sharedData.fan_status = false;
+        		 sharedData.pump_status = false;
+        		 sharedData.inverter_status = false;
+        		 sharedData.fbox_status = false;
+        		 sharedData.sdc_status = false;
+        		 sharedData.dash_status = false;
+        		 sharedData.tsal_hv_status = false;
+        		 sharedData.rbox_diagport_brake_l_status = false;
+        		 sharedData.brake_ir_air_status = false;
+
+        		 osMutexRelease(sharedDataMutexHandle);
+        	   }
+        }
+
 
 
         HAL_IWDG_Refresh(&hiwdg); // Every 250 ms

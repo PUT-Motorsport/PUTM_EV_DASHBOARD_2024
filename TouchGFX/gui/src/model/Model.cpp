@@ -110,8 +110,8 @@ void Model::tick() {
             m_sharedDataPrev.soc_lv = m_sharedData.soc_lv;
             modelListener->setSocLv(m_sharedData.soc_lv);
 
-            m_sharedDataPrev.rpm = m_sharedData.rpm;
-            modelListener->setRpm(m_sharedData.rpm);
+//            m_sharedDataPrev.rpm = m_sharedData.rpm;
+//            modelListener->setRpm(m_sharedData.rpm);
 
 //            m_sharedDataPrev.range = m_sharedData.range;
 //            modelListener->setRange(m_sharedData.range);
@@ -121,6 +121,38 @@ void Model::tick() {
 
             m_sharedDataPrev.tsa_button_pressed = m_sharedData.tsa_button_pressed;
             modelListener->setTsaButtonPressed(m_sharedData.tsa_button_pressed);
+
+
+            //PDU
+            m_sharedDataPrev.pc_status = m_sharedData.pc_status;
+            modelListener->setPduPcStatus(m_sharedData.pc_status);
+
+            m_sharedDataPrev.fan_status = m_sharedData.fan_status;
+            modelListener->setPduFanStatus(m_sharedData.fan_status);
+
+            m_sharedDataPrev.pump_status = m_sharedData.pump_status;
+            modelListener->setPduPumpStatus(m_sharedData.pump_status);
+
+            m_sharedDataPrev.inverter_status = m_sharedData.inverter_status;
+            modelListener->setPduInverterStatus(m_sharedData.inverter_status);
+
+            m_sharedDataPrev.fbox_status = m_sharedData.fbox_status;
+            modelListener->setPduFboxStatus(m_sharedData.fbox_status);
+
+            m_sharedDataPrev.sdc_status = m_sharedData.sdc_status;
+            modelListener->setPduSdcStatus(m_sharedData.sdc_status);
+
+            m_sharedDataPrev.dash_status = m_sharedData.dash_status;
+            modelListener->setPduDashStatus(m_sharedData.dash_status);
+
+            m_sharedDataPrev.tsal_hv_status = m_sharedData.tsal_hv_status;
+            modelListener->setPduTsalStatus(m_sharedData.tsal_hv_status);
+
+            m_sharedDataPrev.rbox_diagport_brake_l_status = m_sharedData.rbox_diagport_brake_l_status;
+            modelListener->setPduRboxStatus(m_sharedData.rbox_diagport_brake_l_status);
+
+            m_sharedDataPrev.brake_ir_air_status = m_sharedData.brake_ir_air_status;
+            modelListener->setPduAirStatus(m_sharedData.brake_ir_air_status);
 
             osMutexRelease(sharedDataMutexHandle);
 

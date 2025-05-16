@@ -66,7 +66,7 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     void setFrontBrakePressure(uint16_t pressure);
     void setCoolantTemperature(uint8_t temperature);
     void setRearBrakePressure(uint16_t pressure);
-    void setRpm(uint16_t rpm);
+//    void setRpm(uint16_t rpm);
     void setCurrentLap(uint32_t time);
     void setLastLap(uint32_t time);
     void setBestLap(uint32_t time);
@@ -75,6 +75,16 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
        							uint8_t inv_FR_temperature,
    								uint8_t inv_RL_temperature,
    								uint8_t inv_RR_temperature);
+    void setPduPcStatus(uint8_t status);
+    void setPduFanStatus(uint8_t status);
+    void setPduPumpStatus(uint8_t status);
+    void setPduInverterStatus(uint8_t status);
+    void setPduFboxStatus(uint8_t status);
+    void setPduSdcStatus(uint8_t status);
+    void setPduDashStatus(uint8_t status);
+    void setPduTsalStatus(uint8_t status);
+    void setPduRboxStatus(uint8_t status);
+    void setPduAirStatus(uint8_t status);
     void setRtdButtonPressed(bool status);
     void setTsaButtonPressed(bool status);
 

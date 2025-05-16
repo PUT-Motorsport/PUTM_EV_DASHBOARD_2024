@@ -75,11 +75,14 @@ void MainScreenView::updateRadio(bool status) {
 
 void MainScreenView::updateReadyToDrive(bool status) {
     if(status) {
-        rtdText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    	rtdAcitve.setVisible(true);
+    	rtdOff.setVisible(false);
     } else {
-        rtdText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    	rtdAcitve.setVisible(false);
+    	rtdOff.setVisible(true);
     }
-    rtdText.invalidate();
+    rtdAcitve.invalidate();
+    rtdOff.invalidate();
 }
 
 void MainScreenView::updateInvertersStatus(bool inv_ready,
@@ -96,25 +99,41 @@ void MainScreenView::updateInvertersStatus(bool inv_ready,
 if(inv_ready && (!inv_FL_error && !inv_FR_error && !inv_RL_error && !inv_RR_error))
 {
 	//Inv work correct
-    invText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+	invOK.setVisible(true);
+	invError.setVisible(false);
+	invOff.setVisible(false);
+	invUnk.setVisible(false);
 }
 else if (inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)
 {
-	//Error inv
-	invText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	//Inv have error
+	invOK.setVisible(false);
+	invError.setVisible(true);
+	invOff.setVisible(false);
+	invUnk.setVisible(false);
 }
 else if (inv_ready && ((inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)))
 {
-	//Inv Unknown working status
-	invText.setColor(touchgfx::Color::getColorFromRGB(255, 153, 51));
+	//Unkonow state
+	invOK.setVisible(false);
+	invError.setVisible(false);
+	invOff.setVisible(false);
+	invUnk.setVisible(true);
+
 }
 else
 {
 	//Inv off
-	invText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+	invOK.setVisible(false);
+	invError.setVisible(false);
+	invOff.setVisible(true);
+	invUnk.setVisible(false);
 }
 
- invText.invalidate();
+	invOK.invalidate();
+	invError.invalidate();
+	invOff.invalidate();
+	invUnk.invalidate();
 
 }
 
@@ -307,10 +326,10 @@ void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
 
 
 
-void MainScreenView::updateRpm(uint16_t rpm) {
-    uint8_t value = (rpm * 100) / DASH_RPM_MAX;
-    rpmProgress.setValue(value);
-}
+//void MainScreenView::updateRpm(uint16_t rpm) {
+//    uint8_t value = (rpm * 100) / DASH_RPM_MAX;
+//    rpmProgress.setValue(value);
+//}
 
 
 void MainScreenView::updateCurrentLap(uint32_t time) {
@@ -598,6 +617,258 @@ void MainScreenView::updateTsaButtonPressed(bool status)
     	TSA_Led.invalidate();
     }
 }
+
+void MainScreenView::updatePduPcStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	PcPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	PcPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	PcPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	PcPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    PcPduText.setVisible(true);
+    PcPduText.invalidate();
+}
+
+void MainScreenView::updatePduFanStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	FanPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	FanPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	FanPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	FanPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    FanPduText.setVisible(true);
+    FanPduText.invalidate();
+}
+
+void MainScreenView::updatePduPumpStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    PumpPduText.setVisible(true);
+    PumpPduText.invalidate();
+}
+
+
+void MainScreenView::updatePduInverterStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	InvPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	InvPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	InvPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	InvPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    InvPduText.setVisible(true);
+    InvPduText.invalidate();
+}
+
+void MainScreenView::updatePduFboxStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    FboxPduText.setVisible(true);
+    FboxPduText.invalidate();
+}
+
+void MainScreenView::updatePduSdcStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    SdcPduText.setVisible(true);
+    SdcPduText.invalidate();
+}
+
+void MainScreenView::updatePduDashStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	DashPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	DashPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	DashPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	DashPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    DashPduText.setVisible(true);
+    DashPduText.invalidate();
+}
+
+void MainScreenView::updatePduTsalStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    TsalPduText.setVisible(true);
+    TsalPduText.invalidate();
+}
+
+void MainScreenView::updatePduRboxStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    RboxPduText.setVisible(true);
+    RboxPduText.invalidate();
+}
+
+void MainScreenView::updatePduAirStatus(uint8_t status)
+{
+    if(status == 0)
+    {
+    	//Off
+    	AirPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if(status == 3)
+    {
+    	//Error
+    	AirPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
+    }
+    else if(status == 1)
+    {
+    	//ok
+    	AirPduText.setColor(touchgfx::Color::getColorFromRGB(34, 176, 76));
+    }
+    else
+    {
+    	AirPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
+    }
+    AirPduText.setVisible(true);
+    AirPduText.invalidate();
+}
+
 
 
 

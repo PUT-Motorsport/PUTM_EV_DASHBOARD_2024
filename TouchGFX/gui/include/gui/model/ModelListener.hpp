@@ -81,11 +81,24 @@ class ModelListener {
     virtual void setRtdButtonPressed(bool status) {}
     virtual void setTsaButtonPressed(bool status) {}
 
+    virtual void setPduPcStatus(uint8_t status) {}
+    virtual void setPduFanStatus(uint8_t status) {}
+    virtual void setPduPumpStatus(uint8_t status) {}
+    virtual void setPduInverterStatus(uint8_t status) {}
+    virtual void setPduFboxStatus(uint8_t status) {}
+    virtual void setPduSdcStatus(uint8_t status) {}
+    virtual void setPduDashStatus(uint8_t status) {}
+    virtual void setPduTsalStatus(uint8_t status) {}
+    virtual void setPduRboxStatus(uint8_t status) {}
+    virtual void setPduAirStatus(uint8_t status) {}
+
+
+
     //Race Screen
     virtual void setSocHv(uint8_t soc) {}
     virtual void setSocLv(uint8_t soc) {}
-    virtual void setRpm(uint16_t rpm) {}
-    //virtual void setRange(uint16_t range) {}
+//    virtual void setRpm(uint16_t rpm) {}
+//    virtual void setRange(uint16_t range) {}
     virtual void setBatteryHVTemperature(uint8_t temperature) {}
     virtual void setPace(int16_t pace) {}
     virtual void setLap(uint8_t value) {}

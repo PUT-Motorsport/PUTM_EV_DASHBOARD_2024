@@ -6,6 +6,63 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_J8BG" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">PDU</Translation>
+      </Text>
+      <Text Id="__SingleUse_6R5F" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">AIR</Translation>
+      </Text>
+      <Text Id="__SingleUse_BFUV" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">TSAL</Translation>
+      </Text>
+      <Text Id="__SingleUse_5BDQ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">RBOX</Translation>
+      </Text>
+      <Text Id="__SingleUse_11L8" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">DASH</Translation>
+      </Text>
+      <Text Id="__SingleUse_IAWK" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">SDC</Translation>
+      </Text>
+      <Text Id="__SingleUse_XT7O" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">FBOX</Translation>
+      </Text>
+      <Text Id="__SingleUse_YUKU" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">INV</Translation>
+      </Text>
+      <Text Id="__SingleUse_DMBH" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">PUMP</Translation>
+      </Text>
+      <Text Id="__SingleUse_A21P" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">FAN</Translation>
+      </Text>
+      <Text Id="__SingleUse_MJLP" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">PC</Translation>
+      </Text>
+      <Text Id="__SingleUse_BUZR" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">OFF</Translation>
+      </Text>
+      <Text Id="__SingleUse_FYTL" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">ACTIVE</Translation>
+      </Text>
+      <Text Id="__SingleUse_GK2Q" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">RTD</Translation>
+      </Text>
+      <Text Id="__SingleUse_LD3J" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">UNK</Translation>
+      </Text>
+      <Text Id="__SingleUse_3CPS" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">ACTIVE</Translation>
+      </Text>
+      <Text Id="__SingleUse_PHPV" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">ERROR</Translation>
+      </Text>
+      <Text Id="__SingleUse_643R" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">OFF</Translation>
+      </Text>
+      <Text Id="__SingleUse_3O5K" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">INVERTER</Translation>
+      </Text>
       <Text Id="__SingleUse_4D3J" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">+00.000</Translation>
       </Text>
@@ -240,9 +297,6 @@
       <Text Id="__SingleUse_6NEI" Alignment="Center" TypographyId="Medium">
         <Translation Language="GB">DRS</Translation>
       </Text>
-      <Text Id="__SingleUse_7G62" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">RPM</Translation>
-      </Text>
       <Text Id="__SingleUse_TGUD" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">100</Translation>
       </Text>
@@ -266,12 +320,6 @@
       </Text>
       <Text Id="__SingleUse_E71Z" Alignment="Center" TypographyId="Small">
         <Translation Language="GB">&lt;d&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_Q3ZW" Alignment="Center" TypographyId="MediumPlus">
-        <Translation Language="GB">INV</Translation>
-      </Text>
-      <Text Id="__SingleUse_ZXJZ" Alignment="Center" TypographyId="MediumPlus">
-        <Translation Language="GB">RTD</Translation>
       </Text>
       <Text Id="__SingleUse_IKMT" Alignment="Left" TypographyId="Huge">
         <Translation Language="GB">MESSAGE</Translation>

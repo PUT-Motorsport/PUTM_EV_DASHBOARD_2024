@@ -33,6 +33,16 @@ typedef struct {
     _Bool safety_rear;
 	_Bool rtd_button_pressed;
 	_Bool tsa_button_pressed;
+    uint8_t pc_status;
+    uint8_t fan_status;
+    uint8_t pump_status;
+    uint8_t inverter_status;
+    uint8_t fbox_status;
+    uint8_t sdc_status;
+    uint8_t dash_status;
+    uint8_t tsal_hv_status;
+    uint8_t rbox_diagport_brake_l_status;
+    uint8_t brake_ir_air_status;
     uint8_t battery_hv_temperature;
     uint8_t battery_lv_temperature;
     uint8_t frontRightInverterTemperature;
@@ -97,6 +107,8 @@ typedef struct {
 	uint32_t pc_last_frame_time;
 	uint32_t pc_temp_last_frame_time;
 	uint32_t pc_laptimer_last_frame_time;
+	uint32_t pdu_data_last_frame_time;
+	uint32_t pdu_channel_last_frame_time;
 } TimeoutData_TypeDef;
 
 typedef struct {

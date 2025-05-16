@@ -61,7 +61,7 @@ void MainScreenPresenter::setCoolantTemperature(uint8_t temperature) { view.upda
 
 void MainScreenPresenter::setRearBrakePressure(uint16_t pressure) { view.updateRearBrakePressure(pressure); }
 
-void MainScreenPresenter::setRpm(uint16_t rpm) { view.updateRpm(rpm); }
+//void MainScreenPresenter::setRpm(uint16_t rpm) { view.updateRpm(rpm); }
 
 void MainScreenPresenter::setCurrentLap(uint32_t time) { view.updateCurrentLap(time); }
 
@@ -82,6 +82,27 @@ void MainScreenPresenter::setSDC(SafetyData_TypeDef status) {view.updateSDC(stat
 void MainScreenPresenter::setRtdButtonPressed(bool status) {view.updateRtdButtonPressed(status);}
 
 void MainScreenPresenter::setTsaButtonPressed(bool status) {view.updateTsaButtonPressed(status);}
+
+void MainScreenPresenter::setPduPcStatus(uint8_t status) {view.updatePduPcStatus(status);}
+
+void MainScreenPresenter::setPduFanStatus(uint8_t status) {view.updatePduFanStatus(status);}
+
+void MainScreenPresenter::setPduPumpStatus(uint8_t status) {view.updatePduPumpStatus(status);}
+
+void MainScreenPresenter::setPduInverterStatus(uint8_t status) {view.updatePduInverterStatus(status);}
+
+void MainScreenPresenter::setPduFboxStatus(uint8_t status) {view.updatePduFboxStatus(status);}
+
+void MainScreenPresenter::setPduSdcStatus(uint8_t status) {view.updatePduSdcStatus(status);}
+
+void MainScreenPresenter::setPduDashStatus(uint8_t status) {view.updatePduDashStatus(status);}
+
+void MainScreenPresenter::setPduTsalStatus(uint8_t status) {view.updatePduTsalStatus(status);}
+
+void MainScreenPresenter::setPduRboxStatus(uint8_t status) {view.updatePduRboxStatus(status);}
+
+void MainScreenPresenter::setPduAirStatus(uint8_t status) {view.updatePduAirStatus(status);}
+
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 
