@@ -56,7 +56,7 @@ void Communication_Task(void* argument) {
         PUTM_CAN::Dashboard frame = {
             .ready_to_drive_button = send_rtd_button,
             .ts_activation_button = send_tsa_button,
-            .user_button = send_drs_button,
+            .drs_button = send_drs_button,
         };
         auto message = PUTM_CAN::Can_tx_message<PUTM_CAN::Dashboard>(frame, PUTM_CAN::can_tx_header_DASHBOARD);
 
