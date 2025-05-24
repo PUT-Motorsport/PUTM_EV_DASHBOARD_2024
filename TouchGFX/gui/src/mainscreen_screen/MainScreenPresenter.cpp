@@ -61,14 +61,6 @@ void MainScreenPresenter::setCoolantTemperature(uint8_t temperature) { view.upda
 
 void MainScreenPresenter::setRearBrakePressure(uint16_t pressure) { view.updateRearBrakePressure(pressure); }
 
-//void MainScreenPresenter::setRpm(uint16_t rpm) { view.updateRpm(rpm); }
-
-void MainScreenPresenter::setCurrentLap(uint32_t time) { view.updateCurrentLap(time); }
-
-void MainScreenPresenter::setLastLap(uint32_t time) { view.updateLastLap(time); }
-
-void MainScreenPresenter::setBestLap(uint32_t time) { view.updateBestLap(time); }
-
 void MainScreenPresenter::setInverterTemperature(uint8_t inv_FL_temperature,
 												 uint8_t inv_FR_temperature,
 												 uint8_t inv_RL_temperature,

@@ -100,18 +100,42 @@ if(inv_ready && (!inv_FL_error && !inv_FR_error && !inv_RL_error && !inv_RR_erro
 {
 	//Inv work correct
 	invOK.setVisible(true);
-	invError.setVisible(false);
 	invOff.setVisible(false);
 	invUnk.setVisible(false);
+
+	invError.setVisible(false);
+	invFL_Error.setVisible(false);
+	invFR_Error_.setVisible(false);
+	invRL_Error.setVisible(false);
+	invRR_Error.setVisible(false);
 }
 else if (inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)
 {
-	//Inv have error
-	invOK.setVisible(false);
-	invError.setVisible(true);
-	invOff.setVisible(false);
-	invUnk.setVisible(false);
+    int errorCount = (inv_FL_error ? 1 : 0) +
+                     (inv_FR_error ? 1 : 0) +
+                     (inv_RL_error ? 1 : 0) +
+                     (inv_RR_error ? 1 : 0);
+
+    if (errorCount > 1)
+    {
+        // Jeśli więcej niż jeden błąd – pokazujemy ogólny błąd
+        invError.setVisible(true);
+        invFL_Error.setVisible(false);
+        invFR_Error_.setVisible(false);
+        invRL_Error.setVisible(false);
+        invRR_Error.setVisible(false);
+    }
+    else
+    {
+        // Jeśli dokładnie jeden błąd – pokazujemy szczegółowy
+        invError.setVisible(false);
+        invFL_Error.setVisible(inv_FL_error == 1);
+        invFR_Error_.setVisible(inv_FR_error == 1);
+        invRL_Error.setVisible(inv_RL_error == 1);
+        invRR_Error.setVisible(inv_RR_error == 1);
+    }
 }
+
 else if (inv_ready && ((inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)))
 {
 	//Unkonow state
@@ -325,61 +349,6 @@ void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
 }
 
 
-
-//void MainScreenView::updateRpm(uint16_t rpm) {
-//    uint8_t value = (rpm * 100) / DASH_RPM_MAX;
-//    rpmProgress.setValue(value);
-//}
-
-
-void MainScreenView::updateCurrentLap(uint32_t time) {
-    uint8_t minutes = time / (1000 * 60);
-    time %= (1000 * 60);
-    uint8_t seconds = time / 1000;
-    time %= 1000;
-
-    Unicode::snprintf(currentLapTextBuffer, CURRENTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, time);
-    currentLapText.invalidate();
-}
-
-void MainScreenView::updateLastLap(uint32_t time) {
-	// lastMeasurement przechowuje ostatnią zarejestrowaną wartość czasu bieżącego okrążenia.
-	// lastLap przechowuje zakończony czas okrążenia, który chcemy wyświetlić.
-	static uint32_t lastMeasurement = 0;
-	static uint32_t lastLap = 0;
-
-	// Jeżeli aktualny czas jest mniejszy niż poprzedni,
-    // oznacza to, że licznik został zresetowany – nowy okrązenie się rozpoczęło.
-    if(time < lastMeasurement)
-    {
-	// Zapisujemy końcowy czas poprzedniego okrążenia.
-	   lastLap = lastMeasurement;
-
-	   // Formatowanie ostatniego okrążenia do postaci MM:SS.mmm.
-	   uint32_t displayTime = lastLap;
-	   uint8_t minutes = displayTime / (1000 * 60);
-	   displayTime %= (1000 * 60);
-	   uint8_t seconds = displayTime / 1000;
-	   displayTime %= 1000;
-
-
-	   Unicode::snprintf(lastLapTextBuffer, LASTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, displayTime);
-	   lastLapText.invalidate();
-	  }
-
-	  // Aktualizujemy ostatnią zarejestrowaną wartość czasu okrążenia.
-	  lastMeasurement = time;
-}
-
-void MainScreenView::updateBestLap(uint32_t time) {
-    uint8_t minutes = time / (1000 * 60);
-    time %= (1000 * 60);
-    uint8_t seconds = time / 1000;
-    time %= 1000;
-
-    Unicode::snprintf(bestLapTextBuffer, BESTLAPTEXT_SIZE, "%02d:%02d.%03d", minutes, seconds, time);
-    bestLapText.invalidate();
-}
 
 void MainScreenView::toggleWarning() {
     if(m_time > 9) {

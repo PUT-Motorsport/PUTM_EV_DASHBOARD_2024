@@ -71,10 +71,6 @@ class MainScreenView : public MainScreenViewBase {
     void updateRearBrakePressure(uint16_t pressure);
     void updateCoolantTemperature(uint8_t temperature);
     void updateFrontBrakePressure(uint16_t pressure);
-//    void updateRpm(uint16_t rpm);
-    void updateCurrentLap(uint32_t time);
-    void updateLastLap(uint32_t time);
-    void updateBestLap(uint32_t time);
     void updateRtdButtonPressed(bool status);
     void updateTsaButtonPressed(bool status);
 
