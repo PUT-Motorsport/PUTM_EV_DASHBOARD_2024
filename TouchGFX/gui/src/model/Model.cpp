@@ -110,17 +110,14 @@ void Model::tick() {
             m_sharedDataPrev.soc_lv = m_sharedData.soc_lv;
             modelListener->setSocLv(m_sharedData.soc_lv);
 
-//            m_sharedDataPrev.rpm = m_sharedData.rpm;
-//            modelListener->setRpm(m_sharedData.rpm);
-
-//            m_sharedDataPrev.range = m_sharedData.range;
-//            modelListener->setRange(m_sharedData.range);
 
             m_sharedDataPrev.rtd_button_pressed = m_sharedData.rtd_button_pressed;
             modelListener->setRtdButtonPressed(m_sharedData.rtd_button_pressed);
 
             m_sharedDataPrev.tsa_button_pressed = m_sharedData.tsa_button_pressed;
             modelListener->setTsaButtonPressed(m_sharedData.tsa_button_pressed);
+
+            modelListener->setDrsStatus(interfaceData.drs_button);
 
 
             //PDU
@@ -180,6 +177,8 @@ void Model::tick() {
 
         if(osMutexAcquire(sdcDataMutexHandle, osWaitForever) == osOK)
         {
+
+        	//SDC Data
         	m_sharedSafetyData = safetyData;
 
 

@@ -207,7 +207,7 @@ void RaceScreenView::updatePace(int16_t pace)
     volatile int seconds = static_cast<int>(absPace / 1000);     // Whole part: seconds
     volatile int milliseconds = static_cast<int>(absPace % 1000); // Fractional part: milliseconds
 
-    Unicode::snprintf(PaceTextBuffer, PACETEXT_SIZE, "%+02d.%03d", seconds, milliseconds);
+    Unicode::snprintf(PaceTextBuffer, PACETEXT_SIZE, "%+02d.%02d", seconds, milliseconds);
     PaceText.setVisible(true);
     PaceText.invalidate();
 
