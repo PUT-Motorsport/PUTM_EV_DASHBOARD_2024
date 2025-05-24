@@ -46,134 +46,9 @@
           },
           {
             "Type": "Container",
-            "Name": "timerContainer",
-            "X": 286,
-            "Y": 290,
-            "Width": 220,
-            "Height": 183,
-            "Components": [
-              {
-                "Type": "Image",
-                "Name": "timerFrame",
-                "Width": 220,
-                "Height": 183,
-                "RelativeFilename": "timeBackground.png"
-              },
-              {
-                "Type": "TextArea",
-                "Name": "bestLapLabelText",
-                "X": 137,
-                "Y": 152,
-                "Width": 68,
-                "Height": 15,
-                "TextId": "__SingleUse_802D",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 102,
-                  "Green": 102,
-                  "Blue": 102
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "bestLapText",
-                "X": 81,
-                "Y": 125,
-                "Width": 124,
-                "Height": 25,
-                "TextId": "__SingleUse_E4E9",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 25,
-                  "Green": 153,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_RMZ0",
-                  "UseBuffer": true,
-                  "BufferSize": 12
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "lastLapLabelText",
-                "X": 138,
-                "Y": 100,
-                "Width": 67,
-                "Height": 15,
-                "TextId": "__SingleUse_3C8O",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 102,
-                  "Green": 102,
-                  "Blue": 102
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "lastLapText",
-                "X": 81,
-                "Y": 73,
-                "Width": 124,
-                "Height": 25,
-                "TextId": "__SingleUse_YUNI",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 25,
-                  "Green": 153,
-                  "Blue": 255
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_1QYQ",
-                  "UseBuffer": true,
-                  "BufferSize": 12
-                }
-              },
-              {
-                "Type": "TextArea",
-                "Name": "currentLapLabelText",
-                "X": 106,
-                "Y": 42,
-                "Width": 99,
-                "Height": 15,
-                "TextId": "__SingleUse_ILZ2",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 102,
-                  "Green": 102,
-                  "Blue": 102
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "currentLapText",
-                "X": 49,
-                "Y": 8,
-                "Width": 156,
-                "Height": 32,
-                "TextId": "__SingleUse_71SB",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 163,
-                  "Green": 146,
-                  "Blue": 46
-                },
-                "Wildcard1": {
-                  "TextId": "__SingleUse_NRU6",
-                  "UseBuffer": true,
-                  "BufferSize": 12
-                }
-              }
-            ]
-          },
-          {
-            "Type": "Container",
             "Name": "SdcContainer",
             "X": 553,
-            "Y": 41,
+            "Y": 15,
             "Width": 220,
             "Height": 150,
             "Components": [
@@ -529,7 +404,7 @@
             "Type": "Container",
             "Name": "dataContainer",
             "X": 28,
-            "Y": 86,
+            "Y": 82,
             "Width": 220,
             "Height": 285,
             "Components": [
@@ -763,15 +638,15 @@
             "Type": "Container",
             "Name": "InverterContainer",
             "X": 28,
-            "Y": 373,
+            "Y": 379,
             "Width": 220,
-            "Height": 74,
+            "Height": 91,
             "Components": [
               {
                 "Type": "TextArea",
                 "Name": "invOff",
                 "X": 81,
-                "Y": 30,
+                "Y": 44,
                 "Width": 58,
                 "Height": 38,
                 "Visible": false,
@@ -779,18 +654,18 @@
                 "TextId": "__SingleUse_643R",
                 "TextRotation": "0",
                 "Color": {
-                  "Red": 102,
-                  "Green": 102,
-                  "Blue": 102
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
                 },
                 "AutoSize": true
               },
               {
                 "Type": "TextArea",
-                "Name": "invError",
-                "X": 54,
-                "Y": 30,
-                "Width": 104,
+                "Name": "invFL_Error",
+                "X": 36,
+                "Y": 44,
+                "Width": 148,
                 "Height": 38,
                 "Visible": false,
                 "LockPosition": true,
@@ -803,11 +678,77 @@
               },
               {
                 "Type": "TextArea",
+                "Name": "invFR_Error_",
+                "X": 36,
+                "Y": 44,
+                "Width": 151,
+                "Height": 38,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_LXP1",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "invRL_Error",
+                "X": 36,
+                "Y": 44,
+                "Width": 151,
+                "Height": 38,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_0849",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "invRR_Error",
+                "X": 36,
+                "Y": 44,
+                "Width": 154,
+                "Height": 38,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_MS8Q",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "invError",
+                "X": 32,
+                "Y": 44,
+                "Width": 164,
+                "Height": 38,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_D5RT",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
                 "Name": "invOK",
                 "X": 55,
-                "Y": 29,
+                "Y": 42,
                 "Width": 110,
                 "Height": 38,
+                "Visible": false,
+                "LockPosition": true,
                 "TextId": "__SingleUse_3CPS",
                 "TextRotation": "0",
                 "Color": {
@@ -821,7 +762,7 @@
                 "Type": "TextArea",
                 "Name": "invUnk",
                 "X": 79,
-                "Y": 30,
+                "Y": 44,
                 "Width": 63,
                 "Height": 38,
                 "Visible": false,
@@ -838,10 +779,9 @@
               {
                 "Type": "TextArea",
                 "Name": "invText",
-                "X": 52,
-                "Width": 116,
-                "Height": 25,
-                "LockPosition": true,
+                "X": 39,
+                "Width": 150,
+                "Height": 38,
                 "TextId": "__SingleUse_3O5K",
                 "TextRotation": "0",
                 "Color": {
@@ -854,7 +794,7 @@
               {
                 "Type": "Image",
                 "Name": "invframe",
-                "Y": 25,
+                "Y": 39,
                 "Width": 220,
                 "Height": 49,
                 "RelativeFilename": "infoFrame.png"
@@ -865,9 +805,9 @@
             "Type": "Container",
             "Name": "infoContainer",
             "X": 28,
-            "Y": 26,
+            "Y": 14,
             "Width": 220,
-            "Height": 49,
+            "Height": 54,
             "Components": [
               {
                 "Type": "Image",
@@ -925,8 +865,8 @@
           {
             "Type": "Image",
             "Name": "carImage",
-            "X": 317,
-            "Y": 28,
+            "X": 316,
+            "Y": 67,
             "Width": 169,
             "Height": 256,
             "RelativeFilename": "image_car.png"
@@ -935,7 +875,7 @@
             "Type": "TextArea",
             "Name": "motorFrontLefttext",
             "X": 256,
-            "Y": 75,
+            "Y": 114,
             "Width": 61,
             "Height": 29,
             "TextId": "__SingleUse_E71Z",
@@ -955,7 +895,7 @@
             "Type": "TextArea",
             "Name": "motorRearLefttext",
             "X": 256,
-            "Y": 223,
+            "Y": 260,
             "Width": 61,
             "Height": 29,
             "TextId": "__SingleUse_LJIB",
@@ -974,8 +914,8 @@
           {
             "Type": "TextArea",
             "Name": "motorFrontRighttext",
-            "X": 486,
-            "Y": 75,
+            "X": 485,
+            "Y": 114,
             "Width": 61,
             "Height": 29,
             "TextId": "__SingleUse_66KO",
@@ -994,8 +934,8 @@
           {
             "Type": "TextArea",
             "Name": "motorRearRighttext",
-            "X": 486,
-            "Y": 223,
+            "X": 485,
+            "Y": 260,
             "Width": 61,
             "Height": 29,
             "TextId": "__SingleUse_BSQR",
@@ -1033,7 +973,7 @@
             "Type": "Container",
             "Name": "PduContainer",
             "X": 553,
-            "Y": 203,
+            "Y": 186,
             "Width": 220,
             "Height": 150,
             "Components": [
@@ -1226,25 +1166,25 @@
             "Type": "Container",
             "Name": "Rtdcontainer",
             "X": 553,
-            "Y": 371,
+            "Y": 379,
             "Width": 220,
-            "Height": 78,
+            "Height": 93,
             "Components": [
               {
                 "Type": "Image",
                 "Name": "rtdFrame",
-                "Y": 27,
+                "Y": 38,
                 "Width": 220,
                 "Height": 49,
+                "LockPosition": true,
                 "RelativeFilename": "infoFrame.png"
               },
               {
                 "Type": "TextArea",
                 "Name": "rtdText",
-                "X": 87,
-                "Y": 2,
-                "Width": 47,
-                "Height": 25,
+                "X": 80,
+                "Width": 61,
+                "Height": 38,
                 "LockPosition": true,
                 "TextId": "__SingleUse_GK2Q",
                 "TextRotation": "0",
@@ -1259,9 +1199,10 @@
                 "Type": "TextArea",
                 "Name": "rtdAcitve",
                 "X": 55,
-                "Y": 31,
+                "Y": 42,
                 "Width": 110,
                 "Height": 38,
+                "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_FYTL",
                 "TextRotation": "0",
@@ -1276,7 +1217,7 @@
                 "Type": "TextArea",
                 "Name": "rtdOff",
                 "X": 81,
-                "Y": 31,
+                "Y": 44,
                 "Width": 58,
                 "Height": 38,
                 "Visible": false,
@@ -1291,6 +1232,15 @@
                 "AutoSize": true
               }
             ]
+          },
+          {
+            "Type": "Image",
+            "Name": "logo",
+            "X": 340,
+            "Y": 397,
+            "Width": 120,
+            "Height": 49,
+            "RelativeFilename": "PUTM_Logo.png"
           }
         ],
         "Interactions": [
@@ -1617,9 +1567,9 @@
           {
             "Type": "TextArea",
             "Name": "PaceText",
-            "X": 152,
-            "Y": -12,
-            "Width": 503,
+            "X": 191,
+            "Y": -4,
+            "Width": 424,
             "Height": 127,
             "TextId": "__SingleUse_WDBV",
             "TextRotation": "0",
@@ -1627,7 +1577,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_4D3J",
               "UseBuffer": true,
-              "BufferSize": 16
+              "BufferSize": 64
             }
           }
         ],
