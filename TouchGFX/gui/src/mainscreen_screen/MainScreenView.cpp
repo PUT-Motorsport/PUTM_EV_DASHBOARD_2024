@@ -12,8 +12,8 @@
 #define BATTERY_LV_SOC_MID 50
 #define BATTERY_LV_SOC_MAX 90
 #define MOTOR_TEMPERATURE_MIN 5
-#define MOTOR_TEMPERATURE_MID 60
-#define MOTOR_TEMPERATURE_MAX 80
+#define MOTOR_TEMPERATURE_MID 20
+#define MOTOR_TEMPERATURE_MAX 60
 #define INVERTER_TEMPERATURE_MIN 5
 #define INVERTER_TEMPERATURE_MID 30
 #define INVERTER_TEMPERATURE_MAX 40
@@ -86,80 +86,43 @@ void MainScreenView::updateReadyToDrive(bool status) {
 }
 
 void MainScreenView::updateInvertersStatus(bool inv_ready,
-										   bool inv_FL_status,
-										   bool inv_FR_status,
-										   bool inv_RL_status,
-										   bool inv_RR_status,
-										   bool inv_FL_error,
-										   bool inv_FR_error,
-										   bool inv_RL_error,
-										   bool inv_RR_error)
+                                           bool inv_FL_status,
+                                           bool inv_FR_status,
+                                           bool inv_RL_status,
+                                           bool inv_RR_status,
+                                           bool inv_FL_error,
+                                           bool inv_FR_error,
+                                           bool inv_RL_error,
+                                           bool inv_RR_error)
 {
 
-if(inv_ready && (!inv_FL_error && !inv_FR_error && !inv_RL_error && !inv_RR_error))
-{
-	//Inv work correct
-	invOK.setVisible(true);
-	invOff.setVisible(false);
-	invUnk.setVisible(false);
+    int errorCount = inv_FL_error + inv_FR_error + inv_RL_error + inv_RR_error;
+    bool anyError = (errorCount > 0);
+    bool allOK = inv_ready   && !anyError;
+    bool allOff = !inv_ready  && !anyError;
+    bool generalError = (errorCount > 1);
+    bool singleError = (errorCount == 1);
 
-	invError.setVisible(false);
-	invFL_Error.setVisible(false);
-	invFR_Error_.setVisible(false);
-	invRL_Error.setVisible(false);
-	invRR_Error.setVisible(false);
-}
-else if (inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)
-{
-    int errorCount = (inv_FL_error ? 1 : 0) +
-                     (inv_FR_error ? 1 : 0) +
-                     (inv_RL_error ? 1 : 0) +
-                     (inv_RR_error ? 1 : 0);
 
-    if (errorCount > 1)
-    {
-        // Jeśli więcej niż jeden błąd – pokazujemy ogólny błąd
-        invError.setVisible(true);
-        invFL_Error.setVisible(false);
-        invFR_Error_.setVisible(false);
-        invRL_Error.setVisible(false);
-        invRR_Error.setVisible(false);
-    }
-    else
-    {
-        // Jeśli dokładnie jeden błąd – pokazujemy szczegółowy
-        invError.setVisible(false);
-        invFL_Error.setVisible(inv_FL_error == 1);
-        invFR_Error_.setVisible(inv_FR_error == 1);
-        invRL_Error.setVisible(inv_RL_error == 1);
-        invRR_Error.setVisible(inv_RR_error == 1);
-    }
+    invOK.setVisible(allOK);
+    invOff.setVisible(allOff);
+    invError.setVisible(generalError);
+    invFL_Error.setVisible(singleError && inv_FL_error);
+    invFR_Error.setVisible(singleError && inv_FR_error);
+    invRL_Error.setVisible(singleError && inv_RL_error);
+    invRR_Error.setVisible(singleError && inv_RR_error);
+
+
+    invOK.invalidate();
+    invOff.invalidate();;
+    invError.invalidate();;
+    invFL_Error.invalidate();;
+    invFR_Error.invalidate();;
+    invRL_Error.invalidate();;
+    invRR_Error.invalidate();;
 }
 
-else if (inv_ready && ((inv_FL_error || inv_FR_error || inv_RL_error || inv_RR_error)))
-{
-	//Unkonow state
-	invOK.setVisible(false);
-	invError.setVisible(false);
-	invOff.setVisible(false);
-	invUnk.setVisible(true);
 
-}
-else
-{
-	//Inv off
-	invOK.setVisible(false);
-	invError.setVisible(false);
-	invOff.setVisible(true);
-	invUnk.setVisible(false);
-}
-
-	invOK.invalidate();
-	invError.invalidate();
-	invOff.invalidate();
-	invUnk.invalidate();
-
-}
 
 void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
     Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", temperature);

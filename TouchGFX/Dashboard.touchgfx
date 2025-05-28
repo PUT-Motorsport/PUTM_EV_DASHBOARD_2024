@@ -441,7 +441,7 @@
                 "X": 133,
                 "Y": 212,
                 "Width": 74,
-                "Height": 15,
+                "Height": 17,
                 "TextId": "__SingleUse_2EHC",
                 "TextRotation": "0",
                 "Color": {
@@ -457,7 +457,7 @@
                 "X": 10,
                 "Y": 212,
                 "Width": 80,
-                "Height": 15,
+                "Height": 17,
                 "TextId": "__SingleUse_BGUB",
                 "TextRotation": "0",
                 "Color": {
@@ -482,7 +482,7 @@
                 "X": 133,
                 "Y": 162,
                 "Width": 61,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_MYN3",
                 "TextRotation": "0",
                 "Color": {
@@ -532,7 +532,7 @@
                 "X": 24,
                 "Y": 162,
                 "Width": 61,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_8L6D",
                 "TextRotation": "0",
                 "Color": {
@@ -562,7 +562,7 @@
                 "X": 133,
                 "Y": 63,
                 "Width": 61,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_4NBP",
                 "TextRotation": "0",
                 "Color": {
@@ -592,7 +592,7 @@
                 "X": 24,
                 "Y": 63,
                 "Width": 61,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_T6ID",
                 "TextRotation": "0",
                 "Color": {
@@ -622,7 +622,7 @@
                 "X": 94,
                 "Y": 242,
                 "Width": 38,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_NFRK",
                 "TextRotation": "0",
                 "Color": {
@@ -678,7 +678,7 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "invFR_Error_",
+                "Name": "invFR_Error",
                 "X": 36,
                 "Y": 44,
                 "Width": 151,
@@ -990,7 +990,7 @@
                 "X": 18,
                 "Y": 45,
                 "Width": 33,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_MJLP",
                 "TextRotation": "0",
                 "Color": {
@@ -1006,7 +1006,7 @@
                 "X": 72,
                 "Y": 45,
                 "Width": 48,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_A21P",
                 "TextRotation": "0",
                 "Color": {
@@ -1022,7 +1022,7 @@
                 "X": 14,
                 "Y": 81,
                 "Width": 40,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_6R5F",
                 "TextRotation": "0",
                 "Color": {
@@ -1038,7 +1038,7 @@
                 "X": 142,
                 "Y": 45,
                 "Width": 69,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_DMBH",
                 "TextRotation": "0",
                 "Color": {
@@ -1054,7 +1054,7 @@
                 "X": 76,
                 "Y": 81,
                 "Width": 40,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_YUKU",
                 "TextRotation": "0",
                 "Color": {
@@ -1070,7 +1070,7 @@
                 "X": 10,
                 "Y": 117,
                 "Width": 49,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_IAWK",
                 "TextRotation": "0",
                 "Color": {
@@ -1086,7 +1086,7 @@
                 "X": 72,
                 "Y": 115,
                 "Width": 60,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_BFUV",
                 "TextRotation": "0",
                 "Color": {
@@ -1102,7 +1102,7 @@
                 "X": 142,
                 "Y": 9,
                 "Width": 67,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_11L8",
                 "TextRotation": "0",
                 "Color": {
@@ -1118,7 +1118,7 @@
                 "X": 145,
                 "Y": 81,
                 "Width": 64,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_XT7O",
                 "TextRotation": "0",
                 "Color": {
@@ -1134,7 +1134,7 @@
                 "X": 145,
                 "Y": 115,
                 "Width": 66,
-                "Height": 25,
+                "Height": 27,
                 "TextId": "__SingleUse_5BDQ",
                 "TextRotation": "0",
                 "Color": {
