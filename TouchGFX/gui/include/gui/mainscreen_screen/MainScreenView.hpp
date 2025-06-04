@@ -69,7 +69,8 @@ class MainScreenView : public MainScreenViewBase {
     void updateMotorRearRightTemperature(uint8_t temperature);
     void updateOilTemperature(uint8_t temperature);
     void updateRearBrakePressure(uint16_t pressure);
-    void updateCoolantTemperature(uint8_t temperature);
+    void updateCoolantInTemperature(uint8_t temperature);
+    void updateCoolantOutTemperature(uint8_t temperature);
     void updateFrontBrakePressure(uint16_t pressure);
     void updateRtdButtonPressed(bool status);
     void updateTsaButtonPressed(bool status);

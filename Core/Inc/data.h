@@ -51,7 +51,8 @@ typedef struct {
     uint8_t rearLeftInverterTemperature;
     uint8_t oil_temperature;
     uint8_t oil_pressure;
-    uint8_t coolant_temperature;
+    uint8_t coolant_in_temperature;
+    uint8_t coolant_out_temperature;
     uint8_t coolant_pressure;
     uint16_t front_brake_pressure;
     uint16_t rear_brake_pressure;

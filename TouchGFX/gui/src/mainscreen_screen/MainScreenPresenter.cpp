@@ -53,11 +53,11 @@ void MainScreenPresenter:: setMotorRearLeftTemperature(uint8_t temperature) { vi
 
 void MainScreenPresenter:: setMotorRearRightTemperature(uint8_t temperature) { view.updateMotorRearRightTemperature(temperature); }
 
-void MainScreenPresenter::setOilTemperature(uint8_t temperature) { view.updateOilTemperature(temperature); }
-
 void MainScreenPresenter::setFrontBrakePressure(uint16_t pressure) { view.updateFrontBrakePressure(pressure); }
 
-void MainScreenPresenter::setCoolantTemperature(uint8_t temperature) { view.updateCoolantTemperature(temperature); }
+void MainScreenPresenter::setCoolantInTemperature(uint8_t temperature) { view.updateCoolantInTemperature(temperature); }
+
+void MainScreenPresenter::setCoolantOutTemperature(uint8_t temperature) { view.updateCoolantOutTemperature(temperature); }
 
 void MainScreenPresenter::setRearBrakePressure(uint16_t pressure) { view.updateRearBrakePressure(pressure); }
 

@@ -410,6 +410,15 @@
             "Components": [
               {
                 "Type": "Image",
+                "Name": "cooloutTempIcon",
+                "X": 147,
+                "Y": 106,
+                "Width": 32,
+                "Height": 32,
+                "RelativeFilename": "coolant.png"
+              },
+              {
+                "Type": "Image",
                 "Name": "dataFrame",
                 "Width": 220,
                 "Height": 285,
@@ -478,9 +487,9 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "coolTempText",
+                "Name": "cooloutTempText",
                 "X": 133,
-                "Y": 162,
+                "Y": 155,
                 "Width": 61,
                 "Height": 27,
                 "TextId": "__SingleUse_MYN3",
@@ -499,9 +508,9 @@
               },
               {
                 "Type": "Image",
-                "Name": "coolTempIcon",
-                "X": 147,
-                "Y": 117,
+                "Name": "coolinTempIcon",
+                "X": 38,
+                "Y": 106,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "coolant.png"
@@ -528,9 +537,9 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "oilTempText",
+                "Name": "coolinTempText",
                 "X": 24,
-                "Y": 162,
+                "Y": 155,
                 "Width": 61,
                 "Height": 27,
                 "TextId": "__SingleUse_8L6D",
@@ -546,15 +555,6 @@
                   "UseBuffer": true,
                   "BufferSize": 6
                 }
-              },
-              {
-                "Type": "Image",
-                "Name": "oilTempIcon",
-                "X": 38,
-                "Y": 117,
-                "Width": 32,
-                "Height": 32,
-                "RelativeFilename": "oil.png"
               },
               {
                 "Type": "TextArea",
@@ -629,6 +629,38 @@
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "cooloutlabel",
+                "X": 151,
+                "Y": 138,
+                "Width": 28,
+                "Height": 17,
+                "TextId": "__SingleUse_QZDB",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "coolinlabel",
+                "X": 47,
+                "Y": 138,
+                "Width": 14,
+                "Height": 17,
+                "TextId": "__SingleUse_Y8EC",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 102,
+                  "Green": 102,
+                  "Blue": 102
                 },
                 "AutoSize": true
               }

@@ -233,8 +233,8 @@ void Communication_Task(void* argument) {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.warning = false;
 
-				sharedData.coolant_temperature = std::max(rearbox_temperatures_data.coolant_temperature_out, rearbox_temperatures_data.coolant_temperature_in);
-				sharedData.oil_temperature = std::max(rearbox_temperatures_data.oil_temperature_l, rearbox_temperatures_data.oil_temperature_r);
+				sharedData.coolant_out_temperature = rearbox_temperatures_data.coolant_temperature_out;
+				sharedData.coolant_in_temperature = rearbox_temperatures_data.coolant_temperature_in;
 
 				osMutexRelease(sharedDataMutexHandle);
 			}
@@ -242,8 +242,8 @@ void Communication_Task(void* argument) {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.warning = true;
 
-				sharedData.coolant_temperature = 0;
-				sharedData.oil_temperature = 0;
+				sharedData.coolant_out_temperature = 0;
+				sharedData.coolant_in_temperature = 0;
 
 				osMutexRelease(sharedDataMutexHandle);
 			}

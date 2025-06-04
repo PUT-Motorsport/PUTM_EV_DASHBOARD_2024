@@ -172,24 +172,6 @@ void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
 }
 
 
-void MainScreenView::updateOilTemperature(uint8_t temperature) {
-    Unicode::snprintf(oilTempTextBuffer, OILTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature >= OIL_TEMPERATURE_MAX || temperature <= OIL_TEMPERATURE_MIN) {
-        oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_CRIT_ID));
-        oilTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > OIL_TEMPERATURE_MID) {
-        oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_WARN_ID));
-        oilTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
-        oilTempIcon.setBitmap(Bitmap(BITMAP_OIL_ID));
-        oilTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    }
-    oilTempIcon.setVisible(true);
-    oilTempText.setVisible(true);
-    oilTempIcon.invalidate();
-    oilTempText.invalidate();
-}
-
 void MainScreenView::updateFrontBrakePressure(uint16_t pressure) {
 
 	// Konwersja wartości czujnika do reprezentacji stałoprzecinkowej (skalowanej razy 100)
@@ -293,22 +275,40 @@ void MainScreenView::updateRearBrakePressure(uint16_t pressure) {
     RearBrakePressLabel.invalidate();
 }
 
-void MainScreenView::updateCoolantTemperature(uint8_t temperature) {
-    Unicode::snprintf(coolTempTextBuffer, COOLTEMPTEXT_SIZE, "%d", temperature);
+void MainScreenView::updateCoolantInTemperature(uint8_t temperature) {
+    Unicode::snprintf(coolinTempTextBuffer, COOLINTEMPTEXT_SIZE, "%d", temperature);
     if(temperature >= COOLANT_TEMPERATURE_MAX || temperature <= COOLANT_TEMPERATURE_MIN) {
-        coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
-        coolTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	coolinTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
+    	coolinTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     } else if(temperature > COOLANT_TEMPERATURE_MID) {
-        coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_WARN_ID));
-        coolTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	coolinTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_WARN_ID));
+    	coolinTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     } else {
-        coolTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_ID));
-        coolTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	coolinTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_ID));
+        coolinTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
-    coolTempIcon.setVisible(true);
-    coolTempText.setVisible(true);
-    coolTempIcon.invalidate();
-    coolTempText.invalidate();
+    coolinTempIcon.setVisible(true);
+    coolinTempText.setVisible(true);
+    coolinTempIcon.invalidate();
+    coolinTempText.invalidate();
+}
+
+void MainScreenView::updateCoolantOutTemperature(uint8_t temperature) {
+    Unicode::snprintf(cooloutTempTextBuffer, COOLOUTTEMPTEXT_SIZE, "%d", temperature);
+    if(temperature >= COOLANT_TEMPERATURE_MAX || temperature <= COOLANT_TEMPERATURE_MIN) {
+    	cooloutTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
+    	cooloutTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    } else if(temperature > COOLANT_TEMPERATURE_MID) {
+    	cooloutTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_WARN_ID));
+    	cooloutTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    } else {
+    	cooloutTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_ID));
+    	cooloutTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
+    cooloutTempIcon.setVisible(true);
+    cooloutTempText.setVisible(true);
+    cooloutTempIcon.invalidate();
+    cooloutTempText.invalidate();
 }
 
 

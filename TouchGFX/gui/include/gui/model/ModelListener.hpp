@@ -56,9 +56,9 @@ class ModelListener {
 									bool inv_RR_error) {}
     virtual void setDrsStatus(bool status) {}
     virtual void setBatteryLVTemperature(uint8_t temperature) {}
-    virtual void setOilTemperature(uint8_t temperature) {}
     virtual void setFrontBrakePressure(uint16_t pressure) {}
-    virtual void setCoolantTemperature(uint8_t temperature) {}
+    virtual void setCoolantInTemperature(uint8_t temperature) {}
+    virtual void setCoolantOutTemperature(uint8_t temperature) {}
     virtual void setRearBrakePressure(uint16_t pressure) {}
     virtual void setCurrentLap(uint32_t time) {}
     virtual void setLastLap(uint32_t time) {}
