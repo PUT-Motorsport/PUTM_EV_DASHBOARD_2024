@@ -6,6 +6,15 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_GKC6" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Inverter</Translation>
+      </Text>
+      <Text Id="__SingleUse_4VP5" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Motor</Translation>
+      </Text>
+      <Text Id="__SingleUse_3MAD" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">HV Battery</Translation>
+      </Text>
       <Text Id="__SingleUse_QZDB" Alignment="Left" TypographyId="Tiny">
         <Translation Language="GB">OUT</Translation>
       </Text>

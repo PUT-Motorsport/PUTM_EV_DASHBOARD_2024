@@ -122,25 +122,25 @@ void RaceScreenView::updateBatteryHVTemperature(uint8_t temperature)
 
     if(temperature > BATTERY_HV_TEMPERATURE_MAX || temperature < BATTERY_HV_TEMPERATURE_MIN)
     {
-    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYHV_CRIT_ID));
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    	HvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
     else if(temperature < BATTERY_HV_TEMPERATURE_MAX  && temperature > BATTERY_HV_TEMPERATURE_MID)
     {
-    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYHV_WARN_ID));
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    	HvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
     }
     else
     {
-    	hvtempimage.setBitmap(Bitmap(BITMAP_BATTERYHV_ID));
     	hvtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    	HvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
 
     hvtemptext.setVisible(true);
     hvtemptext.invalidate();
-    hvtempimage.setVisible(true);
-    hvtempimage.invalidate();
+    HvTempLabelText.setVisible(true);
+    HvTempLabelText.invalidate();
 }
 
 void RaceScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
@@ -154,24 +154,24 @@ void RaceScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
 
         if (inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN)
         {
-            invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
+        	InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
             invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
         }
         else if (inv_temp_highest > INVERTER_TEMPERATURE_MID)
         {
-            invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
+        	InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
             invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
         }
         else
         {
-            invtempimage.setBitmap(Bitmap(BITMAP_INVERTER_ID));
+        	InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
             invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
         }
 
 
-    invtempimage.setVisible(true);
+    InvTempLabelText.setVisible(true);
     invtemptext.setVisible(true);
-    invtempimage.invalidate();
+    InvTempLabelText.invalidate();
     invtemptext.invalidate();
 }
 
@@ -248,25 +248,25 @@ void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
 
         if (highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
         {
-            motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_CRIT_ID));
+        	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
             motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
         }
         else if (highestTemperature > MOTOR_TEMPERATURE_MID)
         {
-            motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_WARN_ID));
+        	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
             motortemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
         }
         else
         {
-            motortempimage.setBitmap(Bitmap(BITMAP_ENGINE_ID));
+        	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
             motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
         }
 
 
     motortemptext.setVisible(true);
-    motortempimage.setVisible(true);
+    MotorTempLabelText.setVisible(true);
     motortemptext.invalidate();
-    motortempimage.invalidate();
+    MotorTempLabelText.invalidate();
 }
 
 
