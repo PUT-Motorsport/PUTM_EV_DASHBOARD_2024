@@ -126,16 +126,23 @@ void MainScreenView::updateInvertersStatus(bool inv_ready,
 
 void MainScreenView::updateBatteryLvTemperature(uint8_t temperature) {
     Unicode::snprintf(batLvTempTextBuffer, BATLVTEMPTEXT_SIZE, "%d", temperature);
-    if(temperature >= BATTERY_LV_TEMPERATURE_MAX || temperature <= BATTERY_LV_TEMPERATURE_MIN) {
+
+
+    if(temperature >= BATTERY_LV_TEMPERATURE_MAX || temperature <= BATTERY_LV_TEMPERATURE_MIN)
+    {
     	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_CRIT_ID));
     	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    } else if(temperature > BATTERY_LV_TEMPERATURE_MID) {
+    } else if(temperature > BATTERY_LV_TEMPERATURE_MID)
+    {
     	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_WARN_ID));
     	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-    } else {
+    }
+    else
+    {
     	batLvTempIcon.setBitmap(Bitmap(BITMAP_BATTERYLV_ID));
     	batLvTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
+
     batLvTempIcon.setVisible(true);
     batLvTempText.setVisible(true);
     batLvTempIcon.invalidate();
@@ -149,20 +156,24 @@ void MainScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
                                                uint8_t inv_RL_temperature,
                                                uint8_t inv_RR_temperature)
 {
-        uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+    uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+    Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
 
-        Unicode::snprintf(invTempTextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
 
-        if (inv_temp_highest >= INVERTER_TEMPERATURE_MAX || inv_temp_highest <= INVERTER_TEMPERATURE_MIN) {
-            invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
-            invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-        } else if (inv_temp_highest > INVERTER_TEMPERATURE_MID) {
-            invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
-            invTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-        } else {
-            invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_ID));
-            invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-        }
+    if (inv_temp_highest >= INVERTER_TEMPERATURE_MAX || inv_temp_highest <= INVERTER_TEMPERATURE_MIN) {
+         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_CRIT_ID));
+         invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if (inv_temp_highest > INVERTER_TEMPERATURE_MID)
+    {
+         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_WARN_ID));
+         invTempText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    }
+    else
+    {
+         invTempIcon.setBitmap(Bitmap(BITMAP_INVERTER_ID));
+         invTempText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
 
 
     invTempIcon.setVisible(true);
@@ -276,7 +287,10 @@ void MainScreenView::updateRearBrakePressure(uint16_t pressure) {
 }
 
 void MainScreenView::updateCoolantInTemperature(uint8_t temperature) {
-    Unicode::snprintf(coolinTempTextBuffer, COOLINTEMPTEXT_SIZE, "%d", temperature);
+    //Unicode::snprintf(coolinTempTextBuffer, COOLINTEMPTEXT_SIZE, "%d", temperature);
+
+	Unicode::snprintf(coolinTempTextBuffer, COOLINTEMPTEXT_SIZE, "%d", 20);
+
     if(temperature >= COOLANT_TEMPERATURE_MAX || temperature <= COOLANT_TEMPERATURE_MIN) {
     	coolinTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
     	coolinTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
@@ -294,7 +308,10 @@ void MainScreenView::updateCoolantInTemperature(uint8_t temperature) {
 }
 
 void MainScreenView::updateCoolantOutTemperature(uint8_t temperature) {
-    Unicode::snprintf(cooloutTempTextBuffer, COOLOUTTEMPTEXT_SIZE, "%d", temperature);
+	//Unicode::snprintf(cooloutTempTextBuffer, COOLOUTTEMPTEXT_SIZE, "%d", temperature);
+
+	Unicode::snprintf(cooloutTempTextBuffer, COOLOUTTEMPTEXT_SIZE, "%d", 25);
+
     if(temperature >= COOLANT_TEMPERATURE_MAX || temperature <= COOLANT_TEMPERATURE_MIN) {
     	cooloutTempIcon.setBitmap(Bitmap(BITMAP_COOLANT_CRIT_ID));
     	cooloutTempText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
@@ -327,29 +344,33 @@ void MainScreenView::toggleWarning() {
 
 void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 {
-	  Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
-	  if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
-	  {
-	    motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-	  }
-	  else if (temperature > MOTOR_TEMPERATURE_MID)
-	  {
-	    motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-	  }
-	  else
-	  {
-	    motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-	  }
+	 Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
 
-	    carImage.setVisible(true);
-	    motorFrontLefttext.setVisible(true);
-	    carImage.invalidate();
-	    motorFrontLefttext.invalidate();
+
+	 if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
+	 {
+	   motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	 }
+	 else if (temperature > MOTOR_TEMPERATURE_MID)
+	 {
+	   motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+	 }
+	 else
+	 {
+	   motorFrontLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	 }
+
+	 carImage.setVisible(true);
+	 motorFrontLefttext.setVisible(true);
+	 carImage.invalidate();
+	 motorFrontLefttext.invalidate();
 }
 
 void MainScreenView::updateMotorFrontRightTemperature(uint8_t temperature)
 {
     Unicode::snprintf(motorFrontRighttextBuffer, MOTORFRONTRIGHTTEXT_SIZE, "%d", temperature);
+
+
     if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
     {
       motorFrontRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
@@ -373,6 +394,8 @@ void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 {
 
    Unicode::snprintf(motorRearLefttextBuffer, MOTORREARLEFTTEXT_SIZE, "%d", temperature);
+
+
    if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
    {
      motorRearLefttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
@@ -396,6 +419,8 @@ void MainScreenView::updateMotorRearLeftTemperature(uint8_t temperature)
 void MainScreenView::updateMotorRearRightTemperature(uint8_t temperature)
 {
    Unicode::snprintf(motorRearRighttextBuffer, MOTORREARRIGHTTEXT_SIZE, "%d", temperature);
+
+
    if (temperature >= MOTOR_TEMPERATURE_MAX || temperature <= MOTOR_TEMPERATURE_MIN)
    {
      motorRearRighttext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
@@ -557,7 +582,7 @@ void MainScreenView::updatePduPcStatus(uint8_t status)
     	//Off
     	PcPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	PcPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -571,6 +596,7 @@ void MainScreenView::updatePduPcStatus(uint8_t status)
     {
     	PcPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     PcPduText.setVisible(true);
     PcPduText.invalidate();
 }
@@ -582,7 +608,7 @@ void MainScreenView::updatePduFanStatus(uint8_t status)
     	//Off
     	FanPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	FanPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -596,6 +622,7 @@ void MainScreenView::updatePduFanStatus(uint8_t status)
     {
     	FanPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     FanPduText.setVisible(true);
     FanPduText.invalidate();
 }
@@ -607,7 +634,7 @@ void MainScreenView::updatePduPumpStatus(uint8_t status)
     	//Off
     	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -621,6 +648,7 @@ void MainScreenView::updatePduPumpStatus(uint8_t status)
     {
     	PumpPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     PumpPduText.setVisible(true);
     PumpPduText.invalidate();
 }
@@ -633,7 +661,7 @@ void MainScreenView::updatePduInverterStatus(uint8_t status)
     	//Off
     	InvPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	InvPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -647,6 +675,7 @@ void MainScreenView::updatePduInverterStatus(uint8_t status)
     {
     	InvPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     InvPduText.setVisible(true);
     InvPduText.invalidate();
 }
@@ -658,7 +687,7 @@ void MainScreenView::updatePduFboxStatus(uint8_t status)
     	//Off
     	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -672,6 +701,7 @@ void MainScreenView::updatePduFboxStatus(uint8_t status)
     {
     	FboxPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     FboxPduText.setVisible(true);
     FboxPduText.invalidate();
 }
@@ -683,7 +713,7 @@ void MainScreenView::updatePduSdcStatus(uint8_t status)
     	//Off
     	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -697,6 +727,7 @@ void MainScreenView::updatePduSdcStatus(uint8_t status)
     {
     	SdcPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     SdcPduText.setVisible(true);
     SdcPduText.invalidate();
 }
@@ -708,7 +739,7 @@ void MainScreenView::updatePduDashStatus(uint8_t status)
     	//Off
     	DashPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	DashPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -722,6 +753,7 @@ void MainScreenView::updatePduDashStatus(uint8_t status)
     {
     	DashPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     DashPduText.setVisible(true);
     DashPduText.invalidate();
 }
@@ -733,7 +765,7 @@ void MainScreenView::updatePduTsalStatus(uint8_t status)
     	//Off
     	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -747,6 +779,7 @@ void MainScreenView::updatePduTsalStatus(uint8_t status)
     {
     	TsalPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     TsalPduText.setVisible(true);
     TsalPduText.invalidate();
 }
@@ -758,7 +791,7 @@ void MainScreenView::updatePduRboxStatus(uint8_t status)
     	//Off
     	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -772,6 +805,7 @@ void MainScreenView::updatePduRboxStatus(uint8_t status)
     {
     	RboxPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     RboxPduText.setVisible(true);
     RboxPduText.invalidate();
 }
@@ -783,7 +817,7 @@ void MainScreenView::updatePduAirStatus(uint8_t status)
     	//Off
     	AirPduText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
     }
-    else if(status == 3)
+    else if(status == 2)
     {
     	//Error
     	AirPduText.setColor(touchgfx::Color::getColorFromRGB(222, 107, 40));
@@ -797,6 +831,7 @@ void MainScreenView::updatePduAirStatus(uint8_t status)
     {
     	AirPduText.setColor(touchgfx::Color::getColorFromRGB(102, 102, 102));
     }
+
     AirPduText.setVisible(true);
     AirPduText.invalidate();
 }

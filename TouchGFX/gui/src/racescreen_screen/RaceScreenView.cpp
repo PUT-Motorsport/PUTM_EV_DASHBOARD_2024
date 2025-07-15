@@ -136,7 +136,6 @@ void RaceScreenView::updateBatteryHVTemperature(uint8_t temperature)
     	HvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
 
-
     hvtemptext.setVisible(true);
     hvtemptext.invalidate();
     HvTempLabelText.setVisible(true);
@@ -148,25 +147,24 @@ void RaceScreenView::updateInverterTemperature(uint8_t inv_FL_temperature,
                                                uint8_t inv_RL_temperature,
                                                uint8_t inv_RR_temperature)
 {
-        uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+   uint8_t inv_temp_highest = std::max({inv_FL_temperature, inv_FR_temperature, inv_RL_temperature, inv_RR_temperature});
+   Unicode::snprintf(invtemptextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
 
-        Unicode::snprintf(invtemptextBuffer, INVTEMPTEXT_SIZE, "%d", inv_temp_highest);
-
-        if (inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN)
-        {
-        	InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-            invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-        }
-        else if (inv_temp_highest > INVERTER_TEMPERATURE_MID)
-        {
-        	InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-            invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-        }
-        else
-        {
-        	InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-            invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-        }
+   if (inv_temp_highest > INVERTER_TEMPERATURE_MAX || inv_temp_highest < INVERTER_TEMPERATURE_MIN)
+   {
+      InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+      invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+   }
+   else if (inv_temp_highest > INVERTER_TEMPERATURE_MID)
+   {
+       InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+       invtemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+   }
+   else
+   {
+       InvTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+       invtemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+   }
 
 
     InvTempLabelText.setVisible(true);
@@ -239,29 +237,27 @@ void RaceScreenView::updateMotorTemp(uint8_t temperatureMotorFL,
                                      uint8_t temperatureMotorRR)
 {
 
-        uint8_t frontMotor = std::max(temperatureMotorFL, temperatureMotorFR);
-        uint8_t rearMotor = std::max(temperatureMotorRL, temperatureMotorRR);
+    uint8_t frontMotor = std::max(temperatureMotorFL, temperatureMotorFR);
+    uint8_t rearMotor = std::max(temperatureMotorRL, temperatureMotorRR);
+    uint8_t highestTemperature = std::max(frontMotor, rearMotor);
 
-        uint8_t highestTemperature = std::max(frontMotor, rearMotor);
+    Unicode::snprintf(motortemptextBuffer, MOTORTEMPTEXT_SIZE, "%d", highestTemperature);
 
-        Unicode::snprintf(motortemptextBuffer, MOTORTEMPTEXT_SIZE, "%d", highestTemperature);
-
-        if (highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
-        {
-        	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-            motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-        }
-        else if (highestTemperature > MOTOR_TEMPERATURE_MID)
-        {
-        	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-            motortemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
-        }
-        else
-        {
-        	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-            motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-        }
-
+    if (highestTemperature > MOTOR_TEMPERATURE_MAX || highestTemperature < MOTOR_TEMPERATURE_MIN)
+    {
+     	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    }
+    else if (highestTemperature > MOTOR_TEMPERATURE_MID)
+    {
+      	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+        motortemptext.setColor(touchgfx::Color::getColorFromRGB(163, 146, 46));
+    }
+    else
+    {
+      	MotorTempLabelText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        motortemptext.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    }
 
     motortemptext.setVisible(true);
     MotorTempLabelText.setVisible(true);

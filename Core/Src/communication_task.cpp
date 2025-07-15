@@ -492,16 +492,16 @@ void Communication_Task(void* argument) {
         	  {
         		 sharedData.warning = true;
 
-        		 sharedData.pc_status = false;
-        		 sharedData.fan_status = false;
-        		 sharedData.pump_status = false;
-        		 sharedData.inverter_status = false;
-        		 sharedData.fbox_status = false;
-        		 sharedData.sdc_status = false;
-        		 sharedData.dash_status = false;
-        		 sharedData.tsal_hv_status = false;
-        		 sharedData.rbox_diagport_brake_l_status = false;
-        		 sharedData.brake_ir_air_status = false;
+        		 sharedData.pc_status = 0;
+        		 sharedData.fan_status = 0;
+        		 sharedData.pump_status = 0;
+        		 sharedData.inverter_status = 0;
+        		 sharedData.fbox_status = 0;
+        		 sharedData.sdc_status = 0;
+        		 sharedData.dash_status = 0;
+        		 sharedData.tsal_hv_status = 0;
+        		 sharedData.rbox_diagport_brake_l_status = 0;
+        		 sharedData.brake_ir_air_status = 0;
 
         		 osMutexRelease(sharedDataMutexHandle);
         	   }
