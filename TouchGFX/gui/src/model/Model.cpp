@@ -191,6 +191,7 @@ void Model::tick() {
 			m_sharedSafetyDataPrev.sense_overtravel = m_sharedSafetyData.sense_overtravel;
 			m_sharedSafetyDataPrev.sense_right_wheel = m_sharedSafetyData.sense_right_wheel;
 			m_sharedSafetyDataPrev.is_braking = m_sharedSafetyData.is_braking;
+			m_sharedSafetyDataPrev.safety_tsmp = m_sharedSafetyData.safety_tsmp;
 			m_sharedSafetyDataPrev.safety_rfu1 = m_sharedSafetyData.safety_rfu1;
 			m_sharedSafetyDataPrev.safety_rfu2 = m_sharedSafetyData.safety_rfu2;
 			m_sharedSafetyDataPrev.safety_asms = m_sharedSafetyData.safety_asms;

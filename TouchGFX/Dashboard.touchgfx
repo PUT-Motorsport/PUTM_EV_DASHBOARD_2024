@@ -167,6 +167,27 @@
               },
               {
                 "Type": "TextArea",
+                "Name": "safety_tsmp_Text",
+                "X": 2,
+                "Y": 49,
+                "Width": 210,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_LCV7",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_KYNV",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
                 "Name": "sense_right_kill_Text",
                 "X": 60,
                 "Y": 50,

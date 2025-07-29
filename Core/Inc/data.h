@@ -81,6 +81,7 @@ typedef struct{
 	_Bool sense_right_wheel;
 	_Bool is_braking;
 	//Rearbox Safety
+	_Bool safety_tsmp;
 	_Bool safety_rfu1;
 	_Bool safety_rfu2;
 	_Bool safety_asms;

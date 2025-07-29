@@ -162,6 +162,7 @@ void Communication_Task(void* argument) {
 				//we do not get data from the component so errors are not detected
 				sharedData.safety_rear = false;
 
+				safetyData.safety_tsmp = rearbox_safety_data.safety_tsmp;
 				safetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
 				safetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
 				safetyData.safety_asms = rearbox_safety_data.safety_asms;

@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_KYNV" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">TSMP</Translation>
+      </Text>
+      <Text Id="__SingleUse_LCV7" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_GKC6" Alignment="Center" TypographyId="Medium">
         <Translation Language="GB">Inverter</Translation>
       </Text>

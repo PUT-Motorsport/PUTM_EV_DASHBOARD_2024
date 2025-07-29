@@ -86,6 +86,7 @@ SafetyData_TypeDef safetyData =
 	.sense_right_wheel = 0,
 	.is_braking = 0,
 	//Rearbox Safety
+	.safety_tsmp = 0,
 	.safety_rfu1 = 0,
 	.safety_rfu2 = 0,
 	.safety_asms = 0,
