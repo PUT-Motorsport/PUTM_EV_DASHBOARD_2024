@@ -129,7 +129,7 @@ void Communication_Task(void* argument) {
 						sharedData.warning = false;
 
 						sharedData.front_brake_pressure = frontbox_driver_data.brakePressureFront;
-						sharedData.rear_brake_pressure = frontbox_driver_data.brakePressureFront;
+						sharedData.rear_brake_pressure = frontbox_driver_data.brakePressureRear;
 
 
 						osMutexRelease(sharedDataMutexHandle);
@@ -150,7 +150,7 @@ void Communication_Task(void* argument) {
 				}
 
 
-		// Process Frontbox Brake Pressure data
+		// Process Rearbox sdc data
         if(PUTM_CAN::can.get_rearbox_safety_new_data())
         {
         	timeoutData.rearbox_safety_last_frame_time = current_tick_time;

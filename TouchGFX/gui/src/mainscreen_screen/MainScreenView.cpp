@@ -228,9 +228,11 @@ void MainScreenView::updateFrontBrakePressure(uint16_t pressure) {
 	    }
 
 	    PressIcon.setVisible(true);
-	    FrontBrakePressText.setVisible(true);
 	    PressIcon.invalidate();
+
+	    FrontBrakePressText.setVisible(true);
 	    FrontBrakePressText.invalidate();
+
 	    FrontBrakePressLabel.setVisible(true);
 	    FrontBrakePressLabel.invalidate();
 }
@@ -279,9 +281,11 @@ void MainScreenView::updateRearBrakePressure(uint16_t pressure) {
     }
 
     PressIcon.setVisible(true);
-    RearBrakePressText.setVisible(true);
     PressIcon.invalidate();
+
+    RearBrakePressText.setVisible(true);
     RearBrakePressText.invalidate();
+
     RearBrakePressLabel.setVisible(true);
     RearBrakePressLabel.invalidate();
 }
