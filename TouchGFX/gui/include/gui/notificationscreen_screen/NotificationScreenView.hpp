@@ -42,11 +42,20 @@ class NotificationScreenView : public NotificationScreenViewBase {
 
 
     /**
-         * @brief Updates the notification view based on system error checks.
-         *
-         * @param bspd BSPD sensor status.
-         */
+    * @brief Updates the notification view based on system error checks.
+    *
+    * @param bspd BSPD sensor status.
+    */
     void updateCheckErrors(bool bspd, bool apps);
+
+
+
+    /**
+    * @brief Function responsible for starting the screen
+    *
+    * @param BSPD & APPS sensor status
+    */
+    void switchScreen(bool bspd_status, bool apps_status);
 
   protected:
 };

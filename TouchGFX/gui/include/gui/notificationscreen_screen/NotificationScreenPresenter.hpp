@@ -54,6 +54,18 @@ class NotificationScreenPresenter : public touchgfx::Presenter, public ModelList
          */
     virtual void setCheckErrors(bool bspd, bool apps);
 
+
+
+    /**
+         * @brief TODO
+         *
+         *
+         *
+         *
+         * @param BSPD&APPS sensor status.
+         */
+    virtual void switchScreen(bool bspd_status, bool apps_status);
+
   private:
     // Private default constructor to prevent unintended instantiation.
     NotificationScreenPresenter();

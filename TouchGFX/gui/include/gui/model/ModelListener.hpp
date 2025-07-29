@@ -108,6 +108,7 @@ class ModelListener {
 
     //Notification Screen
     virtual void setCheckErrors(bool bspd, bool apps){}
+    virtual void switchScreen(bool bspd_status, bool apps_status){}
 
 
   protected:
