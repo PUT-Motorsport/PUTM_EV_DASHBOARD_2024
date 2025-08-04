@@ -189,21 +189,22 @@ void Model::tick() {
 			m_sharedSafetyDataPrev.sense_bspd = m_sharedSafetyData.sense_bspd;
 			m_sharedSafetyDataPrev.sense_apps = m_sharedSafetyData.sense_apps;
 			m_sharedSafetyDataPrev.sense_overtravel = m_sharedSafetyData.sense_overtravel;
-			m_sharedSafetyDataPrev.sense_right_wheel = m_sharedSafetyData.sense_right_wheel;
 			m_sharedSafetyDataPrev.is_braking = m_sharedSafetyData.is_braking;
+			m_sharedSafetyDataPrev.safety_suspension_fl = m_sharedSafetyData.safety_suspension_fl;
+			m_sharedSafetyDataPrev.safety_suspension_fr = m_sharedSafetyData.safety_suspension_fr;
 			m_sharedSafetyDataPrev.safety_tsmp = m_sharedSafetyData.safety_tsmp;
-			m_sharedSafetyDataPrev.safety_rfu1 = m_sharedSafetyData.safety_rfu1;
-			m_sharedSafetyDataPrev.safety_rfu2 = m_sharedSafetyData.safety_rfu2;
-			m_sharedSafetyDataPrev.safety_asms = m_sharedSafetyData.safety_asms;
-			m_sharedSafetyDataPrev.safety_fw = m_sharedSafetyData.safety_fw;
-			m_sharedSafetyDataPrev.safety_hv = m_sharedSafetyData.safety_hv;
-			m_sharedSafetyDataPrev.safety_res = m_sharedSafetyData.safety_res;
+			m_sharedSafetyDataPrev.safety_hv_battery = m_sharedSafetyData.safety_hv_battery;
+			m_sharedSafetyDataPrev.safety_inv_hv = m_sharedSafetyData.safety_inv_hv;
 			m_sharedSafetyDataPrev.safety_hvd = m_sharedSafetyData.safety_hvd;
 			m_sharedSafetyDataPrev.safety_inv = m_sharedSafetyData.safety_inv;
 			m_sharedSafetyDataPrev.safety_wheel_fl = m_sharedSafetyData.safety_wheel_fl;
 			m_sharedSafetyDataPrev.safety_wheel_fr = m_sharedSafetyData.safety_wheel_fr;
 			m_sharedSafetyDataPrev.safety_wheel_rl = m_sharedSafetyData.safety_wheel_rl;
 			m_sharedSafetyDataPrev.safety_wheel_rr = m_sharedSafetyData.safety_wheel_rr;
+			m_sharedSafetyDataPrev.safety_suspension_rl = m_sharedSafetyData.safety_suspension_rl;
+			m_sharedSafetyDataPrev.safety_suspension_rr = m_sharedSafetyData.safety_suspension_rr;
+			m_sharedSafetyDataPrev.safety_motor_front = m_sharedSafetyData.safety_motor_front;
+
 
 
 			modelListener->setSDC(m_sharedSafetyData);

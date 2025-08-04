@@ -35,6 +35,18 @@ void MainScreenView::setupScreen() { MainScreenViewBase::setupScreen(); }
 
 void MainScreenView::tearDownScreen() { MainScreenViewBase::tearDownScreen(); }
 
+void MainScreenView::toggleWarning() {
+    if(m_time > 9) {
+        if(m_warning) {
+            warnIcon.isVisible() ? warnIcon.setVisible(false) : warnIcon.setVisible(true);
+            warnIcon.invalidate();
+        }
+        m_time = 0;
+    } else {
+        m_time++;
+    }
+}
+
 void MainScreenView::updateClock(uint32_t time) {
     uint8_t hours = time / 3600;
     time %= 3600;
@@ -331,19 +343,6 @@ void MainScreenView::updateCoolantOutTemperature(uint8_t temperature) {
 }
 
 
-
-void MainScreenView::toggleWarning() {
-    if(m_time > 9) {
-        if(m_warning) {
-            warnIcon.isVisible() ? warnIcon.setVisible(false) : warnIcon.setVisible(true);
-            warnIcon.invalidate();
-        }
-        m_time = 0;
-    } else {
-        m_time++;
-    }
-}
-
 void MainScreenView::updateMotorFrontLeftTemperature(uint8_t temperature)
 {
 	 Unicode::snprintf(motorFrontLefttextBuffer, MOTORFRONTLEFTTEXT_SIZE, "%d", temperature);
@@ -453,14 +452,20 @@ void MainScreenView::displayError(int error_idx)
 	        &safety_wheel_fl_Text,
 	        &safety_wheel_rr_Text,
 	        &safety_wheel_rl_Text,
-	        &safety_hv_Text,
-	        &safety_inv_Text,
+			&safety_inv_hv_Text,
+			&safety_srr_Text,
+			&safety_srl_Text,
+	        &safety_tsac_Text,
+			&safety_mf_Text,
 	        &sense_right_kill_Text,
 	        &sense_left_kill_Text,
 	        &sense_driver_kill_Text,
 	        &sense_inertia_Text,
 	        &sense_bspd_Text,
 	        &sense_overtravel_Text,
+			&safety_sfr_Text,
+			&safety_sfl_Text,
+			&safety_apps_Text,
 	        &safety_hvd_Text
 	    };
 
@@ -486,20 +491,26 @@ void MainScreenView::displayError(int error_idx)
 //Safety display
 void MainScreenView::updateSDC(SafetyData_TypeDef status)
 {
-    std::array<bool, 14> fields = {
+    std::array<bool, 20> fields = {
     	status.safety_tsmp,		 // TSMP
         status.safety_wheel_fr,  // Rear Left Wheel Sensor
         status.safety_wheel_fl,  // Rear Right Wheel Sensor
         status.safety_wheel_rr,  // Front Right Wheel Sensor
         status.safety_wheel_rl,  // Front Left Wheel Sensor
-        status.safety_hv,        // High Voltage System Safety
-        status.safety_inv,       // Inverter Safety
+        status.safety_inv_hv,        // High Voltage System Safety
+		status.safety_suspension_rr,
+		status.safety_suspension_rl,
+		status.safety_hv_battery,
+        status.safety_motor_front,       // Inverter Safety
         status.sense_right_kill, // Right Kill Switch
         status.sense_left_kill,  // Left Kill Switch
         status.sense_driver_kill,// Cockpit Kill Switch
         status.sense_inertia,    // Inertia Switch
         status.sense_bspd,       // BSPD
         status.sense_overtravel, // Overtravel (BOTS)
+		status.safety_suspension_fr,
+		status.safety_suspension_fl,
+		status.sense_apps,
         status.safety_hvd        // HVD
     };
 

@@ -90,8 +90,9 @@ void Communication_Task(void* argument) {
 				safetyData.sense_bspd = frontbox_safety_data.sense_bspd;
 				safetyData.sense_apps = frontbox_safety_data.apps;
 				safetyData.sense_overtravel = frontbox_safety_data.sense_overtravel;
-				safetyData.sense_right_wheel = frontbox_safety_data.sense_right_wheel;
 				safetyData.is_braking = frontbox_safety_data.is_braking;
+				safetyData.safety_suspension_fl = frontbox_safety_data.safety_suspension_fl;
+				safetyData.safety_suspension_fr = frontbox_safety_data.safety_suspension_fr;
 
 				osMutexRelease(sdcDataMutexHandle);
 			}
@@ -110,8 +111,9 @@ void Communication_Task(void* argument) {
 				safetyData.sense_bspd = false;
 				safetyData.sense_apps = false;
 				safetyData.sense_overtravel = false;
-				safetyData.sense_right_wheel = false;
 				safetyData.is_braking = false;
+				safetyData.safety_suspension_fl = false;
+				safetyData.safety_suspension_fr = false;
 
 				osMutexRelease(sdcDataMutexHandle);
 			}
@@ -163,18 +165,17 @@ void Communication_Task(void* argument) {
 				sharedData.safety_rear = false;
 
 				safetyData.safety_tsmp = rearbox_safety_data.safety_tsmp;
-				safetyData.safety_rfu1 = rearbox_safety_data.safety_rfu1;
-				safetyData.safety_rfu2 = rearbox_safety_data.safety_rfu2;
-				safetyData.safety_asms = rearbox_safety_data.safety_asms;
-				safetyData.safety_fw = rearbox_safety_data.safety_fw;
-				safetyData.safety_hv = rearbox_safety_data.safety_hv;
-				safetyData.safety_res = rearbox_safety_data.safety_res;
+				safetyData.safety_hv_battery = rearbox_safety_data.safety_hv_battery;
+				safetyData.safety_inv_hv = rearbox_safety_data.safety_inv_hv;
 				safetyData.safety_hvd = rearbox_safety_data.safety_hvd;
 				safetyData.safety_inv = rearbox_safety_data.safety_inv;
 				safetyData.safety_wheel_fl = rearbox_safety_data.safety_wheel_fl;
 				safetyData.safety_wheel_fr = rearbox_safety_data.safety_wheel_fr;
 				safetyData.safety_wheel_rl = rearbox_safety_data.safety_wheel_rl;
 				safetyData.safety_wheel_rr = rearbox_safety_data.safety_wheel_rr;
+				safetyData.safety_suspension_rl = rearbox_safety_data.safety_suspension_rl;
+				safetyData.safety_suspension_rr = rearbox_safety_data.safety_suspension_rr;
+				safetyData.safety_motor_front = rearbox_safety_data.safety_motor_front;
 
 				osMutexRelease(sdcDataMutexHandle);
 			}
@@ -186,18 +187,18 @@ void Communication_Task(void* argument) {
         				sharedData.warning = true;
         				sharedData.safety_rear = true;
 
-        				safetyData.safety_rfu1 = false;
-        				safetyData.safety_rfu2 = false;
-        				safetyData.safety_asms = false;
-        				safetyData.safety_fw = false;
-        				safetyData.safety_hv = false;
-        				safetyData.safety_res = false;
+        				safetyData.safety_tsmp = false;
+        				safetyData.safety_hv_battery = false;
+        				safetyData.safety_inv_hv = false;
         				safetyData.safety_hvd = false;
         				safetyData.safety_inv = false;
         				safetyData.safety_wheel_fl = false;
         				safetyData.safety_wheel_fr = false;
         				safetyData.safety_wheel_rl = false;
         				safetyData.safety_wheel_rr = false;
+        				safetyData.safety_suspension_rl = false;
+        				safetyData.safety_suspension_rr = false;
+        				safetyData.safety_motor_front = false;
 
         				osMutexRelease(sdcDataMutexHandle);
         			}

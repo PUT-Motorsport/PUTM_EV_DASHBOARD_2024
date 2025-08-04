@@ -78,22 +78,22 @@ typedef struct{
 	_Bool sense_bspd;
 	_Bool sense_apps;
 	_Bool sense_overtravel;
-	_Bool sense_right_wheel;
 	_Bool is_braking;
+	_Bool safety_suspension_fl;
+	_Bool safety_suspension_fr;
 	//Rearbox Safety
 	_Bool safety_tsmp;
-	_Bool safety_rfu1;
-	_Bool safety_rfu2;
-	_Bool safety_asms;
-	_Bool safety_fw;
-	_Bool safety_hv;
-	_Bool safety_res;
+	_Bool safety_hv_battery;
+	_Bool safety_inv_hv;
 	_Bool safety_hvd;
 	_Bool safety_inv;
 	_Bool safety_wheel_fl;
 	_Bool safety_wheel_fr;
 	_Bool safety_wheel_rl;
 	_Bool safety_wheel_rr;
+	_Bool safety_suspension_rl;
+	_Bool safety_suspension_rr;
+	_Bool safety_motor_front;
 }SafetyData_TypeDef;
 
 typedef struct {

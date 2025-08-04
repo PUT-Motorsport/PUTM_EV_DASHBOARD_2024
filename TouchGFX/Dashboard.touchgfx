@@ -104,10 +104,10 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "safety_hv_Text",
-                "X": 56,
-                "Y": 50,
-                "Width": 109,
+                "Name": "safety_tsac_Text",
+                "X": 10,
+                "Y": 52,
+                "Width": 202,
                 "Height": 85,
                 "Visible": false,
                 "LockPosition": true,
@@ -146,10 +146,10 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "safety_asms_Text",
-                "X": 2,
+                "Name": "safety_mf_Text",
+                "X": 55,
                 "Y": 49,
-                "Width": 216,
+                "Width": 110,
                 "Height": 85,
                 "Visible": false,
                 "LockPosition": true,
@@ -252,9 +252,9 @@
               {
                 "Type": "TextArea",
                 "Name": "sense_inertia_Text",
-                "X": 48,
-                "Y": 50,
-                "Width": 124,
+                "X": 23,
+                "Y": 49,
+                "Width": 175,
                 "Height": 85,
                 "Visible": false,
                 "LockPosition": true,
@@ -308,6 +308,27 @@
                 "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_7SMX",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_apps_Text",
+                "X": 10,
+                "Y": 53,
+                "Width": 205,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_DHB2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_1CEA",
                   "UseBuffer": true,
                   "BufferSize": 6
                 }
@@ -377,6 +398,90 @@
               },
               {
                 "Type": "TextArea",
+                "Name": "safety_srr_Text",
+                "X": 35,
+                "Y": 49,
+                "Width": 153,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_NZZJ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_O3D6",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_srl_Text",
+                "X": 35,
+                "Y": 49,
+                "Width": 146,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_N9DU",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_69YH",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_sfr_Text",
+                "X": 34,
+                "Y": 53,
+                "Width": 147,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_VAD6",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_L6ZG",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_sfl_Text",
+                "X": 34,
+                "Y": 53,
+                "Width": 140,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_J7N8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_WOB9",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
                 "Name": "safety_wheel_rr_Text",
                 "X": 33,
                 "Y": 50,
@@ -415,6 +520,48 @@
                 "AutoSize": true,
                 "Wildcard1": {
                   "TextId": "__SingleUse_QPH2",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_inv_hv_Text",
+                "X": 35,
+                "Y": 49,
+                "Width": 150,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_9ZUV",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_9XX1",
+                  "UseBuffer": true,
+                  "BufferSize": 6
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "safety_is_braking_Text",
+                "X": 83,
+                "Y": 52,
+                "Width": 74,
+                "Height": 85,
+                "Visible": false,
+                "LockPosition": true,
+                "TextId": "__SingleUse_8FDF",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_O3LB",
                   "UseBuffer": true,
                   "BufferSize": 6
                 }

@@ -6,6 +6,48 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_1CEA" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">APPS</Translation>
+      </Text>
+      <Text Id="__SingleUse_DHB2" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_O3D6" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">SRR</Translation>
+      </Text>
+      <Text Id="__SingleUse_NZZJ" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_69YH" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">SRL</Translation>
+      </Text>
+      <Text Id="__SingleUse_N9DU" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_L6ZG" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">SFR</Translation>
+      </Text>
+      <Text Id="__SingleUse_VAD6" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WOB9" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">SFL</Translation>
+      </Text>
+      <Text Id="__SingleUse_J7N8" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_O3LB" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">IB</Translation>
+      </Text>
+      <Text Id="__SingleUse_8FDF" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9XX1" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">I HV</Translation>
+      </Text>
+      <Text Id="__SingleUse_9ZUV" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_KYNV" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">TSMP</Translation>
       </Text>
@@ -184,7 +226,7 @@
         <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_P3L0" Alignment="Left" TypographyId="Big">
-        <Translation Language="GB">INE</Translation>
+        <Translation Language="GB">INRT</Translation>
       </Text>
       <Text Id="__SingleUse_DLV8" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">&lt;s&gt;</Translation>
@@ -208,7 +250,7 @@
         <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_IQ5T" Alignment="Left" TypographyId="Big">
-        <Translation Language="GB">ASMS</Translation>
+        <Translation Language="GB">MF</Translation>
       </Text>
       <Text Id="__SingleUse_XNHQ" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">&lt;s&gt;</Translation>
@@ -220,7 +262,7 @@
         <Translation Language="GB">&lt;s&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_LKPF" Alignment="Left" TypographyId="Big">
-        <Translation Language="GB">HV</Translation>
+        <Translation Language="GB">TSAC</Translation>
       </Text>
       <Text Id="__SingleUse_42PE" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">&lt;s&gt;</Translation>
