@@ -6,6 +6,84 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_Z66W" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">100</Translation>
+      </Text>
+      <Text Id="__SingleUse_BOSK" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt; A</Translation>
+      </Text>
+      <Text Id="__SingleUse_WNME" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">Total Current:</Translation>
+      </Text>
+      <Text Id="__SingleUse_KVER" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">111</Translation>
+      </Text>
+      <Text Id="__SingleUse_RHI2" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_4XC3" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">111</Translation>
+      </Text>
+      <Text Id="__SingleUse_H0Q7" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XXZZ" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">111</Translation>
+      </Text>
+      <Text Id="__SingleUse_JVIJ" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_98LC" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">111</Translation>
+      </Text>
+      <Text Id="__SingleUse_ID66" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_FNEC" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">111</Translation>
+      </Text>
+      <Text Id="__SingleUse_8GCQ" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_3ZOT" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">111</Translation>
+      </Text>
+      <Text Id="__SingleUse_90LE" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_22HQ" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Air</Translation>
+      </Text>
+      <Text Id="__SingleUse_L1AF" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Rbox</Translation>
+      </Text>
+      <Text Id="__SingleUse_O8K6" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Tsal</Translation>
+      </Text>
+      <Text Id="__SingleUse_BL4R" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Dash</Translation>
+      </Text>
+      <Text Id="__SingleUse_CZ6V" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Sdc</Translation>
+      </Text>
+      <Text Id="__SingleUse_NO7G" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Fbox</Translation>
+      </Text>
+      <Text Id="__SingleUse_X6J7" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Inv</Translation>
+      </Text>
+      <Text Id="__SingleUse_CSZK" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Pump</Translation>
+      </Text>
+      <Text Id="__SingleUse_OYF4" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">Fan</Translation>
+      </Text>
+      <Text Id="__SingleUse_KCW8" Alignment="Center" TypographyId="Medium">
+        <Translation Language="GB">PC</Translation>
+      </Text>
+      <Text Id="__SingleUse_NDSX" Alignment="Center" TypographyId="MediumPlus">
+        <Translation Language="GB">PDU</Translation>
+      </Text>
       <Text Id="__SingleUse_1CEA" Alignment="Left" TypographyId="Big">
         <Translation Language="GB">APPS</Translation>
       </Text>

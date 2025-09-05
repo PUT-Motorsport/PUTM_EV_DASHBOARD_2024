@@ -1020,8 +1020,8 @@
               {
                 "Type": "Image",
                 "Name": "radioIcon",
-                "X": 173,
-                "Y": 8,
+                "X": 157,
+                "Y": 11,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "radio_off.png"
@@ -1029,8 +1029,8 @@
               {
                 "Type": "Image",
                 "Name": "connIcon",
-                "X": 135,
-                "Y": 9,
+                "X": 90,
+                "Y": 11,
                 "Width": 32,
                 "Height": 32,
                 "RelativeFilename": "conn_off.png"
@@ -1038,8 +1038,8 @@
               {
                 "Type": "Image",
                 "Name": "warnIcon",
-                "X": 98,
-                "Y": 10,
+                "X": 26,
+                "Y": 14,
                 "Width": 28,
                 "Height": 26,
                 "RelativeFilename": "warn_off.png"
@@ -1047,10 +1047,11 @@
               {
                 "Type": "DigitalClock",
                 "Name": "clockWidget",
-                "X": 14,
-                "Y": 8,
+                "X": 323,
+                "Y": -6,
                 "Width": 81,
                 "Height": 29,
+                "Visible": false,
                 "TextColor": {
                   "Red": 255,
                   "Green": 255,
@@ -1680,7 +1681,6 @@
             "Y": 330,
             "Width": 550,
             "Height": 130,
-            "Visible": false,
             "RelativeFilename": "paceYellowBackground.png"
           },
           {
@@ -1690,7 +1690,6 @@
             "Y": 317,
             "Width": 424,
             "Height": 134,
-            "Visible": false,
             "TextId": "__SingleUse_WDBV",
             "TextRotation": "0",
             "AutoSize": true,
@@ -1849,6 +1848,651 @@
         ]
       },
       {
+        "Name": "PduScreen",
+        "CanvasBufferSize": 12000,
+        "Components": [
+          {
+            "Type": "TextArea",
+            "Name": "PduTitleText",
+            "X": 297,
+            "Y": 6,
+            "Width": 206,
+            "Height": 88,
+            "TextId": "__SingleUse_NDSX",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "DashStatusText",
+            "X": 353,
+            "Y": 152,
+            "Width": 94,
+            "Height": 48,
+            "TextId": "__SingleUse_BL4R",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TsalHVStatusText",
+            "X": 363,
+            "Y": 216,
+            "Width": 75,
+            "Height": 48,
+            "TextId": "__SingleUse_O8K6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "RboxStatusText",
+            "X": 353,
+            "Y": 104,
+            "Width": 95,
+            "Height": 48,
+            "TextId": "__SingleUse_L1AF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "AirStatusText",
+            "X": 374,
+            "Y": 272,
+            "Width": 52,
+            "Height": 48,
+            "TextId": "__SingleUse_22HQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Container",
+            "Name": "frame1",
+            "X": 41,
+            "Y": 83,
+            "Width": 302,
+            "Height": 251,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line1",
+                "X": 10,
+                "Y": -26,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_1",
+                "X": 10,
+                "Y": 189,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_2",
+                "X": 10,
+                "Y": 121,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_3",
+                "X": 10,
+                "Y": 45,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line2",
+                "X": 4,
+                "Y": -26,
+                "Width": 100,
+                "Height": 271,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "StartY": 260.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line2_1_1",
+                "X": 275,
+                "Y": -26,
+                "Width": 100,
+                "Height": 271,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "StartY": 260.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line2_1",
+                "X": 136,
+                "Y": -26,
+                "Width": 100,
+                "Height": 271,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "StartY": 260.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "PumpCurrentText",
+                "X": 188,
+                "Y": 169,
+                "Width": 51,
+                "Height": 48,
+                "TextId": "__SingleUse_ID66",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_98LC",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FanCurrentText",
+                "X": 188,
+                "Y": 101,
+                "Width": 51,
+                "Height": 48,
+                "TextId": "__SingleUse_8GCQ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_FNEC",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "PcCurrentText",
+                "X": 188,
+                "Y": 34,
+                "Width": 51,
+                "Height": 48,
+                "TextId": "__SingleUse_90LE",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_3ZOT",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "PumpStatusText",
+                "X": 26,
+                "Y": 169,
+                "Width": 110,
+                "Height": 48,
+                "TextId": "__SingleUse_CSZK",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "PCStatusText",
+                "X": 55,
+                "Y": 34,
+                "Width": 53,
+                "Height": 48,
+                "TextId": "__SingleUse_KCW8",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FanStatusText",
+                "X": 38,
+                "Y": 101,
+                "Width": 69,
+                "Height": 48,
+                "TextId": "__SingleUse_OYF4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "frame2",
+            "X": 487,
+            "Y": 83,
+            "Width": 293,
+            "Height": 251,
+            "Components": [
+              {
+                "Type": "Line",
+                "Name": "line1_4",
+                "X": 4,
+                "Y": -26,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_4_1",
+                "X": 4,
+                "Y": 45,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line2_1_1_1",
+                "X": 1,
+                "Y": -26,
+                "Width": 100,
+                "Height": 271,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "StartY": 260.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line2_1_1_1_1",
+                "X": 126,
+                "Y": -26,
+                "Width": 100,
+                "Height": 271,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "StartY": 260.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_4_1_1",
+                "X": 4,
+                "Y": 121,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line2_1_1_1_1_1",
+                "X": 271,
+                "Y": -26,
+                "Width": 100,
+                "Height": 271,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": 5.0,
+                "StartY": 260.0,
+                "EndX": 5.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "Line",
+                "Name": "line1_4_1_1_1",
+                "X": 4,
+                "Y": 189,
+                "Width": 273,
+                "Height": 56,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "StartX": -4.1,
+                "StartY": 45.0,
+                "EndX": 300.0,
+                "EndY": 45.0,
+                "LineWidth": 4.0,
+                "LineEndingStyle": "Round"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "InvCurrentText",
+                "X": 175,
+                "Y": 169,
+                "Width": 51,
+                "Height": 48,
+                "TextId": "__SingleUse_RHI2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_KVER",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "SdcCurrentText",
+                "X": 175,
+                "Y": 101,
+                "Width": 51,
+                "Height": 48,
+                "TextId": "__SingleUse_H0Q7",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_4XC3",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FboxCurrentText",
+                "X": 175,
+                "Y": 34,
+                "Width": 51,
+                "Height": 48,
+                "TextId": "__SingleUse_JVIJ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_XXZZ",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "SdcStatusText",
+                "X": 34,
+                "Y": 101,
+                "Width": 71,
+                "Height": 48,
+                "TextId": "__SingleUse_CZ6V",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "InvStatusText",
+                "X": 44,
+                "Y": 169,
+                "Width": 57,
+                "Height": 48,
+                "TextId": "__SingleUse_X6J7",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FboxStatusText",
+                "X": 23,
+                "Y": 34,
+                "Width": 92,
+                "Height": 48,
+                "TextId": "__SingleUse_NO7G",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TotalCurrentText",
+            "X": 218,
+            "Y": 371,
+            "Width": 257,
+            "Height": 48,
+            "TextId": "__SingleUse_WNME",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TotalCurrentValueText",
+            "X": 489,
+            "Y": 371,
+            "Width": 104,
+            "Height": 48,
+            "TextId": "__SingleUse_BOSK",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_Z66W",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "PrzemyslawZadodowiecScreen",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "przemyslaZawodow",
+            "X": 360,
+            "Y": 200,
+            "Width": 80,
+            "Height": 80
+          }
+        ],
+        "Interactions": []
+      },
+      {
         "Name": "NotificationScreen",
         "Components": [
           {
@@ -1868,7 +2512,7 @@
             "X": 114,
             "Y": 41,
             "Width": 572,
-            "Height": 127,
+            "Height": 134,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_KFWH",
@@ -1889,7 +2533,7 @@
             "X": 187,
             "Y": 113,
             "Width": 427,
-            "Height": 254,
+            "Height": 268,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_85M9",
@@ -1910,7 +2554,7 @@
             "X": 88,
             "Y": 50,
             "Width": 588,
-            "Height": 381,
+            "Height": 402,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_MX7G",
@@ -1931,7 +2575,7 @@
             "X": 18,
             "Y": 44,
             "Width": 728,
-            "Height": 381,
+            "Height": 402,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_9PE6",
@@ -1952,7 +2596,7 @@
             "X": 18,
             "Y": 44,
             "Width": 746,
-            "Height": 381,
+            "Height": 402,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_FVID",
@@ -1973,7 +2617,7 @@
             "X": 18,
             "Y": 113,
             "Width": 728,
-            "Height": 254,
+            "Height": 268,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_YQ2A",
@@ -1994,7 +2638,7 @@
             "X": 18,
             "Y": 113,
             "Width": 746,
-            "Height": 254,
+            "Height": 268,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_8VOE",
@@ -2015,7 +2659,7 @@
             "X": -5,
             "Y": 101,
             "Width": 774,
-            "Height": 254,
+            "Height": 268,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_8RWY",
@@ -2036,7 +2680,7 @@
             "X": 184,
             "Y": 113,
             "Width": 432,
-            "Height": 254,
+            "Height": 268,
             "Visible": false,
             "LockPosition": true,
             "TextId": "__SingleUse_EBYQ",
@@ -2057,7 +2701,7 @@
             "X": 226,
             "Y": 91,
             "Width": 312,
-            "Height": 254,
+            "Height": 268,
             "LockPosition": true,
             "TextId": "__SingleUse_GK6V",
             "TextRotation": "0",

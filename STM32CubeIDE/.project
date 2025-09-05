@@ -630,6 +630,26 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/notificationscreen_screen/NotificationScreenView.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/PduScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/pduscreen_screen/PduScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/PduScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/pduscreen_screen/PduScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/PrzemyslawZadodowiecScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/przemyslawzadodowiecscreen_screen/PrzemyslawZadodowiecScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/PrzemyslawZadodowiecScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/przemyslawzadodowiecscreen_screen/PrzemyslawZadodowiecScreenView.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/RaceScreenPresenter.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/racescreen_screen/RaceScreenPresenter.cpp</locationURI>
@@ -823,6 +843,16 @@
 			<name>Application/User/generated/NotificationScreenViewBase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/notificationscreen_screen/NotificationScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/PduScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/pduscreen_screen/PduScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/PrzemyslawZadodowiecScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/przemyslawzadodowiecscreen_screen/PrzemyslawZadodowiecScreenViewBase.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/RaceScreenViewBase.cpp</name>

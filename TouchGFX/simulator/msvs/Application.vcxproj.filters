@@ -220,6 +220,30 @@
     <Filter Include="Header Files\generated\gui_generated\racescreen_screen">
       <UniqueIdentifier>EDC9F1A2-6B29-A282-8A82-E873AA831F5B</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\pduscreen_screen">
+      <UniqueIdentifier>DCCC494E-06DA-6E43-EAE5-79B868FA6163</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\pduscreen_screen">
+      <UniqueIdentifier>874E7E2F-FF7B-96BC-AF2F-EA49278BB6E1</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\przemyslawzadodowiecscreen_screen">
+      <UniqueIdentifier>15C47EC5-FF39-84BC-EE25-5E569E27CB41</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\przemyslawzadodowiecscreen_screen">
+      <UniqueIdentifier>91FCC621-3E41-D1A7-3528-893AB1CAF7F9</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\przemyslawzadodowiecscreen_screen">
+      <UniqueIdentifier>E6695ADE-0FCC-B1A2-1755-137BD3B598B7</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\przemyslawzadodowiecscreen_screen">
+      <UniqueIdentifier>5C39BDE3-D89E-410F-1C7B-15DD783F9514</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\pduscreen_screen">
+      <UniqueIdentifier>50601380-BB03-C9DA-02FB-1FFD17F6EFC9</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\pduscreen_screen">
+      <UniqueIdentifier>A1733708-B6F7-909A-0C2E-6E883556570E</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -287,6 +311,24 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\racescreen_screen\RaceScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\racescreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\pduscreen_screen\PduScreenPresenter.cpp">
+      <Filter>Source Files\gui\pduscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\pduscreen_screen\PduScreenView.cpp">
+      <Filter>Source Files\gui\pduscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\pduscreen_screen\PduScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\pduscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenPresenter.cpp">
+      <Filter>Source Files\gui\przemyslawzadodowiecscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenView.cpp">
+      <Filter>Source Files\gui\przemyslawzadodowiecscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\przemyslawzadodowiecscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -765,6 +807,24 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\racescreen_screen\RaceScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\racescreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\pduscreen_screen\PduScreenPresenter.hpp">
+      <Filter>Header Files\gui\pduscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\pduscreen_screen\PduScreenView.hpp">
+      <Filter>Header Files\gui\pduscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\pduscreen_screen\PduScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\pduscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenPresenter.hpp">
+      <Filter>Header Files\gui\przemyslawzadodowiecscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenView.hpp">
+      <Filter>Header Files\gui\przemyslawzadodowiecscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\przemyslawzadodowiecscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
