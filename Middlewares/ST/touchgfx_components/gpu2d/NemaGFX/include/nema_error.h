@@ -53,6 +53,8 @@ extern "C" {
 #define  NEMA_ERR_INVALID_CL                   (0x00002000U) /**< Invalid CL provided*/
 #define  NEMA_ERR_INVALID_CL_ALIGMENT          (0x00004000U) /**< Invalid CL buffer alignment*/
 #define  NEMA_ERR_NO_INIT                      (0x00008000U) /**< GFX uninitialised*/
+#define  NEMA_ERR_INVALID_SECTORED_CL_SIZE     (0x00010000U) /**< Invalid sectored CL size, each sector should be at least 512 bytes */
+
 
 /** \brief Return Error Id
  *

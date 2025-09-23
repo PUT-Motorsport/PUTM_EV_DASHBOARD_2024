@@ -51,16 +51,16 @@ extern "C" {
 /** \brief Initializes NemaVG library and allocates the stencil buffer to the default memory pool (NEMA_MEM_POOL_FB)
  * Call either this or nema_vg_init_stencil_pool to allocate the stencil buffer to a different memory pool
  * or nema_vg_init_stencil_prealloc to provide the stencil buffer
- * \param width Framebuffer width
- * \param height Framebuffer height
+ * \param width Stencil buffer width -  Must be the first mupliple of 4 that is equal to or greater than framebuffer width
+ * \param height Stencil buffer height -  Must be the first mupliple of 4 that is equal to or greater than framebuffer height
  */
 void nema_vg_init(int width, int height);
 
 /** \brief Initializes NemaVG library and allocate the stencil buffer in a specific memory pool.
  * Call either this or nema_vg_init to allocate the stencil buffer to the default memory pool (NEMA_MEM_POOL_FB)
  * or nema_vg_init_stencil_prealloc to provide the stencil buffer
- * \param width Framebuffer width
- * \param height Framebuffer height
+ * \param width Stencil buffer width - Must be the first mupliple of 4 that is equal to or greater than framebuffer width
+ * \param height Stencil buffer height - Must be the first multiple of 4 othat is equal to or greater than framebuffer height
  * \param pool Memory pool for allocating the stencil buffer (memory pools are platform specific and defined in nema_sys_defs.h file)
  */
 void nema_vg_init_stencil_pool(int width, int height, int pool);
@@ -68,8 +68,8 @@ void nema_vg_init_stencil_pool(int width, int height, int pool);
 /** \brief Initializes NemaVG library without allocating the stencil buffer which is provided by the user.
  * Call either this or nema_vg_init to allocate the stencil buffer to the default memory pool (NEMA_MEM_POOL_FB)
  * or nema_vg_init_stencil_pool to allocate the stencil buffer to a different memory pool
- * \param width Framebuffer width
- * \param height Framebuffer height
+ * \param width Stencil buffer width - Must be the first mupliple of 4 that is equal to or greater than framebuffer width
+ * \param height Stencil buffer height - Must be the first multiple of 4 othat is equal to or greater than framebuffer height
  * \param stencil_bo stencil buffer
  */
 void nema_vg_init_stencil_prealloc(int width, int height, nema_buffer_t stencil_bo);
@@ -94,6 +94,31 @@ void nema_vg_deinit(void);
  */
 void nema_vg_thread_init(void);
 
+/** \brief Binds and allocate the stencil buffer in the default memory pool (NEMA_MEM_POOL_FB). Use this if the framebuffer size changes
+ *  during the application and different stencil is needed. If the previous stencil was allocated by the library by
+ *  calling nema_vg_init or nema_vg_init_stencil_pool it will be destroyed at this call.
+ * \param width Stencil buffer width - Must be the first multiple of 4 othat is equal to or greater than framebuffer width
+ * \param height Stencil buffer height - Must be the first multiple of 4 othat is equal to or greater than framebuffer height
+ */
+void nema_vg_bind_stencil(int width, int height);
+
+/** \brief Binds and allocate the stencil buffer in a specific memory pool. Use this if the framebuffer size changes
+ *  during the application and different stencil is needed. If the previous stencil was allocated by the library by
+ *  calling nema_vg_init or nema_vg_init_stencil_pool it will be destroyed at this call.
+ * \param width Stencil buffer width - Must be the first multiple of 4 othat is equal to or greater than framebuffer width
+ * \param height Stencil buffer height - Must be the first multiple of 4 othat is equal to or greater than framebuffer height
+ * \param pool Memory pool for allocating the stencil buffer (memory pools are platform specific and defined in nema_sys_defs.h file)
+ */
+void nema_vg_bind_stencil_pool(int width, int height, int pool);
+
+/** \brief Binds the stencil buffer which is provided by the user. Use this if the framebuffer size changes
+ *  during the application and different stencil is needed. If the previous stencil was allocated by the library by
+ *  calling nema_vg_init or nema_vg_init_stencil_pool it will be destroyed at this call.
+ * \param width Stencil buffer width - Must be the first multiple of 4 othat is equal to or greater than framebuffer width
+ * \param height Stencil buffer height - Must be the first multiple of 4 othat is equal to or greater than framebuffer height
+ * \param stencil_bo stencil buffer
+ */
+void nema_vg_bind_stencil_prealloc(int width, int height, nema_buffer_t stencil_bo);
 
 // -------------------------------------------------------------------------------
 //                           PATH DRAW
@@ -191,8 +216,11 @@ uint32_t nema_vg_draw_circle(float cx, float cy, float r,
                             nema_matrix3x3_t m,
                             NEMA_VG_PAINT_HANDLE paint);
 
+/** \private */
+uint32_t nema_vg_draw_ring_generic(float cx, float cy, float ring_radius, float angle_start, float angle_end,
+                                            NEMA_VG_PAINT_HANDLE paint, uint8_t has_caps)  __attribute__ ((deprecated("This function is deprecated use nema_vg_draw_circular_ring instead.")));
 
-/** \brief Draw a filled ring with rounded caps shape. In case of a conical gradient paint type,
+/** \brief Draw a filled ring shape. The caps follow what cap style is set in nema_vg_set_cap_style. In case of a conical gradient paint type,
  * the conical gradient center should be at the center of the ring(cx, cy). In other case, where the two centers do not match,
  * the ring should be drawn with NEMA_VG_QUALITY_MAXIMUM. The ring width can be set with the paint's stroke_width.
  *
@@ -206,18 +234,44 @@ uint32_t nema_vg_draw_circle(float cx, float cy, float r,
  * \return Error code. See NEMA_VG_ERR_* defines in "nema_vg_context.h" header file for the error codes.
  *
  */
-uint32_t nema_vg_draw_ring(float cx, float cy, float ring_radius, float angle_start, float angle_end,
-                                            NEMA_VG_PAINT_HANDLE paint);
+uint32_t nema_vg_draw_ring(float cx, float cy, float ring_radius, float angle_start, float angle_end, NEMA_VG_PAINT_HANDLE paint);
 
 
-/** \brief Returns the minimum and maximum values for the coordinates that
- * can be handled by the underlying hardware
+
+/** \brief Returns the minimum and maximum values for the coordinates
+ * after applying the transformation(if any) that
+ * can be handled by the underlying hardware.
+ * Note that the values before transformation must be within range (-32,767, 32.676)
+ * for the hardware to be able to process them
  *
  *  \param min_coord Minimum coordinate (x or y) value (pointer)
  *  \param max_coord Maximum coordinate (x or y) value (pointer)
  *
  */
 void nema_vg_get_coord_limits(float *min_coord, float *max_coord);
+
+
+/** \brief Disables tsvg features from rendering. Should be set before
+ * nema_vg_draw_tsvg()
+ *
+ *  \param feature feature to be disabled
+ *
+ */
+void nema_vg_tsvg_disable_feature(uint32_t feature);
+
+/** \brief Verify if path's coordinates contain NaN coordinates.
+ * It uses the property of NaN numbers that f != f.
+ * Note that when compiling with optimization flags such as -ffast-math,
+ * the compiler might optimize the above condition and thus this function
+ * will not report NaN coordinates.
+ *
+ * \param path Pointer (handle) to the path
+
+ * \return NEMA_VG_ERR_INVALID_ARGUMENTS if any of the coordinates is NaN
+ * otherwise returns NEMA_VG_ERR_NO_ERROR.
+ *
+ */
+uint32_t nema_vg_verify_path(NEMA_VG_PATH_HANDLE path);
 
 #ifdef __cplusplus
 }

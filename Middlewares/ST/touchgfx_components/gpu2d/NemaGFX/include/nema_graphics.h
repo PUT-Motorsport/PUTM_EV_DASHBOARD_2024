@@ -50,11 +50,12 @@ typedef struct _img_obj_ {
 typedef img_obj_t nema_img_obj_t;
 
 typedef enum {
-    NEMA_NOTEX = -1,    /**< No Texture */
-    NEMA_TEX0  =  0,    /**< Texture 0 */
-    NEMA_TEX1  =  1,    /**< Texture 1 */
-    NEMA_TEX2  =  2,    /**< Texture 2 */
-    NEMA_TEX3  =  3     /**< Texture 3 */
+    NEMA_NOTEX  = -1,    /**< No Texture */
+    NEMA_TEX0   =  0,    /**< Texture 0 */
+    NEMA_TEX1   =  1,    /**< Texture 1 */
+    NEMA_TEX2   =  2,    /**< Texture 2 */
+    NEMA_TEX3   =  3,    /**< Texture 3 */
+    NEMA_TEXMAX =  4     /**< Enum max value */
 } nema_tex_t;
 
 #define NEMA_RGBX8888   0x00U  /**< RGBX8888 */
@@ -65,21 +66,21 @@ typedef enum {
 #define NEMA_RGBA5650   0x04U  /**< RGBA5650 */
 #define NEMA_RGBA5551   0x05U  /**< RGBA5551 */
 #define NEMA_RGBA4444   0x06U  /**< RGBA4444 */
-#define NEMA_RGBA0800   0x07U  /**< RGBA0800 */
+#define NEMA_RGBA0800   0x07U  /**< RGBA0800 (Available if HW enabled - check HW manual) */
 #define NEMA_A8         0x08U  /**< RGBA0008 */
 #define NEMA_RGBA0008   0x08U  /**< RGBA0008 */
 #define NEMA_L8         0x09U  /**< L8       */
-#define NEMA_RGBA3320   0x38U  /**< RGBA3320 (source only) */
-#define NEMA_RGB332     0x38U  /**< RGBA3320 (source only) */
+#define NEMA_L1         0x0BU  /**< L1       (source only) */
 #define NEMA_BW1        0x0CU  /**< A1       (source only) */
 #define NEMA_A1         0x0CU  /**< A1       (source only) */
-#define NEMA_L1         0x0BU  /**< L1       (source only) */
 #define NEMA_UYVY       0x0DU  /**< UYVY     */
 #define NEMA_ABGR8888   0x0EU  /**< ABGR8888 */
 #define NEMA_XBGR8888   0x0FU  /**< XBGR8888 */
 #define NEMA_BGRA8888   0x10U  /**< BGRA     */
 #define NEMA_BGRX8888   0x11U  /**< BGRX     */
 #define NEMA_TSC4       0x12U  /**< TSC4     */
+#define NEMA_BGRA5650   0x13U  /**< BGRA5650 (Available if HW enabled - check HW manual) */
+#define NEMA_BGR565     0x13U  /**< BGRA5650 (Available if HW enabled - check HW manual) */
 #define NEMA_TSC6       0x16U  /**< TSC6     */
 #define NEMA_TSC6A      0x17U  /**< TSC6A    */
 #define NEMA_RV         0x18U  /**< RV       */
@@ -96,14 +97,16 @@ typedef enum {
 #define NEMA_L2LE       0x2BU  /**< L2LE     (source only) */
 #define NEMA_L4LE       0x2CU  /**< L4LE     (source only) */
 #define NEMA_A2         0x30U  /**< A2       (source only) */
-#define NEMA_A4         0x34U  /**< A4       (source only) */
 #define NEMA_L2         0x31U  /**< L2       (source only) */
+#define NEMA_A4         0x34U  /**< A4       (source only) */
 #define NEMA_L4         0x35U  /**< L4       (source only) */
+#define NEMA_RGBA3320   0x38U  /**< RGBA3320 */
+#define NEMA_RGB332     0x38U  /**< RGBA3320 */
 #define NEMA_BGR24      0x39U  /**< BGR24    */
 #define NEMA_RGB24      0x3CU  /**< RGB24    */
-#define NEMA_RV10       0x3DU  /**< RV-10bit */
-#define NEMA_GU10       0x3EU  /**< GU-10bit */
-#define NEMA_BY10       0x3FU  /**< BY-10bit */
+#define NEMA_RV10       0x3DU  /**< RV-10bit (Available if HW enabled - check HW manual*/
+#define NEMA_GU10       0x3EU  /**< GU-10bit (Available if HW enabled - check HW manual*/
+#define NEMA_BY10       0x3FU  /**< BY-10bit (Available if HW enabled - check HW manual*/
 #define NEMA_RGBA2222   0x40U  /**< RGBA2222 (Available if HW enabled - check HW manual) */
 #define NEMA_ABGR2222   0x41U  /**< ABGR2222 (Available if HW enabled - check HW manual) */
 #define NEMA_BGRA2222   0x42U  /**< BGRA2222 (Available if HW enabled - check HW manual) */
@@ -112,14 +115,13 @@ typedef enum {
 #define NEMA_AL44       0x45U  /**< AL44     (Available if HW enabled - check HW manual) */
 #define NEMA_ARGB1555   0x46U  /**< ARGB1555 (Available if HW enabled - check HW manual) */
 #define NEMA_ARGB4444   0x47U  /**< ARGB4444 (Available if HW enabled - check HW manual) */
-#define NEMA_BGRA5650   0x13U  /**< BGRA5650 (Available if HW enabled - check HW manual) */
-#define NEMA_BGR565     0x13U  /**< BGRA5650 (Available if HW enabled - check HW manual) */
 #define NEMA_BGRA5551   0x48U  /**< BGRA5551 (Available if HW enabled - check HW manual) */
 #define NEMA_ABGR1555   0x49U  /**< ABGR1555 (Available if HW enabled - check HW manual) */
 #define NEMA_BGRA4444   0x4aU  /**< BGRA4444 (Available if HW enabled - check HW manual) */
 #define NEMA_ABGR4444   0x4bU  /**< ABGR4444 (Available if HW enabled - check HW manual) */
 #define NEMA_TSC12      0x4cU  /**< TSC12    (Available if HW enabled - check HW manual) */
 #define NEMA_TSC12A     0x4dU  /**< TSC12A   (Available if HW enabled - check HW manual) */
+#define NEMA_TSC6AP     0x4eU  /**< TSC6AP   (Available if HW enabled - check HW manual) */
 
 #define NEMA_DITHER     0x80U  /**< Nema Dithering */
 #define NEMA_FORMAT_MASK 0x7FU /**< Format Mask */
@@ -245,6 +247,14 @@ void nema_enable_depth(int enable);
  *
  */
 uint32_t nema_enable_aa(uint8_t e0, uint8_t e1, uint8_t e2, uint8_t e3);
+
+/** \brief Enables MSAA per edge
+ *
+ * \param aa A combination of the flags RAST_AA_E0, RAST_AA_E1, RAST_AA_E2, RAST_AA_E3
+ * \return previous AA flags (may be ignored)
+ *
+ */
+uint32_t nema_enable_aa_flags(uint32_t aa);
 
 // ------------------------------- DIRTY REGIONS ------------------------------------
 
@@ -406,7 +416,8 @@ void nema_bind_dst_tex(uintptr_t baseaddr_phys,
  * \param format Index texture format
  * \param stride Index texture stride. If negative, it's calculated internally.
  * \param mode Index texture sampling mode.  When using 'NEMA_TEX_REPEAT' or 'NEMA_TEX_MIRROR' wrapping mode,
- *             texture dimensions must be a power of two, otherwise the behavior is undefined. NEMA_FILTER_BL is not supported.
+ *             texture dimensions must be a power of two, otherwise the behavior is undefined. NEMA_FILTER_BL is not supported,
+ *             texture filtering is always performed using point sampling.
  * \param palette_baseaddr_phys Address of the lut/palette texture
  * \param palette_format lut/palette texture format
  *

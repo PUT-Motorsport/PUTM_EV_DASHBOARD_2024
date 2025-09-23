@@ -36,6 +36,10 @@
 
 #include "nema_vg_context.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** \brief Draws a TSVG buffer
  *
  * \param buffer Pointer to the TSVG buffer that will be drawn
@@ -52,5 +56,9 @@ nema_vg_draw_tsvg(const void* buffer);
  *
  */
 void nema_vg_get_tsvg_resolution(const void *buffer, uint32_t *width, uint32_t *height);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // NEMA_VG_TSVG_H_

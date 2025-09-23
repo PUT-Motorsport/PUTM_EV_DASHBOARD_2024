@@ -54,9 +54,16 @@ typedef struct nema_cmdlist_t_ {
     int size;                       /**< Number of entries in the command list */
     int offset;                     /**< Points to the next address to write */
     uint32_t flags;                 /**< Flags */
-    int32_t  submission_id;
+    int32_t  submission_id;         /**< CL id to wait for */
     struct nema_cmdlist_t_ *next;   /**< Points to next command list */
     struct nema_cmdlist_t_ *root;   /**< Points to the head of the list */
+
+    // sectored circular cl related
+    int sectors;                    /**< Number of the sectors that the cl consists of */
+    int sector_size;                /**< Size of each sector */
+    uint32_t sector_id;             /**< Pointer to the current sector of the cl */
+    int32_t internal_submitted_id;  /**< Submitted cl id by the CPU */
+    int32_t internal_executed_id;   /**< Executed  cl id by the GPU */
 } nema_cmdlist_t;
 
 /** \brief Create a new Command List into a preallocated space
@@ -113,6 +120,20 @@ void nema_cl_bind(nema_cmdlist_t *cl);
  *
  */
 void nema_cl_bind_circular(nema_cmdlist_t *cl);
+
+/** \brief Define in which Command List each subsequent commands are going to be inserted.
+ *         Bind this command list as Circular which consists of multiple sectors. Minimum
+ *         number of sectors is 2. Input sector number less than 2 automatically defaults
+ *         to 2 sectors. Each sector is a sub-CL and must be at least 512 bytes in size.
+ *         The CL never gets full, it never expands, it may get implicitly submitted,
+ *         it cannot be reused. No other CL should be submitted
+ *         while a sectored circular CL is bound
+ *
+ * \param cl Pointer to the Command List
+ * \param sectors The number of sectors that the Command List is consisted of
+ *
+ */
+void nema_cl_bind_sectored_circular(nema_cmdlist_t *cl, int sectors);
 
 /** \brief Unbind current bound Command List, if any.
  *

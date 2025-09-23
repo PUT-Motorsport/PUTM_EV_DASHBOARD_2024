@@ -36,9 +36,6 @@
     <ClCompile Include="..\..\gui\src\pduscreen_screen\PduScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\pduscreen_screen\PduScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\pduscreen_screen\PduScreenViewBase.cpp"/>
-    <ClCompile Include="..\..\gui\src\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenPresenter.cpp"/>
-    <ClCompile Include="..\..\gui\src\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenView.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -198,15 +195,10 @@
     <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\notificationscreen_screen\NotificationScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\notificationscreen_screen\NotificationScreenViewBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\racescreen_screen\RaceScreenPresenter.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\racescreen_screen\RaceScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\racescreen_screen\RaceScreenViewBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\pduscreen_screen\PduScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\pduscreen_screen\PduScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\pduscreen_screen\PduScreenViewBase.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenPresenter.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenView.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\przemyslawzadodowiecscreen_screen\PrzemyslawZadodowiecScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

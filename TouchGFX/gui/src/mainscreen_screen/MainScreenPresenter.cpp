@@ -2,10 +2,14 @@
 #include <gui/mainscreen_screen/MainScreenView.hpp>
 
 #include <touchgfx/hal/HAL.hpp>
+extern "C" 
+{
 #include "stm32u5xx_hal.h"
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
 #include "task.h"
+#include "data.h"
+}
 
 uint32_t lastScreenSwitchMRTime = 0; ///< Global variable storing the time of the last screen switch (in milliseconds)
 

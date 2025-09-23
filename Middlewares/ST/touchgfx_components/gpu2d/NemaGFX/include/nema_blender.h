@@ -70,8 +70,8 @@ extern "C" {
 #define NEMA_BLOP_NONE         (0U)           /**< No extra blending operation */
 #define NEMA_BLOP_RECOLOR      (0x00100000U)  /**< Cconst*Aconst + Csrc*(1-Aconst). Overrides MODULATE_RGB. On NemaP GPU, recolor is available only when HW Rop Blender is enabled */
 #define NEMA_BLOP_LUT          (0x00200000U)  /**< src_tex as index, src2_tex as palette */
-#define NEMA_BLOP_STENCIL_XY   (0x00400000U)  /**< Use TEX3 as mask */
-#define NEMA_BLOP_STENCIL_TXTY (0x00800000U)  /**< Use TEX3 as mask */
+#define NEMA_BLOP_STENCIL_XY   (0x00400000U)  /**< Use TEX3 as mask/stencil */
+#define NEMA_BLOP_STENCIL_TXTY (0x00800000U)  /**< Use TEX3 as mask/stencil */
 #define NEMA_BLOP_NO_USE_ROPBL (0x01000000U)  /**< Don't use Rop Blender even if present */
 #define NEMA_BLOP_DST_CKEY_NEG (0x02000000U)  /**< Apply Inverse Destination Color Keying - draw only when dst color doesn't match colorkey*/
 #define NEMA_BLOP_SRC_PREMULT  (0x04000000U)  /**< Premultiply Source Color with Source Alpha (cannot be used with NEMA_BLOP_MODULATE_RGB) */
