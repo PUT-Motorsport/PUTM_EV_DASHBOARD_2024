@@ -8,3 +8,11 @@
 /STM32CubeIDE/.settings/
 /STM32CubeIDE/Debug/
 /STM32CubeIDE/Release/
+
+# CMake generated files
+build/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
