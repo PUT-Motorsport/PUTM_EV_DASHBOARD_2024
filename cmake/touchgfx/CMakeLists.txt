@@ -21,10 +21,11 @@ set(TouchGFX_Include_Dirs
 
 # TouchGFX generated application sources
 set(TouchGFX_Src
-    #Screen sources
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/bootscreen_screen/BootScreenPresenter.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/bootscreen_screen/BootScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/common/FrontendApplication.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/diagnosticscreen_screen/DiagnosticScreenPresenter.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/diagnosticscreen_screen/DiagnosticScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/mainscreen_screen/MainScreenPresenter.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/mainscreen_screen/MainScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/model/Model.cpp
@@ -34,7 +35,8 @@ set(TouchGFX_Src
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/pduscreen_screen/PduScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/racescreen_screen/RaceScreenPresenter.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/racescreen_screen/RaceScreenView.cpp
-    #Other generated sources
+    ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/vpsettingsscreen_screen/VpSettingsScreenPresenter.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/vpsettingsscreen_screen/VpSettingsScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/fonts/src/CachedFont.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/fonts/src/CompressedFontCache.cpp
@@ -72,12 +74,15 @@ set(TouchGFX_Src
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/bootscreen_screen/BootScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/diagnosticscreen_screen/DiagnosticScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/mainscreen_screen/MainScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/notificationscreen_screen/NotificationScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/pduscreen_screen/PduScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/racescreen_screen/RaceScreenViewBase.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/vpsettingsscreen_screen/VpSettingsScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/BitmapDatabase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/SVGDatabase.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_boxprogress_normal_medium.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_PUTM_Logo.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_PUTM_intro_140.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_batteryHV.cpp

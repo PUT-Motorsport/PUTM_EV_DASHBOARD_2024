@@ -235,6 +235,30 @@
     <Filter Include="Header Files\gui\raceScreen_Screen">
       <UniqueIdentifier>76C55889-37AC-D570-A131-C6E8C9C7FBE0</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\vpsettingsscreen_screen">
+      <UniqueIdentifier>7472910E-5835-A2A9-99EE-2CE4348AEF96</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\vpsettingsscreen_screen">
+      <UniqueIdentifier>F5333E0D-36B1-44AA-56E0-D5E7774FB58A</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\diagnosticscreen_screen">
+      <UniqueIdentifier>BB25F3C5-DD69-1219-3D7C-155149574B94</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\diagnosticscreen_screen">
+      <UniqueIdentifier>2E7403CF-D2DE-481A-20F6-EC8AB82C5265</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\diagnosticscreen_screen">
+      <UniqueIdentifier>0FB64F11-8DAC-77A0-D86F-FF8E9E8593B9</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\vpsettingsscreen_screen">
+      <UniqueIdentifier>5DBE8AD0-F7BC-80E6-78E6-6BDED9EF598E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\diagnosticscreen_screen">
+      <UniqueIdentifier>1E403D24-64AA-0A2F-5FC2-9B6937CB5309</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\vpsettingsscreen_screen">
+      <UniqueIdentifier>F2784793-274D-6A55-95F4-325A1BA1DB06</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -311,6 +335,24 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\pduscreen_screen\PduScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\pduscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\diagnosticscreen_screen\DiagnosticScreenPresenter.cpp">
+      <Filter>Source Files\gui\diagnosticscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\diagnosticscreen_screen\DiagnosticScreenView.cpp">
+      <Filter>Source Files\gui\diagnosticscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\diagnosticscreen_screen\DiagnosticScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\diagnosticscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\vpsettingsscreen_screen\VpSettingsScreenPresenter.cpp">
+      <Filter>Source Files\gui\vpsettingsscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\vpsettingsscreen_screen\VpSettingsScreenView.cpp">
+      <Filter>Source Files\gui\vpsettingsscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\vpsettingsscreen_screen\VpSettingsScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\vpsettingsscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -792,6 +834,30 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\pduscreen_screen\PduScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\pduscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\diagnosticscreen_screen\DiagnosticScreenPresenter.hpp">
+      <Filter>Header Files\gui\diagnosticscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\diagnosticscreen_screen\DiagnosticScreenView.hpp">
+      <Filter>Header Files\gui\diagnosticscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\diagnosticscreen_screen\DiagnosticScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\diagnosticscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\raceScreen_Screen\RaceScreenPresenter.hpp">
+      <Filter>Header Files\gui\raceScreen_Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\raceScreen_Screen\RaceScreenView.hpp">
+      <Filter>Header Files\gui\raceScreen_Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\vpsettingsscreen_screen\VpSettingsScreenPresenter.hpp">
+      <Filter>Header Files\gui\vpsettingsscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\vpsettingsscreen_screen\VpSettingsScreenView.hpp">
+      <Filter>Header Files\gui\vpsettingsscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\vpsettingsscreen_screen\VpSettingsScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\vpsettingsscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

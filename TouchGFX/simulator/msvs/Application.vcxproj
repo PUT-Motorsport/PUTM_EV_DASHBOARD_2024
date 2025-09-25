@@ -36,6 +36,12 @@
     <ClCompile Include="..\..\gui\src\pduscreen_screen\PduScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\pduscreen_screen\PduScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\pduscreen_screen\PduScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\diagnosticscreen_screen\DiagnosticScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\diagnosticscreen_screen\DiagnosticScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\diagnosticscreen_screen\DiagnosticScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\vpsettingsscreen_screen\VpSettingsScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\vpsettingsscreen_screen\VpSettingsScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\vpsettingsscreen_screen\VpSettingsScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -199,6 +205,14 @@
     <ClInclude Include="..\..\gui\include\gui\pduscreen_screen\PduScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\pduscreen_screen\PduScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\pduscreen_screen\PduScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\diagnosticscreen_screen\DiagnosticScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\diagnosticscreen_screen\DiagnosticScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\diagnosticscreen_screen\DiagnosticScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\raceScreen_Screen\RaceScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\raceScreen_Screen\RaceScreenView.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\vpsettingsscreen_screen\VpSettingsScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\vpsettingsscreen_screen\VpSettingsScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\vpsettingsscreen_screen\VpSettingsScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

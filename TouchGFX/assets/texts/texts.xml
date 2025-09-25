@@ -6,6 +6,60 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_XD9H" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">TODO</Translation>
+      </Text>
+      <Text Id="__SingleUse_45GD" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">200</Translation>
+      </Text>
+      <Text Id="__SingleUse_UK76" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">&lt;d&gt; ms</Translation>
+      </Text>
+      <Text Id="__SingleUse_KRY9" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">HORIZON:</Translation>
+      </Text>
+      <Text Id="__SingleUse_81Z9" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">TRACTION MARGIN</Translation>
+      </Text>
+      <Text Id="__SingleUse_3AAA" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">R</Translation>
+      </Text>
+      <Text Id="__SingleUse_XJIY" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">F</Translation>
+      </Text>
+      <Text Id="__SingleUse_9PWU" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">TORQUE VECTORING</Translation>
+      </Text>
+      <Text Id="__SingleUse_405C" Alignment="Left" TypographyId="MediumPlus">
+        <Translation Language="GB">1</Translation>
+      </Text>
+      <Text Id="__SingleUse_KX6L" Alignment="Left" TypographyId="MediumPlus">
+        <Translation Language="GB">&lt;d&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_V29Q" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">DRIVER:</Translation>
+      </Text>
+      <Text Id="__SingleUse_1Y2X" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">1.0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_TBMQ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_O2JL" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Software version:</Translation>
+      </Text>
+      <Text Id="__SingleUse_FWA0" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">AUTOCROSS</Translation>
+      </Text>
+      <Text Id="__SingleUse_1DRC" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">ENDURANCE</Translation>
+      </Text>
+      <Text Id="__SingleUse_XQYA" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">ACCELERATION</Translation>
+      </Text>
+      <Text Id="__SingleUse_STL6" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">MPC</Translation>
+      </Text>
       <Text Id="__SingleUse_Z66W" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">100</Translation>
       </Text>

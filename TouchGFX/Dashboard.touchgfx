@@ -2728,6 +2728,318 @@
             }
           }
         ]
+      },
+      {
+        "Name": "VpSettingsScreen",
+        "Components": [
+          {
+            "Type": "TextArea",
+            "Name": "MPCtext",
+            "X": 316,
+            "Y": 7,
+            "Width": 168,
+            "Height": 85,
+            "TextId": "__SingleUse_STL6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "accText",
+            "X": 283,
+            "Y": 107,
+            "Width": 234,
+            "Height": 38,
+            "TextId": "__SingleUse_XQYA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "enduranceText",
+            "X": 549,
+            "Y": 107,
+            "Width": 190,
+            "Height": 38,
+            "TextId": "__SingleUse_1DRC",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "DriverLabelText",
+            "X": 534,
+            "Y": 332,
+            "Width": 121,
+            "Height": 38,
+            "TextId": "__SingleUse_V29Q",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "HorizonLabel",
+            "X": 521,
+            "Y": 179,
+            "Width": 146,
+            "Height": 38,
+            "TextId": "__SingleUse_KRY9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "HorizonLabel_1",
+            "X": 539,
+            "Y": 216,
+            "Width": 111,
+            "Height": 38,
+            "TextId": "__SingleUse_UK76",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_45GD",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "autoxText",
+            "X": 51,
+            "Y": 107,
+            "Width": 188,
+            "Height": 38,
+            "TextId": "__SingleUse_FWA0",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "softVersionLabeltext",
+            "X": 6,
+            "Y": 445,
+            "Width": 203,
+            "Height": 27,
+            "TextId": "__SingleUse_O2JL",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "softVersionText",
+            "X": 222,
+            "Y": 445,
+            "Width": 55,
+            "Height": 27,
+            "TextId": "__SingleUse_TBMQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_1Y2X",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "DriverBox",
+            "X": 484,
+            "Y": 312,
+            "Width": 220,
+            "Height": 150,
+            "RelativeFilename": "odometryBackground.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "driverNumberText",
+            "X": 581,
+            "Y": 376,
+            "Width": 27,
+            "Height": 69,
+            "TextId": "__SingleUse_KX6L",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_405C",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "FRbar",
+            "X": 57,
+            "Y": 231,
+            "Width": 300,
+            "Height": 10,
+            "Color": {
+              "Green": 240,
+              "Blue": 255
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_medium.png",
+            "IndicatorPositionWidth": 250,
+            "IndicatorPositionHeight": 20,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TVLabel",
+            "X": 88,
+            "Y": 189,
+            "Width": 238,
+            "Height": 27,
+            "TextId": "__SingleUse_9PWU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TVFtext",
+            "X": 35,
+            "Y": 220,
+            "Width": 14,
+            "Height": 27,
+            "TextId": "__SingleUse_XJIY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TVRtext",
+            "X": 367,
+            "Y": 220,
+            "Width": 16,
+            "Height": 27,
+            "TextId": "__SingleUse_3AAA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "FRbar_1",
+            "X": 57,
+            "Y": 354,
+            "Width": 300,
+            "Height": 10,
+            "Color": {
+              "Green": 240,
+              "Blue": 255
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_medium.png",
+            "IndicatorPositionWidth": 250,
+            "IndicatorPositionHeight": 20,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "TextArea",
+            "Name": "TMLabel",
+            "X": 88,
+            "Y": 312,
+            "Width": 219,
+            "Height": 27,
+            "TextId": "__SingleUse_81Z9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "DiagnosticScreen",
+        "Components": [
+          {
+            "Type": "TextArea",
+            "Name": "textArea",
+            "X": 346,
+            "Y": 213,
+            "Width": 65,
+            "Height": 27,
+            "TextId": "__SingleUse_XD9H",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": []
       }
     ],
     "CustomContainerDefinitions": [],
