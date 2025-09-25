@@ -16,8 +16,11 @@ Model::Model() : modelListener(0) {}
 void Model::tick() {
 
     if(modelListener != 0) {
-        modelListener->switchScreenMR();
-        modelListener->switchScreenRM();
+        modelListener->switchScreenMain2Race();
+        modelListener->switchScreenRace2Pdu();
+        modelListener->switchScreenPdu2Vp();
+        modelListener->switchScreenVp2Diag();
+        modelListener->switchScreenDiag2Main();
 
 
         if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {

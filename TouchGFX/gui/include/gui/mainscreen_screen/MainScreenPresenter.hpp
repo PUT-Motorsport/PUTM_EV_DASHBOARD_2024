@@ -87,7 +87,7 @@ class MainScreenPresenter : public touchgfx::Presenter, public ModelListener {
     /**
      * @brief Switches from the main screen to the race screen.
      */
-    void switchScreenMR();
+    void switchScreenMain2Race();
 
 
     /**

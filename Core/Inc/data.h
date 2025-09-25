@@ -167,6 +167,9 @@ typedef struct{
 	_Bool MainScreen;
 	_Bool RaceScreen;
 	_Bool NotificationScreen;
+    _Bool DiagnosticScreen;
+    _Bool PduScreen;
+    _Bool VpSettingsScreen;
 }ScreenStatus_TypeDef;
 
 

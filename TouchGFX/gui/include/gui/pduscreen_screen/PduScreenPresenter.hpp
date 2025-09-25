@@ -27,6 +27,8 @@ public:
 
     virtual ~PduScreenPresenter() {}
 
+    void switchScreenPdu2Vp();
+
 private:
     PduScreenPresenter();
 

@@ -102,13 +102,8 @@ void MainScreenPresenter::setPduAirStatus(uint8_t status) {view.updatePduAirStat
 
 void MainScreenPresenter::toggleElements() { view.toggleWarning(); }
 
-void MainScreenPresenter::switchScreenMR()
+void MainScreenPresenter::switchScreenMain2Race()
 {
-//	if (screenStatus.MainScreen && interfaceData.cs_button == 1)
-//	{
-//        static_cast<FrontendApplication*>(Application::getInstance())->gotoRaceScreenScreenNoTransition();
-//        screenStatus.MainScreen = false;
-//	}
 
     static uint8_t previousButtonState = 0;
     uint8_t currentButtonState = interfaceData.cs_button;

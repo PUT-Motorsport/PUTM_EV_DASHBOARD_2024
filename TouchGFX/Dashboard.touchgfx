@@ -1844,6 +1844,18 @@
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "NotificationScreen"
             }
+          },
+          {
+            "InteractionName": "ChangeScreenRP",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "PduScreen"
+            }
           }
         ]
       },
@@ -2476,7 +2488,20 @@
             }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreenPV",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "VpSettingsScreen"
+            }
+          }
+        ]
       },
       {
         "Name": "NotificationScreen",
@@ -3017,7 +3042,20 @@
             "AutoSize": true
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreenVD",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "DiagnosticScreen"
+            }
+          }
+        ]
       },
       {
         "Name": "DiagnosticScreen",
@@ -3039,7 +3077,20 @@
             "AutoSize": true
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreenDM",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "MainScreen"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

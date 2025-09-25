@@ -124,7 +124,7 @@ public:
     /**
      * @brief Switches from the race screen back to the main screen.
      */
-    void switchScreenRM();
+    void switchScreenRace2Pdu();
 
 private:
     // Private default constructor to prevent unintended instantiation.

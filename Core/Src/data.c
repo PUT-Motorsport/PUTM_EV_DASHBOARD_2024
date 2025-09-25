@@ -169,6 +169,9 @@ ScreenStatus_TypeDef screenStatus = {
 	.MainScreen = false,
 	.RaceScreen = false,
 	.NotificationScreen = false,
+	.DiagnosticScreen = false,
+    .PduScreen = false,
+    .VpSettingsScreen = false,
 };
 
 

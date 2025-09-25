@@ -27,6 +27,8 @@ public:
 
     virtual ~DiagnosticScreenPresenter() {}
 
+    void switchScreenDiag2Main();
+
 private:
     DiagnosticScreenPresenter();
 

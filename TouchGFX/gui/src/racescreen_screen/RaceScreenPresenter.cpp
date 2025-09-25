@@ -7,7 +7,7 @@
 #include "cmsis_os2.h"
 #include "task.h"
 
-uint32_t lastScreenSwitchRMTime = 0; ///< Global variable storing the time of the last screen switch (in milliseconds)
+uint32_t lastScreenSwitchRPTime = 0; ///< Global variable storing the time of the last screen switch (in milliseconds)
 
 RaceScreenPresenter::RaceScreenPresenter(RaceScreenView& v): view(v){}
 
@@ -48,14 +48,8 @@ void RaceScreenPresenter::setLap(uint8_t value){view.updateLap(value);}
 void RaceScreenPresenter::setBestLap(uint32_t time){view.updateBestLap(time);}
 
 
-void RaceScreenPresenter::switchScreenRM()
+void RaceScreenPresenter::switchScreenRace2Pdu()
 {
-//	if (screenStatus.RaceScreen && interfaceData.cs_button == 1)
-//	{
-//		static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
-//		screenStatus.RaceScreen = false;
-//	}
-
     // Statyczna zmienna przechowująca poprzedni stan przycisku
     static uint8_t previousButtonState = 0;
     // Odczytujemy bieżący stan przycisku
@@ -65,7 +59,7 @@ void RaceScreenPresenter::switchScreenRM()
     uint32_t currentTime = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
     // Zapobiegamy przełączaniu ekranów, jeśli od ostatniego przełączenia minęło mniej niż 1000 ms
-    if ((currentTime - lastScreenSwitchRMTime) < 1000)
+    if ((currentTime - lastScreenSwitchRPTime) < 1000)
     {
         previousButtonState = currentButtonState; // aktualizujemy stan
         return;
@@ -74,9 +68,9 @@ void RaceScreenPresenter::switchScreenRM()
     // Wykrywanie opadającego zbocza: poprzedni stan był 1, a bieżący jest 0
     if (screenStatus.RaceScreen && (previousButtonState == 1) && (currentButtonState == 0))
     {
-        static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoPduScreenScreenNoTransition();
         screenStatus.RaceScreen = false;
-        lastScreenSwitchRMTime = currentTime;
+        lastScreenSwitchRPTime = currentTime;
     }
 
     // Zaktualizuj poprzedni stan przycisku do bieżącego stanu

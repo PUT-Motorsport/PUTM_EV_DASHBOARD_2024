@@ -27,6 +27,8 @@ public:
 
     virtual ~VpSettingsScreenPresenter() {}
 
+    void switchScreenVp2Diag();
+
 private:
     VpSettingsScreenPresenter();
 

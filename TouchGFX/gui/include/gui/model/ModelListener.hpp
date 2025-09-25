@@ -103,8 +103,11 @@ class ModelListener {
     virtual void setPace(int16_t pace) {}
     virtual void setLap(uint8_t value) {}
 
-    virtual void switchScreenRM(){}
-    virtual void switchScreenMR(){}
+    virtual void switchScreenMain2Race(){}
+    virtual void switchScreenRace2Pdu(){}
+    virtual void switchScreenPdu2Vp(){}
+    virtual void switchScreenVp2Diag(){}
+    virtual void switchScreenDiag2Main(){}
 
     //Notification Screen
     virtual void setCheckErrors(bool bspd, bool apps){}
