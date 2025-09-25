@@ -24,6 +24,10 @@ Data_TypeDef sharedData = {
     .connection = false,
     .radio = false,
     .ready_to_drive = false,
+    .rtd_button_pressed = false,
+	.tsa_button_pressed = false,
+
+    // Inverters
     .inverters_ready = false,
     .inv_FL_status = false,
     .inv_FR_status = false,
@@ -33,10 +37,12 @@ Data_TypeDef sharedData = {
     .inv_FR_error = false,
     .inv_RL_error = false,
     .inv_RR_error = false,
+
+    // Safety
     .safety_front = false,
     .safety_rear = false,
-	.rtd_button_pressed = false,
-	.tsa_button_pressed = false,
+
+    //PDU
     .pc_status = 0,
     .fan_status = 0,
     .pump_status = 0,
@@ -47,30 +53,43 @@ Data_TypeDef sharedData = {
     .tsal_hv_status = 0,
     .rbox_diagport_brake_l_status = 0,
     .brake_ir_air_status = 0,
-    .battery_hv_temperature = 0,
-	.battery_lv_temperature = 0,
-    .frontRightInverterTemperature = 0,
-    .frontLeftInverterTemperature = 0,
-    .rearRightInverterTemperature = 0,
-    .rearLeftInverterTemperature = 0,
-    .oil_temperature = 0,
+
+    //Miscellaneous
     .oil_pressure = 0,
-    .coolant_in_temperature = 0,
-    .coolant_out_temperature = 0,
     .coolant_pressure = 0,
 	.front_brake_pressure = 0,
 	.rear_brake_pressure = 0,
-	.motor_front_left_temperature = 0,
-	.motor_front_right_temperature = 0,
-	.motor_rear_left_temperature = 0,
-	.motor_rear_right_temperature = 0,
     .speed = 0,
-    .soc_hv = 0,
-	.soc_lv = 0,
     .rpm = 0,
     .power = 0,
     .distance = 0,
     .range = 0,
+
+    //Soc
+    .soc_hv = 0,
+    .soc_lv = 0,
+};
+
+TemperatureData_TypeDef temperatureData =
+{
+    //Motors
+    .motor_front_left_temperature = 0,
+    .motor_front_right_temperature = 0,
+    .motor_rear_left_temperature = 0,
+    .motor_rear_right_temperature = 0,
+    //Inverters
+    .frontRightInverterTemperature = 0,
+    .frontLeftInverterTemperature = 0,
+    .rearRightInverterTemperature = 0,
+    .rearLeftInverterTemperature = 0,
+    //Coolant
+    .coolant_in_temperature = 0,
+    .coolant_out_temperature = 0,
+    //Battery
+    .battery_hv_temperature = 0,
+    .battery_lv_temperature = 0,
+    //Oil
+    .oil_temperature = 0,
 };
 
 SafetyData_TypeDef safetyData =

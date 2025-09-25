@@ -1,0 +1,3 @@
+1. Maszyna stanów do przełączania ekranów za pomocą jednego przycisku
+2. Czyszcznie kodu, uporządkowanie zmiennych głównie
+3. Ustalić jakich danych brakuje do nowych wyświetlaczy -> nowe dane  na CAN

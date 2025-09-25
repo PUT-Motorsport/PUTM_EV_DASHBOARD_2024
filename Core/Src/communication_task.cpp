@@ -235,8 +235,8 @@ void Communication_Task(void* argument) {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.warning = false;
 
-				sharedData.coolant_out_temperature = rearbox_temperatures_data.coolant_temperature_out;
-				sharedData.coolant_in_temperature = rearbox_temperatures_data.coolant_temperature_in;
+				temperatureData.coolant_out_temperature = rearbox_temperatures_data.coolant_temperature_out;
+				temperatureData.coolant_in_temperature = rearbox_temperatures_data.coolant_temperature_in;
 
 				osMutexRelease(sharedDataMutexHandle);
 			}
@@ -244,8 +244,8 @@ void Communication_Task(void* argument) {
 			if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
 				sharedData.warning = true;
 
-				sharedData.coolant_out_temperature = 0;
-				sharedData.coolant_in_temperature = 0;
+				temperatureData.coolant_out_temperature = 0;
+				temperatureData.coolant_in_temperature = 0;
 
 				osMutexRelease(sharedDataMutexHandle);
 			}
@@ -259,7 +259,7 @@ void Communication_Task(void* argument) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = false;
                 //sharedData.coolant_temperature = bms_lv_main_data.temp_avg;
-                sharedData.battery_lv_temperature = bms_lv_main_data.temp_avg;
+                temperatureData.battery_lv_temperature = bms_lv_main_data.temp_avg;
                 sharedData.soc_lv = bms_lv_main_data.soc;
 
                 osMutexRelease(sharedDataMutexHandle);
@@ -268,7 +268,7 @@ void Communication_Task(void* argument) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = true;
                 //sharedData.coolant_temperature = 0;
-                sharedData.battery_lv_temperature = 0;
+                temperatureData.battery_lv_temperature = 0;
                 sharedData.soc_lv = 0;
 
                 osMutexRelease(sharedDataMutexHandle);
@@ -295,7 +295,7 @@ void Communication_Task(void* argument) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = false;
                 sharedData.soc_hv = bms_hv_main_data.soc / 10;
-                sharedData.battery_hv_temperature = bms_hv_main_data.temp_max;
+                temperatureData.battery_hv_temperature = bms_hv_main_data.temp_max;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
@@ -305,7 +305,7 @@ void Communication_Task(void* argument) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = true;
                 sharedData.soc_hv = 0;
-                sharedData.battery_hv_temperature = 0;
+                temperatureData.battery_hv_temperature = 0;
 
                 osMutexRelease(sharedDataMutexHandle);
             }
@@ -384,15 +384,15 @@ void Communication_Task(void* argument) {
                       sharedData.warning = false;
                       sharedData.connection = true;
 
-                      sharedData.frontRightInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
-                      sharedData.frontLeftInverterTemperature = pc_temp_data.frontLeftInverterTemperature;
-                      sharedData.rearRightInverterTemperature = pc_temp_data.rearRightInverterTemperature;
-                      sharedData.rearLeftInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
+                      temperatureData.frontRightInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
+                      temperatureData.frontLeftInverterTemperature = pc_temp_data.frontLeftInverterTemperature;
+                      temperatureData.rearRightInverterTemperature = pc_temp_data.rearRightInverterTemperature;
+                      temperatureData.rearLeftInverterTemperature = pc_temp_data.rearLeftInverterTemperature;
 
-                      sharedData.motor_front_left_temperature = pc_temp_data.frontLeftMotorTemperature;
-                      sharedData.motor_front_right_temperature = pc_temp_data.frontRightMotorTemperature;
-                      sharedData.motor_rear_left_temperature = pc_temp_data.rearLeftMotorTemperature;
-                      sharedData.motor_rear_right_temperature = pc_temp_data.rearRightMotorTemperature;
+                      temperatureData.motor_front_left_temperature = pc_temp_data.frontLeftMotorTemperature;
+                      temperatureData.motor_front_right_temperature = pc_temp_data.frontRightMotorTemperature;
+                      temperatureData.motor_rear_left_temperature = pc_temp_data.rearLeftMotorTemperature;
+                      temperatureData.motor_rear_right_temperature = pc_temp_data.rearRightMotorTemperature;
 
           			 osMutexRelease(sharedDataMutexHandle);
         		  }
@@ -405,15 +405,15 @@ void Communication_Task(void* argument) {
         			sharedData.warning = true;
         			sharedData.connection = false;
 
-                    sharedData.frontRightInverterTemperature = 0;
-                    sharedData.frontLeftInverterTemperature = 0;
-                    sharedData.rearRightInverterTemperature = 0;
-                    sharedData.rearLeftInverterTemperature = 0;
+                    temperatureData.frontRightInverterTemperature = 0;
+                    temperatureData.frontLeftInverterTemperature = 0;
+                    temperatureData.rearRightInverterTemperature = 0;
+                    temperatureData.rearLeftInverterTemperature = 0;
 
-                    sharedData.motor_front_left_temperature = 0;
-                    sharedData.motor_front_right_temperature = 0;
-                    sharedData.motor_rear_left_temperature = 0;
-                    sharedData.motor_rear_right_temperature = 0;
+                    temperatureData.motor_front_left_temperature = 0;
+                    temperatureData.motor_front_right_temperature = 0;
+                    temperatureData.motor_rear_left_temperature = 0;
+                    temperatureData.motor_rear_right_temperature = 0;
 
 
         			osMutexRelease(sharedDataMutexHandle);

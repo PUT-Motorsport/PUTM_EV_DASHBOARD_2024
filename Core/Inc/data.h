@@ -20,6 +20,10 @@ typedef struct {
     _Bool connection;
     _Bool radio;
     _Bool ready_to_drive;
+    _Bool rtd_button_pressed;
+	_Bool tsa_button_pressed;
+
+    // Inverters
     _Bool inverters_ready;
     _Bool inv_FL_status;
     _Bool inv_FR_status;
@@ -29,10 +33,12 @@ typedef struct {
     _Bool inv_FR_error;
     _Bool inv_RL_error;
     _Bool inv_RR_error;
+
+    // Safety
     _Bool safety_front;
     _Bool safety_rear;
-	_Bool rtd_button_pressed;
-	_Bool tsa_button_pressed;
+
+    //PDU
     uint8_t pc_status;
     uint8_t fan_status;
     uint8_t pump_status;
@@ -43,31 +49,43 @@ typedef struct {
     uint8_t tsal_hv_status;
     uint8_t rbox_diagport_brake_l_status;
     uint8_t brake_ir_air_status;
-    uint8_t battery_hv_temperature;
-    uint8_t battery_lv_temperature;
-    uint8_t frontRightInverterTemperature;
-    uint8_t frontLeftInverterTemperature;
-    uint8_t rearRightInverterTemperature;
-    uint8_t rearLeftInverterTemperature;
-    uint8_t oil_temperature;
+
+    //Miscellaneous
     uint8_t oil_pressure;
-    uint8_t coolant_in_temperature;
-    uint8_t coolant_out_temperature;
     uint8_t coolant_pressure;
     uint16_t front_brake_pressure;
     uint16_t rear_brake_pressure;
-    uint8_t motor_front_left_temperature;
-    uint8_t motor_front_right_temperature;
-    uint8_t motor_rear_left_temperature;
-    uint8_t motor_rear_right_temperature;
     uint8_t speed;
-    uint16_t soc_hv;
-	uint16_t soc_lv;
     uint16_t rpm;
     uint16_t power;
     uint16_t distance;
     uint16_t range;
+
+    //Soc
+    uint16_t soc_hv;
+	uint16_t soc_lv;
 } Data_TypeDef;
+
+typedef struct {
+    //Motors
+    uint8_t motor_front_left_temperature;
+    uint8_t motor_front_right_temperature;
+    uint8_t motor_rear_left_temperature;
+    uint8_t motor_rear_right_temperature;
+    //Inverters
+    uint8_t frontRightInverterTemperature;
+    uint8_t frontLeftInverterTemperature;
+    uint8_t rearRightInverterTemperature;
+    uint8_t rearLeftInverterTemperature;
+    //Coolant
+    uint8_t coolant_in_temperature;
+    uint8_t coolant_out_temperature;
+    //Battery
+    uint8_t battery_hv_temperature;
+    uint8_t battery_lv_temperature;
+    //Oil
+    uint8_t oil_temperature;
+} TemperatureData_TypeDef;
 
 typedef struct{
 	//Frontbox Safety
@@ -163,6 +181,7 @@ typedef struct{
 
 /* Public variables ----------------------------------------------------------*/
 extern Data_TypeDef sharedData;
+extern TemperatureData_TypeDef temperatureData;
 extern SafetyData_TypeDef safetyData;
 extern TimeoutData_TypeDef timeoutData;
 extern TimerData_TypeDef timerData;

@@ -43,6 +43,8 @@ class Model {
   private:
     Data_TypeDef m_sharedData; ///< Shared data.
     Data_TypeDef m_sharedDataPrev;  ///< Previous shared data.
+    TemperatureData_TypeDef m_sharedTemperatureData; ///< Temperature data
+    TemperatureData_TypeDef m_sharedTemperatureDataPrev; ///< Previous temperature data.
     SafetyData_TypeDef m_sharedSafetyData; ///< SDC "Safety" data
     SafetyData_TypeDef m_sharedSafetyDataPrev; ///< Previous safety data.
     TimerData_TypeDef m_timerData; ///< Timer data.

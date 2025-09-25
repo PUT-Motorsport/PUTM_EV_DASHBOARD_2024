@@ -22,6 +22,8 @@ void Model::tick() {
 
         if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             m_sharedData = sharedData;
+            m_sharedSafetyData = safetyData;
+            m_sharedTemperatureData = temperatureData;
 
             m_sharedDataPrev.time = m_sharedData.time;
             modelListener->setClock(m_sharedData.time);
@@ -59,50 +61,50 @@ void Model::tick() {
 											  m_sharedData.inv_RL_error,
 											  m_sharedData.inv_RR_error);
 
-            m_sharedDataPrev.battery_hv_temperature = m_sharedData.battery_hv_temperature;
-            modelListener->setBatteryHVTemperature(m_sharedData.battery_hv_temperature);
+            m_sharedTemperatureDataPrev.battery_hv_temperature = m_sharedTemperatureData.battery_hv_temperature;
+            modelListener->setBatteryHVTemperature(m_sharedTemperatureData.battery_hv_temperature);
 
-            m_sharedDataPrev.battery_lv_temperature = m_sharedData.battery_lv_temperature;
-            modelListener->setBatteryLVTemperature(m_sharedData.battery_lv_temperature);
+            m_sharedTemperatureDataPrev.battery_lv_temperature = m_sharedTemperatureData.battery_lv_temperature;
+            modelListener->setBatteryLVTemperature(m_sharedTemperatureData.battery_lv_temperature);
 
-            m_sharedDataPrev.frontRightInverterTemperature = m_sharedData.frontRightInverterTemperature;
-            m_sharedDataPrev.frontLeftInverterTemperature = m_sharedData.frontLeftInverterTemperature;
-            m_sharedDataPrev.rearRightInverterTemperature = m_sharedData.rearRightInverterTemperature;
-            m_sharedDataPrev.rearLeftInverterTemperature = m_sharedData.rearLeftInverterTemperature;
+            m_sharedTemperatureDataPrev.frontRightInverterTemperature = m_sharedTemperatureData.frontRightInverterTemperature;
+            m_sharedTemperatureDataPrev.frontLeftInverterTemperature = m_sharedTemperatureData.frontLeftInverterTemperature;
+            m_sharedTemperatureDataPrev.rearRightInverterTemperature = m_sharedTemperatureData.rearRightInverterTemperature;
+            m_sharedTemperatureDataPrev.rearLeftInverterTemperature = m_sharedTemperatureData.rearLeftInverterTemperature;
 
-            modelListener->setInverterTemperature(m_sharedData.frontLeftInverterTemperature,
-            									  m_sharedData.frontRightInverterTemperature,
-												  m_sharedData.rearLeftInverterTemperature,
-												  m_sharedData.rearRightInverterTemperature);
+            modelListener->setInverterTemperature(m_sharedTemperatureData.frontLeftInverterTemperature,
+            									  m_sharedTemperatureData.frontRightInverterTemperature,
+												  m_sharedTemperatureData.rearLeftInverterTemperature,
+												  m_sharedTemperatureData.rearRightInverterTemperature);
 
             m_sharedDataPrev.front_brake_pressure = m_sharedData.front_brake_pressure;
             modelListener->setFrontBrakePressure(m_sharedData.front_brake_pressure);
 
-            m_sharedDataPrev.coolant_in_temperature = m_sharedData.coolant_in_temperature;
-            modelListener->setCoolantInTemperature(m_sharedData.coolant_in_temperature);
+            m_sharedTemperatureDataPrev.coolant_in_temperature = m_sharedTemperatureData.coolant_in_temperature;
+            modelListener->setCoolantInTemperature(m_sharedTemperatureData.coolant_in_temperature);
 
-            m_sharedDataPrev.coolant_out_temperature = m_sharedData.coolant_out_temperature;
-            modelListener->setCoolantOutTemperature(m_sharedData.coolant_out_temperature);
+            m_sharedTemperatureDataPrev.coolant_out_temperature = m_sharedTemperatureData.coolant_out_temperature;
+            modelListener->setCoolantOutTemperature(m_sharedTemperatureData.coolant_out_temperature);
 
             m_sharedDataPrev.rear_brake_pressure = m_sharedData.rear_brake_pressure;
             modelListener->setRearBrakePressure(m_sharedData.rear_brake_pressure);
 
-            m_sharedDataPrev.motor_front_left_temperature = m_sharedData.motor_front_left_temperature;
-            modelListener->setMotorFrontLeftTemperature(m_sharedData.motor_front_left_temperature);
+            m_sharedTemperatureDataPrev.motor_front_left_temperature = m_sharedTemperatureData.motor_front_left_temperature;
+            modelListener->setMotorFrontLeftTemperature(m_sharedTemperatureData.motor_front_left_temperature);
 
-            m_sharedDataPrev.motor_front_right_temperature = m_sharedData.motor_front_right_temperature;
-            modelListener->setMotorFrontRightTemperature(m_sharedData.motor_front_right_temperature);
+            m_sharedTemperatureDataPrev.motor_front_right_temperature = m_sharedTemperatureData.motor_front_right_temperature;
+            modelListener->setMotorFrontRightTemperature(m_sharedTemperatureData.motor_front_right_temperature);
 
-            m_sharedDataPrev.motor_rear_left_temperature = m_sharedData.motor_rear_left_temperature;
-            modelListener->setMotorRearLeftTemperature(m_sharedData.motor_rear_left_temperature);
+            m_sharedTemperatureDataPrev.motor_rear_left_temperature = m_sharedTemperatureData.motor_rear_left_temperature;
+            modelListener->setMotorRearLeftTemperature(m_sharedTemperatureData.motor_rear_left_temperature);
 
-            m_sharedDataPrev.motor_rear_right_temperature = m_sharedData.motor_rear_right_temperature;
-            modelListener->setMotorRearRightTemperature(m_sharedData.motor_rear_right_temperature);
+            m_sharedTemperatureDataPrev.motor_rear_right_temperature = m_sharedTemperatureData.motor_rear_right_temperature;
+            modelListener->setMotorRearRightTemperature(m_sharedTemperatureData.motor_rear_right_temperature);
 
-            modelListener->setMotorTemp(m_sharedData.motor_front_left_temperature,
-            						    m_sharedData.motor_front_right_temperature,
-										m_sharedData.motor_rear_left_temperature,
-										m_sharedData.motor_rear_right_temperature);
+            modelListener->setMotorTemp(m_sharedTemperatureData.motor_front_left_temperature,
+            						    m_sharedTemperatureData.motor_front_right_temperature,
+										m_sharedTemperatureData.motor_rear_left_temperature,
+										m_sharedTemperatureData.motor_rear_right_temperature);
 
             m_sharedDataPrev.soc_hv = m_sharedData.soc_hv;
             modelListener->setSocHv(m_sharedData.soc_hv);
