@@ -29,6 +29,14 @@ void PduScreenPresenter::deactivate()
     screenStatus.PduScreen = false;
 }
 
+void PduScreenPresenter::setPduPcCurrent(uint32_t current) { view.updatePduPcCurrent(current); }
+void PduScreenPresenter::setPduPumpCurrent(uint32_t current) { view.updatePduPumpCurrent(current); }
+void PduScreenPresenter::setPduFanCurrent(uint32_t current) { view.updatePduFanCurrent(current); }
+void PduScreenPresenter::setPduInverterCurrent(uint32_t current) { view.updatePduInverterCurrent(current); }
+void PduScreenPresenter::setPduFboxCurrent(uint32_t current) { view.updatePduFboxCurrent(current); }
+void PduScreenPresenter::setPduSdcCurrent(uint32_t current) { view.updatePduSdcCurrent(current); }
+void PduScreenPresenter::setPduTotalCurrent(uint32_t current) { view.updatePduTotalCurrent(current); }
+
 void PduScreenPresenter::switchScreenPdu2Vp()
 {
     // Statyczna zmienna przechowująca poprzedni stan przycisku

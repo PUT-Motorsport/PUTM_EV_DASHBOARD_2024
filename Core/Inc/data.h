@@ -13,6 +13,46 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/*-------------  Parameters   ------------------------------------------------*/
+//TODO: adjust parameters to your vehicle
+
+#define RANGE_MIN 5
+
+//Battery LV
+#define BATTERY_LV_SOC_MIN 15
+#define BATTERY_LV_SOC_MID 50
+#define BATTERY_LV_SOC_MAX 85
+#define BATTERY_LV_TEMPERATURE_MIN 5
+#define BATTERY_LV_TEMPERATURE_MID 35
+#define BATTERY_LV_TEMPERATURE_MAX 55
+
+//Battery HV
+#define BATTERY_HV_SOC_MIN 30
+#define BATTERY_HV_SOC_MID 60
+#define BATTERY_HV_SOC_MAX 85
+#define BATTERY_HV_TEMPERATURE_MIN 15
+#define BATTERY_HV_TEMPERATURE_MID 40
+#define BATTERY_HV_TEMPERATURE_MAX 55
+
+//Motors and Inverters
+#define MOTOR_TEMPERATURE_MIN 10
+#define MOTOR_TEMPERATURE_MID 80
+#define MOTOR_TEMPERATURE_MAX 110
+#define INVERTER_TEMPERATURE_MIN 10
+#define INVERTER_TEMPERATURE_MID 80
+#define INVERTER_TEMPERATURE_MAX 110
+
+//Fluid parameters
+#define COOLANT_TEMPERATURE_MIN 5
+#define COOLANT_TEMPERATURE_MID 30
+#define COOLANT_TEMPERATURE_MAX 35
+#define OIL_TEMPERATURE_MIN 5
+#define OIL_TEMPERATURE_MID 30
+#define OIL_TEMPERATURE_MAX 50
+#define BRAKE_PRESSURE_MIN 200
+#define BRAKE_PRESSURE_RTD_SET 900
+#define BRAKE_PRESSURE_MAX 1100
+
 /* Public typedefs -----------------------------------------------------------*/
 typedef struct {
     uint32_t time;
@@ -49,6 +89,13 @@ typedef struct {
     uint8_t tsal_hv_status;
     uint8_t rbox_diagport_brake_l_status;
     uint8_t brake_ir_air_status;
+    uint32_t pc_current;
+    uint32_t pump_current;
+    uint32_t fan_current;
+    uint32_t inverter_current;
+    uint32_t fbox_current;
+    uint32_t sdc_current;
+    uint32_t total_current;
 
     //Miscellaneous
     uint8_t oil_pressure;
@@ -170,6 +217,7 @@ typedef struct{
     _Bool DiagnosticScreen;
     _Bool PduScreen;
     _Bool VpSettingsScreen;
+    _Bool DataLoggerScreen;
 }ScreenStatus_TypeDef;
 
 

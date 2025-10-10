@@ -54,6 +54,14 @@ Data_TypeDef sharedData = {
     .rbox_diagport_brake_l_status = 0,
     .brake_ir_air_status = 0,
 
+    .pc_current = 0,
+    .pump_current = 0,
+    .fan_current = 0,
+    .inverter_current = 0,
+    .fbox_current = 0,
+    .sdc_current = 0,
+    .total_current = 0,
+
     //Miscellaneous
     .oil_pressure = 0,
     .coolant_pressure = 0,
@@ -172,6 +180,7 @@ ScreenStatus_TypeDef screenStatus = {
 	.DiagnosticScreen = false,
     .PduScreen = false,
     .VpSettingsScreen = false,
+    .DataLoggerScreen = false
 };
 
 

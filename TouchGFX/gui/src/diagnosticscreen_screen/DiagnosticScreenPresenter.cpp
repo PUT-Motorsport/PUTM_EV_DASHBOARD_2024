@@ -30,7 +30,7 @@ void DiagnosticScreenPresenter::deactivate()
 }
 
 
-void DiagnosticScreenPresenter::switchScreenDiag2Main()
+void DiagnosticScreenPresenter::switchScreenDiag2DataLog()
 {
     // Statyczna zmienna przechowująca poprzedni stan przycisku
     static uint8_t previousButtonState = 0;
@@ -50,7 +50,7 @@ void DiagnosticScreenPresenter::switchScreenDiag2Main()
     // Wykrywanie opadającego zbocza: poprzedni stan był 1, a bieżący jest 0
     if (screenStatus.DiagnosticScreen && (previousButtonState == 1) && (currentButtonState == 0))
     {
-        static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoDataLoggerScreenScreenNoTransition();
         screenStatus.DiagnosticScreen = false;
         lastScreenSwitchDMTime = currentTime;
     }

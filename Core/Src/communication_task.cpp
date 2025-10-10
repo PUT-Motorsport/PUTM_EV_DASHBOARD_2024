@@ -258,7 +258,6 @@ void Communication_Task(void* argument) {
 
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = false;
-                //sharedData.coolant_temperature = bms_lv_main_data.temp_avg;
                 temperatureData.battery_lv_temperature = bms_lv_main_data.temp_avg;
                 sharedData.soc_lv = bms_lv_main_data.soc;
 
@@ -267,7 +266,6 @@ void Communication_Task(void* argument) {
         } else if(current_tick_time - timeoutData.bms_lv_last_frame_time > DASH_TIMEOUT_DURATION) {
             if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
             	sharedData.warning = true;
-                //sharedData.coolant_temperature = 0;
                 temperatureData.battery_lv_temperature = 0;
                 sharedData.soc_lv = 0;
 
@@ -504,6 +502,46 @@ void Communication_Task(void* argument) {
         		 sharedData.tsal_hv_status = 0;
         		 sharedData.rbox_diagport_brake_l_status = 0;
         		 sharedData.brake_ir_air_status = 0;
+
+        		 osMutexRelease(sharedDataMutexHandle);
+        	   }
+        }
+
+		//Pdu current data
+        if(PUTM_CAN::can.get_pdu_data_new_data())
+		{
+			  timeoutData.pdu_data_last_frame_time = current_tick_time;
+			  auto pdu_data = PUTM_CAN::can.get_pdu_data();
+
+              if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+              {
+                    sharedData.warning = false;
+
+                    sharedData.pc_current = pdu_data.pc_current;
+                    sharedData.fan_current = pdu_data.fan_current;
+                    sharedData.pump_current = pdu_data.pump_current;
+                    sharedData.inverter_current = pdu_data.inverter_current;
+                    sharedData.fbox_current = pdu_data.fbox_current;
+                    sharedData.sdc_current = pdu_data.sdc_current;
+                    sharedData.total_current = pdu_data.total_current;
+
+        			osMutexRelease(sharedDataMutexHandle);
+        	  }
+          }
+          else if(current_tick_time - timeoutData.pdu_channel_last_frame_time > DASH_TIMEOUT_DURATION)
+          {
+
+        	  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+        	  {
+        		 sharedData.warning = true;
+
+                sharedData.pc_current = 0;
+                sharedData.fan_current = 0;
+                sharedData.pump_current = 0;
+                sharedData.inverter_current = 0;
+                sharedData.fbox_current = 0;
+                sharedData.sdc_current = 0;
+                sharedData.total_current = 0;
 
         		 osMutexRelease(sharedDataMutexHandle);
         	   }
