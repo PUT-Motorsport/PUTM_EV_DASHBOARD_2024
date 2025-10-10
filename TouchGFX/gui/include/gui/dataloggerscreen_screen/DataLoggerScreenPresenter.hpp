@@ -28,6 +28,12 @@ public:
     virtual ~DataLoggerScreenPresenter() {}
 
     void switchScreenDataLog2Main();
+    void setTriggerVoltage(bool status);
+    void setTriggerCurrent(bool status);
+    void setLogStatus(bool status);
+    void setCurrent(uint16_t current);
+    void setVoltage(uint16_t voltage);
+    void setPower(uint16_t voltage, uint16_t current);
 
 private:
     DataLoggerScreenPresenter();

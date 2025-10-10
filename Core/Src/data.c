@@ -76,6 +76,13 @@ Data_TypeDef sharedData = {
     //Soc
     .soc_hv = 0,
     .soc_lv = 0,
+
+    //DataLogger
+    .triggerVoltage = 0,
+    .triggerCurrent = 0,
+    .LogStatus = 0,
+    .current = 0,
+    .voltage = 0,
 };
 
 TemperatureData_TypeDef temperatureData =
@@ -141,6 +148,9 @@ TimeoutData_TypeDef timeoutData = {
 	.pc_last_frame_time = 0,
 	.pc_temp_last_frame_time = 0,
 	.pc_laptimer_last_frame_time = 0,
+    .pdu_data_last_frame_time = 0,
+	.pdu_channel_last_frame_time = 0,
+    .dataLogger_last_frame_time = 0,
 };
 
 TimerData_TypeDef timerData = {

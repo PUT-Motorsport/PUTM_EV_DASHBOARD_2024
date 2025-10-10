@@ -97,8 +97,6 @@ class ModelListener {
     //Race Screen
     virtual void setSocHv(uint8_t soc) {}
     virtual void setSocLv(uint8_t soc) {}
-//    virtual void setRpm(uint16_t rpm) {}
-//    virtual void setRange(uint16_t range) {}
     virtual void setBatteryHVTemperature(uint8_t temperature) {}
     virtual void setPace(int16_t pace) {}
     virtual void setLap(uint8_t value) {}
@@ -135,6 +133,16 @@ class ModelListener {
     virtual void setPduFboxCurrent(uint32_t current) {}
     virtual void setPduSdcCurrent(uint32_t current) {}
     virtual void setPduTotalCurrent(uint32_t current) {}
+
+
+
+    //DataLogger Screen
+    virtual void setTriggerVoltage(bool status) {}
+    virtual void setTriggerCurrent(bool status) {}
+    virtual void setLogStatus(bool status) {}
+    virtual void setCurrent(uint16_t current) {}
+    virtual void setVoltage(uint16_t voltage) {}
+    virtual void setPower(uint16_t voltage, uint16_t current) {}
 
 
   protected:

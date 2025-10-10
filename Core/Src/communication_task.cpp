@@ -549,6 +549,46 @@ void Communication_Task(void* argument) {
 
 
 
+
+		//Data Logger 
+        if(PUTM_CAN::can.get_data_logger_status_new_data())
+		{
+			  timeoutData.dataLogger_last_frame_time = current_tick_time;
+			  auto dataLogger_data = PUTM_CAN::can.get_data_logger_status();
+
+              if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+              {
+                    sharedData.warning = false;
+
+                    sharedData.triggerVoltage = dataLogger_data.status_triggered_voltage;
+                    sharedData.triggerCurrent = dataLogger_data.status_triggered_current;
+                    sharedData.LogStatus = dataLogger_data.status_logging;
+                    sharedData.current = dataLogger_data.current;
+                    sharedData.voltage = dataLogger_data.voltage;
+
+        			osMutexRelease(sharedDataMutexHandle);
+        	  }
+          }
+          else if(current_tick_time - timeoutData.dataLogger_last_frame_time > DASH_TIMEOUT_DURATION)
+          {
+
+        	  if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK)
+        	  {
+        		 sharedData.warning = true;
+
+                 sharedData.triggerVoltage = 0;
+                 sharedData.triggerCurrent = 0;
+                 sharedData.LogStatus = 0;
+                 sharedData.current = 0;
+                 sharedData.voltage = 0;
+
+
+        		 osMutexRelease(sharedDataMutexHandle);
+        	   }
+        }
+
+
+
         HAL_IWDG_Refresh(&hiwdg); // Every 250 ms
 
         osDelay(100);

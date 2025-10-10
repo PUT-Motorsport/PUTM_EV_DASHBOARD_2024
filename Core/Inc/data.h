@@ -111,6 +111,13 @@ typedef struct {
     //Soc
     uint16_t soc_hv;
 	uint16_t soc_lv;
+
+    //DataLogger Variable
+    _Bool triggerVoltage;
+    _Bool triggerCurrent;
+    _Bool LogStatus;
+    uint16_t current;
+    uint16_t voltage;
 } Data_TypeDef;
 
 typedef struct {
@@ -176,6 +183,7 @@ typedef struct {
 	uint32_t pc_laptimer_last_frame_time;
 	uint32_t pdu_data_last_frame_time;
 	uint32_t pdu_channel_last_frame_time;
+    uint32_t dataLogger_last_frame_time;
 } TimeoutData_TypeDef;
 
 typedef struct {

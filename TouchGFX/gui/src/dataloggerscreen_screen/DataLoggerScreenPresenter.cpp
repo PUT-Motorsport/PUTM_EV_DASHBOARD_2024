@@ -28,6 +28,18 @@ void DataLoggerScreenPresenter::deactivate()
     screenStatus.DataLoggerScreen = false;
 }
 
+void DataLoggerScreenPresenter::setTriggerCurrent(bool status) {view.updateTriggerCurrent(status);}
+
+void DataLoggerScreenPresenter::setTriggerVoltage(bool status) {view.updateTriggerVoltage(status);}
+
+void DataLoggerScreenPresenter::setLogStatus(bool status) {view.updateLogStatus(status);}
+
+void DataLoggerScreenPresenter::setCurrent(uint16_t current) {view.updateCurrent(current);}
+
+void DataLoggerScreenPresenter::setVoltage(uint16_t voltage) {view.updateVoltage(voltage);}
+
+void DataLoggerScreenPresenter::setPower(uint16_t voltage, uint16_t current) {view.updatePower(voltage, current);}
+
 void DataLoggerScreenPresenter::switchScreenDataLog2Main()
 {
     // Statyczna zmienna przechowująca poprzedni stan przycisku

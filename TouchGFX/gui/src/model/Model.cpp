@@ -178,6 +178,22 @@ void Model::tick() {
             m_sharedDataPrev.total_current = m_sharedData.total_current;
             modelListener->setPduTotalCurrent(m_sharedData.total_current);
 
+            //Data Logger 
+            m_sharedDataPrev.triggerCurrent = m_sharedData.triggerCurrent;
+            modelListener->setTriggerCurrent(m_sharedData.triggerCurrent);
+
+            m_sharedDataPrev.triggerVoltage = m_sharedData.triggerVoltage;
+            modelListener->setTriggerVoltage(m_sharedData.triggerVoltage);
+
+            m_sharedDataPrev.LogStatus = m_sharedData.LogStatus;
+            modelListener->setLogStatus(m_sharedData.LogStatus);
+
+            m_sharedDataPrev.current = m_sharedData.current;
+            modelListener->setCurrent(m_sharedData.current);
+
+            m_sharedDataPrev.voltage = m_sharedData.voltage;
+            modelListener->setVoltage(m_sharedData.voltage);
+
             osMutexRelease(sharedDataMutexHandle);
 
         }
