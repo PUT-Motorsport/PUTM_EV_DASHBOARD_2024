@@ -20,7 +20,8 @@ void Model::tick() {
         modelListener->switchScreenRace2Pdu();
         modelListener->switchScreenPdu2Vp();
         modelListener->switchScreenVp2Diag();
-        modelListener->switchScreenDiag2Main();
+        modelListener->switchScreenDiag2DataLog();
+        modelListener->switchScreenDataLog2Main();
 
 
         if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
@@ -155,6 +156,27 @@ void Model::tick() {
 
             m_sharedDataPrev.brake_ir_air_status = m_sharedData.brake_ir_air_status;
             modelListener->setPduAirStatus(m_sharedData.brake_ir_air_status);
+
+            m_sharedDataPrev.pc_current = m_sharedData.pc_current;
+            modelListener->setPduPcCurrent(m_sharedData.pc_current);
+
+            m_sharedDataPrev.pump_current = m_sharedData.pump_current;
+            modelListener->setPduPumpCurrent(m_sharedData.pump_current);
+
+            m_sharedDataPrev.fan_current = m_sharedData.fan_current;
+            modelListener->setPduFanCurrent(m_sharedData.fan_current);
+
+            m_sharedDataPrev.inverter_current = m_sharedData.inverter_current;
+            modelListener->setPduInverterCurrent(m_sharedData.inverter_current);
+
+            m_sharedDataPrev.fbox_current = m_sharedData.fbox_current;
+            modelListener->setPduFboxCurrent(m_sharedData.fbox_current);
+
+            m_sharedDataPrev.sdc_current = m_sharedData.sdc_current;
+            modelListener->setPduSdcCurrent(m_sharedData.sdc_current);
+
+            m_sharedDataPrev.total_current = m_sharedData.total_current;
+            modelListener->setPduTotalCurrent(m_sharedData.total_current);
 
             osMutexRelease(sharedDataMutexHandle);
 

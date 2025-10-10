@@ -107,11 +107,34 @@ class ModelListener {
     virtual void switchScreenRace2Pdu(){}
     virtual void switchScreenPdu2Vp(){}
     virtual void switchScreenVp2Diag(){}
-    virtual void switchScreenDiag2Main(){}
+    virtual void switchScreenDiag2DataLog(){}
+    virtual void switchScreenDataLog2Main(){}
 
     //Notification Screen
     virtual void setCheckErrors(bool bspd, bool apps){}
     virtual void switchScreen(bool bspd_status, bool apps_status){}
+
+    //Pdu Screen
+
+    /*
+    virtual void setPduPcStatusText(bool status) {}
+    virtual void setPduFanStatusText(bool status) {}
+    virtual void setPduPumpStatusText(bool status) {}
+    virtual void setPduInverterStatusText(bool status) {}
+    virtual void setPduFboxStatusText(bool status) {}
+    virtual void setPduSdcStatusText(bool status) {}
+    virtual void setPduDashStatusText(bool status) {}
+    virtual void setPduTsalStatusText(bool status) {}
+    virtual void setPduRboxStatusText(bool status) {}
+    virtual void setPduAirStatusText(bool status) {}
+    */
+    virtual void setPduPcCurrent(uint32_t current) {}
+    virtual void setPduPumpCurrent(uint32_t current) {}
+    virtual void setPduFanCurrent(uint32_t current) {}
+    virtual void setPduInverterCurrent(uint32_t current) {}
+    virtual void setPduFboxCurrent(uint32_t current) {}
+    virtual void setPduSdcCurrent(uint32_t current) {}
+    virtual void setPduTotalCurrent(uint32_t current) {}
 
 
   protected:

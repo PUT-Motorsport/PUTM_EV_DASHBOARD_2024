@@ -6,8 +6,107 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_KO3Y" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">OFF</Translation>
+      </Text>
+      <Text Id="__SingleUse_VW84" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">ON</Translation>
+      </Text>
+      <Text Id="__SingleUse_OXCD" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">1000</Translation>
+      </Text>
+      <Text Id="__SingleUse_FP3B" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">&lt;d&gt; V</Translation>
+      </Text>
+      <Text Id="__SingleUse_J4XN" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">1000</Translation>
+      </Text>
+      <Text Id="__SingleUse_4PP4" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">&lt;d&gt; W</Translation>
+      </Text>
+      <Text Id="__SingleUse_6490" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">1000</Translation>
+      </Text>
+      <Text Id="__SingleUse_B3NS" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">&lt;d&gt; A</Translation>
+      </Text>
+      <Text Id="__SingleUse_XF1L" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">Voltage</Translation>
+      </Text>
+      <Text Id="__SingleUse_ML8R" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">Power Peak</Translation>
+      </Text>
+      <Text Id="__SingleUse_OV2S" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">Current</Translation>
+      </Text>
+      <Text Id="__SingleUse_SY5D" Alignment="Left" TypographyId="Big">
+        <Translation Language="GB">Data Logger Info</Translation>
+      </Text>
+      <Text Id="__SingleUse_PGR2" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">Log Status</Translation>
+      </Text>
+      <Text Id="__SingleUse_WH2H" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">Trigger Current</Translation>
+      </Text>
+      <Text Id="__SingleUse_3L55" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">Trigger Voltage</Translation>
+      </Text>
+      <Text Id="__SingleUse_PXL0" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">FBOX Err</Translation>
+      </Text>
+      <Text Id="__SingleUse_43I3" Alignment="Center" TypographyId="Normal">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_1DD1" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">1.0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_PGOD" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_F5BM" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Software version:</Translation>
+      </Text>
+      <Text Id="__SingleUse_WOI6" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">CAN LOGS:</Translation>
+      </Text>
+      <Text Id="__SingleUse_CBCN" Alignment="Left" TypographyId="Normal">
+        <Translation Language="GB">INVERTERS LOGS:</Translation>
+      </Text>
+      <Text Id="__SingleUse_4WHW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234</Translation>
+      </Text>
+      <Text Id="__SingleUse_EK9B" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_5RN9" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234</Translation>
+      </Text>
+      <Text Id="__SingleUse_5UQJ" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_SJ1C" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234</Translation>
+      </Text>
+      <Text Id="__SingleUse_GW9K" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JU2Y" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234</Translation>
+      </Text>
+      <Text Id="__SingleUse_M3WM" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">&lt;s&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_7PUO" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">RL:</Translation>
+      </Text>
+      <Text Id="__SingleUse_PLYW" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">RR:</Translation>
+      </Text>
+      <Text Id="__SingleUse_JXFF" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">RL:</Translation>
+      </Text>
       <Text Id="__SingleUse_XD9H" Alignment="Left" TypographyId="Small">
-        <Translation Language="GB">TODO</Translation>
+        <Translation Language="GB">FL:</Translation>
       </Text>
       <Text Id="__SingleUse_45GD" Alignment="Left" TypographyId="Small">
         <Translation Language="GB">200</Translation>

@@ -42,6 +42,9 @@
     <ClCompile Include="..\..\gui\src\vpsettingsscreen_screen\VpSettingsScreenPresenter.cpp"/>
     <ClCompile Include="..\..\gui\src\vpsettingsscreen_screen\VpSettingsScreenView.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\vpsettingsscreen_screen\VpSettingsScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\dataloggerscreen_screen\DataLoggerScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\dataloggerscreen_screen\DataLoggerScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\dataloggerscreen_screen\DataLoggerScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -213,6 +216,9 @@
     <ClInclude Include="..\..\gui\include\gui\vpsettingsscreen_screen\VpSettingsScreenPresenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\vpsettingsscreen_screen\VpSettingsScreenView.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\vpsettingsscreen_screen\VpSettingsScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\dataloggerscreen_screen\DataLoggerScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\dataloggerscreen_screen\DataLoggerScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\dataloggerscreen_screen\DataLoggerScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

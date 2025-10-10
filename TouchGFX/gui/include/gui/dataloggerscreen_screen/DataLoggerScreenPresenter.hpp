@@ -1,17 +1,17 @@
-#ifndef DIAGNOSTICSCREENPRESENTER_HPP
-#define DIAGNOSTICSCREENPRESENTER_HPP
+#ifndef DATALOGGERSCREENPRESENTER_HPP
+#define DATALOGGERSCREENPRESENTER_HPP
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
 
 using namespace touchgfx;
 
-class DiagnosticScreenView;
+class DataLoggerScreenView;
 
-class DiagnosticScreenPresenter : public touchgfx::Presenter, public ModelListener
+class DataLoggerScreenPresenter : public touchgfx::Presenter, public ModelListener
 {
 public:
-    DiagnosticScreenPresenter(DiagnosticScreenView& v);
+    DataLoggerScreenPresenter(DataLoggerScreenView& v);
 
     /**
      * The activate function is called automatically when this screen is "switched in"
@@ -25,14 +25,14 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~DiagnosticScreenPresenter() {}
+    virtual ~DataLoggerScreenPresenter() {}
 
-    void switchScreenDiag2DataLog();
+    void switchScreenDataLog2Main();
 
 private:
-    DiagnosticScreenPresenter();
+    DataLoggerScreenPresenter();
 
-    DiagnosticScreenView& view;
+    DataLoggerScreenView& view;
 };
 
-#endif // DIAGNOSTICSCREENPRESENTER_HPP
+#endif // DATALOGGERSCREENPRESENTER_HPP

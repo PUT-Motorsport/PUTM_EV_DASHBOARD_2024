@@ -259,6 +259,18 @@
     <Filter Include="Header Files\generated\gui_generated\vpsettingsscreen_screen">
       <UniqueIdentifier>F2784793-274D-6A55-95F4-325A1BA1DB06</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\gui\dataloggerscreen_screen">
+      <UniqueIdentifier>22727322-6BE6-7F79-93F3-6805DC08CB02</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\dataloggerscreen_screen">
+      <UniqueIdentifier>1F2A5E2C-933A-804F-CADE-29805D9C91A5</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\dataloggerscreen_screen">
+      <UniqueIdentifier>86998A21-A4B7-E2F2-BD29-80A6836F6C7E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\dataloggerscreen_screen">
+      <UniqueIdentifier>5FEE7269-3861-D106-2E21-A4269EEB227D</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -353,6 +365,15 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\vpsettingsscreen_screen\VpSettingsScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\vpsettingsscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\dataloggerscreen_screen\DataLoggerScreenPresenter.cpp">
+      <Filter>Source Files\gui\dataloggerscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\dataloggerscreen_screen\DataLoggerScreenView.cpp">
+      <Filter>Source Files\gui\dataloggerscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\dataloggerscreen_screen\DataLoggerScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\dataloggerscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -858,6 +879,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\vpsettingsscreen_screen\VpSettingsScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\vpsettingsscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\dataloggerscreen_screen\DataLoggerScreenPresenter.hpp">
+      <Filter>Header Files\gui\dataloggerscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\dataloggerscreen_screen\DataLoggerScreenView.hpp">
+      <Filter>Header Files\gui\dataloggerscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\dataloggerscreen_screen\DataLoggerScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\dataloggerscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

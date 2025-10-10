@@ -24,6 +24,8 @@ set(TouchGFX_Src
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/bootscreen_screen/BootScreenPresenter.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/bootscreen_screen/BootScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/common/FrontendApplication.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/dataloggerscreen_screen/DataLoggerScreenPresenter.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/dataloggerscreen_screen/DataLoggerScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/diagnosticscreen_screen/DiagnosticScreenPresenter.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/diagnosticscreen_screen/DiagnosticScreenView.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/gui/src/mainscreen_screen/MainScreenPresenter.cpp
@@ -74,6 +76,7 @@ set(TouchGFX_Src
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/bootscreen_screen/BootScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/dataloggerscreen_screen/DataLoggerScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/diagnosticscreen_screen/DiagnosticScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/mainscreen_screen/MainScreenViewBase.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/gui_generated/src/notificationscreen_screen/NotificationScreenViewBase.cpp
@@ -103,6 +106,9 @@ set(TouchGFX_Src
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_engine.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_engine_crit.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_engine_warn.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_frame_variant_1.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_frame_variant_2.cpp
+    ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_frame_variant_3.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_image_car.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_infoFrame.cpp
     ${CMAKE_SOURCE_DIR}/TouchGFX/generated/images/src/image_inverter.cpp

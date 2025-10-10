@@ -848,7 +848,7 @@
                 "X": 81,
                 "Y": 44,
                 "Width": 58,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_643R",
@@ -866,7 +866,7 @@
                 "X": 36,
                 "Y": 44,
                 "Width": 148,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_PHPV",
@@ -882,7 +882,7 @@
                 "X": 36,
                 "Y": 44,
                 "Width": 151,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_LXP1",
@@ -898,7 +898,7 @@
                 "X": 36,
                 "Y": 44,
                 "Width": 151,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_0849",
@@ -914,7 +914,7 @@
                 "X": 36,
                 "Y": 44,
                 "Width": 154,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_MS8Q",
@@ -930,7 +930,7 @@
                 "X": 32,
                 "Y": 44,
                 "Width": 164,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_D5RT",
@@ -946,7 +946,7 @@
                 "X": 55,
                 "Y": 42,
                 "Width": 110,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_3CPS",
@@ -964,7 +964,7 @@
                 "X": 79,
                 "Y": 44,
                 "Width": 63,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_LD3J",
@@ -981,7 +981,7 @@
                 "Name": "invText",
                 "X": 39,
                 "Width": 150,
-                "Height": 38,
+                "Height": 39,
                 "TextId": "__SingleUse_3O5K",
                 "TextRotation": "0",
                 "Color": {
@@ -1351,7 +1351,7 @@
                 "X": 19,
                 "Y": 2,
                 "Width": 64,
-                "Height": 38,
+                "Height": 39,
                 "TextId": "__SingleUse_J8BG",
                 "TextRotation": "0",
                 "Color": {
@@ -1385,7 +1385,7 @@
                 "Name": "rtdText",
                 "X": 80,
                 "Width": 61,
-                "Height": 38,
+                "Height": 39,
                 "LockPosition": true,
                 "TextId": "__SingleUse_GK2Q",
                 "TextRotation": "0",
@@ -1402,7 +1402,7 @@
                 "X": 55,
                 "Y": 42,
                 "Width": 110,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_FYTL",
@@ -1420,7 +1420,7 @@
                 "X": 81,
                 "Y": 44,
                 "Width": 58,
-                "Height": 38,
+                "Height": 39,
                 "Visible": false,
                 "LockPosition": true,
                 "TextId": "__SingleUse_BUZR",
@@ -3062,12 +3062,33 @@
         "Components": [
           {
             "Type": "TextArea",
-            "Name": "textArea",
-            "X": 346,
-            "Y": 213,
-            "Width": 65,
+            "Name": "softVersionText",
+            "X": 222,
+            "Y": 445,
+            "Width": 55,
             "Height": 27,
-            "TextId": "__SingleUse_XD9H",
+            "TextId": "__SingleUse_PGOD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_1DD1",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "softVersionLabeltext",
+            "X": 6,
+            "Y": 445,
+            "Width": 203,
+            "Height": 27,
+            "TextId": "__SingleUse_F5BM",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -3075,11 +3096,539 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "Container",
+            "Name": "CANcontainer",
+            "X": 449,
+            "Y": 34,
+            "Width": 238,
+            "Height": 198,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "CanLogText",
+                "X": 19,
+                "Y": 49,
+                "Width": 203,
+                "Height": 125,
+                "TextId": "__SingleUse_43I3",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_PXL0",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "Image",
+                "Name": "CanFrame",
+                "X": 10,
+                "Y": 36,
+                "Width": 220,
+                "Height": 150,
+                "RelativeFilename": "odometryBackground.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "CanLogLabel",
+                "X": 38,
+                "Width": 163,
+                "Height": 39,
+                "TextId": "__SingleUse_WOI6",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "InvContainer",
+            "X": 44,
+            "Y": 34,
+            "Width": 331,
+            "Height": 164,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "RriErrText",
+                "X": 167,
+                "Y": 112,
+                "Width": 38,
+                "Height": 27,
+                "TextId": "__SingleUse_PLYW",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "InvLogLabel",
+                "X": 30,
+                "Y": 1,
+                "Width": 268,
+                "Height": 39,
+                "TextId": "__SingleUse_CBCN",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FriErrText",
+                "X": 167,
+                "Y": 50,
+                "Width": 36,
+                "Height": 27,
+                "TextId": "__SingleUse_7PUO",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FriErrID",
+                "X": 222,
+                "Y": 50,
+                "Width": 56,
+                "Height": 27,
+                "TextId": "__SingleUse_5UQJ",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_5RN9",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "RriErrID",
+                "X": 222,
+                "Y": 112,
+                "Width": 56,
+                "Height": 27,
+                "TextId": "__SingleUse_EK9B",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_4WHW",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FliErrID",
+                "X": 84,
+                "Y": 50,
+                "Width": 56,
+                "Height": 27,
+                "TextId": "__SingleUse_GW9K",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_SJ1C",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "RliErrID",
+                "X": 84,
+                "Y": 112,
+                "Width": 56,
+                "Height": 27,
+                "TextId": "__SingleUse_M3WM",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_JU2Y",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "RliErrText",
+                "X": 36,
+                "Y": 112,
+                "Width": 36,
+                "Height": 27,
+                "TextId": "__SingleUse_JXFF",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "FliErrText",
+                "X": 37,
+                "Y": 50,
+                "Width": 34,
+                "Height": 27,
+                "TextId": "__SingleUse_XD9H",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Image",
+                "Name": "InvFrame",
+                "Y": 44,
+                "Width": 320,
+                "Height": 110,
+                "RelativeFilename": "frame_variant_2.png"
+              }
+            ]
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "ChangeScreenDM",
+            "InteractionName": "ChangeScreenDDL",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "DataLoggerScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "DataLoggerScreen",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "invframe",
+            "X": 478,
+            "Y": 217,
+            "Width": 220,
+            "Height": 49,
+            "RelativeFilename": "infoFrame.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "triggerVoltageText",
+            "X": 94,
+            "Y": 176,
+            "Width": 228,
+            "Height": 39,
+            "TextId": "__SingleUse_3L55",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "triggerCurrentText",
+            "X": 94,
+            "Y": 228,
+            "Width": 228,
+            "Height": 39,
+            "TextId": "__SingleUse_WH2H",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 102,
+              "Green": 102,
+              "Blue": 102
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "DataLogerLabel",
+            "X": 88,
+            "Width": 624,
+            "Height": 103,
+            "TextId": "__SingleUse_SY5D",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "Container",
+            "Name": "LogStatusContainer",
+            "X": 455,
+            "Y": 150,
+            "Width": 250,
+            "Height": 137,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "OFFLoggingLabel",
+                "X": 104,
+                "Y": 71,
+                "Width": 58,
+                "Height": 39,
+                "Visible": false,
+                "TextId": "__SingleUse_KO3Y",
+                "TextRotation": "0",
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "ONLoggingLabel",
+                "X": 111,
+                "Y": 71,
+                "Width": 44,
+                "Height": 39,
+                "Visible": false,
+                "TextId": "__SingleUse_VW84",
+                "TextRotation": "0",
+                "AutoSize": true
+              },
+              {
+                "Type": "TextArea",
+                "Name": "logStatusLabel",
+                "X": 53,
+                "Y": 15,
+                "Width": 161,
+                "Height": 39,
+                "TextId": "__SingleUse_PGR2",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "CurrentContainer",
+            "X": 26,
+            "Y": 315,
+            "Width": 250,
+            "Height": 119,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "CurrentText",
+                "X": 79,
+                "Y": 66,
+                "Width": 103,
+                "Height": 39,
+                "TextId": "__SingleUse_B3NS",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_6490",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "currentLabel",
+                "X": 68,
+                "Y": 9,
+                "Width": 114,
+                "Height": 39,
+                "TextId": "__SingleUse_OV2S",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Image",
+                "Name": "currentFrame",
+                "X": 15,
+                "Y": 61,
+                "Width": 220,
+                "Height": 49,
+                "RelativeFilename": "infoFrame.png"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "PowerContainer",
+            "X": 275,
+            "Y": 315,
+            "Width": 250,
+            "Height": 119,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "PowerText",
+                "X": 72,
+                "Y": 66,
+                "Width": 106,
+                "Height": 39,
+                "TextId": "__SingleUse_4PP4",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_J4XN",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "PowerLabel",
+                "X": 39,
+                "Y": 9,
+                "Width": 173,
+                "Height": 39,
+                "TextId": "__SingleUse_ML8R",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Image",
+                "Name": "powerFrame",
+                "X": 15,
+                "Y": 61,
+                "Width": 220,
+                "Height": 49,
+                "RelativeFilename": "infoFrame.png"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "VoltageContainer",
+            "X": 531,
+            "Y": 315,
+            "Width": 250,
+            "Height": 119,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "VoltageLabel",
+                "X": 68,
+                "Y": 9,
+                "Width": 114,
+                "Height": 39,
+                "TextId": "__SingleUse_XF1L",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              },
+              {
+                "Type": "Image",
+                "Name": "voltageFrame",
+                "X": 15,
+                "Y": 61,
+                "Width": 220,
+                "Height": 49,
+                "RelativeFilename": "infoFrame.png"
+              },
+              {
+                "Type": "TextArea",
+                "Name": "VoltageText",
+                "X": 72,
+                "Y": 66,
+                "Width": 102,
+                "Height": 39,
+                "TextId": "__SingleUse_FP3B",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_OXCD",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreenDLM",
             "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerNone"
