@@ -58,10 +58,10 @@ void DataLoggerScreenPresenter::switchScreenDataLog2Main()
     }
 
     // Wykrywanie opadającego zbocza: poprzedni stan był 1, a bieżący jest 0
-    if (screenStatus.DiagnosticScreen && (previousButtonState == 1) && (currentButtonState == 0))
+    if (screenStatus.DataLoggerScreen && (previousButtonState == 1) && (currentButtonState == 0))
     {
         static_cast<FrontendApplication*>(Application::getInstance())->gotoMainScreenScreenNoTransition();
-        screenStatus.DiagnosticScreen = false;
+        screenStatus.DataLoggerScreen = false;
         lastScreenSwitchDLTime = currentTime;
     }
 
