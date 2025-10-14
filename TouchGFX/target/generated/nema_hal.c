@@ -41,7 +41,7 @@
 #include "tsi_malloc.h"
 
 #define RING_SIZE                      1024 /* Ring Buffer Size in byte */
-#define NEMAGFX_MEM_POOL_SIZE          10240 /* NemaGFX byte pool size in byte */
+#define NEMAGFX_MEM_POOL_SIZE          18432 /* NemaGFX byte pool size in byte */
 
 LOCATION_PRAGMA_NOLOAD("Nemagfx_Memory_Pool_Buffer")
 static uint8_t nemagfx_pool_mem[NEMAGFX_MEM_POOL_SIZE] LOCATION_ATTRIBUTE_NOLOAD("Nemagfx_Memory_Pool_Buffer"); /* NemaGFX memory pool */
@@ -65,6 +65,14 @@ void HAL_GPU2D_CommandListCpltCallback(GPU2D_HandleTypeDef* hgpu2d, uint32_t Cmd
 
     /* Return a token back to a semaphore */
     osSemaphoreRelease(nema_irq_sem);
+}
+
+void HAL_GPU2D_ErrorCallback(GPU2D_HandleTypeDef *hgpu2d)
+{
+    uint32_t val = nema_reg_read(GPU2D_SYS_INTERRUPT); /* clear the ER interrupt */
+    nema_reg_write(GPU2D_SYS_INTERRUPT, val);
+
+    return;
 }
 
 int32_t nema_sys_init(void)

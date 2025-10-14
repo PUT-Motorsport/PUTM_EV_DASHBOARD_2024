@@ -53,14 +53,19 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE END Variables */
 /* Definitions for timerTask */
 osThreadId_t timerTaskHandle;
+uint32_t TimerTaskBuffer[ 256 ];
+osStaticThreadDef_t TimerTaskControlBloc;
 const osThreadAttr_t timerTask_attributes = {
   .name = "timerTask",
+  .stack_mem = &TimerTaskBuffer[0],
+  .stack_size = sizeof(TimerTaskBuffer),
+  .cb_mem = &TimerTaskControlBloc,
+  .cb_size = sizeof(TimerTaskControlBloc),
   .priority = (osPriority_t) osPriorityLow,
-  .stack_size = 128 * 4
 };
 /* Definitions for TouchGFXTask */
 osThreadId_t TouchGFXTaskHandle;
-uint32_t TouchGFXTaskBuffer[ 8192 ];
+uint32_t TouchGFXTaskBuffer[ 128 ];
 osStaticThreadDef_t TouchGFXTaskControlBlock;
 const osThreadAttr_t TouchGFXTask_attributes = {
   .name = "TouchGFXTask",
@@ -96,10 +101,15 @@ const osThreadAttr_t interfaceTask_attributes = {
 };
 /* Definitions for ledTestTask */
 osThreadId_t ledTestTaskHandle;
+uint32_t ledTestTaskBuffer[ 256 ];
+osStaticThreadDef_t LedTestTaskControlBloc;
 const osThreadAttr_t ledTestTask_attributes = {
   .name = "ledTestTask",
+  .stack_mem = &ledTestTaskBuffer[0],
+  .stack_size = sizeof(ledTestTaskBuffer),
+  .cb_mem = &LedTestTaskControlBloc,
+  .cb_size = sizeof(LedTestTaskControlBloc),
   .priority = (osPriority_t) osPriorityNormal,
-  .stack_size = 128 * 4
 };
 /* Definitions for sharedDataMutex */
 osMutexId_t sharedDataMutexHandle;

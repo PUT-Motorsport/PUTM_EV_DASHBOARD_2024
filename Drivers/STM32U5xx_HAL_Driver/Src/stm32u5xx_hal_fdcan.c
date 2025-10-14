@@ -2225,7 +2225,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *hfdcan, uint32_t R
 
   if (state == HAL_FDCAN_STATE_BUSY)
   {
-    if (RxLocation == 0) /* Rx element is assigned to the Rx FIFO 0 */
+    if (RxLocation == FDCAN_RX_FIFO0) /* Rx element is assigned to the Rx FIFO 0 */
     {
       /* Check that the Rx FIFO 0 is not empty */
       if ((hfdcan->Instance->RXF0S & FDCAN_RXF0S_F0FL) == 0U)
@@ -2333,7 +2333,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *hfdcan, uint32_t R
       pRxData[ByteCounter] = pData[ByteCounter];
     }
 
-    if (RxLocation == 0) /* Rx element is assigned to the Rx FIFO 0 */
+    if (RxLocation == FDCAN_RX_FIFO0) /* Rx element is assigned to the Rx FIFO 0 */
     {
       /* Acknowledge the Rx FIFO 0 that the oldest element is read so that it increments the GetIndex */
       hfdcan->Instance->RXF0A = GetIndex;
@@ -2528,7 +2528,7 @@ HAL_StatusTypeDef HAL_FDCAN_GetErrorCounters(const FDCAN_HandleTypeDef *hfdcan,
 uint32_t HAL_FDCAN_IsTxBufferMessagePending(const FDCAN_HandleTypeDef *hfdcan, uint32_t TxBufferIndex)
 {
   /* Check function parameters */
-  //assert_param(IS_FDCAN_TX_LOCATION_LIST(TxBufferIndex));
+  assert_param(IS_FDCAN_TX_LOCATION_LIST(TxBufferIndex));
 
   /* Check pending transmission request on the selected buffer */
   if ((hfdcan->Instance->TXBRP & TxBufferIndex) == 0U)

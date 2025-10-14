@@ -41,7 +41,6 @@ void MX_OCTOSPI1_Init(void)
   /* USER CODE END OCTOSPI1_Init 0 */
 
   OSPIM_CfgTypeDef sOspiManagerCfg = {0};
-  HAL_OSPI_DLYB_CfgTypeDef HAL_OSPI_DLYB_Cfg_Struct = {0};
 
   /* USER CODE BEGIN OCTOSPI1_Init 1 */
     /* Get Flash informations of one memory */
@@ -73,12 +72,6 @@ void MX_OCTOSPI1_Init(void)
   sOspiManagerCfg.IOLowPort = HAL_OSPIM_IOPORT_1_LOW;
   sOspiManagerCfg.IOHighPort = HAL_OSPIM_IOPORT_1_HIGH;
   if (HAL_OSPIM_Config(&hospi1, &sOspiManagerCfg, HAL_OSPI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  HAL_OSPI_DLYB_Cfg_Struct.Units = 0;
-  HAL_OSPI_DLYB_Cfg_Struct.PhaseSel = 0;
-  if (HAL_OSPI_DLYB_SetConfig(&hospi1, &HAL_OSPI_DLYB_Cfg_Struct) != HAL_OK)
   {
     Error_Handler();
   }
