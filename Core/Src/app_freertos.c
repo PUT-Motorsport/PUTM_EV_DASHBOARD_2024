@@ -33,6 +33,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticSemaphore_t osStaticMutexDef_t;
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
@@ -65,7 +66,7 @@ const osThreadAttr_t timerTask_attributes = {
 };
 /* Definitions for TouchGFXTask */
 osThreadId_t TouchGFXTaskHandle;
-uint32_t TouchGFXTaskBuffer[ 128 ];
+uint32_t TouchGFXTaskBuffer[ 256 ];
 osStaticThreadDef_t TouchGFXTaskControlBlock;
 const osThreadAttr_t TouchGFXTask_attributes = {
   .name = "TouchGFXTask",
@@ -113,18 +114,27 @@ const osThreadAttr_t ledTestTask_attributes = {
 };
 /* Definitions for sharedDataMutex */
 osMutexId_t sharedDataMutexHandle;
+osStaticMutexDef_t sharedDataMutexControlBlock;
 const osMutexAttr_t sharedDataMutex_attributes = {
-  .name = "sharedDataMutex"
+  .name = "sharedDataMutex",
+  .cb_mem = &sharedDataMutexControlBlock,
+  .cb_size = sizeof(sharedDataMutexControlBlock),
 };
 /* Definitions for timerDataMutex */
 osMutexId_t timerDataMutexHandle;
+osStaticMutexDef_t timerDataMutexControlBlock;
 const osMutexAttr_t timerDataMutex_attributes = {
-  .name = "timerDataMutex"
+  .name = "timerDataMutex",
+  .cb_mem = &timerDataMutexControlBlock,
+  .cb_size = sizeof(timerDataMutexControlBlock),
 };
 /* Definitions for sdcDataMutex */
 osMutexId_t sdcDataMutexHandle;
+osStaticMutexDef_t sdcDataMutexControlBlock;
 const osMutexAttr_t sdcDataMutex_attributes = {
-  .name = "sdcDataMutex"
+  .name = "sdcDataMutex",
+  .cb_mem = &sdcDataMutexControlBlock,
+  .cb_size = sizeof(sdcDataMutexControlBlock),
 };
 
 /* Private function prototypes -----------------------------------------------*/

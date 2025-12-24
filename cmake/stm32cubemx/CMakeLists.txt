@@ -24,8 +24,6 @@ set(MX_Include_Dirs
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Middlewares/Third_Party/CMSIS/RTOS2/Include/
 
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Drivers/BSP/Components/mx25lm51245g
-
-
 )
 
 # STM32CubeMX generated application sources

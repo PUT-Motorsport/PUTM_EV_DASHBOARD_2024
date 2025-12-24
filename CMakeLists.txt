@@ -30,7 +30,6 @@ set(CMAKE_PROJECT_NAME Riverdi_50STM32U5A9)
 
 
 ###################################
-# Include toolchain file
 # include("cmake/gcc-arm-none-eabi.cmake")
 
 # Enable compile command to ease indexing with e.g. clangd
