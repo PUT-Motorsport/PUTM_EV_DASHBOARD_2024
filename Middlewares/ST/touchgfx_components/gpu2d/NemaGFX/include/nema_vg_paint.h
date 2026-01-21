@@ -125,13 +125,8 @@ void nema_vg_paint_set_paint_color(NEMA_VG_PAINT_HANDLE paint, uint32_t rgba);
  */
 void nema_vg_paint_set_opacity(NEMA_VG_PAINT_HANDLE paint, float opacity);
 
- /** \brief Set stroke width
- *
- * \param paint Pointer (handle) to paint object
- * \param stroke_width Stroke width to be set
- *
- */
-void nema_vg_paint_set_stroke_width(NEMA_VG_PAINT_HANDLE paint, float stroke_width);
+/** \private */
+void nema_vg_paint_set_stroke_width(NEMA_VG_PAINT_HANDLE paint, float stroke_width) __attribute__ ((deprecated("This function is deprecated use nema_vg_stroke_set_width instead.")));
 
  /** \brief Set transformation matrix for texture
  *

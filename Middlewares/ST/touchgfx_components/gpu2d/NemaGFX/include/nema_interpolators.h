@@ -60,8 +60,11 @@ void nema_interpolate_rect_colors(int x0, int y0, int w, int h, color_var_t* col
  *
  * \details The upper left vertex of the triangle to be drawn
  *  must be in the vertex arguments as well. In addition, if
- * clipping is applied for rendering a triangle with gradient,
- * the upper left vertex must be within the clipping area.
+ *  clipping is applied for rendering a triangle with gradient,
+ *  the upper left vertex must be within the clipping area.
+ *  If the x/y values are invalid for linear interpolation the
+ *  the value of col0 will be used as color for every vertex
+ *
  * \param x0 x coordinate at the first vertex of the triangle
  * \param y0 y coordinate at the first vertex of the triangle
  * \param x1 x coordinate at the second vertex of the triangle
@@ -75,7 +78,8 @@ void nema_interpolate_rect_colors(int x0, int y0, int w, int h, color_var_t* col
  */
 void nema_interpolate_tri_colors(float x0, float y0, float x1, float y1, float x2, float y2, color_var_t* col0, color_var_t* col1, color_var_t* col2);
 
-/** \brief Interpolate depth buffer values for triangle
+/** \brief Interpolate depth buffer values for triangle. If the x/y values are invalid for linear interpolation the
+ *  the value of z0 will be used as depth for every vertex
  *
  * \param x0 x coordinate at the first vertex of the triangle
  * \param y0 y coordinate at the first vertex of the triangle

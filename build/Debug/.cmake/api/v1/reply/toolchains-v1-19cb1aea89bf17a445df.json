@@ -1,0 +1,94 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : {},
+				"path" : "C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/bin/arm-none-eabi-gcc.exe",
+				"version" : ""
+			},
+			"language" : "ASM",
+			"sourceFileExtensions" : 
+			[
+				"s",
+				"S",
+				"asm"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/lib/gcc/arm-none-eabi/13.3.1/include",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/lib/gcc/arm-none-eabi/13.3.1/include-fixed",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/arm-none-eabi/include"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/bin/arm-none-eabi-gcc.exe",
+				"version" : "13.3.1"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/arm-none-eabi/include/c++/13.3.1",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/arm-none-eabi/include/c++/13.3.1/arm-none-eabi/thumb/v8-m.main+fp/hard",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/arm-none-eabi/include/c++/13.3.1/backward",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/lib/gcc/arm-none-eabi/13.3.1/include",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/lib/gcc/arm-none-eabi/13.3.1/include-fixed",
+						"C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/arm-none-eabi/include"
+					],
+					"linkDirectories" : [],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : []
+				},
+				"path" : "C:/Users/User/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/13.3.1+st.9/bin/arm-none-eabi-g++.exe",
+				"version" : "13.3.1"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

@@ -2142,7 +2142,7 @@
     "DisplayOrientation": "Landscape",
     "Family": "STM32U5",
     "SubFamily": "STM32U599/5A9",
-    "Toolchain": "STM32CubeIDE",
+    "Toolchain": "CMake",
     "Platform": "m33",
     "ProjectFile": "../Riverdi_50STM32U5A9.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
@@ -2151,6 +2151,6 @@
     ],
     "AdditionalFeatures": []
   },
-  "Version": "4.24.1",
+  "Version": "4.26.0",
   "CreatedBy": "4.23.2"
 }

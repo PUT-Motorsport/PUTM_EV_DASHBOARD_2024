@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/User/Desktop/dashboard_dev_soft_v2.1/PUTM_EV_DASHBOARD_2024/build/Debug/cmake_install.cmake",
+		"C:/Users/User/Desktop/dashboard_dev_soft_v2.1/PUTM_EV_DASHBOARD_2024/build/Debug/cmake/stm32cubemx/cmake_install.cmake",
+		"C:/Users/User/Desktop/dashboard_dev_soft_v2.1/PUTM_EV_DASHBOARD_2024/build/Debug/cmake/touchgfx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

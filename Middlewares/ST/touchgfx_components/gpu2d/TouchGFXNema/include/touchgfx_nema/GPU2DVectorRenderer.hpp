@@ -131,32 +131,11 @@ public:
      */
     virtual void setTransformationMatrix(const Matrix3x3& m);
 
-    /**
-     * Stroke meter limit is unsupported in GPU2D
-     *
-     * @param  miterLimit ignored
-     */
-    virtual void setStrokeMiterLimit(float miterLimit)
-    {
-    }
+    virtual void setStrokeMiterLimit(float miterLimit);
 
-    /**
-     * Stroke line join is unsupported in GPU2D
-     *
-     * @param  lineJoin ignored
-     */
-    virtual void setStrokeLineJoin(VGStrokeLineJoin lineJoin)
-    {
-    }
+    virtual void setStrokeLineJoin(VGStrokeLineJoin lineJoin);
 
-    /**
-     * Line cap type is unsupported in GPU2D
-     *
-     * @param  lineCap ignored
-     */
-    virtual void setStrokeLineCap(VGStrokeLineCap lineCap)
-    {
-    }
+    virtual void setStrokeLineCap(VGStrokeLineCap lineCap);
 };
 } //namespace touchgfx
 #endif // TOUCHGFX_GPU2DVECTORRENDERER_HPP

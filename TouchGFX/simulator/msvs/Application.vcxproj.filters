@@ -220,6 +220,9 @@
     <Filter Include="Header Files\generated\gui_generated\racescreen_screen">
       <UniqueIdentifier>EDC9F1A2-6B29-A282-8A82-E873AA831F5B</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui\raceScreen_Screen">
+      <UniqueIdentifier>C209BB17-63B6-D561-2EFE-F975DDD832A4</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -757,14 +760,14 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\notificationscreen_screen\NotificationScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\notificationscreen_screen</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\racescreen_screen\RaceScreenPresenter.hpp">
-      <Filter>Header Files\gui\racescreen_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\racescreen_screen\RaceScreenView.hpp">
-      <Filter>Header Files\gui\racescreen_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\racescreen_screen\RaceScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\racescreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\raceScreen_Screen\RaceScreenPresenter.hpp">
+      <Filter>Header Files\gui\raceScreen_Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\raceScreen_Screen\RaceScreenView.hpp">
+      <Filter>Header Files\gui\raceScreen_Screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

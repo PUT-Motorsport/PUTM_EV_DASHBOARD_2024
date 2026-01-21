@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.24.1 distribution.
+* This file is part of the TouchGFX 4.26.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -440,8 +440,8 @@ public:
     static BitmapId dynamicBitmapCreateCustom(const uint16_t width, const uint16_t height, uint8_t customSubformat, uint32_t size);
 
     /**
-     * Create a dynamic bitmap without reserving memory in the dynamic
-     * bitmap cache. The pixels must be already available in the
+     * Create a dynamic Bitmap without reserving memory in the dynamic
+     * bitmap cache. The pixels must be already available and 4 byte aligned in the
      * memory, e.g. in flash. No copying is performed.
      *
      * @param width           Width of the bitmap.
@@ -455,6 +455,21 @@ public:
      * @see dynamicBitmapGetAddress, dynamicBitmapCreate, dynamicBitmapSetSolidRect
      */
     static BitmapId dynamicBitmapCreateExternal(const uint16_t width, const uint16_t height, const void* pixels, BitmapFormat format, uint8_t customSubformat = 0);
+
+    /**
+     * Create a dynamic bitmap with L8 without reserving memory in the dynamic
+     * bitmap cache. The pixels must be already available in the external memory and 4 bytes aligned
+     * followed by 2 bytes for the clut format, 2 bytes for the clut size and the color palette itself. No copying is performed.
+     *
+     * @param width           Width of the bitmap.
+     * @param height          Height of the bitmap.
+     * @param pixels          Pointer to the bitmap pixels.
+     *
+     * @return BitmapId of the new bitmap or BITMAP_INVALID if not possible.
+     *
+     * @see dynamicBitmapCreateL8, dynamicBitmapCreateExternal, dynamicBitmapSetSolidRect
+     */
+    static BitmapId dynamicBitmapCreateExternalL8(const uint16_t width, const uint16_t height, const void* pixels);
 
     /**
      * Fill a dynamic Bitmap with a color. If alpha is less than 255, the color will be blended onto

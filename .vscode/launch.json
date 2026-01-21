@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STM32 Debug (Cortex-Debug)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "stlink",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Debug/Riverdi_50STM32U5A9.elf",
+            "device": "STM32U5A9xx", // upewnij się że to Twój model
+            "interface": "swd",
+            "runToEntryPoint": "main",
+            "preLaunchCommands": [
+                "monitor reset halt"
+            ]
+        }
+    ]
+}

@@ -83,6 +83,18 @@ public:
     virtual void drawPartialBitmap(const Bitmap& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255, bool useOptimized = true);
 
     /**
+     * Draws all (or a part) of a \a bitmap, scaled to fit desired rect.
+     *
+     * @param  bitmap          The bitmap to draw.
+     * @param  blitRect        The destination area to draw the bitmap in, in absolute coordinates.
+     * @param  invalidatedArea The subarea of the destination area that should be redrawn, in
+     *                         relative coordinates to the destination area.
+     * @param  renderVariant   The rendering variant to use for the scaling operation.
+     * @param  alpha           Optional alpha value ranging from 0=invisible to 255=solid.
+     */
+    virtual void drawScaledBitmap(const Bitmap& bitmap, const Rect& blitRect, const Rect& invalidatedArea, RenderingVariant renderVariant, uint8_t alpha = 255);
+
+    /**
      * @fn virtual void LCDGPU2D_AXI::blitCopy(const uint16_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha, bool hasTransparentPixels);
      *
      * @brief Blits a 2D source-array to the framebuffer.

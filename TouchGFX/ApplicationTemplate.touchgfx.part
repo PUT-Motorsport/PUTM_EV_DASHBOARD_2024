@@ -18,7 +18,7 @@
     "Family": "STM32U5",
     "SubFamily": "STM32U599/5A9",
     "Platform": "m33",
-    "Toolchain": "STM32CubeIDE",
+    "Toolchain": "CMake",
     "ProjectFile": "../Riverdi_50STM32U5A9.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
     "OptionalComponents": [

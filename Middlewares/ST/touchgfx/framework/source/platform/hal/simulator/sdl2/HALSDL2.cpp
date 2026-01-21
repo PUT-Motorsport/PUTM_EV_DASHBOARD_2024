@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.24.1 distribution.
+* This file is part of the TouchGFX 4.26.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -39,7 +39,7 @@
 #ifdef __GNUC__
 #define sprintf_s snprintf
 #define fopen_s(pFile, filename, mode) (((*(pFile)) = fopen((filename), (mode))) == NULL)
-#define freopen_s(pFile, filename, mode, pStream) (((*(pFile)) = freopen((filename), (mode), (pStream))) == NULL)
+#define freopen_s(pFile, filename, mode, pStream) (*(pFile)) = freopen((filename), (mode), (pStream))
 #define localtime_s(timeinfo, rawtime) memcpy(timeinfo, localtime(rawtime), sizeof(tm))
 #define strncpy_s(dst, dstsize, src, srcsize) strncpy(dst, src, dstsize < srcsize ? dstsize : srcsize)
 #define wcstombs_s(result, dst, dstsize, src, srcsize) *result = wcstombs(dst, src, dstsize < srcsize ? dstsize : srcsize)
@@ -791,6 +791,16 @@ void HALSDL2::recreateWindow(bool updateContent /*= true*/)
         SDL_DestroyRenderer(simulatorRenderer);
         SDL_DestroyWindow(simulatorWindow);
     }
+    // Truncate window coordinates to fit on screen
+    const int TOPBAR_MARGIN_PIXELS = 50;
+    if (windowY < TOPBAR_MARGIN_PIXELS)
+    {
+        windowY = TOPBAR_MARGIN_PIXELS; // Adjust for height of top bar
+    }
+    if (windowX < 0)
+    {
+        windowX = 0;
+    }
     int width = DISPLAY_WIDTH;
     int height = DISPLAY_HEIGHT;
     if (isSkinActive && currentSkin != 0)
@@ -1473,9 +1483,6 @@ char** HALSDL2::getArgv(int* argc)
 
 void simulator_enable_stdio()
 {
-#ifdef __GNUC__
-#define freopen_s(pFile, filename, mode, pStream) (((*(pFile)) = freopen((filename), (mode), (pStream))) == NULL)
-#endif
     HALSDL2* hal = static_cast<HALSDL2*>(HAL::getInstance());
     if (hal->getConsoleVisible())
     {

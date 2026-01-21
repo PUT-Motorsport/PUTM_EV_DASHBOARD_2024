@@ -33,7 +33,6 @@
 #include "iwdg.h"
 #include "lptim.h"
 #include "ltdc.h"
-#include "memorymap.h"
 #include "octospi.h"
 #include "rng.h"
 #include "rtc.h"
@@ -109,14 +108,14 @@ int main(void)
 
   /* USER CODE END Init */
 
+  /* Configure the System Power */
+  SystemPower_Config();
+
   /* Configure the system clock */
   SystemClock_Config();
 
-/* Configure the peripherals common clocks */
+  /* Configure the peripherals common clocks */
   PeriphCommonClock_Config();
-
-  /* Configure the System Power */
-  SystemPower_Config();
 
   /* USER CODE BEGIN SysInit */
 
