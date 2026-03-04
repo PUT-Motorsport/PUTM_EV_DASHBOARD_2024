@@ -1,0 +1,262 @@
+#include <gui/model/Model.hpp>
+#include <gui/model/ModelListener.hpp>
+
+#include "cmsis_os2.h"
+
+#include <string.h>
+
+extern "C" {
+extern osMutexId_t sharedDataMutexHandle;
+extern osMutexId_t timerDataMutexHandle;
+extern osMutexId_t sdcDataMutexHandle;
+}
+
+Model::Model() : modelListener(0) {}
+
+void Model::tick() {
+
+    if(modelListener != 0) {
+        modelListener->switchScreenMain2Race();
+        modelListener->switchScreenRace2Pdu();
+        modelListener->switchScreenPdu2Vp();
+        modelListener->switchScreenVp2Diag();
+        modelListener->switchScreenDiag2DataLog();
+        modelListener->switchScreenDataLog2Main();
+
+
+        if(osMutexAcquire(sharedDataMutexHandle, osWaitForever) == osOK) {
+            m_sharedData = sharedData;
+            m_sharedSafetyData = safetyData;
+            m_sharedTemperatureData = temperatureData;
+
+            m_sharedDataPrev.time = m_sharedData.time;
+            modelListener->setClock(m_sharedData.time);
+
+            m_sharedDataPrev.connection = m_sharedData.connection;
+            modelListener->setConnection(m_sharedData.connection);
+
+            m_sharedDataPrev.warning = m_sharedData.warning;
+            modelListener->setWarning(m_sharedData.warning);
+
+            m_sharedDataPrev.radio = m_sharedData.radio;
+            modelListener->setRadio(m_sharedData.radio);
+
+            m_sharedDataPrev.ready_to_drive = m_sharedData.ready_to_drive;
+            modelListener->setReadyToDrive(m_sharedData.ready_to_drive);
+
+            m_sharedDataPrev.inverters_ready = m_sharedData.inverters_ready;
+            m_sharedDataPrev.inv_FL_status = m_sharedData.inv_FL_status;
+            m_sharedDataPrev.inv_FR_status = m_sharedData.inv_FR_status;
+            m_sharedDataPrev.inv_RL_status = m_sharedData.inv_RL_status;
+            m_sharedDataPrev.inv_RR_status = m_sharedData.inv_RR_status;
+
+            m_sharedDataPrev.inv_FL_error = m_sharedData.inv_FL_error;
+            m_sharedDataPrev.inv_FR_error = m_sharedData.inv_FR_error;
+            m_sharedDataPrev.inv_RL_error = m_sharedData.inv_RL_error;
+            m_sharedDataPrev.inv_RR_error = m_sharedData.inv_RR_error;
+
+            modelListener->setInvertersStatus(m_sharedData.inverters_ready,
+            								  m_sharedData.inv_FL_status,
+            								  m_sharedData.inv_FR_status,
+											  m_sharedData.inv_RL_status,
+											  m_sharedData.inv_RR_status,
+											  m_sharedData.inv_FL_error,
+											  m_sharedData.inv_FR_error,
+											  m_sharedData.inv_RL_error,
+											  m_sharedData.inv_RR_error);
+
+            m_sharedTemperatureDataPrev.battery_hv_temperature = m_sharedTemperatureData.battery_hv_temperature;
+            modelListener->setBatteryHVTemperature(m_sharedTemperatureData.battery_hv_temperature);
+
+            m_sharedTemperatureDataPrev.battery_lv_temperature = m_sharedTemperatureData.battery_lv_temperature;
+            modelListener->setBatteryLVTemperature(m_sharedTemperatureData.battery_lv_temperature);
+
+            m_sharedTemperatureDataPrev.frontRightInverterTemperature = m_sharedTemperatureData.frontRightInverterTemperature;
+            m_sharedTemperatureDataPrev.frontLeftInverterTemperature = m_sharedTemperatureData.frontLeftInverterTemperature;
+            m_sharedTemperatureDataPrev.rearRightInverterTemperature = m_sharedTemperatureData.rearRightInverterTemperature;
+            m_sharedTemperatureDataPrev.rearLeftInverterTemperature = m_sharedTemperatureData.rearLeftInverterTemperature;
+
+            modelListener->setInverterTemperature(m_sharedTemperatureData.frontLeftInverterTemperature,
+            									  m_sharedTemperatureData.frontRightInverterTemperature,
+												  m_sharedTemperatureData.rearLeftInverterTemperature,
+												  m_sharedTemperatureData.rearRightInverterTemperature);
+
+            m_sharedDataPrev.front_brake_pressure = m_sharedData.front_brake_pressure;
+            modelListener->setFrontBrakePressure(m_sharedData.front_brake_pressure);
+
+            m_sharedTemperatureDataPrev.coolant_in_temperature = m_sharedTemperatureData.coolant_in_temperature;
+            modelListener->setCoolantInTemperature(m_sharedTemperatureData.coolant_in_temperature);
+
+            m_sharedTemperatureDataPrev.coolant_out_temperature = m_sharedTemperatureData.coolant_out_temperature;
+            modelListener->setCoolantOutTemperature(m_sharedTemperatureData.coolant_out_temperature);
+
+            m_sharedDataPrev.rear_brake_pressure = m_sharedData.rear_brake_pressure;
+            modelListener->setRearBrakePressure(m_sharedData.rear_brake_pressure);
+
+            m_sharedTemperatureDataPrev.motor_front_left_temperature = m_sharedTemperatureData.motor_front_left_temperature;
+            modelListener->setMotorFrontLeftTemperature(m_sharedTemperatureData.motor_front_left_temperature);
+
+            m_sharedTemperatureDataPrev.motor_front_right_temperature = m_sharedTemperatureData.motor_front_right_temperature;
+            modelListener->setMotorFrontRightTemperature(m_sharedTemperatureData.motor_front_right_temperature);
+
+            m_sharedTemperatureDataPrev.motor_rear_left_temperature = m_sharedTemperatureData.motor_rear_left_temperature;
+            modelListener->setMotorRearLeftTemperature(m_sharedTemperatureData.motor_rear_left_temperature);
+
+            m_sharedTemperatureDataPrev.motor_rear_right_temperature = m_sharedTemperatureData.motor_rear_right_temperature;
+            modelListener->setMotorRearRightTemperature(m_sharedTemperatureData.motor_rear_right_temperature);
+
+            modelListener->setMotorTemp(m_sharedTemperatureData.motor_front_left_temperature,
+            						    m_sharedTemperatureData.motor_front_right_temperature,
+										m_sharedTemperatureData.motor_rear_left_temperature,
+										m_sharedTemperatureData.motor_rear_right_temperature);
+
+            m_sharedDataPrev.soc_hv = m_sharedData.soc_hv;
+            modelListener->setSocHv(m_sharedData.soc_hv);
+
+            m_sharedDataPrev.soc_lv = m_sharedData.soc_lv;
+            modelListener->setSocLv(m_sharedData.soc_lv);
+
+
+            m_sharedDataPrev.rtd_button_pressed = m_sharedData.rtd_button_pressed;
+            modelListener->setRtdButtonPressed(m_sharedData.rtd_button_pressed);
+
+            m_sharedDataPrev.tsa_button_pressed = m_sharedData.tsa_button_pressed;
+            modelListener->setTsaButtonPressed(m_sharedData.tsa_button_pressed);
+
+            modelListener->setDrsStatus(interfaceData.drs_button);
+
+
+            //PDU
+            m_sharedDataPrev.pc_status = m_sharedData.pc_status;
+            modelListener->setPduPcStatus(m_sharedData.pc_status);
+
+            m_sharedDataPrev.fan_status = m_sharedData.fan_status;
+            modelListener->setPduFanStatus(m_sharedData.fan_status);
+
+            m_sharedDataPrev.pump_status = m_sharedData.pump_status;
+            modelListener->setPduPumpStatus(m_sharedData.pump_status);
+
+            m_sharedDataPrev.inverter_status = m_sharedData.inverter_status;
+            modelListener->setPduInverterStatus(m_sharedData.inverter_status);
+
+            m_sharedDataPrev.fbox_status = m_sharedData.fbox_status;
+            modelListener->setPduFboxStatus(m_sharedData.fbox_status);
+
+            m_sharedDataPrev.sdc_status = m_sharedData.sdc_status;
+            modelListener->setPduSdcStatus(m_sharedData.sdc_status);
+
+            m_sharedDataPrev.dash_status = m_sharedData.dash_status;
+            modelListener->setPduDashStatus(m_sharedData.dash_status);
+
+            m_sharedDataPrev.tsal_hv_status = m_sharedData.tsal_hv_status;
+            modelListener->setPduTsalStatus(m_sharedData.tsal_hv_status);
+
+            m_sharedDataPrev.rbox_diagport_brake_l_status = m_sharedData.rbox_diagport_brake_l_status;
+            modelListener->setPduRboxStatus(m_sharedData.rbox_diagport_brake_l_status);
+
+            m_sharedDataPrev.brake_ir_air_status = m_sharedData.brake_ir_air_status;
+            modelListener->setPduAirStatus(m_sharedData.brake_ir_air_status);
+
+            m_sharedDataPrev.pc_current = m_sharedData.pc_current;
+            modelListener->setPduPcCurrent(m_sharedData.pc_current);
+
+            m_sharedDataPrev.pump_current = m_sharedData.pump_current;
+            modelListener->setPduPumpCurrent(m_sharedData.pump_current);
+
+            m_sharedDataPrev.fan_current = m_sharedData.fan_current;
+            modelListener->setPduFanCurrent(m_sharedData.fan_current);
+
+            m_sharedDataPrev.inverter_current = m_sharedData.inverter_current;
+            modelListener->setPduInverterCurrent(m_sharedData.inverter_current);
+
+            m_sharedDataPrev.fbox_current = m_sharedData.fbox_current;
+            modelListener->setPduFboxCurrent(m_sharedData.fbox_current);
+
+            m_sharedDataPrev.sdc_current = m_sharedData.sdc_current;
+            modelListener->setPduSdcCurrent(m_sharedData.sdc_current);
+
+            m_sharedDataPrev.total_current = m_sharedData.total_current;
+            modelListener->setPduTotalCurrent(m_sharedData.total_current);
+
+            //Data Logger 
+            m_sharedDataPrev.triggerCurrent = m_sharedData.triggerCurrent;
+            modelListener->setTriggerCurrent(m_sharedData.triggerCurrent);
+
+            m_sharedDataPrev.triggerVoltage = m_sharedData.triggerVoltage;
+            modelListener->setTriggerVoltage(m_sharedData.triggerVoltage);
+
+            m_sharedDataPrev.LogStatus = m_sharedData.LogStatus;
+            modelListener->setLogStatus(m_sharedData.LogStatus);
+
+            m_sharedDataPrev.current = m_sharedData.current;
+            modelListener->setCurrent(m_sharedData.current);
+
+            m_sharedDataPrev.voltage = m_sharedData.voltage;
+            modelListener->setVoltage(m_sharedData.voltage);
+
+            osMutexRelease(sharedDataMutexHandle);
+
+        }
+
+        if(osMutexAcquire(timerDataMutexHandle, osWaitForever) == osOK) {
+            m_timerData = timerData;
+
+            m_timerDataPrev.pace = m_timerData.pace;
+            modelListener->setPace(m_timerData.pace);
+
+            m_timerDataPrev.current_lap = m_timerData.current_lap;
+            modelListener->setCurrentLap(m_timerData.current_lap);
+
+            modelListener->setLastLap(m_timerData.current_lap);
+
+            m_timerDataPrev.best_lap = m_timerData.best_lap;
+            modelListener->setBestLap(m_timerData.best_lap);
+
+            m_timerDataPrev.lap_counter = m_timerData.lap_counter;
+            modelListener->setLap(m_timerData.lap_counter);
+
+            osMutexRelease(timerDataMutexHandle);
+        }
+
+        if(osMutexAcquire(sdcDataMutexHandle, osWaitForever) == osOK)
+        {
+
+        	//SDC Data
+        	m_sharedSafetyData = safetyData;
+
+
+			m_sharedSafetyDataPrev.sense_left_kill = m_sharedSafetyData.sense_left_kill;
+			m_sharedSafetyDataPrev.sense_right_kill = m_sharedSafetyData.sense_right_kill;
+			m_sharedSafetyDataPrev.sense_driver_kill = m_sharedSafetyData.sense_driver_kill;
+			m_sharedSafetyDataPrev.sense_inertia = m_sharedSafetyData.sense_inertia;
+			m_sharedSafetyDataPrev.sense_bspd = m_sharedSafetyData.sense_bspd;
+			m_sharedSafetyDataPrev.sense_apps = m_sharedSafetyData.sense_apps;
+			m_sharedSafetyDataPrev.sense_overtravel = m_sharedSafetyData.sense_overtravel;
+			m_sharedSafetyDataPrev.is_braking = m_sharedSafetyData.is_braking;
+			m_sharedSafetyDataPrev.safety_suspension_fl = m_sharedSafetyData.safety_suspension_fl;
+			m_sharedSafetyDataPrev.safety_suspension_fr = m_sharedSafetyData.safety_suspension_fr;
+			m_sharedSafetyDataPrev.safety_tsmp = m_sharedSafetyData.safety_tsmp;
+			m_sharedSafetyDataPrev.safety_hv_battery = m_sharedSafetyData.safety_hv_battery;
+			m_sharedSafetyDataPrev.safety_inv_hv = m_sharedSafetyData.safety_inv_hv;
+			m_sharedSafetyDataPrev.safety_hvd = m_sharedSafetyData.safety_hvd;
+			m_sharedSafetyDataPrev.safety_inv = m_sharedSafetyData.safety_inv;
+			m_sharedSafetyDataPrev.safety_wheel_fl = m_sharedSafetyData.safety_wheel_fl;
+			m_sharedSafetyDataPrev.safety_wheel_fr = m_sharedSafetyData.safety_wheel_fr;
+			m_sharedSafetyDataPrev.safety_wheel_rl = m_sharedSafetyData.safety_wheel_rl;
+			m_sharedSafetyDataPrev.safety_wheel_rr = m_sharedSafetyData.safety_wheel_rr;
+			m_sharedSafetyDataPrev.safety_suspension_rl = m_sharedSafetyData.safety_suspension_rl;
+			m_sharedSafetyDataPrev.safety_suspension_rr = m_sharedSafetyData.safety_suspension_rr;
+			m_sharedSafetyDataPrev.safety_motor_front = m_sharedSafetyData.safety_motor_front;
+
+
+
+			modelListener->setSDC(m_sharedSafetyData);
+
+			osMutexRelease(sdcDataMutexHandle);
+
+        }
+
+        //Error checking after reading all values
+        modelListener->setCheckErrors(m_sharedSafetyData.sense_bspd, m_sharedSafetyData.sense_apps);
+    }
+}

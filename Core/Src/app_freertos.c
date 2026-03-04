@@ -1,0 +1,260 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * File Name          : app_freertos.c
+  * Description        : Code for freertos applications
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2026 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "main.h"
+#include "cmsis_os2.h"
+#include "iwdg.h"
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+typedef StaticTask_t osStaticThreadDef_t;
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN Variables */
+
+/* USER CODE END Variables */
+/* Definitions for timerTask */
+osThreadId_t timerTaskHandle;
+const osThreadAttr_t timerTask_attributes = {
+  .name = "timerTask",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 128 * 4
+};
+/* Definitions for TouchGFXTask */
+osThreadId_t TouchGFXTaskHandle;
+uint32_t TouchGFXTaskBuffer[ 8192 ];
+osStaticThreadDef_t TouchGFXTaskControlBlock;
+const osThreadAttr_t TouchGFXTask_attributes = {
+  .name = "TouchGFXTask",
+  .stack_mem = &TouchGFXTaskBuffer[0],
+  .stack_size = sizeof(TouchGFXTaskBuffer),
+  .cb_mem = &TouchGFXTaskControlBlock,
+  .cb_size = sizeof(TouchGFXTaskControlBlock),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for communicationTask */
+osThreadId_t communicationTaskHandle;
+uint32_t communicationTaskBuffer[ 256 ];
+osStaticThreadDef_t communicationTaskControlBlock;
+const osThreadAttr_t communicationTask_attributes = {
+  .name = "communicationTask",
+  .stack_mem = &communicationTaskBuffer[0],
+  .stack_size = sizeof(communicationTaskBuffer),
+  .cb_mem = &communicationTaskControlBlock,
+  .cb_size = sizeof(communicationTaskControlBlock),
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for interfaceTask */
+osThreadId_t interfaceTaskHandle;
+uint32_t interfaceTaskBuffer[ 256 ];
+osStaticThreadDef_t interfaceTaskControlBlock;
+const osThreadAttr_t interfaceTask_attributes = {
+  .name = "interfaceTask",
+  .stack_mem = &interfaceTaskBuffer[0],
+  .stack_size = sizeof(interfaceTaskBuffer),
+  .cb_mem = &interfaceTaskControlBlock,
+  .cb_size = sizeof(interfaceTaskControlBlock),
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for ledTestTask */
+osThreadId_t ledTestTaskHandle;
+const osThreadAttr_t ledTestTask_attributes = {
+  .name = "ledTestTask",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for sharedDataMutex */
+osMutexId_t sharedDataMutexHandle;
+const osMutexAttr_t sharedDataMutex_attributes = {
+  .name = "sharedDataMutex"
+};
+/* Definitions for timerDataMutex */
+osMutexId_t timerDataMutexHandle;
+const osMutexAttr_t timerDataMutex_attributes = {
+  .name = "timerDataMutex"
+};
+/* Definitions for sdcDataMutex */
+osMutexId_t sdcDataMutexHandle;
+const osMutexAttr_t sdcDataMutex_attributes = {
+  .name = "sdcDataMutex"
+};
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN FunctionPrototypes */
+
+/* USER CODE END FunctionPrototypes */
+
+extern void Timer_Task(void *argument);
+extern void TouchGFX_Task(void *argument);
+extern void Communication_Task(void *argument);
+extern void Interface_Task(void *argument);
+extern void Led_Test_Task(void *argument);
+
+void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/* Hook prototypes */
+void vApplicationMallocFailedHook(void);
+void vApplicationIdleHook(void);
+void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName);
+
+/* USER CODE BEGIN 5 */
+void vApplicationMallocFailedHook(void)
+{
+   /* vApplicationMallocFailedHook() will only be called if
+   configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h. It is a hook
+   function that will get called if a call to pvPortMalloc() fails.
+   pvPortMalloc() is called internally by the kernel whenever a task, queue,
+   timer or semaphore is created. It is also called by various parts of the
+   demo application. If heap_1.c or heap_2.c are used, then the size of the
+   heap available to pvPortMalloc() is defined by configTOTAL_HEAP_SIZE in
+   FreeRTOSConfig.h, and the xPortGetFreeHeapSize() API function can be used
+   to query the size of free heap space that remains (although it does not
+   provide information on how the remaining heap might be fragmented). */
+}
+/* USER CODE END 5 */
+
+/* USER CODE BEGIN 2 */
+void vApplicationIdleHook( void )
+{
+   /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
+   to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
+   task. It is essential that code added to this hook function never attempts
+   to block in any way (for example, call xQueueReceive() with a block time
+   specified, or call vTaskDelay()). If the application makes use of the
+   vTaskDelete() API function (as this demo application does) then it is also
+   important that vApplicationIdleHook() is permitted to return to its calling
+   function, because it is the responsibility of the idle task to clean up
+   memory allocated by the kernel to any task that has since been deleted. */
+}
+/* USER CODE END 2 */
+
+/* USER CODE BEGIN 4 */
+void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName)
+{
+   /* Run time stack overflow checking is performed if
+   configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
+   called if a stack overflow is detected. */
+}
+/* USER CODE END 4 */
+
+/**
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+  /* creation of sharedDataMutex */
+  sharedDataMutexHandle = osMutexNew(&sharedDataMutex_attributes);
+
+  /* creation of timerDataMutex */
+  timerDataMutexHandle = osMutexNew(&timerDataMutex_attributes);
+
+  /* creation of sdcDataMutex */
+  sdcDataMutexHandle = osMutexNew(&sdcDataMutex_attributes);
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+  /* creation of timerTask */
+  timerTaskHandle = osThreadNew(Timer_Task, NULL, &timerTask_attributes);
+
+  /* creation of TouchGFXTask */
+  TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
+
+  /* creation of communicationTask */
+  communicationTaskHandle = osThreadNew(Communication_Task, NULL, &communicationTask_attributes);
+
+  /* creation of interfaceTask */
+  interfaceTaskHandle = osThreadNew(Interface_Task, NULL, &interfaceTask_attributes);
+
+  /* creation of ledTestTask */
+  ledTestTaskHandle = osThreadNew(Led_Test_Task, NULL, &ledTestTask_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  /* USER CODE END RTOS_EVENTS */
+
+}
+
+/* Private application code --------------------------------------------------*/
+/* USER CODE BEGIN Application */
+void Timer_Task(void *argument) {
+  for(;;) {
+    osDelay(1000); // Pusta pętla, nic nie robi
+  }
+}
+
+void Communication_Task(void *argument) {
+  for(;;) {
+    osDelay(1000);
+  }
+}
+
+// void Interface_Task(void *argument) {
+//   for(;;) {
+//     //HAL_IWDG_Refresh(&hiwdg); // <--- "Karmimy psa"
+//     osDelay(20);              // Odświeżaj częściej niż limit watchdoga (np. co 20ms)
+//   }
+// }
+
+void Led_Test_Task(void *argument) {
+  for(;;) {
+    osDelay(1000);
+  }
+}
+/* USER CODE END Application */
+
