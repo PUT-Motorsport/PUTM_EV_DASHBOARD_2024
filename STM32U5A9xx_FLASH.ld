@@ -7,7 +7,7 @@
 **
 **  Abstract    : Linker script for STM32U5A9xJ Device from STM32U5 series
 **                      4096Kbytes FLASH
-**                      2528Kbytes RAM
+**                      2512Kbytes RAM
 **
 **                Set heap size, stack size and stack location according
 **                to application requirements.
@@ -22,13 +22,12 @@
 *****************************************************************************
 ** @attention
 **
-** <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
-** All rights reserved.</center></h2>
+** Copyright (c) 2023 STMicroelectronics.
+** All rights reserved.
 **
-** This software component is licensed by ST under BSD 3-Clause license,
-** the "License"; You may not use this file except in compliance with the
-** License. You may obtain a copy of the License at:
-**                        opensource.org/licenses/BSD-3-Clause
+** This software is licensed under terms that can be found in the LICENSE file
+** in the root directory of this software component.
+** If no LICENSE file comes with this software, it is provided AS-IS.
 **
 *****************************************************************************
 */
@@ -36,19 +35,21 @@
 /* Entry Point */
 ENTRY(Reset_Handler)
 
+/* Highest address of the user mode stack */
+_estack = ORIGIN(RAM) + LENGTH(RAM); /* end of "RAM" Ram type memory */
+
+_Min_Heap_Size = 0x8000; /* required amount of heap */
+_Min_Stack_Size = 0x8000; /* required amount of stack */
 
 /* Memories definition */
 MEMORY
 {
-  RAM (xrw)   : ORIGIN = 0x20000000, LENGTH = 2496K
+  FB_RAM (xrw)  : ORIGIN = 0x20000000, LENGTH = 2250K /*double 24bit buffer 800x480*/
+  RAM (xrw)   : ORIGIN = 0x20232800, LENGTH = 246K
   SRAM4 (xrw) : ORIGIN = 0x28000000, LENGTH = 16K
   FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 4096K
+  OSPI (rw)	  : ORIGIN = 0x90000000, LENGTH = 64M
 }
-/* Highest address of the user mode stack */
-_estack = ORIGIN(RAM) + LENGTH(RAM); /* end of "RAM" Ram type memory */
-
-_Min_Heap_Size = 0x8000;      /* required amount of heap  */
-_Min_Stack_Size = 0x8000; /* required amount of stack */
 
 /* Sections */
 SECTIONS
@@ -81,26 +82,26 @@ SECTIONS
     *(.rodata*)        /* .rodata* sections (constants, strings, etc.) */
   } >FLASH
 
-  .ARM.extab (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  .ARM.extab (READONLY) :
   {
     *(.ARM.extab* .gnu.linkonce.armextab.*)
   } >FLASH
 
-  .ARM (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  .ARM (READONLY) :
   {
     __exidx_start = .;
     *(.ARM.exidx*)
     __exidx_end = .;
   } >FLASH
 
-  .preinit_array (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  .preinit_array (READONLY) :
   {
     PROVIDE_HIDDEN (__preinit_array_start = .);
     KEEP (*(.preinit_array*))
     PROVIDE_HIDDEN (__preinit_array_end = .);
   } >FLASH
 
-  .init_array (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  .init_array (READONLY) :
   {
     PROVIDE_HIDDEN (__init_array_start = .);
     KEEP (*(SORT(.init_array.*)))
@@ -108,7 +109,7 @@ SECTIONS
     PROVIDE_HIDDEN (__init_array_end = .);
   } >FLASH
 
-  .fini_array (READONLY) : /* The READONLY keyword is only supported in GCC11 and later, remove it if using GCC10 or earlier. */
+  .fini_array (READONLY) :
   {
     PROVIDE_HIDDEN (__fini_array_start = .);
     KEEP (*(SORT(.fini_array.*)))
@@ -128,76 +129,25 @@ SECTIONS
     *(.RamFunc)        /* .RamFunc sections */
     *(.RamFunc*)       /* .RamFunc* sections */
 
-  } >RAM AT> FLASH
-
-  /* Initialized TLS data section */
-  .tdata : ALIGN(4)
-  {
-    *(.tdata .tdata.* .gnu.linkonce.td.*)
-    . = ALIGN(4);
     _edata = .;        /* define a global symbol at data end */
-    PROVIDE(__data_end = .);
-    PROVIDE(__tdata_end = .);
   } >RAM AT> FLASH
-
-  PROVIDE( __tdata_start = ADDR(.tdata) );
-  PROVIDE( __tdata_size = __tdata_end - __tdata_start );
-
-  PROVIDE( __data_start = ADDR(.data) );
-  PROVIDE( __data_size = __data_end - __data_start );
-
-  PROVIDE( __tdata_source = LOADADDR(.tdata) );
-  PROVIDE( __tdata_source_end = LOADADDR(.tdata) + SIZEOF(.tdata) );
-  PROVIDE( __tdata_source_size = __tdata_source_end - __tdata_source );
-
-  PROVIDE( __data_source = LOADADDR(.data) );
-  PROVIDE( __data_source_end = __tdata_source_end );
-  PROVIDE( __data_source_size = __data_source_end - __data_source );
-
 
   /* Uninitialized data section into "RAM" Ram type memory */
-  /* Uninitialized TLS data section */
-  .tbss (NOLOAD) : ALIGN(4)
-  {
-    _sbss = .;         /* define a global symbol at bss start */
-    __bss_start__ = _sbss;
-    *(.tbss .tbss.*)
-    . = ALIGN(4);
-    PROVIDE( __tbss_end = . );
-  } >RAM
-
-  PROVIDE( __tbss_start = ADDR(.tbss) );
-  PROVIDE( __tbss_size = __tbss_end - __tbss_start );
-  PROVIDE( __tbss_offset = ADDR(.tbss) - ADDR(.tdata) );
-
-  PROVIDE( __tls_base = __tdata_start );
-  PROVIDE( __tls_end = __tbss_end );
-  PROVIDE( __tls_size = __tls_end - __tls_base );
-  PROVIDE( __tls_align = MAX(ALIGNOF(.tdata), ALIGNOF(.tbss)) );
-  PROVIDE( __tls_size_align = (__tls_size + __tls_align - 1) & ~(__tls_align - 1) );
-  PROVIDE( __arm32_tls_tcb_offset = MAX(8, __tls_align) );
-  PROVIDE( __arm64_tls_tcb_offset = MAX(16, __tls_align) );
-
-  .bss (NOLOAD) : ALIGN(4)
+  .bss :
   {
     /* This is used by the startup in order to initialize the .bss section */
+    _sbss = .;         /* define a global symbol at bss start */
+    __bss_start__ = _sbss;
     *(.bss)
     *(.bss*)
     *(COMMON)
 
-      . = ALIGN(4);
     _ebss = .;         /* define a global symbol at bss end */
     __bss_end__ = _ebss;
-      PROVIDE( __bss_end = .);
   } >RAM
-  PROVIDE( __non_tls_bss_start = ADDR(.bss) );
-
-  PROVIDE( __bss_start = __tbss_start );
-  PROVIDE( __bss_size = __bss_end - __bss_start );
-
 
   /* User_heap_stack section, used to check that there is enough "RAM" Ram type memory left */
-  ._user_heap_stack (NOLOAD) :
+  ._user_heap_stack :
   {
     . = ALIGN(8);
     PROVIDE ( end = . );
@@ -210,10 +160,25 @@ SECTIONS
   /* Remove information from the compiler libraries */
   /DISCARD/ :
   {
-    libc.a:* ( * )
-    libm.a:* ( * )
-    libgcc.a:* ( * )
+    libc.a ( * )
+    libm.a ( * )
+    libgcc.a ( * )
   }
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
+  
+FramebufferSection (NOLOAD) :
+  {
+    *(TouchGFX_Framebuffer TouchGFX_Framebuffer.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+  } >FB_RAM
+  
+ExtFlashSection :
+  {
+    *(ExtFlashSection ExtFlashSection.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+  } >OSPI
+  
 }
