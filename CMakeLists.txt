@@ -51,6 +51,8 @@ add_subdirectory(cmake/stm32cubemx)
 # Add touchgfx generated sources and libraries
 add_subdirectory(cmake/touchgfx)
 
+add_subdirectory(Components/PUTM_EV_CAN_LIBRARY)
+
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -98,6 +100,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${root_tgfx_dir}/../Middlewares/ST/touchgfx/
     
     # Add user defined include paths
+    Components/
 )
 
 # Add project symbols (macros)
@@ -108,7 +111,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-
+    putm_ev_can
     # Add user defined libraries
 
     # The TouchGFX library file for ARM (not the simulator version)

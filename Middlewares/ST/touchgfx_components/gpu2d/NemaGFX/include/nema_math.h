@@ -165,7 +165,7 @@ float nema_atan(float x);
  *
  * \param val Value to clamp
  * \param min Minimum value
- * \param max Maximum value
+ * \param max Minimum value
  * \return Clamped value
  *
  */

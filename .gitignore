@@ -2,9 +2,8 @@
 /TouchGFX/assets/images/__generated/
 /TouchGFX/assets/videos/__generated/
 /TouchGFX/build/
-/TouchGFX/generated/
+/TouchGFX/target/generated/*
+/.settings
+/.vscode
+/build/*
 
-# STM32CubeIDE
-/STM32CubeIDE/.settings/
-/STM32CubeIDE/Debug/
-/STM32CubeIDE/Release/

@@ -89,7 +89,7 @@ typedef enum {
 #define NEMA_YUV        0x1BU  /**< YUV      */
 #define NEMA_Z24_8      0x1cU  /**< Z24_8    */
 #define NEMA_Z16        0x1dU  /**< Z16      */
-#define NEMA_UV         0x1eU  /**< UV, 32-bit format that consists of two 16-bit values in 12.4 fixed point*/
+#define NEMA_UV         0x1eU  /**< UV       */
 #define NEMA_A1LE       0x27U  /**< A1LE     (source only) */
 #define NEMA_A2LE       0x28U  /**< A2LE     (source only) */
 #define NEMA_A4LE       0x29U  /**< A4LE     (source only) */
@@ -235,8 +235,7 @@ void nema_set_clip(int32_t x, int32_t y, uint32_t w, uint32_t h);
 
 void nema_enable_gradient(int enable);
 
-void nema_enable_depth(int enable); // Must be called before nema_set_blend() to take effect
-                                    // Not compatible will tsc framebuffers
+void nema_enable_depth(int enable);
 
 /** \brief Enables MSAA per edge
  *
@@ -429,7 +428,7 @@ void nema_bind_lut_tex( uintptr_t baseaddr_phys,
                         uintptr_t palette_baseaddr_phys,
                         nema_tex_format_t palette_format);
 
-/** \brief Bind Depth Buffer. Needs to be of NEMA_Z16 format
+/** \brief Bind Depth Buffer
  *
  * \param baseaddr_phys Address of the depth buffer, as seen by the GPU
  * \param width Buffer width
@@ -460,8 +459,7 @@ void nema_set_gradient(float r_init, float g_init, float b_init, float a_init,
  */
 void nema_clear(uint32_t rgba8888);
 
-/** \brief Clear depth buffer with specified value.
- *  Depth buffer is of z16 format.Clears with the bits 23:8 of the value.
+/** \brief Clear depth buffer with specified value
  *
  * \param val Clear value
  *
@@ -703,7 +701,7 @@ void nema_blit (int x, int y);
  */
 void nema_blit_rounded (int x, int y, int r);
 
-/** \brief Blit source texture to destination's specified rectangle (crop or wrap when needed).Doesn't work with tsc framebuffers
+/** \brief Blit source texture to destination's specified rectangle (crop or wrap when needed)
  *
  * \param x destination x coordinate
  * \param y destination y coordinate

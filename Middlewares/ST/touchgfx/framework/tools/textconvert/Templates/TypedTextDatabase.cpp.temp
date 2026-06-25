@@ -76,7 +76,8 @@ const touchgfx::TypedText::TypedTextData typedText_database_<%= layout %>[]<%= g
 <%   end %>
 <% end %>
 
-const touchgfx::TypedText::TypedTextData* const typedTextDatabaseArray[] = {
+<%= get_pragma %>
+const touchgfx::TypedText::TypedTextData* const typedTextDatabaseArray[]<%= get_attribute %> = {
 <% if generate_binary_files? %>
 <%   get_languages.each_with_index do |entry,index| %>
     typedText_database_EMPTY<%= index == get_languages.length-1 ? '' : ',' %>

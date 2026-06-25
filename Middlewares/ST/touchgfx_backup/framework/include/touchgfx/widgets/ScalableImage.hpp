@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.24.1 distribution.
+* This file is part of the TouchGFX 4.26.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -84,20 +84,6 @@ protected:
     ScalingAlgorithm currentScalingAlgorithm; ///< The current scaling algorithm.
 
 private:
-    /// @cond
-    /**
-     * Draw a triangle part of the bitmap.
-     *
-     * @param      invalidatedArea The invalidated area.
-     * @param [in] fb              If non-null, the fb.
-     * @param      triangleXs      The triangle xs.
-     * @param      triangleYs      The triangle ys.
-     * @param      triangleZs      The triangle zs.
-     * @param      triangleUs      The triangle us.
-     * @param      triangleVs      The triangle vs.
-     */
-    void drawQuad(const Rect& invalidatedArea, uint16_t* fb, const float* triangleXs, const float* triangleYs, const float* triangleZs, const float* triangleUs, const float* triangleVs) const;
-
     /**
      * Looks up the appropriate render variant based on the bitmap format and scaling
      * algorithm.

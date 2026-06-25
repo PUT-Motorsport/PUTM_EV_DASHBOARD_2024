@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2024) STMicroelectronics.
+* Copyright (c) 2018(-2025) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.24.1 distribution.
+* This file is part of the TouchGFX 4.26.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -803,6 +803,29 @@ union PixelRGB565
     } bgr; ///< Each color channel in the pixel
 };
 
+namespace DMA2DV3
+{
+
+/**
+ * Struct defining layout of DMA2DV3 Command List Descriptors.
+ */
+struct CommandListDescriptor
+{
+    void* linearBufferAddress;  ///< Address of the linear buffer
+    uint16_t linearBufferSize;  ///< Size of the linear buffer
+    uint16_t linearBufferFlags; ///< Flags used for the linear buffer
+};
+
+/**
+ * Struct defining a fixed length linear buffer for DMA2DV3 Command
+ * Lists.
+ */
+struct CommandLinearBuffer
+{
+    uint32_t data[16]; ///< Room for 16 words of instructions and data.
+};
+
+} //namespace DMA2DV3
 } // namespace touchgfx
 
 #endif // TOUCHGFX_TYPES_HPP
