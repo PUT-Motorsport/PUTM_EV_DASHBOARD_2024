@@ -98,3 +98,4 @@ void HAL_DMA2D_MspDeInit(DMA2D_HandleTypeDef* dma2dHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

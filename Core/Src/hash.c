@@ -77,3 +77,4 @@ void HAL_HASH_MspDeInit(HASH_HandleTypeDef* hashHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

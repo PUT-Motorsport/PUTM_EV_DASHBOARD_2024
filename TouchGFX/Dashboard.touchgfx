@@ -571,8 +571,8 @@
           {
             "Type": "Container",
             "Name": "dataContainer",
-            "X": 28,
-            "Y": 82,
+            "X": 24,
+            "Y": 84,
             "Width": 220,
             "Height": 285,
             "Components": [
@@ -837,7 +837,7 @@
           {
             "Type": "Container",
             "Name": "InverterContainer",
-            "X": 28,
+            "X": 20,
             "Y": 379,
             "Width": 220,
             "Height": 91,
@@ -994,7 +994,7 @@
               {
                 "Type": "Image",
                 "Name": "invframe",
-                "Y": 39,
+                "Y": 38,
                 "Width": 220,
                 "Height": 49,
                 "RelativeFilename": "infoFrame.png"
@@ -1012,7 +1012,7 @@
               {
                 "Type": "Image",
                 "Name": "infoFrame",
-                "Y": 1,
+                "X": -4,
                 "Width": 220,
                 "Height": 49,
                 "RelativeFilename": "infoFrame.png"

@@ -54,9 +54,9 @@ volatile PUTM_CAN_M_pdu_channnel_t pdu_channel{};
 volatile PUTM_CAN_M_bms_lv_main_t bms_lv_main{};
 volatile PUTM_CAN_M_bms_hv_main_t bms_hv_main{};
 
+putm_ev_can::CanDriver can_m;
 
 void Communication_Task(void* argument) {
-    putm_ev_can::CanDriver can_m;
 
     if (!can_m.Init(&hfdcan1)){
         Error_Handler();

@@ -95,3 +95,4 @@ void HAL_GPU2D_MspDeInit(GPU2D_HandleTypeDef* gpu2dHandle)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
+

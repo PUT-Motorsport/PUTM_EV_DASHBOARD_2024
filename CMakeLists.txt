@@ -115,5 +115,5 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     # Add user defined libraries
 
     # The TouchGFX library file for ARM (not the simulator version)
-    #  ${CMAKE_SOURCE_DIR}/Middlewares/ST/touchgfx/lib/core/cortex_m33/gcc/libtouchgfx-float-abi-hard.a
+     ${CMAKE_SOURCE_DIR}/Middlewares/ST/touchgfx/lib/core/cortex_m33/gcc/libtouchgfx-float-abi-hard.a
 )
